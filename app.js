@@ -104,6 +104,39 @@ function renderScatter() {
   }else $('#focus-summary').innerHTML=`<p>${selected?escapeHTML(displayName(selected))+' has no comparable data for this subject.':'Choose a school to see actual and predicted proficiency.'}</p>`;
   $('#model-size').textContent=`${m.n} SCHOOLS`;
 }
+function renderHistory() {
+  const host = $('#history-chart');
+  host.replaceChildren();
+  const school = schoolById(state.focus);
+  const history = school?.history || [];
+  const label = state.subject === 'reading' ? 'Reading / ELA' : state.subject === 'combined' ? 'Combined' : 'Math';
+  $('#history-subtitle').textContent = school ? `${displayName(school)} · ${label} proficiency` : 'Select a school to see its assessment history.';
+  $('#history-years').textContent = history.length ? `${history.length} YEARS` : '';
+  if (!history.length) {
+    host.innerHTML = '<p class="empty">No historical assessment record is available for this school.</p>';
+    return;
+  }
+  const width = Math.max(host.clientWidth - 20, 300), height = 280;
+  const margin = {left: 46, right: 22, top: 20, bottom: 48};
+  const x = d3.scaleLinear().domain([2015, 2024]).range([margin.left, width - margin.right]);
+  const y = d3.scaleLinear().domain([0, 100]).range([height - margin.bottom, margin.top]);
+  const values = history.map(r => ({...r, value: r.subjects[state.subject]?.actual, tested: r.subjects[state.subject]?.tested})).filter(r => r.value != null);
+  const svg = d3.select(host).append('svg').attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img')
+    .attr('aria-label', `${displayName(school)} ${label} proficiency history from ${values[0].year} to ${values[values.length - 1].year}.`);
+  svg.append('g').attr('class','axis').attr('transform',`translate(${margin.left},0)`).call(d3.axisLeft(y).tickValues([0,25,50,75,100]).tickFormat(d=>`${d}%`).tickSize(-(width-margin.left-margin.right))).call(g=>g.select('.domain').remove());
+  svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).tickValues([2015,2016,2017,2018,2019,2020,2021,2022,2023,2024]).tickFormat(d=>d).tickSize(0)).call(g=>g.selectAll('text').attr('dy',16).attr('transform','rotate(-35)').style('text-anchor','end'));
+  svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',11).attr('fill','#667386').text(`${label} proficiency`);
+  svg.append('line').attr('x1',x(2020)).attr('x2',x(2020)).attr('y1',margin.top).attr('y2',height-margin.bottom).attr('stroke','#c8d1dc').attr('stroke-dasharray','3 3');
+  svg.append('text').attr('x',x(2020)+6).attr('y',margin.top+12).attr('font-size',10).attr('fill','#667386').text('2020 no test');
+  const line = d3.line().x(d=>x(d.year)).y(d=>y(d.value));
+  svg.append('path').datum(values).attr('d',line).attr('fill','none').attr('stroke',color.focus).attr('stroke-width',2.5);
+  const points = svg.append('g').selectAll('circle').data(values).join('circle').attr('class','history-point').attr('cx',d=>x(d.year)).attr('cy',d=>y(d.value)).attr('r',5).attr('fill','white').attr('stroke',color.focus).attr('stroke-width',2).attr('tabindex',0);
+  points.append('title').text(d=>`${d.year} ${d.assessment}: ${pct(d.value)} · ${d.tested.toLocaleString()} tested`);
+  points.on('mouseenter', (e,d)=>tooltip(e,{...school, metrics:{[state.subject]:{actual:d.value, tested:d.tested, studentized:0}}})).on('mouseleave',hideTooltip);
+  svg.append('text').attr('x',width-margin.right).attr('y',height-7).attr('text-anchor','end').attr('font-size',10).attr('fill','#667386').text('School year');
+  const assessments = [...new Set(values.map(d=>d.assessment))];
+  $('#history-subtitle').textContent = `${displayName(school)} · ${label} proficiency · ${assessments.join(' → ')}`;
+}
 function renderComparison() {
   const selection=$('#selection'); selection.replaceChildren(); $('#combined-count-note').hidden=state.subject!=='combined';
   for (const id of state.selected) {
@@ -131,7 +164,7 @@ function renderComparison() {
   groups.append('circle').attr('cx',s=>x(metric(s).studentized)).attr('cy',24).attr('r',4.5).attr('fill',s=>metric(s).studentized>=0?color.above:color.below);
   groups.append('text').attr('x',width-4).attr('y',28).attr('text-anchor','end').attr('font-size',12).attr('font-weight',650).attr('fill',s=>metric(s).studentized>=0?color.above:color.below).text(s=>signed(metric(s).studentized));
 }
-function render(){hideTooltip();const activeId=document.activeElement?.id;renderList();renderMap();renderScatter();renderComparison();if(activeId)document.getElementById(activeId)?.focus({preventScroll:true});}
+function render(){hideTooltip();const activeId=document.activeElement?.id;renderList();renderMap();renderScatter();renderComparison();renderHistory();if(activeId)document.getElementById(activeId)?.focus({preventScroll:true});}
 function setFilter(){state.query=$('#search').value.trim().toLowerCase();state.program=$('#program').value;ensureFocus();render();announce(`${filtered().length} matching schools. Regression unchanged.`);}
 async function init(){
   try{
@@ -144,7 +177,7 @@ async function init(){
     $('#scope').addEventListener('change',e=>{state.scope=e.target.value;renderComparison();});
     $('#map-reset').addEventListener('click',()=>mapSvg.call(mapZoom.transform,d3.zoomIdentity));
     $('#reset').addEventListener('click',()=>{state.program='all';state.query='';$('#search').value='';$('#program').value='all';ensureFocus();render();announce('Name and school-type filters reset.');});
-    let timer;window.addEventListener('resize',()=>{clearTimeout(timer);timer=setTimeout(()=>{renderMap();renderScatter();renderComparison();},150);});
+    let timer;window.addEventListener('resize',()=>{clearTimeout(timer);timer=setTimeout(()=>{renderMap();renderScatter();renderComparison();renderHistory();},150);});
     document.querySelectorAll('a[href="#uncertainty"]').forEach(a=>a.addEventListener('click',()=>{$('#uncertainty').open=true;}));
   }catch(error){console.error(error);$('#load-error').hidden=false;$('#school-count').textContent='Data unavailable';}
 }

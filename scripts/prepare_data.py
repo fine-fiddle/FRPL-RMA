@@ -57,9 +57,27 @@ def sampling_variance(pct, n):
 def prepare():
     profiles = pl.read_csv(ROOT/'data/source/cps-profile-sy2324.csv', infer_schema=False)
     assessments = pl.read_csv(ROOT/'data/source/assessments-2024.csv', infer_schema=False)
+    history = pl.read_csv(ROOT/'data/source/assessments-history.csv', infer_schema=False)
     if assessments.select(pl.struct(['school_id','level','subject']).is_duplicated().any()).item():
         raise ValueError('Duplicate assessment keys')
     lookup = {(r['school_id'],r['level'],r['subject']):r for r in assessments.iter_rows(named=True)}
+    historical = {}
+    for r in history.iter_rows(named=True):
+        pct, n = number(r['proficiency']), number(r['tested'])
+        if pct is None or n is None or n < 10 or pct < 0 or pct > 100:
+            continue
+        record = historical.setdefault(r['school_id'], {}).setdefault(str(int(r['year'])), {
+            'year': int(r['year']), 'assessment': r['assessment'], 'subjects': {}
+        })
+        record['subjects'][r['subject']] = {'actual': pct, 'tested': int(n)}
+    for records in historical.values():
+        for record in records.values():
+            subjects = record['subjects']
+            if 'math' in subjects and 'reading' in subjects:
+                record['subjects']['combined'] = {
+                    'actual': (subjects['math']['actual'] + subjects['reading']['actual']) / 2,
+                    'tested': min(subjects['math']['tested'], subjects['reading']['tested'])
+                }
     schools = []
     for p in profiles.iter_rows(named=True):
         level = p['Primary_Category']
@@ -70,7 +88,8 @@ def prepare():
             level=level, program=category(p['Classification_Description'] or ''),
             classification=p['Classification_Description'], address=p['Address'],
             latitude=number(p['School_Latitude']), longitude=number(p['School_Longitude']),
-            enrollment=total, income=income, profile=p['CPS_School_Profile'], metrics={})
+            enrollment=total, income=income, profile=p['CPS_School_Profile'], metrics={},
+            history=sorted(historical.get(p['School_ID'], {}).values(), key=lambda r: r['year']))
         for subject in ['math','reading']:
             a=lookup.get((school['id'],level,subject),{})
             pct,n=number(a.get('proficiency')),number(a.get('tested'))
@@ -95,7 +114,8 @@ def prepare():
                 s['metrics'][subject].update(r)
                 del s['metrics'][subject]['variance']
     output=dict(year='2023–24', assessment_year=2024, income_label='Low-income enrollment (FRPL proxy)',
-                schools=schools, models=models)
+                schools=schools, models=models,
+                history_years=sorted({r['year'] for records in historical.values() for r in records.values()}))
     (ROOT/'data/schools.json').write_text(json.dumps(output, separators=(',',':'),allow_nan=False))
     print(json.dumps({level:{s:m['n'] for s,m in subjects.items()} for level,subjects in models.items()},indent=2))
 

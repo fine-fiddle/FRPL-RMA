@@ -14,10 +14,14 @@ Uses school ID, names, primary category, classification description, address, la
 
 `assessments-2024.csv`: extracted **without interpreting suppression strings** from these official CPS workbooks linked on [Assessment Reports](https://www.cps.edu/about/district-data/metrics/assessment-reports/):
 
+`assessments-history.csv` is the same extraction across every available year in the IAR/PARCC workbook (2015–2019 and 2021–2024) plus 2024 SAT. The missing 2020 row is intentional: statewide assessment administration was canceled. The historical chart is descriptive; it does not fit one regression across years or treat IAR/PARCC and SAT as interchangeable.
+
 - https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/metrics/assessment-reports/iar-parcc_2015to2024_schoollevel.xlsx
 - https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/metrics/assessment-reports/assessment_psatsat_schoollevel_2024.xlsx
 
 IAR: `IAR-PARCC ELA Results` and `IAR-PARCC Math Results`; Year 2024 and Test Name beginning `Combined` (grades 3–8); columns School ID, # Students Tested, % Met or Exceeded (column 12, not subscore columns).
+
+For history, the same `Combined` rows are retained for grades 3–8 across all available years, and grades 9–12 for the two years present in the workbook (2015 and 2016). The site labels these observations IAR/PARCC.
 
 SAT: `All Students Data` (not Metric Data, whose population differs); School Year 2023-2024, Test SAT; subject-specific # Students with EBRW/Math Score and % Met or Exceeded State EBRW/Math Standards. The College Readiness Benchmark and mean scale scores are **not** substituted for state proficiency.
 

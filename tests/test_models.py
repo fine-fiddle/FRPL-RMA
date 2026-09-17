@@ -1,5 +1,6 @@
 import sys
 import unittest
+import json
 from pathlib import Path
 import numpy as np
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
@@ -30,5 +31,14 @@ class ModelsTest(unittest.TestCase):
         self.assertGreater(sampling_variance(100,100),0)
     def test_degenerate_cohort_rejected(self):
         with self.assertRaises(ValueError):fit_model([1,1,1,1],[4,3,2,1],[1]*4)
+
+    def test_history_snapshot_keeps_assessment_gap_explicit(self):
+        with open(Path(__file__).resolve().parents[1] / 'data/schools.json') as source:
+            data = json.load(source)
+        self.assertEqual(data['history_years'], [2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024])
+        school = next(s for s in data['schools'] if s['history'])
+        years = [record['year'] for record in school['history']]
+        self.assertNotIn(2020, years)
+        self.assertIn('math', school['history'][0]['subjects'])
 
 if __name__=='__main__':unittest.main()

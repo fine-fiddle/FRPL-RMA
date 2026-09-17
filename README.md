@@ -31,6 +31,7 @@ Publish the repository root from the `live-site` branch in GitHub **Settings →
 ## Statistical specification
 
 - Snapshot: SY2023–24 demographics and spring 2024 assessments. Historical, not current admissions data.
+- Historical view: the official IAR/PARCC workbook provides 2015–2019 and 2021–2024 school aggregates; 2020 is absent because testing was canceled. SAT history is available in the supplied workbook only for 2024, so high-school charts label the older 2015–2016 IAR/PARCC observations separately.
 - Predictor: CPS `Student_Count_Low_Income / Student_Count_Total × 100`. This is explicitly a low-income proxy, **not a verified FRPL eligibility rate**.
 - Outcomes: IAR grades 3–8 percent meeting/exceeding expectations; SAT grade 11 percent meeting/exceeding Illinois state standards. Reading represents ELA/EBRW. Combined is the simple mean of subject percentages, not joint proficiency.
 - Six independent OLS models: ES/HS × math/reading/combined. Schools have equal fitting weight. Search/type filters never refit. Each school is assigned its profile's primary level; combined-level institutions are not duplicated across cohorts.
@@ -39,6 +40,7 @@ Publish the repository root from the `live-site` branch in GitHub **Settings →
 - Approximate intervals: diagonal of `(I−H) diag(v) (I−H)′`, divided by the squared studentizing denominator; `t ± 1.96 SE`. These are conditional sampling intervals, not full confidence intervals for school effectiveness. The denominator is held fixed. They exclude model-choice uncertainty, demographic error, cohort variation and student dependence. Assessment percentages are rounded at source.
 - No empirical-Bayes/multilevel shrinkage in v1. Studentization alone does not account for enrollment; intervals address tested-sample size under the stated assumptions.
 - Missing/suppressed/invalid outcomes and demographics, or fewer than ten tested students, are omitted from models. They are never coerced to zero. Schools without eligible metrics remain in the directory; PK and other primary categories are excluded.
+- The single-school history chart uses the selected school’s annual aggregate proficiency and tested count. It is a trend display, not a longitudinal student cohort and not a cross-assessment equivalence claim; scores should be read within their assessment label.
 - Program labels use CPS school-level Classification_Description, not a verified inventory of every program. In particular, mixed-program schools may have neighborhood and selective offerings.
 - This descriptive association is not causal value added. Prior attainment, admissions selection, grade mix, language, disability, resources and other important variables are omitted. OLS can predict outside 0–100%; predictions remain unclipped.
 
@@ -46,7 +48,7 @@ Publish the repository root from the `live-site` branch in GitHub **Settings →
 
 - index.html, styles.css, app.js: site, interaction and D3 visualizations.
 - data/source/*.csv: reproducible source snapshots.
-- scripts/import_assessments.py: workbook → source CSV conversion.
+- scripts/import_assessments.py: workbook → current and historical source CSV conversion.
 - scripts/prepare_data.py: Polars ingestion, validation, fitting and JSON output.
 - tests/test_models.py: independent statistical correctness checks.
 - data/chicago-areas.geojson: official City community boundaries.
