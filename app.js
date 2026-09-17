@@ -5,6 +5,7 @@ let data, geography, mapZoom, mapSvg;
 const color = { above: '#14816f', below: '#c76753', focus: '#315bda', gray: '#a9b5c8', ink: '#182840' };
 const signed = (n, digits = 2) => `${n > 0 ? '+' : ''}${n.toFixed(digits)}`;
 const pct = n => n == null ? 'Unavailable' : `${n.toFixed(1)}%`;
+const subjectLabel = () => ({ math: 'Math', reading: 'ELA', combined: 'Combined' })[state.subject];
 const metric = s => s.metrics[state.subject];
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const schoolById = id => data.schools.find(s => s.id === id);
@@ -85,10 +86,10 @@ function renderScatter() {
   const predictions=[m.intercept,m.intercept+100*m.slope];
   const x=d3.scaleLinear().domain([0,100]).range([margin.left,width-margin.right]);
   const y=d3.scaleLinear().domain([Math.min(0,...predictions)-2,Math.max(100,...predictions)+2]).range([height-margin.bottom,margin.top]);
-  const svg=d3.select(host).append('svg').attr('viewBox',`0 0 ${width} ${height}`).attr('role','img').attr('aria-label',`${state.subject} proficiency versus low-income enrollment; regression slope ${m.slope.toFixed(2)}. ${sm?`${selected.name}: actual ${pct(sm.actual)}, predicted ${pct(sm.predicted)}, residual ${signed(sm.residual,1)} percentage points.`:''}`);
+  const svg=d3.select(host).append('svg').attr('viewBox',`0 0 ${width} ${height}`).attr('role','img').attr('aria-label',`${subjectLabel()} proficiency versus low-income enrollment; regression slope ${m.slope.toFixed(2)}. ${sm?`${selected.name}: actual ${pct(sm.actual)}, predicted ${pct(sm.predicted)}, residual ${signed(sm.residual,1)} percentage points.`:''}`);
   svg.append('g').attr('class','axis').attr('transform',`translate(${margin.left},0)`).call(d3.axisLeft(y).tickValues([0,25,50,75,100]).tickFormat(d=>`${d}%`).tickSize(-(width-margin.left-margin.right))).call(g=>g.select('.domain').remove());
   svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).ticks(5).tickFormat(d=>`${d}%`).tickSize(0)).call(g=>g.selectAll('text').attr('dy',16));
-  svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',12).attr('fill','#667386').text(`${state.subject==='combined'?'Mean':state.subject==='reading'?'Reading / ELA':'Math'} proficiency`);
+  svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',12).attr('fill','#667386').text(`${state.subject==='combined'?'Mean':state.subject==='reading'?'ELA':'Math'} proficiency`);
   svg.append('text').attr('x',(width+margin.left)/2).attr('y',height-7).attr('text-anchor','middle').attr('font-size',12).attr('fill','#667386').text('Low-income enrollment · FRPL proxy');
   const matching=new Set(filtered().map(s=>s.id));
   svg.append('g').selectAll('circle').data(rows).join('circle').attr('class','chart-point').attr('cx',s=>x(s.income)).attr('cy',s=>y(metric(s).actual)).attr('r',s=>state.selected.has(s.id)?4:2.5).attr('fill',s=>state.selected.has(s.id)?color.focus:color.gray).attr('opacity',s=>matching.has(s.id)?.55:.12).on('mouseenter',tooltip).on('mouseleave',hideTooltip).on('click',(e,s)=>{hideTooltip();inspect(s.id,true);});
@@ -109,7 +110,7 @@ function renderHistory() {
   host.replaceChildren();
   const school = schoolById(state.focus);
   const history = school?.history || [];
-  const label = state.subject === 'reading' ? 'Reading / ELA' : state.subject === 'combined' ? 'Combined' : 'Math';
+  const label = state.subject === 'reading' ? 'ELA' : state.subject === 'combined' ? 'Combined' : 'Math';
   $('#history-subtitle').textContent = school ? `${displayName(school)} · ${label} studentized residual` : 'Select a school to see its residual history.';
   $('#history-table').replaceChildren();
   if (!history.length) {
