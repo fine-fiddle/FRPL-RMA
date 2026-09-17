@@ -131,7 +131,7 @@ function renderComparison() {
   groups.append('circle').attr('cx',s=>x(metric(s).studentized)).attr('cy',24).attr('r',4.5).attr('fill',s=>metric(s).studentized>=0?color.above:color.below);
   groups.append('text').attr('x',width-4).attr('y',28).attr('text-anchor','end').attr('font-size',12).attr('font-weight',650).attr('fill',s=>metric(s).studentized>=0?color.above:color.below).text(s=>signed(metric(s).studentized));
 }
-function render(){const activeId=document.activeElement?.id;renderList();renderMap();renderScatter();renderComparison();if(activeId)document.getElementById(activeId)?.focus({preventScroll:true});}
+function render(){hideTooltip();const activeId=document.activeElement?.id;renderList();renderMap();renderScatter();renderComparison();if(activeId)document.getElementById(activeId)?.focus({preventScroll:true});}
 function setFilter(){state.query=$('#search').value.trim().toLowerCase();state.program=$('#program').value;ensureFocus();render();announce(`${filtered().length} matching schools. Regression unchanged.`);}
 async function init(){
   try{
