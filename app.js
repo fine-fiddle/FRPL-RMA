@@ -111,17 +111,22 @@ function renderHistory() {
   const history = school?.history || [];
   const label = state.subject === 'reading' ? 'Reading / ELA' : state.subject === 'combined' ? 'Combined' : 'Math';
   $('#history-subtitle').textContent = school ? `${displayName(school)} · ${label} proficiency` : 'Select a school to see its assessment history.';
-  $('#history-years').textContent = history.length ? `${history.length} YEARS` : '';
   if (!history.length) {
+    $('#history-years').textContent = '';
     host.innerHTML = '<p class="empty">No historical assessment record is available for this school.</p>';
+    return;
+  }
+  const values = history.map(r => ({...r, value: r.subjects[state.subject]?.actual, tested: r.subjects[state.subject]?.tested})).filter(r => r.value != null);
+  $('#history-years').textContent = values.length ? `${values.length} ${values.length === 1 ? 'YEAR' : 'YEARS'}` : '';
+  if (!values.length) {
+    host.innerHTML = `<p class="empty">No ${label.toLowerCase()} history is available for this school. Try another subject.</p>`;
     return;
   }
   const width = Math.max(host.clientWidth - 20, 300), height = 280;
   const margin = {left: 46, right: 22, top: 20, bottom: 48};
   const x = d3.scaleLinear().domain([2015, 2024]).range([margin.left, width - margin.right]);
   const y = d3.scaleLinear().domain([0, 100]).range([height - margin.bottom, margin.top]);
-  const values = history.map(r => ({...r, value: r.subjects[state.subject]?.actual, tested: r.subjects[state.subject]?.tested})).filter(r => r.value != null);
-  const svg = d3.select(host).append('svg').attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img')
+  const svg = d3.select(host).append('svg').attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img')
     .attr('aria-label', `${displayName(school)} ${label} proficiency history from ${values[0].year} to ${values[values.length - 1].year}.`);
   svg.append('g').attr('class','axis').attr('transform',`translate(${margin.left},0)`).call(d3.axisLeft(y).tickValues([0,25,50,75,100]).tickFormat(d=>`${d}%`).tickSize(-(width-margin.left-margin.right))).call(g=>g.select('.domain').remove());
   svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).tickValues([2015,2016,2017,2018,2019,2020,2021,2022,2023,2024]).tickFormat(d=>d).tickSize(0)).call(g=>g.selectAll('text').attr('dy',16).attr('transform','rotate(-35)').style('text-anchor','end'));
@@ -168,7 +173,7 @@ function render(){hideTooltip();const activeId=document.activeElement?.id;render
 function setFilter(){state.query=$('#search').value.trim().toLowerCase();state.program=$('#program').value;ensureFocus();render();announce(`${filtered().length} matching schools. Regression unchanged.`);}
 async function init(){
   try{
-    [data,geography]=await Promise.all(['data/schools.json','data/chicago-areas.geojson'].map(async url=>{const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
+    [data,geography]=await Promise.all(['data/schools.json?v=history-2','data/chicago-areas.geojson?v=history-2'].map(async url=>{const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
     defaults();render();
     $('#coverage').textContent=`The directory contains ${data.schools.length} grade and high schools from the SY2023–24 profile. Eligible models include ${data.models.ES.math.n} grade schools and ${data.models.HS.math.n} high schools for each subject. Data retrieved September 17, 2026.`;
     $('#search').addEventListener('input',setFilter);$('#program').addEventListener('change',setFilter);
