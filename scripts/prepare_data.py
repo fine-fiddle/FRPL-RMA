@@ -54,69 +54,99 @@ def sampling_variance(pct, n):
     p = (pct / 100 * n + .5) / (n+1)
     return 10000 * p * (1-p) / n
 
+def build_history(assessments, incomes):
+    """Fit all historical schools, without conditioning on the current directory."""
+    if incomes.select(pl.struct(['school_id','year']).is_duplicated().any()).item():
+        raise ValueError('Duplicate income school/year keys')
+    keys = ['school_id','year','level','assessment','subject']
+    if assessments.select(pl.struct(keys).is_duplicated().any()).item():
+        raise ValueError('Duplicate historical assessment keys')
+    income_lookup = {(r['school_id'], int(r['year'])): r for r in incomes.iter_rows(named=True)}
+    records = {}
+    for r in assessments.iter_rows(named=True):
+        year = int(r['year'])
+        key = (r['school_id'], year, r['level'], r['assessment'])
+        demographic = income_lookup.get((r['school_id'], year), {})
+        total, low = number(demographic.get('enrollment')), number(demographic.get('low_income'))
+        income = 100*low/total if total and total > 0 and low is not None and 0 <= low <= total else None
+        record = records.setdefault(key, dict(school_id=r['school_id'], year=year,
+            level=r['level'], assessment=r['assessment'], name=demographic.get('name'),
+            income=income, enrollment=total, income_year=year if demographic else None,
+            income_label=demographic.get('income_label'), subjects={}, exclusions={}))
+        pct, n = number(r['proficiency']), number(r['tested'])
+        reason = ('Missing or suppressed proficiency' if pct is None else
+                  'Invalid proficiency' if not 0 <= pct <= 100 else
+                  'Missing or fewer than 10 tested' if n is None or n < 10 else
+                  'Missing or invalid same-year income' if income is None else None)
+        if reason:
+            record['exclusions'][r['subject']] = reason
+            continue
+        record['subjects'][r['subject']] = dict(actual=pct, tested=int(n), variance=sampling_variance(pct, n))
+    for record in records.values():
+        subjects = record['subjects']
+        if all(s in subjects for s in ['math', 'reading']):
+            m, r = subjects['math'], subjects['reading']
+            subjects['combined'] = dict(actual=(m['actual']+r['actual'])/2,
+                tested=min(m['tested'],r['tested']),
+                variance=(np.sqrt(m['variance'])+np.sqrt(r['variance']))**2/4)
+        else:
+            record['exclusions']['combined'] = 'Both eligible subject results required'
+    models = []
+    cohorts = sorted({(r['year'],r['level'],r['assessment']) for r in records.values()})
+    for year, level, assessment in cohorts:
+        cohort = [r for r in records.values() if (r['year'],r['level'],r['assessment']) == (year,level,assessment)]
+        for subject in ['math', 'reading', 'combined']:
+            eligible = [r for r in cohort if subject in r['subjects']]
+            try:
+                model, results = fit_model([r['income'] for r in eligible],
+                    [r['subjects'][subject]['actual'] for r in eligible],
+                    [r['subjects'][subject]['variance'] for r in eligible])
+            except ValueError:
+                for r in eligible:
+                    del r['subjects'][subject]
+                    r['exclusions'][subject] = 'Insufficient schools or income variation for regression'
+                continue
+            models.append(dict(year=year, level=level, assessment=assessment, subject=subject,
+                               assessed_schools=len(cohort), excluded_schools=len(cohort)-len(eligible), **model))
+            for record, result in zip(eligible, results):
+                record['subjects'][subject].update(result, cohort_n=model['n'])
+                del record['subjects'][subject]['variance']
+    return sorted(records.values(), key=lambda r: (r['school_id'],r['year'],r['level'],r['assessment'])), models
+
 def prepare():
     profiles = pl.read_csv(ROOT/'data/source/cps-profile-sy2324.csv', infer_schema=False)
-    assessments = pl.read_csv(ROOT/'data/source/assessments-2024.csv', infer_schema=False)
     history = pl.read_csv(ROOT/'data/source/assessments-history.csv', infer_schema=False)
-    if assessments.select(pl.struct(['school_id','level','subject']).is_duplicated().any()).item():
-        raise ValueError('Duplicate assessment keys')
-    lookup = {(r['school_id'],r['level'],r['subject']):r for r in assessments.iter_rows(named=True)}
-    historical = {}
-    for r in history.iter_rows(named=True):
-        pct, n = number(r['proficiency']), number(r['tested'])
-        if pct is None or n is None or n < 10 or pct < 0 or pct > 100:
-            continue
-        record = historical.setdefault(r['school_id'], {}).setdefault(str(int(r['year'])), {
-            'year': int(r['year']), 'assessment': r['assessment'], 'subjects': {}
-        })
-        record['subjects'][r['subject']] = {'actual': pct, 'tested': int(n)}
-    for records in historical.values():
-        for record in records.values():
-            subjects = record['subjects']
-            if 'math' in subjects and 'reading' in subjects:
-                record['subjects']['combined'] = {
-                    'actual': (subjects['math']['actual'] + subjects['reading']['actual']) / 2,
-                    'tested': min(subjects['math']['tested'], subjects['reading']['tested'])
-                }
+    incomes = pl.read_csv(ROOT/'data/source/income-history.csv', infer_schema=False)
+    history_records, history_models = build_history(history, incomes)
+    current_income = {r['school_id']: r for r in incomes.iter_rows(named=True) if r['year'] == '2024'}
     schools = []
     for p in profiles.iter_rows(named=True):
         level = p['Primary_Category']
         if level not in ['ES','HS']: continue
-        total, low = number(p['Student_Count_Total']), number(p['Student_Count_Low_Income'])
+        annual = current_income.get(p['School_ID'], {})
+        total, low = number(annual.get('enrollment')), number(annual.get('low_income'))
         income = 100*low/total if total and low is not None and 0<=low<=total else None
         school = dict(id=p['School_ID'], name=p['Long_Name'], short=p['Short_Name'],
             level=level, program=category(p['Classification_Description'] or ''),
             classification=p['Classification_Description'], address=p['Address'],
             latitude=number(p['School_Latitude']), longitude=number(p['School_Longitude']),
             enrollment=total, income=income, profile=p['CPS_School_Profile'], metrics={},
-            history=sorted(historical.get(p['School_ID'], {}).values(), key=lambda r: r['year']))
-        for subject in ['math','reading']:
-            a=lookup.get((school['id'],level,subject),{})
-            pct,n=number(a.get('proficiency')),number(a.get('tested'))
-            if pct is not None and n is not None and 0<=pct<=100 and n>=10 and income is not None:
-                school['metrics'][subject]=dict(actual=pct,tested=int(n),variance=sampling_variance(pct,n))
-        if all(s in school['metrics'] for s in ['math','reading']):
-            m,r=school['metrics']['math'],school['metrics']['reading']
-            school['metrics']['combined']=dict(actual=(m['actual']+r['actual'])/2,
-                tested=min(m['tested'],r['tested']),
-                variance=(np.sqrt(m['variance'])+np.sqrt(r['variance']))**2/4)
+            history=[r for r in history_records if r['school_id'] == p['School_ID'] and r['level'] == level])
         schools.append(school)
+    # The snapshot and history share exactly the same annual regressions.
     models={}
     for level in ['ES','HS']:
         models[level]={}
         for subject in ['math','reading','combined']:
-            eligible=[s for s in schools if s['level']==level and subject in s['metrics']]
-            model, results = fit_model([s['income'] for s in eligible],
-                [s['metrics'][subject]['actual'] for s in eligible],
-                [s['metrics'][subject]['variance'] for s in eligible])
-            models[level][subject]=model
-            for s,r in zip(eligible,results):
-                s['metrics'][subject].update(r)
-                del s['metrics'][subject]['variance']
+            models[level][subject]=next(m for m in history_models if m['year']==2024 and m['level']==level and m['subject']==subject)
+        for school in (s for s in schools if s['level']==level):
+            current = next((r for r in school['history'] if r['year']==2024), None)
+            school['metrics'] = current['subjects'] if current else {}
     output=dict(year='2023–24', assessment_year=2024, income_label='Low-income enrollment (FRPL proxy)',
                 schools=schools, models=models,
-                history_years=sorted({r['year'] for records in historical.values() for r in records.values()}))
+                history_years=sorted({r['year'] for r in history_records}), history_models=history_models)
     (ROOT/'data/schools.json').write_text(json.dumps(output, separators=(',',':'),allow_nan=False))
+    (ROOT/'data/history.json').write_text(json.dumps(dict(records=history_records, models=history_models), separators=(',',':'), allow_nan=False))
     print(json.dumps({level:{s:m['n'] for s,m in subjects.items()} for level,subjects in models.items()},indent=2))
 
 if __name__=='__main__': prepare()

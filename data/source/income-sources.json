@@ -1,0 +1,92 @@
+[
+  {
+    "year": 2015,
+    "school_year": "2014-2015",
+    "url": "https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/demographics/demographics_lepsped_2015.xls",
+    "sha256": "8eba709875650e5de9eafa5ba07deb175e9cb6ca104b69b9a218c19867ddc04a",
+    "sheet": "All Schools",
+    "income_label": "Economically Disadvantaged",
+    "schools": 678
+  },
+  {
+    "year": 2016,
+    "school_year": "2015-2016",
+    "url": "https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/demographics/lep_sped_frl_report_2016_20151023.xls",
+    "sha256": "96ce4c9c6f9aed067755fdbb4ed60c1db52b89d17c2849f9b93017616b77774a",
+    "sheet": "All Schools",
+    "income_label": "Free/Reduced Lunch",
+    "schools": 676
+  },
+  {
+    "year": 2017,
+    "school_year": "2016-2017",
+    "url": "https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/demographics/demographics_lepsped_2017_10202020.xls",
+    "sha256": "71633a0c83a8b19439149fb525035de4b32932146b959c9c7675d38cd2e9b731",
+    "sheet": "Schools",
+    "income_label": "Free/Reduced Lunch",
+    "schools": 664
+  },
+  {
+    "year": 2018,
+    "school_year": "2017-2018",
+    "url": "https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/demographics/demographics_lepsped_2018_10202020.xls",
+    "sha256": "57ff89643e5ec0c449f65993073e484882965e61b0a18d47394838c9029bf69d",
+    "sheet": "Schools",
+    "income_label": "Free/Reduced Lunch",
+    "schools": 660
+  },
+  {
+    "year": 2019,
+    "school_year": "2018-2019",
+    "url": "https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/demographics/demographics_lepsped_2019_10202020.xls",
+    "sha256": "aba97d30f7bf98de15763eb1ffe836e657f6a6a59ed7f09c1bac303998628804",
+    "sheet": "Schools",
+    "income_label": "Free/Reduced Lunch",
+    "schools": 657
+  },
+  {
+    "year": 2020,
+    "school_year": "2019-2020",
+    "url": "https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/demographics/demographics_lepsped_2020_10202020.xls",
+    "sha256": "a2b021b670b633c783046b54b2696e7d764067f519cc66a63a7b76c1e337c7bd",
+    "sheet": "Schools",
+    "income_label": "Free/Reduced Lunch",
+    "schools": 652
+  },
+  {
+    "year": 2021,
+    "school_year": "2020-2021",
+    "url": "https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/demographics/demographics_lepsped_2021_v10072020.xls",
+    "sha256": "1203bc30449ef6e5cc0ca400a22af0f8de2edcc368c47a21569d2de57161c9bd",
+    "sheet": "Schools",
+    "income_label": "Free/Reduced Lunch",
+    "schools": 649
+  },
+  {
+    "year": 2022,
+    "school_year": "2021-2022",
+    "url": "https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/demographics/demographics_lepsped_2022_v10272021.xls",
+    "sha256": "1fed1b93e0dd3ff52c9625a4dbb1da1c0dcd7d5c246ad2cfa8cb47f9fa818072",
+    "sheet": "Schools",
+    "income_label": "Free/Reduced Lunch",
+    "schools": 647
+  },
+  {
+    "year": 2023,
+    "school_year": "2022-2023",
+    "url": "https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/demographics/demographics_lepsped_20thday_2023.xlsx",
+    "sha256": "5c868580ff1de19da1e31337dd8f2353f4c1bf81c2fbd8f87dda50f997ff2200",
+    "sheet": "Schools",
+    "income_label": "Free/Reduced Lunch",
+    "schools": 648
+  },
+  {
+    "year": 2024,
+    "school_year": "2023-2024",
+    "url": "https://www.cps.edu/globalassets/cps-pages/about-cps/district-data/demographics/demographics_lepiepfrm_20thday_sy2024_finalv2.xlsx",
+    "sha256": "ac07bdae4c533fe2da65b4ba23a5f2ec389d152bfe40e921b5e156ce05009b97",
+    "sheet": "Schools",
+    "income_label": "Economically Disadvantaged",
+    "schools": 647
+  }
+]

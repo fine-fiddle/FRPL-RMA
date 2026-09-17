@@ -3,8 +3,9 @@ import unittest
 import json
 from pathlib import Path
 import numpy as np
+import polars as pl
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from prepare_data import fit_model, sampling_variance
+from prepare_data import fit_model, sampling_variance, build_history
 
 class ModelsTest(unittest.TestCase):
     def test_studentization_matches_explicit_leave_one_out(self):
@@ -39,6 +40,53 @@ class ModelsTest(unittest.TestCase):
         school = next(s for s in data['schools'] if s['history'])
         years = [record['year'] for record in school['history']]
         self.assertNotIn(2020, years)
-        self.assertIn('math', school['history'][0]['subjects'])
+        self.assertTrue(any('math' in r['subjects'] for r in school['history']))
+
+    def test_every_historical_model_matches_same_year_inputs(self):
+        root = Path(__file__).resolve().parents[1]
+        data = json.loads((root/'data/history.json').read_text())
+        incomes = pl.read_csv(root/'data/source/income-history.csv').to_dicts()
+        income = {(str(r['school_id']),r['year']):r for r in incomes}
+        assessments = pl.read_csv(root/'data/source/assessments-history.csv', infer_schema=False).to_dicts()
+        actuals = {(r['school_id'],int(r['year']),r['level'],r['assessment'],r['subject']):r for r in assessments}
+        self.assertEqual({r['year'] for r in incomes},set(range(2015,2025)))
+        for model in data['models']:
+            subject=model['subject']
+            records=[r for r in data['records'] if (r['year'],r['level'],r['assessment']) == (model['year'],model['level'],model['assessment']) and subject in r['subjects']]
+            self.assertEqual(len(records),model['n'])
+            for r in records:
+                source=income[(r['school_id'],r['year'])]
+                self.assertAlmostEqual(r['income'],100*source['low_income']/source['enrollment'])
+                self.assertEqual(r['income_year'],r['year'])
+                for part in (['math','reading'] if subject=='combined' else [subject]):
+                    a=actuals[(r['school_id'],r['year'],r['level'],r['assessment'],part)]
+                    self.assertAlmostEqual(r['subjects'][part]['actual'],float(a['proficiency']))
+            x=np.array([r['income'] for r in records]); y=np.array([r['subjects'][subject]['actual'] for r in records])
+            X=np.column_stack([np.ones(len(x)),x]); beta=np.linalg.lstsq(X,y,rcond=None)[0]
+            residual=y-X@beta
+            h=np.einsum('ij,jk,ik->i',X,np.linalg.inv(X.T@X),X)
+            t=residual/np.sqrt(((residual@residual-residual**2/(1-h))/(len(x)-3))*(1-h))
+            np.testing.assert_allclose([r['subjects'][subject]['studentized'] for r in records],t,atol=1e-8)
+            self.assertAlmostEqual(model['slope'],beta[1])
+            for r in records:
+                m=r['subjects'][subject]
+                self.assertLessEqual(m['low'],m['studentized']); self.assertGreaterEqual(m['high'],m['studentized'])
+        snapshot=json.loads((root/'data/schools.json').read_text())
+        for school in snapshot['schools']:
+            current=next((r for r in school['history'] if r['year']==2024),None)
+            self.assertEqual(school['metrics'],current['subjects'] if current else {})
+        current_ids={s['id'] for s in snapshot['schools']}
+        self.assertTrue(any(r['school_id'] not in current_ids and r['subjects'] for r in data['records']))
+
+    def test_missing_income_is_not_backfilled_and_duplicate_keys_fail(self):
+        a=pl.DataFrame([dict(school_id='1',year='2015',level='ES',assessment='IAR',subject='math',proficiency='50',tested='40')])
+        income=pl.DataFrame([dict(school_id='1',year='2024',name='School',enrollment='100',low_income='50',income_label='FRPL')])
+        records,models=build_history(a,income)
+        self.assertIsNone(records[0]['income'])
+        self.assertEqual(records[0]['subjects'],{})
+        self.assertEqual(models,[])
+        self.assertIn('same-year income',records[0]['exclusions']['math'])
+        with self.assertRaises(ValueError):build_history(pl.concat([a,a]),income)
+        with self.assertRaises(ValueError):build_history(a,pl.concat([income,income]))
 
 if __name__=='__main__':unittest.main()

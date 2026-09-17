@@ -1,3 +1,4 @@
 polars==1.44.2
 numpy==2.5.3
 openpyxl==3.1.5
+xlrd==2.0.2

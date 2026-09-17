@@ -28,16 +28,18 @@ def convert(iar_path, sat_path):
                 rows.append([str(int(row[0])), level, subject, row[4], row[11]])
     sat = openpyxl.load_workbook(sat_path, read_only=True, data_only=True)
     for row in sat['All Students Data'].iter_rows(min_row=2, values_only=True):
-        if len(row) > 20 and row[0] == '2023-2024' and row[3] == 'SAT':
+        if len(row) > 20 and isinstance(row[0], str) and row[3] == 'SAT':
+            year = int(row[0][-4:])
             for subject, n, pct in [('reading', 6, 15), ('math', 8, 20)]:
-                rows.append([str(int(row[1])), 'HS', subject, row[n], row[pct]])
-                history_rows.append([str(int(row[1])), 2024, 'HS', 'SAT', subject, row[n], row[pct]])
+                if year == 2024:
+                    rows.append([str(int(row[1])), 'HS', subject, row[n], row[pct]])
+                history_rows.append([str(int(row[1])), year, 'HS', 'SAT', subject, row[n], row[pct]])
     with (ROOT / 'data/source/assessments-2024.csv').open('w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['school_id', 'level', 'subject', 'tested', 'proficiency'])
         writer.writerows(rows)
     with (ROOT / 'data/source/assessments-history.csv').open('w', newline='') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator='\n', quoting=csv.QUOTE_NONNUMERIC)
         writer.writerow(['school_id', 'year', 'level', 'assessment', 'subject', 'tested', 'proficiency'])
         writer.writerows(history_rows)
 

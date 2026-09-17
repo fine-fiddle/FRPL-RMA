@@ -110,37 +110,52 @@ function renderHistory() {
   const school = schoolById(state.focus);
   const history = school?.history || [];
   const label = state.subject === 'reading' ? 'Reading / ELA' : state.subject === 'combined' ? 'Combined' : 'Math';
-  $('#history-subtitle').textContent = school ? `${displayName(school)} · ${label} proficiency` : 'Select a school to see its assessment history.';
+  $('#history-subtitle').textContent = school ? `${displayName(school)} · ${label} studentized residual` : 'Select a school to see its residual history.';
+  $('#history-table').replaceChildren();
   if (!history.length) {
     $('#history-years').textContent = '';
     host.innerHTML = '<p class="empty">No historical assessment record is available for this school.</p>';
     return;
   }
-  const values = history.map(r => ({...r, value: r.subjects[state.subject]?.actual, tested: r.subjects[state.subject]?.tested})).filter(r => r.value != null);
+  const values = history.map(r => ({...r, ...r.subjects[state.subject], value: r.subjects[state.subject]?.studentized})).filter(r => Number.isFinite(r.value));
   $('#history-years').textContent = values.length ? `${values.length} ${values.length === 1 ? 'YEAR' : 'YEARS'}` : '';
   if (!values.length) {
-    host.innerHTML = `<p class="empty">No ${label.toLowerCase()} history is available for this school. Try another subject.</p>`;
+    host.innerHTML = `<p class="empty">No ${label.toLowerCase()} residual history is available. Each point requires an eligible assessment and matching same-year income data.</p>`;
     return;
   }
   const width = Math.max(host.clientWidth - 20, 300), height = 280;
   const margin = {left: 46, right: 22, top: 20, bottom: 48};
   const x = d3.scaleLinear().domain([2015, 2024]).range([margin.left, width - margin.right]);
-  const y = d3.scaleLinear().domain([0, 100]).range([height - margin.bottom, margin.top]);
+  const extent = Math.max(2, ...values.flatMap(d=>[Math.abs(d.low),Math.abs(d.high)]));
+  const y = d3.scaleLinear().domain([-extent, extent]).nice().range([height - margin.bottom, margin.top]);
   const svg = d3.select(host).append('svg').attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img')
-    .attr('aria-label', `${displayName(school)} ${label} proficiency history from ${values[0].year} to ${values[values.length - 1].year}.`);
-  svg.append('g').attr('class','axis').attr('transform',`translate(${margin.left},0)`).call(d3.axisLeft(y).tickValues([0,25,50,75,100]).tickFormat(d=>`${d}%`).tickSize(-(width-margin.left-margin.right))).call(g=>g.select('.domain').remove());
+    .attr('aria-label', `${displayName(school)} ${label} externally studentized residuals from ${values[0].year} to ${values[values.length - 1].year}. Zero is predicted performance. Bars show approximate 95% sampling intervals. Values are in the table below.`);
+  svg.append('g').attr('class','axis').attr('transform',`translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d=>signed(d,1)).tickSize(-(width-margin.left-margin.right))).call(g=>g.select('.domain').remove());
   svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).tickValues([2015,2016,2017,2018,2019,2020,2021,2022,2023,2024]).tickFormat(d=>d).tickSize(0)).call(g=>g.selectAll('text').attr('dy',16).attr('transform','rotate(-35)').style('text-anchor','end'));
-  svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',11).attr('fill','#667386').text(`${label} proficiency`);
+  svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',11).attr('fill','#667386').text('Studentized residual · above / below prediction');
+  svg.append('line').attr('x1',margin.left).attr('x2',width-margin.right).attr('y1',y(0)).attr('y2',y(0)).attr('stroke',color.ink).attr('stroke-width',1.5);
   svg.append('line').attr('x1',x(2020)).attr('x2',x(2020)).attr('y1',margin.top).attr('y2',height-margin.bottom).attr('stroke','#c8d1dc').attr('stroke-dasharray','3 3');
   svg.append('text').attr('x',x(2020)+6).attr('y',margin.top+12).attr('font-size',10).attr('fill','#667386').text('2020 no test');
-  const line = d3.line().x(d=>x(d.year)).y(d=>y(d.value));
-  svg.append('path').datum(values).attr('d',line).attr('fill','none').attr('stroke',color.focus).attr('stroke-width',2.5);
-  const points = svg.append('g').selectAll('circle').data(values).join('circle').attr('class','history-point').attr('cx',d=>x(d.year)).attr('cy',d=>y(d.value)).attr('r',5).attr('fill','white').attr('stroke',color.focus).attr('stroke-width',2).attr('tabindex',0);
-  points.append('title').text(d=>`${d.year} ${d.assessment}: ${pct(d.value)} · ${d.tested.toLocaleString()} tested`);
-  points.on('mouseenter', (e,d)=>tooltip(e,{...school, metrics:{[state.subject]:{actual:d.value, tested:d.tested, studentized:0}}})).on('mouseleave',hideTooltip);
+  const pointColor = d=>d.value>=0?color.above:color.below;
+  // Connect only adjacent years using the same assessment; preserve missing-year gaps.
+  const segments = values.slice(1).map((d,i)=>[values[i],d]).filter(([a,b])=>b.year===a.year+1 && a.assessment===b.assessment);
+  svg.append('g').selectAll('line').data(segments).join('line').attr('x1',d=>x(d[0].year)).attr('x2',d=>x(d[1].year)).attr('y1',d=>y(d[0].value)).attr('y2',d=>y(d[1].value)).attr('stroke',color.focus).attr('stroke-width',2);
+  svg.append('g').selectAll('line').data(values).join('line').attr('x1',d=>x(d.year)).attr('x2',d=>x(d.year)).attr('y1',d=>y(d.low)).attr('y2',d=>y(d.high)).attr('stroke',pointColor).attr('stroke-width',2).attr('opacity',.7);
+  for (const end of ['low','high']) svg.append('g').selectAll('line').data(values).join('line').attr('x1',d=>x(d.year)-4).attr('x2',d=>x(d.year)+4).attr('y1',d=>y(d[end])).attr('y2',d=>y(d[end])).attr('stroke',pointColor);
+  const description = d=>`${d.year} ${d.assessment}: actual ${pct(d.actual)}, predicted ${pct(d.predicted)}, difference ${signed(d.residual,1)} pp; studentized residual ${signed(d.value)}, interval ${signed(d.low)} to ${signed(d.high)}; low income ${pct(d.income)}; ${d.tested.toLocaleString()} tested; ${d.cohort_n} schools in model`;
+  const points = svg.append('g').selectAll('circle').data(values).join('circle').attr('class','history-point').attr('cx',d=>x(d.year)).attr('cy',d=>y(d.value)).attr('r',5).attr('fill',pointColor).attr('stroke','white').attr('stroke-width',2).attr('tabindex',0).attr('aria-label',description);
+  points.append('title').text(description);
+  function showHistoryPoint(e,d) {
+    const tip=$('#tooltip'); tip.textContent=description(d); tip.hidden=false;
+    const box=e.currentTarget.getBoundingClientRect();
+    tip.style.left=`${Math.max(8,Math.min(box.x+12,window.innerWidth-280))}px`;
+    tip.style.top=`${Math.max(8,Math.min(box.y+14,window.innerHeight-tip.offsetHeight-8))}px`;
+  }
+  points.on('mouseenter',showHistoryPoint).on('focus',showHistoryPoint).on('mouseleave',hideTooltip).on('blur',hideTooltip).on('keydown',e=>{if(e.key==='Escape')hideTooltip();});
   svg.append('text').attr('x',width-margin.right).attr('y',height-7).attr('text-anchor','end').attr('font-size',10).attr('fill','#667386').text('School year');
   const assessments = [...new Set(values.map(d=>d.assessment))];
-  $('#history-subtitle').textContent = `${displayName(school)} · ${label} proficiency · ${assessments.join(' → ')}`;
+  $('#history-subtitle').textContent = `${displayName(school)} · ${label} residuals · ${assessments.join(' → ')}`;
+  $('#history-table').innerHTML = `<table><caption>${escapeHTML(displayName(school))} · ${label}: annual actual versus predicted</caption><thead><tr><th>Year / test</th><th>Low income</th><th>Actual</th><th>Predicted</th><th>Difference</th><th>Studentized residual</th><th>95% interval</th><th>Tested</th><th>Model schools</th></tr></thead><tbody>${history.map(r=>{const m=r.subjects[state.subject]; return m ? `<tr><th>${r.year} ${escapeHTML(r.assessment)}</th><td>${pct(r.income)}</td><td>${pct(m.actual)}</td><td>${pct(m.predicted)}</td><td>${signed(m.residual,1)} pp</td><td>${signed(m.studentized)}</td><td>${signed(m.low)} to ${signed(m.high)}</td><td>${m.tested.toLocaleString()}</td><td>${m.cohort_n}</td></tr>` : `<tr><th>${r.year} ${escapeHTML(r.assessment)}</th><td>${pct(r.income)}</td><td colspan="7">${escapeHTML(r.exclusions[state.subject] || 'No eligible result')}</td></tr>`;}).join('')}</tbody></table>`;
 }
 function renderComparison() {
   const selection=$('#selection'); selection.replaceChildren(); $('#combined-count-note').hidden=state.subject!=='combined';
@@ -173,7 +188,7 @@ function render(){hideTooltip();const activeId=document.activeElement?.id;render
 function setFilter(){state.query=$('#search').value.trim().toLowerCase();state.program=$('#program').value;ensureFocus();render();announce(`${filtered().length} matching schools. Regression unchanged.`);}
 async function init(){
   try{
-    [data,geography]=await Promise.all(['data/schools.json?v=history-2','data/chicago-areas.geojson?v=history-2'].map(async url=>{const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
+    [data,geography]=await Promise.all(['data/schools.json?v=residual-history-3','data/chicago-areas.geojson?v=history-2'].map(async url=>{const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
     defaults();render();
     $('#coverage').textContent=`The directory contains ${data.schools.length} grade and high schools from the SY2023–24 profile. Eligible models include ${data.models.ES.math.n} grade schools and ${data.models.HS.math.n} high schools for each subject. Data retrieved September 17, 2026.`;
     $('#search').addEventListener('input',setFilter);$('#program').addEventListener('change',setFilter);
