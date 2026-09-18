@@ -1,4 +1,4 @@
-# FRPL × RMA — Chicago school comparator
+# Achievement x Economic Disadvantage — Chicago school comparator
 
 A build-free static website: HTML5, CSS, vanilla JavaScript and vendored D3 7.9.0. Python + Polars prepare the committed JSON. No server API, npm, tracking, map service or runtime CDN is required.
 
@@ -32,7 +32,7 @@ Publish the repository root from the `live-site` branch in GitHub **Settings →
 
 - Snapshot: SY2023–24 demographics and spring 2024 assessments. Historical, not current admissions data.
 - Historical view: matched annual income and assessments, 2015–2019 and 2021–2024. Grade schools use IAR/PARCC; high schools use 2015–2016 PARCC and 2018–2019 / 2021–2024 SAT. The source workbook has no 2017 SAT records, and 2020 testing was canceled. No missing year is interpolated.
-- Predictor: each year's CPS demographic report `low_income / enrollment × 100`. Source labels are Free/Reduced Lunch or Economically Disadvantaged. This is explicitly a low-income / FRPL proxy.
+- Predictor: each year's CPS demographic report `low_income / enrollment × 100`. Source labels are Free/Reduced Lunch or Economically Disadvantaged. The percentage measures economic disadvantage; FRPL is historical source terminology.
 - Outcomes: IAR grades 3–8 percent meeting/exceeding expectations; SAT grade 11 percent meeting/exceeding Illinois state standards. Reading represents ELA/EBRW. Combined is the simple mean of subject percentages, not joint proficiency.
 - Separate OLS models for each year × assessment × ES/HS × math/reading/combined (51 models). Schools have equal fitting weight. Annual assessment cohorts include all eligible source schools, even if absent from the current directory. A school serving both levels can enter both separate cohorts. Search/type filters never refit. The current directory uses its profile's primary level; the 2024 snapshot and history share identical metrics and models.
 - Raw residual: `e = y - Xβ`; leverage `hᵢ = xᵢ′(X′X)⁻¹xᵢ`; deleted residual variance `s²₍₋ᵢ₎ = (SSE − eᵢ²/(1−hᵢ))/(N−3)`; externally studentized residual `tᵢ = eᵢ / sqrt(s²₍₋ᵢ₎(1−hᵢ))`. The tests independently verify against explicit leave-one-out fits.

@@ -90,7 +90,7 @@ function renderScatter() {
   svg.append('g').attr('class','axis').attr('transform',`translate(${margin.left},0)`).call(d3.axisLeft(y).tickValues([0,25,50,75,100]).tickFormat(d=>`${d}%`).tickSize(-(width-margin.left-margin.right))).call(g=>g.select('.domain').remove());
   svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).ticks(5).tickFormat(d=>`${d}%`).tickSize(0)).call(g=>g.selectAll('text').attr('dy',16));
   svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',12).attr('fill','#667386').text(`${state.subject==='combined'?'Mean':state.subject==='reading'?'ELA':'Math'} proficiency`);
-  svg.append('text').attr('x',(width+margin.left)/2).attr('y',height-7).attr('text-anchor','middle').attr('font-size',12).attr('fill','#667386').text('Low-income enrollment · FRPL proxy');
+  svg.append('text').attr('x',(width+margin.left)/2).attr('y',height-7).attr('text-anchor','middle').attr('font-size',12).attr('fill','#667386').text('Economic disadvantage (% low income)');
   const matching=new Set(filtered().map(s=>s.id));
   svg.append('g').selectAll('circle').data(rows).join('circle').attr('class','chart-point').attr('cx',s=>x(s.income)).attr('cy',s=>y(metric(s).actual)).attr('r',s=>state.selected.has(s.id)?4:2.5).attr('fill',s=>state.selected.has(s.id)?color.focus:color.gray).attr('opacity',s=>matching.has(s.id)?.55:.12).on('mouseenter',tooltip).on('mouseleave',hideTooltip).on('click',(e,s)=>{hideTooltip();inspect(s.id,true);});
   svg.append('line').attr('x1',x(0)).attr('x2',x(100)).attr('y1',y(predictions[0])).attr('y2',y(predictions[1])).attr('stroke',color.ink).attr('stroke-width',1.8);
