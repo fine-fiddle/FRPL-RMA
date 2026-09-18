@@ -1,6 +1,6 @@
 'use strict';
 const $ = selector => document.querySelector(selector);
-const state = { level: 'ES', subject: 'math', program: 'all', query: '', selected: new Set(), focus: null, scope: 'selected' };
+const state = { level: 'ES', subject: 'combined', program: 'all', query: '', selected: new Set(), focus: null, scope: 'selected' };
 let data, geography, mapZoom, mapSvg;
 const color = { above: '#14816f', below: '#c76753', focus: '#315bda', gray: '#a9b5c8', ink: '#182840' };
 const signed = (n, digits = 2) => `${n > 0 ? '+' : ''}${n.toFixed(digits)}`;
@@ -202,4 +202,44 @@ async function init(){
     document.querySelectorAll('a[href="#uncertainty"]').forEach(a=>a.addEventListener('click',()=>{$('#uncertainty').open=true;}));
   }catch(error){console.error(error);$('#load-error').hidden=false;$('#school-count').textContent='Data unavailable';}
 }
+function initDefinitions() {
+  let active = null, timer;
+  function close() {
+    clearTimeout(timer);
+    if (!active) return;
+    active.querySelector('.term-definition').hidden = true;
+    active.querySelector('button').setAttribute('aria-expanded', 'false');
+    active = null;
+  }
+  function position() {
+    if (!active) return;
+    const button = active.querySelector('button'), tip = active.querySelector('.term-definition');
+    const box = button.getBoundingClientRect();
+    tip.style.left = `${Math.max(8, Math.min(box.left, window.innerWidth - tip.offsetWidth - 8))}px`;
+    const below = box.bottom + 8;
+    tip.style.top = `${Math.max(8, below + tip.offsetHeight <= window.innerHeight - 8 ? below : box.top - tip.offsetHeight - 8)}px`;
+  }
+  document.querySelectorAll('.term-help').forEach(wrapper => {
+    const button = wrapper.querySelector('button');
+    function show() {
+      if (active !== wrapper) close();
+      clearTimeout(timer); active = wrapper;
+      wrapper.querySelector('.term-definition').hidden = false;
+      button.setAttribute('aria-expanded', 'true'); position();
+    }
+    wrapper.addEventListener('mouseenter', show);
+    wrapper.addEventListener('mouseleave', () => {
+      if (document.activeElement !== button) timer = setTimeout(close, 160);
+    });
+    button.addEventListener('focus', show);
+    button.addEventListener('click', show);
+    button.addEventListener('blur', close);
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') close(); });
+  document.addEventListener('pointerdown', event => { if (active && !active.contains(event.target)) close(); });
+  document.querySelectorAll('.method-details details').forEach(detail => detail.addEventListener('toggle', close));
+  window.addEventListener('resize', position);
+  window.addEventListener('scroll', position, true);
+}
+initDefinitions();
 init();
