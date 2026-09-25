@@ -1,4 +1,4 @@
-# Achievement x Economic Disadvantage — Chicago school comparator
+# Achievement x Economic Disadvantage — Illinois school comparator
 
 A build-free static website: HTML5, CSS, vanilla JavaScript and vendored D3 7.9.0. Python + Polars prepare the committed JSON. No server API, npm, tracking, map service or runtime CDN is required.
 
@@ -10,6 +10,12 @@ python3 -m http.server 8000
 
 Open http://localhost:8000. Use HTTP rather than opening index.html directly because the site fetches local JSON files.
 
+## Sharing comparisons
+
+Copy the browser address to share the current comparison. URL parameters preserve state/region, school level, subject, program, search, up to six selected school IDs, history focus, and selected/all-filtered comparison scope. Updates replace the current address without reloading or adding a browser-history entry per keystroke. Opening or reloading a link restores its settings after the matching dataset loads. Invalid filter values and school IDs are ignored; an explicit `schools=` preserves an empty selection. Map zoom and list pagination are local viewing details.
+
+Run `node --test tests/url-state.test.cjs` to check URL round-trips, empty selections and invalid-link handling.
+
 ## Refresh modeled data
 
 Python 3.14 was used for the pinned requirements.
@@ -17,7 +23,9 @@ Python 3.14 was used for the pinned requirements.
 ```sh
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
+.venv/bin/python scripts/build_database.py
 .venv/bin/python scripts/prepare_data.py
+.venv/bin/python scripts/export_catalog.py
 .venv/bin/python -m unittest discover -s tests -v
 node --check app.js
 ```
@@ -26,7 +34,45 @@ The checked-in CSV inputs reproduce data/schools.json without downloading anythi
 
 ## Hosting
 
-Publish the repository root from the `live-site` branch in GitHub **Settings → Pages → Deploy from a branch → live-site → / (root)**. `.nojekyll` disables Jekyll. All asset paths are relative, so project-site hosting at `/FRPL-RMA/` works. No build step is needed.
+Publish the repository root from the `master` branch in GitHub **Settings → Pages → Deploy from a branch → master → / (root)**. `.nojekyll` disables Jekyll. All asset paths are relative, so project-site hosting at `/FRPL-RMA/` works. No build step is needed on the hosting service.
+
+## Illinois pilot and SQLite
+
+The local canonical database is `data/build/schools.sqlite` (ignored by Git). Raw sources remain immutable inputs; SQLite holds school identities, annual economic observations, assessment observations and definitions, provenance, model runs and results. The browser downloads only generated JSON. SQLite is rebuilt transactionally to a temporary file before replacing the prior database.
+
+To include the official statewide 2024 extract:
+
+```sh
+mkdir -p data/raw
+curl -L --fail 'https://www.isbe.net/Documents/24-RC-Pub-Data-Set.xlsx' -o data/raw/24-RC-Pub-Data-Set.xlsx
+.venv/bin/python scripts/build_database.py --illinois data/raw/24-RC-Pub-Data-Set.xlsx
+.venv/bin/python scripts/prepare_data.py
+.venv/bin/python scripts/prepare_illinois.py
+.venv/bin/python scripts/export_catalog.py
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+The 53 MB original XLSX is ignored by Git; its URL and SHA-256 are recorded in `data/manifest.json`. The reduced statewide import is `data/illinois/import-2024.json`. It retains raw suppression markers and source worksheet row numbers. SQLite keeps the original extracted demographic fields as well. The importer uses explicit column names and rejects duplicate identities, invalid numeric ranges and missing required fields. District and state summary rows are excluded.
+
+The pilot contains 3,835 school identities and separate IAR/SAT observations. Illinois → Statewide enables 2024 IAR rankings: 2,497 math, 2,475 ELA, and 2,405 Combined schools, with externally studentized residuals and approximate conditional sampling intervals. Chicago's existing 51 models remain separate and unchanged. Search can match school, district, city or county; filtering never refits the statewide model.
+
+Tested counts come from Education Data Center v3.1, whose technical documentation identifies ISBE as the source of 2023–24 denominators. The committed compact extract retains all-student regular IAR school/grade records; `data/source/illinois-counts-sources.json` records provenance. To regenerate it, download `https://eddatacenter.org/api/data/3.1?state=IL&year=2024` to `data/raw/edc-il-2024.csv` and run `.venv/bin/python scripts/prepare_illinois.py --extract data/raw/edc-il-2024.csv`.
+
+The committed `data/source/illinois-history-2023.json` contains the original 2023 demographic values, grade-level proficiency components, tested counts and source checksums. `prepare_illinois.py` imports it into SQLite before fitting both years. To refresh that extract, download the linked 2023 ISBE workbook and EDC 2023 CSV and run `.venv/bin/python scripts/import_illinois_history.py --workbook data/raw/23-RC-Pub-Data-Set.xlsx --counts data/raw/edc-il-2023.csv`, then prepare and export as above. Historical schools use RCDTS joins, never name matching or later-year income substitution.
+
+Validation requires unique grade records, exact positive integer counts for every expected IAR grade in the Report Card grades-served range, and weighted grade proficiency within 0.11 percentage points of the published school rate. This conservative gate accepts 5,085 school/subject denominators and rejects 820; income availability and the minimum of ten tested further restrict model eligibility. Suppressed or ranged values are never imputed. SQLite stores validated denominators; model input hashes include the count extract. Published statewide income percentages are used directly, preserving rounded/suppressed demographic numerators separately.
+
+Statewide SAT rankings now include 696 eligible schools per subject model, with externally studentized residuals but **no sampling intervals**. Verified SAT tested counts are unavailable. Published, unsuppressed SAT proficiency and same-year income are sufficient for the residual calculation; counts are required for sampling intervals. If any member of a model lacks a tested count, the entire model's propagated sampling intervals are unavailable. No enrollment-based substitute is used. The directory includes 686 of those SAT schools under ISBE's High School classification; model cohorts also include eligible mixed-grade schools.
+
+SAT history covers 2019 and 2021–2024. The committed `data/source/illinois-sat-history.json` preserves original level 3 + 4 percentages, demographic fields, official workbook URLs and checksums. To refresh, download the workbooks listed in `scripts/import_illinois_sat_history.py` and run `.venv/bin/python scripts/import_illinois_sat_history.py --extract`, then prepare and export. Suppressed components remain unavailable. Each year gets its own regression and same-year income join.
+
+Statewide IAR history covers 2023–2024. The 2023 aggregate uses ISBE grade-level percentages at levels 4 + 5 weighted by exact EDC tested counts, with every expected grade required. Grade rates must reconcile to EDC within 0.16 percentage points (two rounded ISBE levels plus rounded EDC percentage). Earlier workbooks provide grade-level percentages without verified aggregation weights; these are not averaged or mixed with alternate-assessment aggregates. Models use all eligible annual source schools, independent of current directory membership. Elementary/middle and high-school directories follow ISBE School Type. Admissions-program classifications remain unavailable statewide.
+
+The statewide map locates 3,547 of 3,550 directory schools using NCES 2023–24 coordinates and the exact EDC state-ID/NCES-ID crosswalk. Three schools without matched coordinates remain available in the list. `data/source/illinois-locations.json` records IDs, coordinates and source checksums. The simplified Illinois boundary comes from the Illinois State Geological Survey. `scripts/prepare_locations.py` rebuilds these compact files from the paginated NCES directory, EDC 2024 CSV and boundary export; it rejects ambiguous IDs and incomplete pagination.
+
+State standards, assessment year, tested grades and source population are part of a model's identity. IAR and SAT observations from a mixed-grade school remain separate. Region filtering must not silently refit a model. Cross-state proficiency and residual values are not a common scale. CPS IDs and statewide RCDTS IDs remain separate namespaces until an authoritative crosswalk is available; school names are not used to infer matches.
+
+Remaining source limitations: verified SAT denominators, IAR aggregates before 2023, statewide admissions-program classifications, and an authoritative CPS-to-RCDTS crosswalk. These are documented gaps; Chicago and statewide cohorts remain separate.
 
 ## Statistical specification
 
@@ -39,7 +85,7 @@ Publish the repository root from the `live-site` branch in GitHub **Settings →
 - Sampling variance: Jeffreys-smoothed `p̃ = (np+0.5)/(n+1)`, `v = 10000 p̃(1−p̃)/n`, using **tested counts**, not total enrollment. For combined outcomes, `v = (sqrt(v_math)+sqrt(v_reading))²/4`, a conservative maximum positive covariance assumption. The displayed combined count is the smaller subject count, not a deduplicated total.
 - Approximate intervals: diagonal of `(I−H) diag(v) (I−H)′`, divided by the squared studentizing denominator; `t ± 1.96 SE`. These are conditional sampling intervals, not full confidence intervals for school effectiveness. The denominator is held fixed. They exclude model-choice uncertainty, demographic error, cohort variation and student dependence. Assessment percentages are rounded at source.
 - No empirical-Bayes/multilevel shrinkage in v1. Studentization alone does not account for enrollment; intervals address tested-sample size under the stated assumptions.
-- Missing/suppressed/invalid outcomes and demographics, or fewer than ten tested students, are omitted from models. They are never coerced to zero. Schools without eligible metrics remain in the directory; PK and other primary categories are excluded.
+- Missing/suppressed/invalid outcomes and demographics, or known counts below ten tested students, are omitted from models. They are never coerced to zero. CPS and statewide IAR additionally require verified tested counts. Statewide SAT accepts published unsuppressed rates without counts and marks intervals unavailable. Schools without eligible metrics remain in the directory; PK and other primary categories are excluded.
 - The single-school history chart shows externally studentized actual-minus-predicted residuals with approximate 95% conditional sampling intervals and a zero prediction reference. Each assessment uses income counts from the same school year, keyed by CPS ID; no backfilling from later years. Hover/focus or expand the annual table for actual, predicted, raw gap, studentized residual, income, tested count and model size. Lines break across missing years or assessment changes. Trends describe relative position within each year's cohort, not causal improvement or cross-test equivalence.
 
 ## Annual income and residual data

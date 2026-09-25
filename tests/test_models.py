@@ -8,6 +8,20 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from prepare_data import fit_model, sampling_variance, build_history
 
 class ModelsTest(unittest.TestCase):
+    def test_point_only_cohort_preserves_residuals_and_omits_intervals(self):
+        x=[10,25,40,60,75,90]; y=[65,70,40,35,30,9]
+        rows=[dict(school_id=str(i),year=2024,level='HS',assessment='SAT',subject='math',proficiency=y[i],tested=30 if i else None) for i in range(6)]
+        incomes=pl.DataFrame([dict(school_id=str(i),year=2024,name=str(i),percentage=x[i],enrollment=100,low_income=x[i]) for i in range(6)])
+        records,models=build_history(pl.DataFrame(rows),incomes,point_only_assessments=('SAT',))
+        _,expected=fit_model(x,y,[0]*6)
+        self.assertEqual(models[0]['n'],6)
+        for record,result in zip(records,expected):
+            m=record['subjects']['math']
+            self.assertAlmostEqual(m['studentized'],result['studentized'])
+            self.assertIsNone(m['low']); self.assertIsNone(m['high'])
+        _,strict=build_history(pl.DataFrame(rows),incomes)
+        self.assertEqual(strict[0]['n'],5)
+
     def test_studentization_matches_explicit_leave_one_out(self):
         x=np.array([3,8,20,35,55,65,88,96.])
         y=np.array([75,61,66,48,21,32,18,4.])

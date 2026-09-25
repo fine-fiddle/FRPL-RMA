@@ -1,8 +1,9 @@
-"""Prepare site JSON from source CSVs. No network or website build required."""
+"""Prepare site JSON from the canonical SQLite database. No network required."""
 from pathlib import Path
 import json
 import numpy as np
 import polars as pl
+from database import DEFAULT_DB, connect, chicago_frames, save_models
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -54,7 +55,7 @@ def sampling_variance(pct, n):
     p = (pct / 100 * n + .5) / (n+1)
     return 10000 * p * (1-p) / n
 
-def build_history(assessments, incomes):
+def build_history(assessments, incomes, point_only_assessments=()):
     """Fit all historical schools, without conditioning on the current directory."""
     if incomes.select(pl.struct(['school_id','year']).is_duplicated().any()).item():
         raise ValueError('Duplicate income school/year keys')
@@ -68,26 +69,28 @@ def build_history(assessments, incomes):
         key = (r['school_id'], year, r['level'], r['assessment'])
         demographic = income_lookup.get((r['school_id'], year), {})
         total, low = number(demographic.get('enrollment')), number(demographic.get('low_income'))
-        income = 100*low/total if total and total > 0 and low is not None and 0 <= low <= total else None
+        income = number(demographic.get('percentage')) if 'percentage' in demographic else (100*low/total if total and total > 0 and low is not None and 0 <= low <= total else None)
         record = records.setdefault(key, dict(school_id=r['school_id'], year=year,
             level=r['level'], assessment=r['assessment'], name=demographic.get('name'),
             income=income, enrollment=total, income_year=year if demographic else None,
             income_label=demographic.get('income_label'), subjects={}, exclusions={}))
         pct, n = number(r['proficiency']), number(r['tested'])
+        point_only = r['assessment'] in point_only_assessments
         reason = ('Missing or suppressed proficiency' if pct is None else
                   'Invalid proficiency' if not 0 <= pct <= 100 else
-                  'Missing or fewer than 10 tested' if n is None or n < 10 else
+                  'Missing or fewer than 10 tested' if (n is None and not point_only) or (n is not None and n < 10) else
                   'Missing or invalid same-year income' if income is None else None)
         if reason:
             record['exclusions'][r['subject']] = reason
             continue
-        record['subjects'][r['subject']] = dict(actual=pct, tested=int(n), variance=sampling_variance(pct, n))
+        record['subjects'][r['subject']] = dict(actual=pct, tested=int(n) if n is not None else None,
+            variance=sampling_variance(pct, n) if n is not None else 0)
     for record in records.values():
         subjects = record['subjects']
         if all(s in subjects for s in ['math', 'reading']):
             m, r = subjects['math'], subjects['reading']
             subjects['combined'] = dict(actual=(m['actual']+r['actual'])/2,
-                tested=min(m['tested'],r['tested']),
+                tested=min(m['tested'],r['tested']) if m['tested'] is not None and r['tested'] is not None else None,
                 variance=(np.sqrt(m['variance'])+np.sqrt(r['variance']))**2/4)
         else:
             record['exclusions']['combined'] = 'Both eligible subject results required'
@@ -108,16 +111,24 @@ def build_history(assessments, incomes):
                 continue
             models.append(dict(year=year, level=level, assessment=assessment, subject=subject,
                                assessed_schools=len(cohort), excluded_schools=len(cohort)-len(eligible), **model))
+            missing_counts = any(r['subjects'][subject]['tested'] is None for r in eligible)
             for record, result in zip(eligible, results):
+                if missing_counts:
+                    # Regression propagation uses every member's sampling variance.
+                    # Zero placeholders must never become published certainty.
+                    result.update(low=None, high=None)
                 record['subjects'][subject].update(result, cohort_n=model['n'])
                 del record['subjects'][subject]['variance']
     return sorted(records.values(), key=lambda r: (r['school_id'],r['year'],r['level'],r['assessment'])), models
 
-def prepare():
-    profiles = pl.read_csv(ROOT/'data/source/cps-profile-sy2324.csv', infer_schema=False)
-    history = pl.read_csv(ROOT/'data/source/assessments-history.csv', infer_schema=False)
-    incomes = pl.read_csv(ROOT/'data/source/income-history.csv', infer_schema=False)
+def prepare(database=DEFAULT_DB):
+    if not Path(database).exists():
+        raise FileNotFoundError('Run scripts/build_database.py before preparing JSON')
+    with connect(database) as db:
+        profiles, history, incomes = chicago_frames(db)
     history_records, history_models = build_history(history, incomes)
+    with connect(database) as db:
+        save_models(db, history_records, history_models)
     current_income = {r['school_id']: r for r in incomes.iter_rows(named=True) if r['year'] == '2024'}
     schools = []
     for p in profiles.iter_rows(named=True):
@@ -149,4 +160,8 @@ def prepare():
     (ROOT/'data/history.json').write_text(json.dumps(dict(records=history_records, models=history_models), separators=(',',':'), allow_nan=False))
     print(json.dumps({level:{s:m['n'] for s,m in subjects.items()} for level,subjects in models.items()},indent=2))
 
-if __name__=='__main__': prepare()
+if __name__=='__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--database', type=Path, default=DEFAULT_DB)
+    prepare(parser.parse_args().database)
