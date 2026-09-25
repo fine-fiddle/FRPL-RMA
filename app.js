@@ -272,7 +272,6 @@ async function init(){
       regionSelect.value = locationState.regions.some(r=>r.id===params.get('region') && r.status==='ready') ? params.get('region') : 'chicago';
     }
     selectURLRegion(initialParams);
-    document.querySelectorAll('a[href="#comparability"]').forEach(a => a.addEventListener('click', () => { $('#comparability').open = true; }));
     let loadVersion = 0;
     async function loadRegion(params = null) {
       const version = ++loadVersion;
