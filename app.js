@@ -2,6 +2,8 @@
 const $ = selector => document.querySelector(selector);
 const state = { level: 'ES', subject: 'combined', program: 'all', query: '', selected: new Set(), focus: null, scope: 'selected' };
 let data, geography, mapZoom, mapSvg;
+const LIST_PAGE_SIZE = 75;
+let listLimit = LIST_PAGE_SIZE, searchTimer;
 const color = { above: '#14816f', below: '#c76753', focus: '#315bda', gray: '#a9b5c8', ink: '#182840' };
 const signed = (n, digits = 2) => n == null ? 'Unavailable' : `${n > 0 ? '+' : ''}${n.toFixed(digits)}`;
 const testedLabel = n => n == null ? 'Tested count unavailable' : `${n.toLocaleString()} tested`;
@@ -56,13 +58,28 @@ function renderList() {
   $('#school-count').textContent = `${rows.length} schools · ${rows.filter(s => metric(s)).length} with data`;
   const list = $('#school-list');
   list.innerHTML = rows.length ? '' : '<p class="empty">No schools match these filters. Try another name or school type.</p>';
-  for (const s of rows) {
+  const fragment = document.createDocumentFragment();
+  for (const s of rows.slice(0, listLimit)) {
     const m = metric(s), row = document.createElement('div');
     row.className = `school-row${state.focus === s.id ? ' focused' : ''}`;
     row.innerHTML = `<input id="compare-${s.id}" type="checkbox" aria-label="Compare ${escapeHTML(s.name)}" ${state.selected.has(s.id) ? 'checked' : ''} ${m ? '' : 'disabled'}><button id="inspect-${s.id}" class="school-name" title="${escapeHTML(s.name)}">${escapeHTML(displayName(s))}<small>${escapeHTML(s.city ? `${s.city} · ${s.district}` : s.program)} · ${s.income == null ? 'Income unavailable' : `${pct(s.income)} low income`}</small></button><span class="residual-value ${m && m.studentized >= 0 ? 'positive-text' : 'negative-text'}">${m ? signed(m.studentized) : '—'}</span>`;
     row.querySelector('input').addEventListener('change', e => choose(s.id, e.target.checked));
     row.querySelector('button').addEventListener('click', () => inspect(s.id));
-    list.append(row);
+    fragment.append(row);
+  }
+  list.append(fragment);
+  if (rows.length > listLimit) {
+    const more = document.createElement('button');
+    more.id = 'more-schools';
+    more.className = 'more-schools';
+    more.textContent = `Show next ${Math.min(LIST_PAGE_SIZE, rows.length-listLimit)} schools (${listLimit} of ${rows.length} shown)`;
+    more.addEventListener('click', () => {
+      const firstNewId = rows[listLimit].id;
+      listLimit += LIST_PAGE_SIZE;
+      renderList();
+      document.getElementById(`inspect-${firstNewId}`)?.focus({preventScroll:true});
+    });
+    list.append(more);
   }
 }
 function renderMap() {
@@ -200,7 +217,8 @@ function renderComparison() {
   groups.append('text').attr('x',width-4).attr('y',28).attr('text-anchor','end').attr('font-size',12).attr('font-weight',650).attr('fill',s=>metric(s).studentized>=0?color.above:color.below).text(s=>signed(metric(s).studentized));
 }
 function render(){hideTooltip();const activeId=document.activeElement?.id;renderList();renderMap();renderScatter();renderComparison();renderHistory();if(activeId)document.getElementById(activeId)?.focus({preventScroll:true});}
-function setFilter(){state.query=$('#search').value.trim().toLowerCase();state.program=$('#program').value;ensureFocus();render();announce(`${filtered().length} matching schools. Regression unchanged.`);}
+function setFilter(){clearTimeout(searchTimer);listLimit=LIST_PAGE_SIZE;state.query=$('#search').value.trim().toLowerCase();state.program=$('#program').value;ensureFocus();render();announce(`${filtered().length} matching schools. Regression unchanged.`);}
+function scheduleSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(setFilter,150);}
 async function init(){
   try{
     const catalogResponse = await fetch('data/manifest.json');
@@ -218,6 +236,8 @@ async function init(){
     regionSelect.value = 'chicago';
     document.querySelectorAll('a[href="#comparability"]').forEach(a => a.addEventListener('click', () => { $('#comparability').open = true; }));
     async function loadRegion() {
+      clearTimeout(searchTimer);
+      listLimit = LIST_PAGE_SIZE;
       const selectedRegion = locationState.regions.find(r => r.id === regionSelect.value);
       regionSelect.disabled = true;
       try {
@@ -246,12 +266,16 @@ async function init(){
     }
     regionSelect.addEventListener('change', loadRegion);
     await loadRegion();
-    $('#search').addEventListener('input',setFilter);$('#program').addEventListener('change',setFilter);
-    $('#level').addEventListener('change',e=>{state.level=e.target.value;defaults();ensureFocus();render();announce('School level changed. Selections reset to this assessment cohort.');});
+    // Keep typing off the synchronous chart-render path; apply the latest query
+    // after a short pause. Searching still covers every school, not just this page.
+    $('#search').addEventListener('input',scheduleSearch);
+    $('#search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();setFilter();}});
+    $('#program').addEventListener('change',setFilter);
+    $('#level').addEventListener('change',e=>{clearTimeout(searchTimer);state.query=$('#search').value.trim().toLowerCase();listLimit=LIST_PAGE_SIZE;state.level=e.target.value;defaults();ensureFocus();render();announce('School level changed. Selections reset to this assessment cohort.');});
     document.querySelectorAll('[data-subject]').forEach(button=>button.addEventListener('click',()=>{state.subject=button.dataset.subject;document.querySelectorAll('[data-subject]').forEach(b=>b.setAttribute('aria-pressed',b===button));ensureFocus();render();announce(`${button.textContent} comparison selected.`);}));
     $('#scope').addEventListener('change',e=>{state.scope=e.target.value;renderComparison();});
     $('#map-reset').addEventListener('click',()=>mapSvg?.call(mapZoom.transform,d3.zoomIdentity));
-    $('#reset').addEventListener('click',()=>{state.program='all';state.query='';$('#search').value='';$('#program').value='all';ensureFocus();render();announce('Name and school-type filters reset.');});
+    $('#reset').addEventListener('click',()=>{clearTimeout(searchTimer);listLimit=LIST_PAGE_SIZE;state.program='all';state.query='';$('#search').value='';$('#program').value='all';ensureFocus();render();announce('Name and school-type filters reset.');});
     let timer;window.addEventListener('resize',()=>{clearTimeout(timer);timer=setTimeout(()=>{renderMap();renderScatter();renderComparison();renderHistory();},150);});
     document.querySelectorAll('a[href="#uncertainty"]').forEach(a=>a.addEventListener('click',()=>{$('#uncertainty').open=true;}));
   }catch(error){console.error(error);$('#load-error').hidden=false;$('#school-count').textContent='Data unavailable';}
