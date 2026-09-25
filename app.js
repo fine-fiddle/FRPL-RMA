@@ -4,6 +4,40 @@ const state = { level: 'ES', subject: 'combined', program: 'all', query: '', sel
 let data, geography, mapZoom, mapSvg;
 const LIST_PAGE_SIZE = 75;
 let listLimit = LIST_PAGE_SIZE, searchTimer;
+function syncURL() {
+  const url = new URL(window.location.href);
+  const params = url.searchParams;
+  params.set('state', $('#state-select').value);
+  params.set('region', $('#region-select').value);
+  params.set('level', state.level);
+  params.set('subject', state.subject === 'reading' ? 'ela' : state.subject);
+  params.set('program', state.program);
+  if (state.query) params.set('q', state.query); else params.delete('q');
+  // An explicit empty value distinguishes no selection from the default schools.
+  params.set('schools', [...state.selected].join(','));
+  if (state.focus) params.set('focus', state.focus); else params.delete('focus');
+  params.set('scope', state.scope);
+  if (url.href !== window.location.href) window.history.replaceState(null, '', url);
+}
+function restoreURL(params, statewide) {
+  state.level = ['ES','HS'].includes(params.get('level')) ? params.get('level') : 'ES';
+  const subject = params.get('subject') === 'ela' ? 'reading' : params.get('subject');
+  state.subject = ['math','reading','combined'].includes(subject) ? subject : 'combined';
+  const programs = [...$('#program').options].map(o=>o.value);
+  state.program = !statewide && programs.includes(params.get('program')) ? params.get('program') : 'all';
+  state.query = (params.get('q') || '').trim().toLowerCase();
+  state.scope = params.get('scope') === 'filtered' ? 'filtered' : 'selected';
+  defaults();
+  const ids = new Set(cohort().map(s=>s.id));
+  if (params.has('schools')) state.selected = new Set((params.get('schools') || '').split(',').filter(id=>ids.has(id)).slice(0,6));
+  if (ids.has(params.get('focus'))) state.focus = params.get('focus');
+  else { state.focus = [...state.selected][0] || null; if (!state.focus) ensureFocus(); }
+  $('#level').value = state.level;
+  $('#search').value = state.query;
+  $('#program').value = state.program;
+  $('#scope').value = state.scope;
+  document.querySelectorAll('[data-subject]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.subject===state.subject));
+}
 const color = { above: '#14816f', below: '#c76753', focus: '#315bda', gray: '#a9b5c8', ink: '#182840' };
 const signed = (n, digits = 2) => n == null ? 'Unavailable' : `${n > 0 ? '+' : ''}${n.toFixed(digits)}`;
 const testedLabel = n => n == null ? 'Tested count unavailable' : `${n.toLocaleString()} tested`;
@@ -216,7 +250,7 @@ function renderComparison() {
   groups.append('circle').attr('cx',s=>x(metric(s).studentized)).attr('cy',24).attr('r',4.5).attr('fill',s=>metric(s).studentized>=0?color.above:color.below);
   groups.append('text').attr('x',width-4).attr('y',28).attr('text-anchor','end').attr('font-size',12).attr('font-weight',650).attr('fill',s=>metric(s).studentized>=0?color.above:color.below).text(s=>signed(metric(s).studentized));
 }
-function render(){hideTooltip();const activeId=document.activeElement?.id;renderList();renderMap();renderScatter();renderComparison();renderHistory();if(activeId)document.getElementById(activeId)?.focus({preventScroll:true});}
+function render(){hideTooltip();const activeId=document.activeElement?.id;renderList();renderMap();renderScatter();renderComparison();renderHistory();syncURL();if(activeId)document.getElementById(activeId)?.focus({preventScroll:true});}
 function setFilter(){clearTimeout(searchTimer);listLimit=LIST_PAGE_SIZE;state.query=$('#search').value.trim().toLowerCase();state.program=$('#program').value;ensureFocus();render();announce(`${filtered().length} matching schools. Regression unchanged.`);}
 function scheduleSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(setFilter,150);}
 async function init(){
@@ -233,15 +267,22 @@ async function init(){
       option.disabled = region.status !== 'ready';
       return option;
     }));
-    regionSelect.value = 'chicago';
+    const initialParams = new URLSearchParams(window.location.search);
+    function selectURLRegion(params) {
+      regionSelect.value = locationState.regions.some(r=>r.id===params.get('region') && r.status==='ready') ? params.get('region') : 'chicago';
+    }
+    selectURLRegion(initialParams);
     document.querySelectorAll('a[href="#comparability"]').forEach(a => a.addEventListener('click', () => { $('#comparability').open = true; }));
-    async function loadRegion() {
+    let loadVersion = 0;
+    async function loadRegion(params = null) {
+      const version = ++loadVersion;
       clearTimeout(searchTimer);
       listLimit = LIST_PAGE_SIZE;
       const selectedRegion = locationState.regions.find(r => r.id === regionSelect.value);
       regionSelect.disabled = true;
       try {
         const loaded = await Promise.all([selectedRegion.schools,selectedRegion.boundaries].map(async url=>{if (!url) return null;const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
+        if (version !== loadVersion) return;
         [data,geography] = loaded;
         const statewide = selectedRegion.id === 'statewide';
         state.level = 'ES'; $('#level').value = 'ES';
@@ -257,15 +298,21 @@ async function init(){
         $('#map-reset').disabled = false;
         $('#geography-note').textContent = statewide ? 'Comparison population: Illinois statewide · 2024 IAR and SAT. Sampling intervals are unavailable where tested counts are missing.' : 'Comparison population: Chicago Public Schools · CPS annual assessment cohorts.';
         $('#coverage').textContent = data.coverage_note || `The directory contains ${data.schools.length} grade and high schools. Math models include ${data.models.ES.math.n} grade schools and ${data.models.HS.math.n} high schools. Data retrieved September 17, 2026.`;
-        defaults(); render();
+        if (params) restoreURL(params, statewide); else defaults();
+        render();
         $('#load-error').hidden = true;
         announce(`${selectedRegion.name} comparisons loaded.`);
       } catch (error) {
         console.error(error); $('#load-error').hidden = false;
-      } finally { regionSelect.disabled = false; }
+      } finally { if (version === loadVersion) regionSelect.disabled = false; }
     }
-    regionSelect.addEventListener('change', loadRegion);
-    await loadRegion();
+    regionSelect.addEventListener('change', () => loadRegion());
+    window.addEventListener('popstate', () => {
+      const params = new URLSearchParams(window.location.search);
+      selectURLRegion(params);
+      loadRegion(params);
+    });
+    await loadRegion(initialParams);
     // Keep typing off the synchronous chart-render path; apply the latest query
     // after a short pause. Searching still covers every school, not just this page.
     $('#search').addEventListener('input',scheduleSearch);
@@ -273,7 +320,7 @@ async function init(){
     $('#program').addEventListener('change',setFilter);
     $('#level').addEventListener('change',e=>{clearTimeout(searchTimer);state.query=$('#search').value.trim().toLowerCase();listLimit=LIST_PAGE_SIZE;state.level=e.target.value;defaults();ensureFocus();render();announce('School level changed. Selections reset to this assessment cohort.');});
     document.querySelectorAll('[data-subject]').forEach(button=>button.addEventListener('click',()=>{state.subject=button.dataset.subject;document.querySelectorAll('[data-subject]').forEach(b=>b.setAttribute('aria-pressed',b===button));ensureFocus();render();announce(`${button.textContent} comparison selected.`);}));
-    $('#scope').addEventListener('change',e=>{state.scope=e.target.value;renderComparison();});
+    $('#scope').addEventListener('change',e=>{state.scope=e.target.value;renderComparison();syncURL();});
     $('#map-reset').addEventListener('click',()=>mapSvg?.call(mapZoom.transform,d3.zoomIdentity));
     $('#reset').addEventListener('click',()=>{clearTimeout(searchTimer);listLimit=LIST_PAGE_SIZE;state.program='all';state.query='';$('#search').value='';$('#program').value='all';ensureFocus();render();announce('Name and school-type filters reset.');});
     let timer;window.addEventListener('resize',()=>{clearTimeout(timer);timer=setTimeout(()=>{renderMap();renderScatter();renderComparison();renderHistory();},150);});

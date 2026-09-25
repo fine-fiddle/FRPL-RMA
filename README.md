@@ -10,6 +10,12 @@ python3 -m http.server 8000
 
 Open http://localhost:8000. Use HTTP rather than opening index.html directly because the site fetches local JSON files.
 
+## Sharing comparisons
+
+Copy the browser address to share the current comparison. URL parameters preserve state/region, school level, subject, program, search, up to six selected school IDs, history focus, and selected/all-filtered comparison scope. Updates replace the current address without reloading or adding a browser-history entry per keystroke. Opening or reloading a link restores its settings after the matching dataset loads. Invalid filter values and school IDs are ignored; an explicit `schools=` preserves an empty selection. Map zoom and list pagination are local viewing details.
+
+Run `node --test tests/url-state.test.cjs` to check URL round-trips, empty selections and invalid-link handling.
+
 ## Refresh modeled data
 
 Python 3.14 was used for the pinned requirements.
