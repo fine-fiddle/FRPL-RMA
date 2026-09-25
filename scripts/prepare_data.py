@@ -69,7 +69,7 @@ def build_history(assessments, incomes):
         key = (r['school_id'], year, r['level'], r['assessment'])
         demographic = income_lookup.get((r['school_id'], year), {})
         total, low = number(demographic.get('enrollment')), number(demographic.get('low_income'))
-        income = 100*low/total if total and total > 0 and low is not None and 0 <= low <= total else None
+        income = number(demographic.get('percentage')) if 'percentage' in demographic else (100*low/total if total and total > 0 and low is not None and 0 <= low <= total else None)
         record = records.setdefault(key, dict(school_id=r['school_id'], year=year,
             level=r['level'], assessment=r['assessment'], name=demographic.get('name'),
             income=income, enrollment=total, income_year=year if demographic else None,

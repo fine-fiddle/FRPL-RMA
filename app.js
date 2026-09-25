@@ -10,14 +10,14 @@ const metric = s => s.metrics[state.subject];
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const schoolById = id => data.schools.find(s => s.id === id);
 const cohort = () => data.schools.filter(s => s.level === state.level);
-const filtered = () => cohort().filter(s => (state.program === 'all' || s.program === state.program) && `${s.name} ${s.short}`.toLowerCase().includes(state.query));
+const filtered = () => cohort().filter(s => (state.program === 'all' || s.program === state.program) && `${s.name} ${s.short} ${s.district || ''} ${s.city || ''} ${s.county || ''}`.toLowerCase().includes(state.query));
 const model = () => data.models[state.level][state.subject];
 const announce = message => { $('#status').textContent = message; };
 const displayName = s => s.short.replace(/\bHS\b/g, 'High School').replace(/\bES\b/g, 'Elementary').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
 function tooltip(event, s) {
   const m = metric(s);
   const tip = $('#tooltip');
-  tip.innerHTML = `<strong>${escapeHTML(s.name)}</strong>${s.program} · Low income ${pct(s.income)}<br>${m ? `Proficiency ${pct(m.actual)} · Residual ${signed(m.studentized)}<br>${m.tested.toLocaleString()} tested${state.subject === 'combined' ? ' (smaller subject count)' : ''}` : 'Comparable assessment data unavailable'}`;
+  tip.innerHTML = `<strong>${escapeHTML(s.name)}</strong>${escapeHTML(s.district || s.program)} · Low income ${pct(s.income)}<br>${m ? `Proficiency ${pct(m.actual)} · Residual ${signed(m.studentized)}<br>${m.tested.toLocaleString()} tested${state.subject === 'combined' ? ' (smaller subject count)' : ''}` : 'Comparable assessment data unavailable'}`;
   tip.hidden = false;
   const box = event.currentTarget.getBoundingClientRect();
   const x = event.clientX || box.x + box.width / 2, y = event.clientY || box.y;
@@ -42,6 +42,7 @@ function defaults() {
   const names = state.level === 'ES' ? ['BELL', 'BURLEY', 'SKINNER NORTH'] : ['PAYTON HS', 'LINCOLN PARK HS', 'LAKE VIEW HS'];
   names.forEach(n => { const s = cohort().find(s => s.short === n && metric(s)); if (s) state.selected.add(s.id); });
   state.focus = [...state.selected][0] || cohort().find(s => metric(s))?.id;
+  if (!state.selected.size && state.focus) state.selected.add(state.focus);
 }
 function ensureFocus() {
   const rows = filtered();
@@ -55,7 +56,7 @@ function renderList() {
   for (const s of rows) {
     const m = metric(s), row = document.createElement('div');
     row.className = `school-row${state.focus === s.id ? ' focused' : ''}`;
-    row.innerHTML = `<input id="compare-${s.id}" type="checkbox" aria-label="Compare ${escapeHTML(s.name)}" ${state.selected.has(s.id) ? 'checked' : ''} ${m ? '' : 'disabled'}><button id="inspect-${s.id}" class="school-name" title="${escapeHTML(s.name)}">${escapeHTML(displayName(s))}<small>${s.program} · ${s.income == null ? 'Income unavailable' : `${pct(s.income)} low income`}</small></button><span class="residual-value ${m && m.studentized >= 0 ? 'positive-text' : 'negative-text'}">${m ? signed(m.studentized) : '—'}</span>`;
+    row.innerHTML = `<input id="compare-${s.id}" type="checkbox" aria-label="Compare ${escapeHTML(s.name)}" ${state.selected.has(s.id) ? 'checked' : ''} ${m ? '' : 'disabled'}><button id="inspect-${s.id}" class="school-name" title="${escapeHTML(s.name)}">${escapeHTML(displayName(s))}<small>${escapeHTML(s.city ? `${s.city} · ${s.district}` : s.program)} · ${s.income == null ? 'Income unavailable' : `${pct(s.income)} low income`}</small></button><span class="residual-value ${m && m.studentized >= 0 ? 'positive-text' : 'negative-text'}">${m ? signed(m.studentized) : '—'}</span>`;
     row.querySelector('input').addEventListener('change', e => choose(s.id, e.target.checked));
     row.querySelector('button').addEventListener('click', () => inspect(s.id));
     list.append(row);
@@ -65,6 +66,11 @@ function renderMap() {
   const host = $('#map'), width = host.clientWidth, height = host.clientHeight;
   const previous = mapSvg ? d3.zoomTransform(mapSvg.node()) : d3.zoomIdentity;
   host.replaceChildren();
+  if (!geography) {
+    mapSvg = null;
+    host.innerHTML = '<p class="empty">Statewide map coordinates are not available yet. Use the searchable school list to explore Illinois rankings.</p>';
+    return;
+  }
   mapSvg = d3.select(host).append('svg').attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img').attr('aria-label','Map of matching Chicago schools. Choose a marker to inspect it. The school list provides a keyboard-accessible alternative.');
   const projection = d3.geoMercator().fitExtent([[20,12],[width - 35,height-12]], geography);
   const layer = mapSvg.append('g');
@@ -119,7 +125,7 @@ function renderHistory() {
     return;
   }
   const values = history.map(r => ({...r, ...r.subjects[state.subject], value: r.subjects[state.subject]?.studentized})).filter(r => Number.isFinite(r.value));
-  $('#history-years').textContent = values.length ? `${values.length} ${values.length === 1 ? 'YEAR' : 'YEARS'}` : '';
+  $('#history-years').textContent = values.length ? `${values.length} ${values.length === 1 ? 'YEAR · SNAPSHOT ONLY' : 'YEARS'}` : '';
   if (!values.length) {
     host.innerHTML = `<p class="empty">No ${label.toLowerCase()} residual history is available. Each point requires an eligible assessment and matching same-year income data.</p>`;
     return;
@@ -202,18 +208,41 @@ async function init(){
       return option;
     }));
     regionSelect.value = 'chicago';
-    $('#geography-note').textContent = 'Comparison population: Chicago Public Schools.' +
-      (locationState.regions.some(r => r.id === 'statewide') ? ' Statewide data imported; tested counts still needed before comparisons can be enabled.' : '');
     document.querySelectorAll('a[href="#comparability"]').forEach(a => a.addEventListener('click', () => { $('#comparability').open = true; }));
-    const selectedRegion = locationState.regions.find(r => r.id === regionSelect.value);
-    [data,geography]=await Promise.all([selectedRegion.schools,selectedRegion.boundaries].map(async url=>{const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
-    defaults();render();
-    $('#coverage').textContent=`The directory contains ${data.schools.length} grade and high schools from the SY2023–24 profile. Eligible models include ${data.models.ES.math.n} grade schools and ${data.models.HS.math.n} high schools for each subject. Data retrieved September 17, 2026.`;
+    async function loadRegion() {
+      const selectedRegion = locationState.regions.find(r => r.id === regionSelect.value);
+      regionSelect.disabled = true;
+      try {
+        const loaded = await Promise.all([selectedRegion.schools,selectedRegion.boundaries].map(async url=>{if (!url) return null;const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
+        [data,geography] = loaded;
+        const statewide = selectedRegion.id === 'statewide';
+        state.level = 'ES'; $('#level').value = 'ES';
+        $('#level option[value="HS"]').disabled = statewide;
+        $('#program').disabled = statewide;
+        state.query = ''; state.program = 'all'; $('#search').value = ''; $('#program').value = 'all';
+        state.scope = statewide ? 'filtered' : 'selected'; $('#scope').value = state.scope;
+        mapSvg = null;
+        $('.map-panel h2').textContent = statewide ? 'Across Illinois' : 'Across Chicago';
+        $('.intro .eyebrow').textContent = statewide ? 'ILLINOIS PUBLIC SCHOOLS / 2023–24' : 'CHICAGO PUBLIC SCHOOLS / 2023–24';
+        $('#map').setAttribute('aria-label', statewide ? 'Statewide map unavailable' : 'Chicago school map');
+        $('.map-source').textContent = statewide ? 'Use the list to select schools. Statewide classifications are unavailable.' : 'Community boundaries: City of Chicago · Scroll or pinch to zoom';
+        $('#map-reset').disabled = statewide;
+        $('#geography-note').textContent = statewide ? 'Comparison population: Illinois statewide · 2024 IAR, grades 3–8. High-school SAT rankings await tested counts.' : 'Comparison population: Chicago Public Schools · CPS annual assessment cohorts.';
+        $('#coverage').textContent = data.coverage_note || `The directory contains ${data.schools.length} grade and high schools. Math models include ${data.models.ES.math.n} grade schools and ${data.models.HS.math.n} high schools. Data retrieved September 17, 2026.`;
+        defaults(); render();
+        $('#load-error').hidden = true;
+        announce(`${selectedRegion.name} comparisons loaded.`);
+      } catch (error) {
+        console.error(error); $('#load-error').hidden = false;
+      } finally { regionSelect.disabled = false; }
+    }
+    regionSelect.addEventListener('change', loadRegion);
+    await loadRegion();
     $('#search').addEventListener('input',setFilter);$('#program').addEventListener('change',setFilter);
     $('#level').addEventListener('change',e=>{state.level=e.target.value;defaults();ensureFocus();render();announce('School level changed. Selections reset to this assessment cohort.');});
     document.querySelectorAll('[data-subject]').forEach(button=>button.addEventListener('click',()=>{state.subject=button.dataset.subject;document.querySelectorAll('[data-subject]').forEach(b=>b.setAttribute('aria-pressed',b===button));ensureFocus();render();announce(`${button.textContent} comparison selected.`);}));
     $('#scope').addEventListener('change',e=>{state.scope=e.target.value;renderComparison();});
-    $('#map-reset').addEventListener('click',()=>mapSvg.call(mapZoom.transform,d3.zoomIdentity));
+    $('#map-reset').addEventListener('click',()=>mapSvg?.call(mapZoom.transform,d3.zoomIdentity));
     $('#reset').addEventListener('click',()=>{state.program='all';state.query='';$('#search').value='';$('#program').value='all';ensureFocus();render();announce('Name and school-type filters reset.');});
     let timer;window.addEventListener('resize',()=>{clearTimeout(timer);timer=setTimeout(()=>{renderMap();renderScatter();renderComparison();renderHistory();},150);});
     document.querySelectorAll('a[href="#uncertainty"]').forEach(a=>a.addEventListener('click',()=>{$('#uncertainty').open=true;}));

@@ -1,0 +1,108 @@
+"""Validate EDC grade denominators against ISBE rates and export statewide IAR models.
+
+EDC v3.1 all-student regular IAR rows only. No suppressed counts are imputed.
+The compact extract is reproducible with --extract path/to/edc-il-2024.csv.
+"""
+import argparse
+import json
+import re
+from pathlib import Path
+import polars as pl
+from database import ROOT, DEFAULT_DB, connect, add_source, save_models
+from prepare_data import build_history
+
+EXTRACT = ROOT/'data/source/illinois-iar-counts-2024.csv'
+URL = 'https://eddatacenter.org/api/data/3.1?state=IL&year=2024'
+COLUMNS = ['StateAssignedSchID', 'Subject', 'GradeLevel',
+           'StudentSubGroup_TotalTested', 'ProficientOrAbove_percent']
+
+
+def extract(path):
+    frame = pl.read_csv(path, infer_schema=False).filter(
+        (pl.col('DataLevel') == 'School') & (pl.col('StudentGroup') == 'All Students') &
+        (pl.col('StudentSubGroup') == 'All Students') & (pl.col('AssmtName') == 'IAR') &
+        (pl.col('AssmtType') == 'Regular') & (pl.col('SchYear') == '2023-24') &
+        pl.col('Subject').is_in(['math', 'ela']))
+    frame.select(COLUMNS).sort(COLUMNS[:3]).write_csv(EXTRACT)
+
+
+def validate_counts(rows, proficiency, grades_served=None):
+    """Reject ambiguous, duplicate, suppressed or non-reconciling grade records."""
+    grades = [r['GradeLevel'] for r in rows]
+    if len(grades) != len(set(grades)) or not set(grades) <= {f'G0{i}' for i in range(3, 9)}:
+        return None
+    if grades_served is not None:
+        endpoints = re.fullmatch(r'(PK|K|\d+) - (PK|K|\d+)', grades_served)
+        if not endpoints:
+            return None
+        start, end = [int(v) if v.isdigit() else 0 for v in endpoints.groups()]
+        expected = {f'G0{i}' for i in range(max(3, start), min(8, end)+1)}
+        if set(grades) != expected:
+            return None
+    try:
+        ns = [int(r['StudentSubGroup_TotalTested']) for r in rows]
+        ps = [float(r['ProficientOrAbove_percent']) for r in rows]
+    except (ValueError, TypeError):
+        return None
+    if not ns or min(ns) <= 0 or any(not 0 <= p <= 1 for p in ps) or proficiency is None:
+        return None
+    # Both files round published rates. Keep a conservative reconciliation gate;
+    # a failed check means unavailable, never a guessed denominator.
+    average = 100 * sum(n*p for n, p in zip(ns, ps)) / sum(ns)
+    return sum(ns) if abs(average-proficiency) <= .11 else None
+
+
+def prepare(database=DEFAULT_DB):
+    counts = pl.read_csv(EXTRACT, infer_schema=False)
+    count_ids = set(counts['StateAssignedSchID'])
+    with connect(database) as db:
+        profiles = {r['school_id']: dict(r) for r in db.execute("SELECT * FROM school WHERE dataset_id='isbe-2024'")}
+        db.execute("DELETE FROM source WHERE id='edc-iar-2024'")
+        add_source(db, 'edc-iar-2024', 'isbe-2024', EXTRACT, URL)
+        db.execute("UPDATE assessment_observation SET tested=NULL, raw_tested=NULL WHERE dataset_id='isbe-2024'")
+        accepted = rejected = 0
+        for (sid, subject), group in counts.group_by(COLUMNS[:2]):
+            subject = 'reading' if subject == 'ela' else subject
+            row = db.execute("SELECT proficiency FROM assessment_observation WHERE dataset_id='isbe-2024' AND school_id=? AND subject=? AND definition_id='isbe-2024:2024:IAR:ES'", (sid, subject)).fetchone()
+            grades = json.loads(profiles[sid]['profile_json'])['Grades Served'] if sid in profiles else ''
+            n = validate_counts(group.to_dicts(), row[0] if row else None, grades)
+            if n is None:
+                rejected += 1
+                continue
+            db.execute("UPDATE assessment_observation SET tested=?,raw_tested=? WHERE dataset_id='isbe-2024' AND school_id=? AND subject=? AND definition_id='isbe-2024:2024:IAR:ES'", (n, str(n), sid, subject))
+            accepted += 1
+        assessments = pl.DataFrame([dict(r) for r in db.execute("SELECT a.school_id,d.year,d.level,d.name assessment,a.subject,a.proficiency,a.tested FROM assessment_observation a JOIN assessment_definition d ON a.definition_id=d.id WHERE a.dataset_id='isbe-2024'")])
+        incomes = pl.DataFrame([dict(r) for r in db.execute("SELECT school_id,year,name,enrollment,low_income,percentage FROM economic_observation WHERE dataset_id='isbe-2024'")])
+        records, models = build_history(assessments, incomes)
+        save_models(db, records, models, 'isbe-2024')
+        schools = []
+        for record in records:
+            # Publish the IAR directory, including exclusions. SAT has no validated counts.
+            if record['level'] != 'ES':
+                continue
+            p = profiles[record['school_id']]
+            if not record['subjects'] and record['school_id'] not in count_ids:
+                continue
+            schools.append(dict(id=record['school_id'], name=p['name'], short=p['name'],
+                level='ES', program='Unclassified', district=p['district_name'], city=p['city'],
+                county=p['county'], income=record['income'], enrollment=record['enrollment'],
+                latitude=None, longitude=None, metrics=record['subjects'], history=[record]))
+        by_level = {level: {m['subject']: m for m in models if m['level'] == level} for level in ['ES', 'HS']}
+        output = dict(year='2023–24', assessment_year=2024, schools=schools, models=by_level,
+            history_years=[2024], history_models=models, counts_validation=dict(accepted=accepted, rejected=rejected),
+            coverage_note='2024 IAR, grades 3–8. Counts are summed from EDC v3.1 grade records supplied by ISBE and checked against Report Card proficiency. Missing, suppressed or inconsistent counts are excluded. SAT counts and statewide historical years are not yet available. School program classifications and map coordinates are not available in this source.')
+        folder = ROOT/'data/illinois'
+        folder.mkdir(exist_ok=True)
+        (folder/'schools.json').write_text(json.dumps(output, separators=(',', ':'), allow_nan=False))
+        db.execute("UPDATE dataset SET status='ready_iar' WHERE id='isbe-2024'")
+        print(json.dumps(dict(validation=output['counts_validation'], models={s:m['n'] for s,m in by_level['ES'].items()}), indent=2))
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--database', type=Path, default=DEFAULT_DB)
+    parser.add_argument('--extract', type=Path)
+    args = parser.parse_args()
+    if args.extract:
+        extract(args.extract)
+    prepare(args.database)

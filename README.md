@@ -1,4 +1,4 @@
-# Achievement x Economic Disadvantage — Chicago school comparator
+# Achievement x Economic Disadvantage — Illinois school comparator
 
 A build-free static website: HTML5, CSS, vanilla JavaScript and vendored D3 7.9.0. Python + Polars prepare the committed JSON. No server API, npm, tracking, map service or runtime CDN is required.
 
@@ -41,13 +41,20 @@ mkdir -p data/raw
 curl -L --fail 'https://www.isbe.net/Documents/24-RC-Pub-Data-Set.xlsx' -o data/raw/24-RC-Pub-Data-Set.xlsx
 .venv/bin/python scripts/build_database.py --illinois data/raw/24-RC-Pub-Data-Set.xlsx
 .venv/bin/python scripts/prepare_data.py
+.venv/bin/python scripts/prepare_illinois.py
 .venv/bin/python scripts/export_catalog.py
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
 The 53 MB original XLSX is ignored by Git; its URL and SHA-256 are recorded in `data/manifest.json`. The reduced statewide import is `data/illinois/import-2024.json`. It retains raw suppression markers and source worksheet row numbers. SQLite keeps the original extracted demographic fields as well. The importer uses explicit column names and rejects duplicate identities, invalid numeric ranges and missing required fields. District and state summary rows are excluded.
 
-The pilot contains 3,835 school identities and separate IAR/SAT observations. The public workbook has no tested-student counts for these rates. Statewide comparisons remain `awaiting_tested_counts`; no enrollment-based substitute, uncertainty interval, or residual ranking is generated. Chicago's existing 51 models and website JSON are reproduced exactly through SQLite. The displayed selector exposes Illinois → Chicago and marks Statewide as in preparation.
+The pilot contains 3,835 school identities and separate IAR/SAT observations. Illinois → Statewide enables 2024 IAR rankings: 2,497 math, 2,475 ELA, and 2,405 Combined schools, with externally studentized residuals and approximate conditional sampling intervals. Chicago's existing 51 models remain separate and unchanged. Search can match school, district, city or county; filtering never refits the statewide model.
+
+Tested counts come from Education Data Center v3.1, whose technical documentation identifies ISBE as the source of 2023–24 denominators. The committed compact extract retains all-student regular IAR school/grade records; `data/source/illinois-counts-sources.json` records provenance. To regenerate it, download `https://eddatacenter.org/api/data/3.1?state=IL&year=2024` to `data/raw/edc-il-2024.csv` and run `.venv/bin/python scripts/prepare_illinois.py --extract data/raw/edc-il-2024.csv`.
+
+Validation requires unique grade records, exact positive integer counts for every expected IAR grade in the Report Card grades-served range, and weighted grade proficiency within 0.11 percentage points of the published school rate. This conservative gate accepts 5,085 school/subject denominators and rejects 820; income availability and the minimum of ten tested further restrict model eligibility. Suppressed or ranged values are never imputed. SQLite stores validated denominators; model input hashes include the count extract. Published statewide income percentages are used directly, preserving rounded/suppressed demographic numerators separately.
+
+SAT denominators could not be established from these public sources, so statewide high-school rankings remain disabled. Statewide history has only 2024. Statewide coordinates and program classifications are unavailable; use the searchable list. Schools with IAR records remain in that directory even if excluded from models. No statewide enrollment-based substitute is used.
 
 State standards, assessment year, tested grades and source population are part of a model's identity. IAR and SAT observations from a mixed-grade school remain separate. Region filtering must not silently refit a model. Cross-state proficiency and residual values are not a common scale. CPS IDs and statewide RCDTS IDs remain separate namespaces until an authoritative crosswalk is available; school names are not used to infer matches.
 

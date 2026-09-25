@@ -24,6 +24,13 @@
       "sha256": "3e4bb31144d359fe32a4342e28a1c65ef50f55e586e8bf1da054668ae2697c1c"
     },
     {
+      "id": "edc-iar-2024",
+      "dataset_id": "isbe-2024",
+      "path": "data/source/illinois-iar-counts-2024.csv",
+      "url": "https://eddatacenter.org/api/data/3.1?state=IL&year=2024",
+      "sha256": "7d5f1e1445e75a65f4270aabe1109271aeeed67ec0f3b3eb293df74e6ccd3452"
+    },
+    {
       "id": "isbe-2024",
       "dataset_id": "isbe-2024",
       "path": "data/raw/24-RC-Pub-Data-Set.xlsx",
@@ -645,6 +652,30 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "9bee8a23eef80918e756bca97fde099747f88f4e575d29bf373464890675fbea"
+    },
+    {
+      "id": "isbe-2024:2024:IAR:ES:combined:ols-v1:323db22bf442",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2024:IAR:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "323db22bf442c6b89da40e849c333c860f5af3011839443019f295af28ee067f"
+    },
+    {
+      "id": "isbe-2024:2024:IAR:ES:math:ols-v1:323db22bf442",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2024:IAR:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "323db22bf442c6b89da40e849c333c860f5af3011839443019f295af28ee067f"
+    },
+    {
+      "id": "isbe-2024:2024:IAR:ES:reading:ols-v1:323db22bf442",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2024:IAR:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "323db22bf442c6b89da40e849c333c860f5af3011839443019f295af28ee067f"
     }
   ],
   "states": [
@@ -665,7 +696,12 @@
           "id": "statewide",
           "name": "Statewide",
           "dataset": "isbe-2024",
-          "status": "awaiting_tested_counts",
+          "status": "ready",
+          "schools": "data/illinois/schools.json",
+          "boundaries": null,
+          "levels": [
+            "ES"
+          ],
           "model_scope": "Illinois statewide assessment cohorts",
           "audit": "data/illinois/import-2024.json"
         }
@@ -676,6 +712,6 @@
     "schools": 3835,
     "schools_with_income": 3754,
     "reported_subject_rates": 7226,
-    "tested_counts": 0
+    "tested_counts": 5085
   }
 }

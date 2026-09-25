@@ -175,20 +175,20 @@ def chicago_frames(db):
                  for rows in [profiles, observations, incomes])
 
 
-def save_models(db, records, models):
-    sources = list(db.execute("SELECT id,sha256 FROM source WHERE dataset_id='cps' ORDER BY id"))
+def save_models(db, records, models, dataset='cps'):
+    sources = list(db.execute("SELECT id,sha256 FROM source WHERE dataset_id=? ORDER BY id", (dataset,)))
     digest = hashlib.sha256(json.dumps([tuple(r) for r in sources]).encode()).hexdigest()
-    db.execute("DELETE FROM model_run WHERE dataset_id='cps'")
+    db.execute("DELETE FROM model_run WHERE dataset_id=?", (dataset,))
     for model in models:
-        definition = definition_id('cps', model['year'], model['assessment'], model['level'])
+        definition = definition_id(dataset, model['year'], model['assessment'], model['level'])
         ident = f'{definition}:{model["subject"]}:ols-v1:{digest[:12]}'
         db.execute('INSERT INTO model_run VALUES (?,?,?,?,?,?,?)',
-                   (ident, 'cps', definition, model['subject'], 'ols-studentized-v1', digest, json.dumps(model)))
+                   (ident, dataset, definition, model['subject'], 'ols-studentized-v1', digest, json.dumps(model)))
         for r in records:
             if (r['year'], r['assessment'], r['level']) != (model['year'], model['assessment'], model['level']):
                 continue
             result = r['subjects'].get(model['subject'])
             if result:
                 db.execute('INSERT INTO model_result VALUES (?,?,?,?,?,?,?,?)',
-                           (ident, 'cps', r['school_id'], result['actual'], result['predicted'],
+                           (ident, dataset, r['school_id'], result['actual'], result['predicted'],
                             result['studentized'], result['low'], result['high']))
