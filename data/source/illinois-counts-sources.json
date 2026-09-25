@@ -7,5 +7,5 @@
   "extract": "illinois-iar-counts-2024.csv",
   "filters": "2023-24; School; All Students group and subgroup; IAR; Regular; math or ela",
   "validation": "Exact positive integer denominators for all grades 3–8 served by the school according to Report Card. Unique school/subject/grade. Weighted grade proficiency must reconcile to the published school rate within 0.11 percentage points. Failed checks and suppressed/ranged counts are excluded, never imputed.",
-  "limits": "Conservative reconciliation can exclude valid records. SAT denominators are not provided by this source. Counts describe tested students, not enrollment. Only 2024 statewide models are published."
+  "limits": "Conservative reconciliation can exclude valid records. SAT denominators are not provided by this source. Counts describe tested students, not enrollment. This extract covers 2024; the separate illinois-history-2023.json extract supplies 2023 history and its own source checksums."
 }

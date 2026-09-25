@@ -56,10 +56,12 @@ def prepare(database=DEFAULT_DB):
     counts = pl.read_csv(EXTRACT, infer_schema=False)
     count_ids = set(counts['StateAssignedSchID'])
     with connect(database) as db:
+        from import_illinois_history import import_history
+        import_history(db)
         profiles = {r['school_id']: dict(r) for r in db.execute("SELECT * FROM school WHERE dataset_id='isbe-2024'")}
         db.execute("DELETE FROM source WHERE id='edc-iar-2024'")
         add_source(db, 'edc-iar-2024', 'isbe-2024', EXTRACT, URL)
-        db.execute("UPDATE assessment_observation SET tested=NULL, raw_tested=NULL WHERE dataset_id='isbe-2024'")
+        db.execute("UPDATE assessment_observation SET tested=NULL, raw_tested=NULL WHERE dataset_id='isbe-2024' AND definition_id LIKE 'isbe-2024:2024:%'")
         accepted = rejected = 0
         for (sid, subject), group in counts.group_by(COLUMNS[:2]):
             subject = 'reading' if subject == 'ela' else subject
@@ -78,19 +80,22 @@ def prepare(database=DEFAULT_DB):
         schools = []
         for record in records:
             # Publish the IAR directory, including exclusions. SAT has no validated counts.
-            if record['level'] != 'ES':
+            if record['level'] != 'ES' or record['year'] != 2024:
                 continue
             p = profiles[record['school_id']]
+            profile = json.loads(p['profile_json'])
+            if profile['School Type'] not in ('Elementary School', 'Middle/Junior High School'):
+                continue
             if not record['subjects'] and record['school_id'] not in count_ids:
                 continue
             schools.append(dict(id=record['school_id'], name=p['name'], short=p['name'],
                 level='ES', program='Unclassified', district=p['district_name'], city=p['city'],
                 county=p['county'], income=record['income'], enrollment=record['enrollment'],
-                latitude=None, longitude=None, metrics=record['subjects'], history=[record]))
-        by_level = {level: {m['subject']: m for m in models if m['level'] == level} for level in ['ES', 'HS']}
+                latitude=None, longitude=None, metrics=record['subjects'], history=[r for r in records if r['school_id'] == record['school_id'] and r['level'] == 'ES']))
+        by_level = {level: {m['subject']: m for m in models if m['level'] == level and m['year'] == 2024} for level in ['ES', 'HS']}
         output = dict(year='2023–24', assessment_year=2024, schools=schools, models=by_level,
-            history_years=[2024], history_models=models, counts_validation=dict(accepted=accepted, rejected=rejected),
-            coverage_note='2024 IAR, grades 3–8. Counts are summed from EDC v3.1 grade records supplied by ISBE and checked against Report Card proficiency. Missing, suppressed or inconsistent counts are excluded. SAT counts and statewide historical years are not yet available. School program classifications and map coordinates are not available in this source.')
+            history_years=[2023, 2024], history_models=models, counts_validation=dict(accepted=accepted, rejected=rejected),
+            coverage_note='2024 IAR, grades 3–8, with 2023–24 residual history. Counts are summed from EDC v3.1 grade records supplied by ISBE and checked against Report Card proficiency. Missing, suppressed or inconsistent counts are excluded. SAT counts and years before 2023 are not yet available. School program classifications and map coordinates are not available in this source. The directory follows ISBE elementary/middle school classifications; models include all eligible IAR cohorts.')
         folder = ROOT/'data/illinois'
         folder.mkdir(exist_ok=True)
         (folder/'schools.json').write_text(json.dumps(output, separators=(',', ':'), allow_nan=False))

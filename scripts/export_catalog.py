@@ -33,12 +33,12 @@ def export(database=DEFAULT_DB, output=ROOT/'data'):
                        e.year,e.enrollment,e.low_income,e.percentage AS economic_disadvantage,
                        e.definition_id AS economic_measure
                 FROM school s JOIN economic_observation e USING(dataset_id,school_id)
-                WHERE s.dataset_id='isbe-2024' ORDER BY s.school_id''')]
+                WHERE s.dataset_id='isbe-2024' AND e.year=2024 ORDER BY s.school_id''')]
             assessments = [dict(r) for r in db.execute('''
                 SELECT a.school_id,d.name AS assessment,d.level,a.subject,a.proficiency,
                        a.tested,a.status,a.raw_value,a.source_order AS worksheet_row
                 FROM assessment_observation a JOIN assessment_definition d ON a.definition_id=d.id
-                WHERE a.dataset_id='isbe-2024' ORDER BY a.school_id,d.name,a.subject''')]
+                WHERE a.dataset_id='isbe-2024' AND d.year=2024 ORDER BY a.school_id,d.name,a.subject''')]
             ready = db.execute("SELECT status FROM dataset WHERE id='isbe-2024'").fetchone()[0] == 'ready_iar'
             audit = dict(year=2024, status='ready_iar' if ready else 'awaiting_tested_counts',
                          reason='The public workbook provides proficiency rates without tested counts. '

@@ -132,17 +132,21 @@ function renderHistory() {
   }
   const width = Math.max(host.clientWidth - 20, 300), height = 280;
   const margin = {left: 46, right: 22, top: 20, bottom: 48};
-  const x = d3.scaleLinear().domain([2015, 2024]).range([margin.left, width - margin.right]);
+  const historyYears = data.history_years || [2015,2016,2017,2018,2019,2021,2022,2023,2024];
+  const firstYear = Math.min(...historyYears), lastYear = Math.max(...historyYears);
+  const x = d3.scaleLinear().domain(firstYear === lastYear ? [firstYear-.5,lastYear+.5] : [firstYear,lastYear]).range([margin.left, width - margin.right]);
   const extent = Math.max(2, ...values.flatMap(d=>[Math.abs(d.low),Math.abs(d.high)]));
   const y = d3.scaleLinear().domain([-extent, extent]).nice().range([height - margin.bottom, margin.top]);
   const svg = d3.select(host).append('svg').attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img')
     .attr('aria-label', `${displayName(school)} ${label} externally studentized residuals from ${values[0].year} to ${values[values.length - 1].year}. Zero is predicted performance. Bars show approximate 95% sampling intervals. Values are in the table below.`);
   svg.append('g').attr('class','axis').attr('transform',`translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d=>signed(d,1)).tickSize(-(width-margin.left-margin.right))).call(g=>g.select('.domain').remove());
-  svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).tickValues([2015,2016,2017,2018,2019,2020,2021,2022,2023,2024]).tickFormat(d=>d).tickSize(0)).call(g=>g.selectAll('text').attr('dy',16).attr('transform','rotate(-35)').style('text-anchor','end'));
+  svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).tickValues(d3.range(firstYear,lastYear+1)).tickFormat(d=>d).tickSize(0)).call(g=>g.selectAll('text').attr('dy',16).attr('transform','rotate(-35)').style('text-anchor','end'));
   svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',11).attr('fill','#667386').text('Studentized residual · above / below prediction');
   svg.append('line').attr('x1',margin.left).attr('x2',width-margin.right).attr('y1',y(0)).attr('y2',y(0)).attr('stroke',color.ink).attr('stroke-width',1.5);
-  svg.append('line').attr('x1',x(2020)).attr('x2',x(2020)).attr('y1',margin.top).attr('y2',height-margin.bottom).attr('stroke','#c8d1dc').attr('stroke-dasharray','3 3');
-  svg.append('text').attr('x',x(2020)+6).attr('y',margin.top+12).attr('font-size',10).attr('fill','#667386').text('2020 no test');
+  if (firstYear <= 2020 && lastYear >= 2020) {
+    svg.append('line').attr('x1',x(2020)).attr('x2',x(2020)).attr('y1',margin.top).attr('y2',height-margin.bottom).attr('stroke','#c8d1dc').attr('stroke-dasharray','3 3');
+    svg.append('text').attr('x',x(2020)+6).attr('y',margin.top+12).attr('font-size',10).attr('fill','#667386').text('2020 no test');
+  }
   const pointColor = d=>d.value>=0?color.above:color.below;
   // Connect only adjacent years using the same assessment; preserve missing-year gaps.
   const segments = values.slice(1).map((d,i)=>[values[i],d]).filter(([a,b])=>b.year===a.year+1 && a.assessment===b.assessment);
@@ -220,7 +224,7 @@ async function init(){
         $('#level option[value="HS"]').disabled = statewide;
         $('#program').disabled = statewide;
         state.query = ''; state.program = 'all'; $('#search').value = ''; $('#program').value = 'all';
-        state.scope = statewide ? 'filtered' : 'selected'; $('#scope').value = state.scope;
+        state.scope = 'selected'; $('#scope').value = state.scope;
         mapSvg = null;
         $('.map-panel h2').textContent = statewide ? 'Across Illinois' : 'Across Chicago';
         $('.intro .eyebrow').textContent = statewide ? 'ILLINOIS PUBLIC SCHOOLS / 2023–24' : 'CHICAGO PUBLIC SCHOOLS / 2023–24';

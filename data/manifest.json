@@ -36,6 +36,13 @@
       "path": "data/raw/24-RC-Pub-Data-Set.xlsx",
       "url": "https://www.isbe.net/Documents/24-RC-Pub-Data-Set.xlsx",
       "sha256": "bab4981cd42a5355cfa8a62515b8364b981ff5e2397f4521deb0061034befa29"
+    },
+    {
+      "id": "isbe-edc-history-2023",
+      "dataset_id": "isbe-2024",
+      "path": "data/source/illinois-history-2023.json",
+      "url": "https://www.isbe.net/Documents/23-RC-Pub-Data-Set.xlsx",
+      "sha256": "277a79a2e2b262f343cb2206c609dd205fcd00af1e80e189e353c74c19f3ccad"
     }
   ],
   "assessments": [
@@ -210,6 +217,16 @@
       "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf"
     },
     {
+      "id": "isbe-2024:2023:IAR:ES",
+      "state": "IL",
+      "name": "IAR",
+      "year": 2023,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "Illinois 2023 IAR percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+      "source_url": "https://www.isbe.net/Pages/Report-Card-Metrics.aspx"
+    },
+    {
       "id": "isbe-2024:2024:IAR:ES",
       "state": "IL",
       "name": "IAR",
@@ -236,6 +253,12 @@
       "name": "CPS annual low-income enrollment",
       "definition": "Annual 20th-day low-income count divided by enrollment. Source labels vary by year.",
       "source_url": "https://www.cps.edu/about/district-data/demographics/"
+    },
+    {
+      "id": "isbe-low-income-2023",
+      "name": "Illinois Low Income 2023",
+      "definition": "Published 2023 Report Card low-income percentage.",
+      "source_url": "https://www.isbe.net/ilreportcarddata"
     },
     {
       "id": "isbe-low-income-2024",
@@ -654,28 +677,52 @@
       "input_sha256": "9bee8a23eef80918e756bca97fde099747f88f4e575d29bf373464890675fbea"
     },
     {
-      "id": "isbe-2024:2024:IAR:ES:combined:ols-v1:323db22bf442",
+      "id": "isbe-2024:2023:IAR:ES:combined:ols-v1:c6ee1b86d711",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2023:IAR:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
+    },
+    {
+      "id": "isbe-2024:2023:IAR:ES:math:ols-v1:c6ee1b86d711",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2023:IAR:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
+    },
+    {
+      "id": "isbe-2024:2023:IAR:ES:reading:ols-v1:c6ee1b86d711",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2023:IAR:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
+    },
+    {
+      "id": "isbe-2024:2024:IAR:ES:combined:ols-v1:c6ee1b86d711",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:IAR:ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "323db22bf442c6b89da40e849c333c860f5af3011839443019f295af28ee067f"
+      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
     },
     {
-      "id": "isbe-2024:2024:IAR:ES:math:ols-v1:323db22bf442",
+      "id": "isbe-2024:2024:IAR:ES:math:ols-v1:c6ee1b86d711",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:IAR:ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "323db22bf442c6b89da40e849c333c860f5af3011839443019f295af28ee067f"
+      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
     },
     {
-      "id": "isbe-2024:2024:IAR:ES:reading:ols-v1:323db22bf442",
+      "id": "isbe-2024:2024:IAR:ES:reading:ols-v1:c6ee1b86d711",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:IAR:ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "323db22bf442c6b89da40e849c333c860f5af3011839443019f295af28ee067f"
+      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
     }
   ],
   "states": [
