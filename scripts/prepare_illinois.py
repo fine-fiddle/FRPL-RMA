@@ -54,10 +54,17 @@ def validate_counts(rows, proficiency, grades_served=None):
 
 def prepare(database=DEFAULT_DB):
     counts = pl.read_csv(EXTRACT, infer_schema=False)
+    location_source = ROOT/'data/source/illinois-locations.json'
+    locations = {r['school_id']: r for r in json.loads(location_source.read_text())['locations']}
     count_ids = set(counts['StateAssignedSchID'])
     with connect(database) as db:
         from import_illinois_history import import_history
         import_history(db)
+        from import_illinois_sat_history import import_history as import_sat_history
+        import_sat_history(db)
+        db.execute("DELETE FROM source WHERE id='nces-illinois-locations'")
+        add_source(db, 'nces-illinois-locations', 'isbe-2024', location_source,
+                   'https://nces.ed.gov/opengis/rest/services/K12_School_Locations/EDGE_GEOCODE_PUBLICSCH_2324/MapServer/0')
         profiles = {r['school_id']: dict(r) for r in db.execute("SELECT * FROM school WHERE dataset_id='isbe-2024'")}
         db.execute("DELETE FROM source WHERE id='edc-iar-2024'")
         add_source(db, 'edc-iar-2024', 'isbe-2024', EXTRACT, URL)
@@ -73,29 +80,31 @@ def prepare(database=DEFAULT_DB):
                 continue
             db.execute("UPDATE assessment_observation SET tested=?,raw_tested=? WHERE dataset_id='isbe-2024' AND school_id=? AND subject=? AND definition_id='isbe-2024:2024:IAR:ES'", (n, str(n), sid, subject))
             accepted += 1
-        assessments = pl.DataFrame([dict(r) for r in db.execute("SELECT a.school_id,d.year,d.level,d.name assessment,a.subject,a.proficiency,a.tested FROM assessment_observation a JOIN assessment_definition d ON a.definition_id=d.id WHERE a.dataset_id='isbe-2024'")])
-        incomes = pl.DataFrame([dict(r) for r in db.execute("SELECT school_id,year,name,enrollment,low_income,percentage FROM economic_observation WHERE dataset_id='isbe-2024'")])
-        records, models = build_history(assessments, incomes)
+        assessments = pl.DataFrame([dict(r) for r in db.execute("SELECT a.school_id,d.year,d.level,d.name assessment,a.subject,a.proficiency,a.tested FROM assessment_observation a JOIN assessment_definition d ON a.definition_id=d.id WHERE a.dataset_id='isbe-2024'")], infer_schema_length=None)
+        incomes = pl.DataFrame([dict(r) for r in db.execute("SELECT school_id,year,name,enrollment,low_income,percentage FROM economic_observation WHERE dataset_id='isbe-2024'")], infer_schema_length=None)
+        records, models = build_history(assessments, incomes, point_only_assessments=('SAT',))
         save_models(db, records, models, 'isbe-2024')
         schools = []
         for record in records:
-            # Publish the IAR directory, including exclusions. SAT has no validated counts.
-            if record['level'] != 'ES' or record['year'] != 2024:
+            if record['year'] != 2024:
                 continue
             p = profiles[record['school_id']]
             profile = json.loads(p['profile_json'])
-            if profile['School Type'] not in ('Elementary School', 'Middle/Junior High School'):
+            expected_level = 'HS' if profile['School Type'] == 'High School' else 'ES' if profile['School Type'] in ('Elementary School', 'Middle/Junior High School') else None
+            if record['level'] != expected_level:
                 continue
-            if not record['subjects'] and record['school_id'] not in count_ids:
+            if record['level'] == 'ES' and not record['subjects'] and record['school_id'] not in count_ids:
                 continue
             schools.append(dict(id=record['school_id'], name=p['name'], short=p['name'],
-                level='ES', program='Unclassified', district=p['district_name'], city=p['city'],
+                level=record['level'], program='Unclassified', district=p['district_name'], city=p['city'],
                 county=p['county'], income=record['income'], enrollment=record['enrollment'],
-                latitude=None, longitude=None, metrics=record['subjects'], history=[r for r in records if r['school_id'] == record['school_id'] and r['level'] == 'ES']))
+                latitude=locations.get(record['school_id'], {}).get('latitude'),
+                longitude=locations.get(record['school_id'], {}).get('longitude'),
+                metrics=record['subjects'], history=[r for r in records if r['school_id'] == record['school_id'] and r['level'] == record['level']]))
         by_level = {level: {m['subject']: m for m in models if m['level'] == level and m['year'] == 2024} for level in ['ES', 'HS']}
         output = dict(year='2023–24', assessment_year=2024, schools=schools, models=by_level,
-            history_years=[2023, 2024], history_models=models, counts_validation=dict(accepted=accepted, rejected=rejected),
-            coverage_note='2024 IAR, grades 3–8, with 2023–24 residual history. Counts are summed from EDC v3.1 grade records supplied by ISBE and checked against Report Card proficiency. Missing, suppressed or inconsistent counts are excluded. SAT counts and years before 2023 are not yet available. School program classifications and map coordinates are not available in this source. The directory follows ISBE elementary/middle school classifications; models include all eligible IAR cohorts.')
+            history_years=sorted({r['year'] for r in records}), history_models=models, counts_validation=dict(accepted=accepted, rejected=rejected),
+            coverage_note='2024 IAR and SAT rankings. IAR history covers 2023–24; SAT covers 2019 and 2021–24. Each model uses same-year income. SAT tested counts are unavailable: residuals are shown without sampling intervals. IAR requires verified EDC counts for every expected grade. Earlier IAR school aggregates remain unavailable; grade percentages cannot be averaged without valid weights. Admissions-program classifications are unavailable. Map locations use an exact state-ID to NCES-ID crosswalk and the NCES 2023–24 directory.')
         folder = ROOT/'data/illinois'
         folder.mkdir(exist_ok=True)
         (folder/'schools.json').write_text(json.dumps(output, separators=(',', ':'), allow_nan=False))

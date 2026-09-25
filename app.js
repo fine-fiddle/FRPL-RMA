@@ -3,7 +3,10 @@ const $ = selector => document.querySelector(selector);
 const state = { level: 'ES', subject: 'combined', program: 'all', query: '', selected: new Set(), focus: null, scope: 'selected' };
 let data, geography, mapZoom, mapSvg;
 const color = { above: '#14816f', below: '#c76753', focus: '#315bda', gray: '#a9b5c8', ink: '#182840' };
-const signed = (n, digits = 2) => `${n > 0 ? '+' : ''}${n.toFixed(digits)}`;
+const signed = (n, digits = 2) => n == null ? 'Unavailable' : `${n > 0 ? '+' : ''}${n.toFixed(digits)}`;
+const testedLabel = n => n == null ? 'Tested count unavailable' : `${n.toLocaleString()} tested`;
+const hasInterval = m => m && Number.isFinite(m.low) && Number.isFinite(m.high);
+const intervalLabel = m => hasInterval(m) ? `${signed(m.low)} to ${signed(m.high)}` : 'Sampling interval unavailable';
 const pct = n => n == null ? 'Unavailable' : `${n.toFixed(1)}%`;
 const subjectLabel = () => ({ math: 'Math', reading: 'ELA', combined: 'Combined' })[state.subject];
 const metric = s => s.metrics[state.subject];
@@ -17,7 +20,7 @@ const displayName = s => s.short.replace(/\bHS\b/g, 'High School').replace(/\bES
 function tooltip(event, s) {
   const m = metric(s);
   const tip = $('#tooltip');
-  tip.innerHTML = `<strong>${escapeHTML(s.name)}</strong>${escapeHTML(s.district || s.program)} · Low income ${pct(s.income)}<br>${m ? `Proficiency ${pct(m.actual)} · Residual ${signed(m.studentized)}<br>${m.tested.toLocaleString()} tested${state.subject === 'combined' ? ' (smaller subject count)' : ''}` : 'Comparable assessment data unavailable'}`;
+  tip.innerHTML = `<strong>${escapeHTML(s.name)}</strong>${escapeHTML(s.district || s.program)} · Low income ${pct(s.income)}<br>${m ? `Proficiency ${pct(m.actual)} · Residual ${signed(m.studentized)}<br>${testedLabel(m.tested)} · ${intervalLabel(m)}${state.subject === 'combined' ? ' (smaller subject count)' : ''}` : 'Comparable assessment data unavailable'}`;
   tip.hidden = false;
   const box = event.currentTarget.getBoundingClientRect();
   const x = event.clientX || box.x + box.width / 2, y = event.clientY || box.y;
@@ -71,7 +74,7 @@ function renderMap() {
     host.innerHTML = '<p class="empty">Statewide map coordinates are not available yet. Use the searchable school list to explore Illinois rankings.</p>';
     return;
   }
-  mapSvg = d3.select(host).append('svg').attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img').attr('aria-label','Map of matching Chicago schools. Choose a marker to inspect it. The school list provides a keyboard-accessible alternative.');
+  mapSvg = d3.select(host).append('svg').attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img').attr('aria-label','Map of matching schools. Choose a marker to inspect it. The school list provides a keyboard-accessible alternative.');
   const projection = d3.geoMercator().fitExtent([[20,12],[width - 35,height-12]], geography);
   const layer = mapSvg.append('g');
   layer.selectAll('path').data(geography.features).join('path').attr('d',d3.geoPath(projection)).attr('fill','#e1e7eb').attr('stroke','#fafcfd').attr('stroke-width',.65);
@@ -135,7 +138,7 @@ function renderHistory() {
   const historyYears = data.history_years || [2015,2016,2017,2018,2019,2021,2022,2023,2024];
   const firstYear = Math.min(...historyYears), lastYear = Math.max(...historyYears);
   const x = d3.scaleLinear().domain(firstYear === lastYear ? [firstYear-.5,lastYear+.5] : [firstYear,lastYear]).range([margin.left, width - margin.right]);
-  const extent = Math.max(2, ...values.flatMap(d=>[Math.abs(d.low),Math.abs(d.high)]));
+  const extent = Math.max(2, ...values.flatMap(d=>[Math.abs(d.value),Math.abs(d.low || 0),Math.abs(d.high || 0)]));
   const y = d3.scaleLinear().domain([-extent, extent]).nice().range([height - margin.bottom, margin.top]);
   const svg = d3.select(host).append('svg').attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img')
     .attr('aria-label', `${displayName(school)} ${label} externally studentized residuals from ${values[0].year} to ${values[values.length - 1].year}. Zero is predicted performance. Bars show approximate 95% sampling intervals. Values are in the table below.`);
@@ -151,9 +154,9 @@ function renderHistory() {
   // Connect only adjacent years using the same assessment; preserve missing-year gaps.
   const segments = values.slice(1).map((d,i)=>[values[i],d]).filter(([a,b])=>b.year===a.year+1 && a.assessment===b.assessment);
   svg.append('g').selectAll('line').data(segments).join('line').attr('x1',d=>x(d[0].year)).attr('x2',d=>x(d[1].year)).attr('y1',d=>y(d[0].value)).attr('y2',d=>y(d[1].value)).attr('stroke',color.focus).attr('stroke-width',2);
-  svg.append('g').selectAll('line').data(values).join('line').attr('x1',d=>x(d.year)).attr('x2',d=>x(d.year)).attr('y1',d=>y(d.low)).attr('y2',d=>y(d.high)).attr('stroke',pointColor).attr('stroke-width',2).attr('opacity',.7);
-  for (const end of ['low','high']) svg.append('g').selectAll('line').data(values).join('line').attr('x1',d=>x(d.year)-4).attr('x2',d=>x(d.year)+4).attr('y1',d=>y(d[end])).attr('y2',d=>y(d[end])).attr('stroke',pointColor);
-  const description = d=>`${d.year} ${d.assessment}: actual ${pct(d.actual)}, predicted ${pct(d.predicted)}, difference ${signed(d.residual,1)} pp; studentized residual ${signed(d.value)}, interval ${signed(d.low)} to ${signed(d.high)}; low income ${pct(d.income)}; ${d.tested.toLocaleString()} tested; ${d.cohort_n} schools in model`;
+  svg.append('g').selectAll('line').data(values.filter(hasInterval)).join('line').attr('x1',d=>x(d.year)).attr('x2',d=>x(d.year)).attr('y1',d=>y(d.low)).attr('y2',d=>y(d.high)).attr('stroke',pointColor).attr('stroke-width',2).attr('opacity',.7);
+  for (const end of ['low','high']) svg.append('g').selectAll('line').data(values.filter(hasInterval)).join('line').attr('x1',d=>x(d.year)-4).attr('x2',d=>x(d.year)+4).attr('y1',d=>y(d[end])).attr('y2',d=>y(d[end])).attr('stroke',pointColor);
+  const description = d=>`${d.year} ${d.assessment}: actual ${pct(d.actual)}, predicted ${pct(d.predicted)}, difference ${signed(d.residual,1)} pp; studentized residual ${signed(d.value)}, ${intervalLabel(d)}; low income ${pct(d.income)}; ${testedLabel(d.tested)}; ${d.cohort_n} schools in model`;
   const points = svg.append('g').selectAll('circle').data(values).join('circle').attr('class','history-point').attr('cx',d=>x(d.year)).attr('cy',d=>y(d.value)).attr('r',5).attr('fill',pointColor).attr('stroke','white').attr('stroke-width',2).attr('tabindex',0).attr('aria-label',description);
   points.append('title').text(description);
   function showHistoryPoint(e,d) {
@@ -165,8 +168,8 @@ function renderHistory() {
   points.on('mouseenter',showHistoryPoint).on('focus',showHistoryPoint).on('mouseleave',hideTooltip).on('blur',hideTooltip).on('keydown',e=>{if(e.key==='Escape')hideTooltip();});
   svg.append('text').attr('x',width-margin.right).attr('y',height-7).attr('text-anchor','end').attr('font-size',10).attr('fill','#667386').text('School year');
   const assessments = [...new Set(values.map(d=>d.assessment))];
-  $('#history-subtitle').textContent = `${displayName(school)} · ${label} residuals · ${assessments.join(' → ')}`;
-  $('#history-table').innerHTML = `<table><caption>${escapeHTML(displayName(school))} · ${label}: annual actual versus predicted</caption><thead><tr><th>Year / test</th><th>Low income</th><th>Actual</th><th>Predicted</th><th>Difference</th><th>Studentized residual</th><th>95% interval</th><th>Tested</th><th>Model schools</th></tr></thead><tbody>${history.map(r=>{const m=r.subjects[state.subject]; return m ? `<tr><th>${r.year} ${escapeHTML(r.assessment)}</th><td>${pct(r.income)}</td><td>${pct(m.actual)}</td><td>${pct(m.predicted)}</td><td>${signed(m.residual,1)} pp</td><td>${signed(m.studentized)}</td><td>${signed(m.low)} to ${signed(m.high)}</td><td>${m.tested.toLocaleString()}</td><td>${m.cohort_n}</td></tr>` : `<tr><th>${r.year} ${escapeHTML(r.assessment)}</th><td>${pct(r.income)}</td><td colspan="7">${escapeHTML(r.exclusions[state.subject] || 'No eligible result')}</td></tr>`;}).join('')}</tbody></table>`;
+  $('#history-subtitle').textContent = `${displayName(school)} · ${label} residuals · ${assessments.join(' → ')}${values.some(d=>!hasInterval(d)) ? ' · Sampling intervals unavailable for points without bars' : ''}`;
+  $('#history-table').innerHTML = `<table><caption>${escapeHTML(displayName(school))} · ${label}: annual actual versus predicted</caption><thead><tr><th>Year / test</th><th>Low income</th><th>Actual</th><th>Predicted</th><th>Difference</th><th>Studentized residual</th><th>95% interval</th><th>Tested</th><th>Model schools</th></tr></thead><tbody>${history.map(r=>{const m=r.subjects[state.subject]; return m ? `<tr><th>${r.year} ${escapeHTML(r.assessment)}</th><td>${pct(r.income)}</td><td>${pct(m.actual)}</td><td>${pct(m.predicted)}</td><td>${signed(m.residual,1)} pp</td><td>${signed(m.studentized)}</td><td>${intervalLabel(m)}</td><td>${m.tested == null ? 'Unavailable' : m.tested.toLocaleString()}</td><td>${m.cohort_n}</td></tr>` : `<tr><th>${r.year} ${escapeHTML(r.assessment)}</th><td>${pct(r.income)}</td><td colspan="7">${escapeHTML(r.exclusions[state.subject] || 'No eligible result')}</td></tr>`;}).join('')}</tbody></table>`;
 }
 function renderComparison() {
   const selection=$('#selection'); selection.replaceChildren(); $('#combined-count-note').hidden=state.subject!=='combined';
@@ -176,22 +179,23 @@ function renderComparison() {
     chip.querySelector('button').addEventListener('click',()=>choose(id,false));selection.append(chip);
   }
   let rows=(state.scope==='selected'?cohort().filter(s=>state.selected.has(s.id)):filtered()).filter(s=>metric(s));
+  $('.chart-footnote span').textContent = rows.some(s=>!hasInterval(metric(s))) ? 'Sampling intervals unavailable where tested counts are missing' : 'Approximate 95% sampling interval';
   rows.sort((a,b)=>metric(b).studentized-metric(a).studentized);
   const host=$('#residuals'), axisHost=$('#residual-axis');host.replaceChildren();axisHost.replaceChildren();
   if(!rows.length){host.innerHTML='<p class="empty">Select schools from the list or map to compare their residuals.</p>';return;}
   const width=host.clientWidth, left=width<500?132:198, right=44, rowHeight=49;
-  const extent=Math.max(2.5,...rows.flatMap(s=>[Math.abs(metric(s).low),Math.abs(metric(s).high)]))+.25;
+  const extent=Math.max(2.5,...rows.flatMap(s=>[Math.abs(metric(s).studentized),Math.abs(metric(s).low || 0),Math.abs(metric(s).high || 0)]))+.25;
   const x=d3.scaleLinear().domain([-extent,extent]).range([left,width-right]);
   const axis=d3.select(axisHost).append('svg').attr('viewBox',`0 0 ${width} 27`);
   axis.append('g').attr('class','axis').attr('transform','translate(0,22)').call(d3.axisTop(x).ticks(width<500?3:5).tickSize(0).tickFormat(d=>d===0?'0':signed(d,1))).call(g=>g.select('.domain').remove());
   const svg=d3.select(host).append('svg').attr('viewBox',`0 0 ${width} ${rows.length*rowHeight}`).attr('height',rows.length*rowHeight).attr('role','group').attr('aria-label','Schools sorted by externally studentized residual. Intervals are approximate conditional sampling intervals.');
-  const groups=svg.selectAll('g.residual-row').data(rows).join('g').attr('class','residual-row').attr('transform',(s,i)=>`translate(0,${i*rowHeight})`).attr('tabindex',0).attr('role','button').attr('aria-label',s=>`${s.name}, residual ${signed(metric(s).studentized)}, approximate interval ${signed(metric(s).low)} to ${signed(metric(s).high)}. Inspect school.`).on('click',(e,s)=>inspect(s.id)).on('keydown',(e,s)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect(s.id);}}).on('mouseenter',tooltip).on('mouseleave',hideTooltip).on('focus',tooltip).on('blur',hideTooltip);
+  const groups=svg.selectAll('g.residual-row').data(rows).join('g').attr('class','residual-row').attr('transform',(s,i)=>`translate(0,${i*rowHeight})`).attr('tabindex',0).attr('role','button').attr('aria-label',s=>`${s.name}, residual ${signed(metric(s).studentized)}, ${intervalLabel(metric(s))}. Inspect school.`).on('click',(e,s)=>inspect(s.id)).on('keydown',(e,s)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect(s.id);}}).on('mouseenter',tooltip).on('mouseleave',hideTooltip).on('focus',tooltip).on('blur',hideTooltip);
   groups.append('rect').attr('class','row-bg').attr('width',width).attr('height',rowHeight).attr('fill',(s,i)=>s.id===state.focus?'#f3f6ff':i%2?'#fafbfd':'white').attr('rx',3);
   groups.append('line').attr('x1',x(0)).attr('x2',x(0)).attr('y1',0).attr('y2',rowHeight).attr('stroke','#bbc6d5').attr('stroke-dasharray','3 3');
   groups.append('text').attr('x',9).attr('y',21).attr('font-size',12).attr('font-weight',600).attr('fill',color.ink).text(s=>{const n=displayName(s);return n.length>(width<500?18:27)?n.slice(0,width<500?16:25)+'…':n;});
-  groups.append('text').attr('x',9).attr('y',37).attr('font-size',12).attr('fill','#667386').text(s=>`${metric(s).tested.toLocaleString()} tested${state.subject==='combined'?'*':''} · ${pct(s.income)} low income`);
-  groups.append('line').attr('x1',s=>x(metric(s).low)).attr('x2',s=>x(metric(s).high)).attr('y1',24).attr('y2',24).attr('stroke',s=>metric(s).studentized>=0?color.above:color.below).attr('stroke-width',2).attr('opacity',.6);
-  for(const end of ['low','high'])groups.append('line').attr('x1',s=>x(metric(s)[end])).attr('x2',s=>x(metric(s)[end])).attr('y1',20).attr('y2',28).attr('stroke',s=>metric(s).studentized>=0?color.above:color.below).attr('opacity',.6);
+  groups.append('text').attr('x',9).attr('y',37).attr('font-size',12).attr('fill','#667386').text(s=>`${metric(s).tested == null ? 'Count unavailable' : testedLabel(metric(s).tested)}${state.subject==='combined' && metric(s).tested != null?'*':''} · ${pct(s.income)} low income`);
+  groups.filter(s=>hasInterval(metric(s))).append('line').attr('x1',s=>x(metric(s).low)).attr('x2',s=>x(metric(s).high)).attr('y1',24).attr('y2',24).attr('stroke',s=>metric(s).studentized>=0?color.above:color.below).attr('stroke-width',2).attr('opacity',.6);
+  for(const end of ['low','high'])groups.filter(s=>hasInterval(metric(s))).append('line').attr('x1',s=>x(metric(s)[end])).attr('x2',s=>x(metric(s)[end])).attr('y1',20).attr('y2',28).attr('stroke',s=>metric(s).studentized>=0?color.above:color.below).attr('opacity',.6);
   groups.append('circle').attr('cx',s=>x(metric(s).studentized)).attr('cy',24).attr('r',4.5).attr('fill',s=>metric(s).studentized>=0?color.above:color.below);
   groups.append('text').attr('x',width-4).attr('y',28).attr('text-anchor','end').attr('font-size',12).attr('font-weight',650).attr('fill',s=>metric(s).studentized>=0?color.above:color.below).text(s=>signed(metric(s).studentized));
 }
@@ -221,17 +225,17 @@ async function init(){
         [data,geography] = loaded;
         const statewide = selectedRegion.id === 'statewide';
         state.level = 'ES'; $('#level').value = 'ES';
-        $('#level option[value="HS"]').disabled = statewide;
+        $('#level option[value="HS"]').disabled = false;
         $('#program').disabled = statewide;
         state.query = ''; state.program = 'all'; $('#search').value = ''; $('#program').value = 'all';
         state.scope = 'selected'; $('#scope').value = state.scope;
         mapSvg = null;
         $('.map-panel h2').textContent = statewide ? 'Across Illinois' : 'Across Chicago';
         $('.intro .eyebrow').textContent = statewide ? 'ILLINOIS PUBLIC SCHOOLS / 2023–24' : 'CHICAGO PUBLIC SCHOOLS / 2023–24';
-        $('#map').setAttribute('aria-label', statewide ? 'Statewide map unavailable' : 'Chicago school map');
-        $('.map-source').textContent = statewide ? 'Use the list to select schools. Statewide classifications are unavailable.' : 'Community boundaries: City of Chicago · Scroll or pinch to zoom';
-        $('#map-reset').disabled = statewide;
-        $('#geography-note').textContent = statewide ? 'Comparison population: Illinois statewide · 2024 IAR, grades 3–8. High-school SAT rankings await tested counts.' : 'Comparison population: Chicago Public Schools · CPS annual assessment cohorts.';
+        $('#map').setAttribute('aria-label', statewide ? 'Illinois school map' : 'Chicago school map');
+        $('.map-source').textContent = statewide ? `Locations: NCES 2023–24 · Boundary: Illinois State Geological Survey · ${data.schools.filter(s=>s.latitude!=null&&s.longitude!=null).length} of ${data.schools.length} schools mapped · Scroll or pinch to zoom` : 'Community boundaries: City of Chicago · Scroll or pinch to zoom';
+        $('#map-reset').disabled = false;
+        $('#geography-note').textContent = statewide ? 'Comparison population: Illinois statewide · 2024 IAR and SAT. Sampling intervals are unavailable where tested counts are missing.' : 'Comparison population: Chicago Public Schools · CPS annual assessment cohorts.';
         $('#coverage').textContent = data.coverage_note || `The directory contains ${data.schools.length} grade and high schools. Math models include ${data.models.ES.math.n} grade schools and ${data.models.HS.math.n} high schools. Data retrieved September 17, 2026.`;
         defaults(); render();
         $('#load-error').hidden = true;

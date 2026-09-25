@@ -43,6 +43,20 @@
       "path": "data/source/illinois-history-2023.json",
       "url": "https://www.isbe.net/Documents/23-RC-Pub-Data-Set.xlsx",
       "sha256": "277a79a2e2b262f343cb2206c609dd205fcd00af1e80e189e353c74c19f3ccad"
+    },
+    {
+      "id": "isbe-sat-history",
+      "dataset_id": "isbe-2024",
+      "path": "data/source/illinois-sat-history.json",
+      "url": "https://www.isbe.net/ilreportcarddata",
+      "sha256": "deb488fcebbc71af2fc5bac02fc2277d1788fb674e9e750e9c544bd0e5cb056d"
+    },
+    {
+      "id": "nces-illinois-locations",
+      "dataset_id": "isbe-2024",
+      "path": "data/source/illinois-locations.json",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/EDGE_GEOCODE_PUBLICSCH_2324/MapServer/0",
+      "sha256": "be6cea45a397e3a86104990f7ee8962362eff51aac94103a5c0283b344fe19bb"
     }
   ],
   "assessments": [
@@ -217,6 +231,36 @@
       "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf"
     },
     {
+      "id": "isbe-2024:2019:SAT:HS",
+      "state": "IL",
+      "name": "SAT",
+      "year": 2019,
+      "level": "HS",
+      "grades": "High-school tested grades under that year\u2019s rules",
+      "standard": "Illinois 2019 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+      "source_url": "https://www.isbe.net/Pages/Report-Card-Metrics.aspx"
+    },
+    {
+      "id": "isbe-2024:2021:SAT:HS",
+      "state": "IL",
+      "name": "SAT",
+      "year": 2021,
+      "level": "HS",
+      "grades": "High-school tested grades under that year\u2019s rules",
+      "standard": "Illinois 2021 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+      "source_url": "https://www.isbe.net/Pages/Report-Card-Metrics.aspx"
+    },
+    {
+      "id": "isbe-2024:2022:SAT:HS",
+      "state": "IL",
+      "name": "SAT",
+      "year": 2022,
+      "level": "HS",
+      "grades": "High-school tested grades under that year\u2019s rules",
+      "standard": "Illinois 2022 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+      "source_url": "https://www.isbe.net/Pages/Report-Card-Metrics.aspx"
+    },
+    {
       "id": "isbe-2024:2023:IAR:ES",
       "state": "IL",
       "name": "IAR",
@@ -224,6 +268,16 @@
       "level": "ES",
       "grades": "3\u20138",
       "standard": "Illinois 2023 IAR percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+      "source_url": "https://www.isbe.net/Pages/Report-Card-Metrics.aspx"
+    },
+    {
+      "id": "isbe-2024:2023:SAT:HS",
+      "state": "IL",
+      "name": "SAT",
+      "year": 2023,
+      "level": "HS",
+      "grades": "High-school tested grades under that year\u2019s rules",
+      "standard": "Illinois 2023 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
       "source_url": "https://www.isbe.net/Pages/Report-Card-Metrics.aspx"
     },
     {
@@ -253,6 +307,24 @@
       "name": "CPS annual low-income enrollment",
       "definition": "Annual 20th-day low-income count divided by enrollment. Source labels vary by year.",
       "source_url": "https://www.cps.edu/about/district-data/demographics/"
+    },
+    {
+      "id": "isbe-low-income-2019",
+      "name": "Illinois Low Income 2019",
+      "definition": "Published 2019 Report Card low-income percentage.",
+      "source_url": "https://www.isbe.net/Documents/2019-Report-Card-Public-Data-Set.xlsx"
+    },
+    {
+      "id": "isbe-low-income-2021",
+      "name": "Illinois Low Income 2021",
+      "definition": "Published 2021 Report Card low-income percentage.",
+      "source_url": "https://www.isbe.net/Documents/2021-RC-Pub-Data-Set.xlsx"
+    },
+    {
+      "id": "isbe-low-income-2022",
+      "name": "Illinois Low Income 2022",
+      "definition": "Published 2022 Report Card low-income percentage.",
+      "source_url": "https://www.isbe.net/Documents/2022-Report-Card-Public-Data-Set.xlsx"
     },
     {
       "id": "isbe-low-income-2023",
@@ -677,52 +749,172 @@
       "input_sha256": "9bee8a23eef80918e756bca97fde099747f88f4e575d29bf373464890675fbea"
     },
     {
-      "id": "isbe-2024:2023:IAR:ES:combined:ols-v1:c6ee1b86d711",
+      "id": "isbe-2024:2019:SAT:HS:combined:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2019:SAT:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2019:SAT:HS:math:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2019:SAT:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2019:SAT:HS:reading:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2019:SAT:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2021:SAT:HS:combined:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2021:SAT:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2021:SAT:HS:math:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2021:SAT:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2021:SAT:HS:reading:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2021:SAT:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2022:SAT:HS:combined:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2022:SAT:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2022:SAT:HS:math:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2022:SAT:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2022:SAT:HS:reading:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2022:SAT:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2023:IAR:ES:combined:ols-v1:c1f6268cb4e1",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2023:IAR:ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
     },
     {
-      "id": "isbe-2024:2023:IAR:ES:math:ols-v1:c6ee1b86d711",
+      "id": "isbe-2024:2023:IAR:ES:math:ols-v1:c1f6268cb4e1",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2023:IAR:ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
     },
     {
-      "id": "isbe-2024:2023:IAR:ES:reading:ols-v1:c6ee1b86d711",
+      "id": "isbe-2024:2023:IAR:ES:reading:ols-v1:c1f6268cb4e1",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2023:IAR:ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
     },
     {
-      "id": "isbe-2024:2024:IAR:ES:combined:ols-v1:c6ee1b86d711",
+      "id": "isbe-2024:2023:SAT:HS:combined:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2023:SAT:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2023:SAT:HS:math:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2023:SAT:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2023:SAT:HS:reading:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2023:SAT:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2024:IAR:ES:combined:ols-v1:c1f6268cb4e1",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:IAR:ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
     },
     {
-      "id": "isbe-2024:2024:IAR:ES:math:ols-v1:c6ee1b86d711",
+      "id": "isbe-2024:2024:IAR:ES:math:ols-v1:c1f6268cb4e1",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:IAR:ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
     },
     {
-      "id": "isbe-2024:2024:IAR:ES:reading:ols-v1:c6ee1b86d711",
+      "id": "isbe-2024:2024:IAR:ES:reading:ols-v1:c1f6268cb4e1",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:IAR:ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c6ee1b86d711870dd15ef986305c6a9d98223955020b5f2448d2ea56e65969a4"
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2024:SAT:HS:combined:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2024:SAT:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2024:SAT:HS:math:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2024:SAT:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+    },
+    {
+      "id": "isbe-2024:2024:SAT:HS:reading:ols-v1:c1f6268cb4e1",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2024:SAT:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
     }
   ],
   "states": [
@@ -745,9 +937,10 @@
           "dataset": "isbe-2024",
           "status": "ready",
           "schools": "data/illinois/schools.json",
-          "boundaries": null,
+          "boundaries": "data/illinois/boundary.geojson",
           "levels": [
-            "ES"
+            "ES",
+            "HS"
           ],
           "model_scope": "Illinois statewide assessment cohorts",
           "audit": "data/illinois/import-2024.json"

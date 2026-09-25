@@ -55,7 +55,7 @@ def sampling_variance(pct, n):
     p = (pct / 100 * n + .5) / (n+1)
     return 10000 * p * (1-p) / n
 
-def build_history(assessments, incomes):
+def build_history(assessments, incomes, point_only_assessments=()):
     """Fit all historical schools, without conditioning on the current directory."""
     if incomes.select(pl.struct(['school_id','year']).is_duplicated().any()).item():
         raise ValueError('Duplicate income school/year keys')
@@ -75,20 +75,22 @@ def build_history(assessments, incomes):
             income=income, enrollment=total, income_year=year if demographic else None,
             income_label=demographic.get('income_label'), subjects={}, exclusions={}))
         pct, n = number(r['proficiency']), number(r['tested'])
+        point_only = r['assessment'] in point_only_assessments
         reason = ('Missing or suppressed proficiency' if pct is None else
                   'Invalid proficiency' if not 0 <= pct <= 100 else
-                  'Missing or fewer than 10 tested' if n is None or n < 10 else
+                  'Missing or fewer than 10 tested' if (n is None and not point_only) or (n is not None and n < 10) else
                   'Missing or invalid same-year income' if income is None else None)
         if reason:
             record['exclusions'][r['subject']] = reason
             continue
-        record['subjects'][r['subject']] = dict(actual=pct, tested=int(n), variance=sampling_variance(pct, n))
+        record['subjects'][r['subject']] = dict(actual=pct, tested=int(n) if n is not None else None,
+            variance=sampling_variance(pct, n) if n is not None else 0)
     for record in records.values():
         subjects = record['subjects']
         if all(s in subjects for s in ['math', 'reading']):
             m, r = subjects['math'], subjects['reading']
             subjects['combined'] = dict(actual=(m['actual']+r['actual'])/2,
-                tested=min(m['tested'],r['tested']),
+                tested=min(m['tested'],r['tested']) if m['tested'] is not None and r['tested'] is not None else None,
                 variance=(np.sqrt(m['variance'])+np.sqrt(r['variance']))**2/4)
         else:
             record['exclusions']['combined'] = 'Both eligible subject results required'
@@ -109,7 +111,12 @@ def build_history(assessments, incomes):
                 continue
             models.append(dict(year=year, level=level, assessment=assessment, subject=subject,
                                assessed_schools=len(cohort), excluded_schools=len(cohort)-len(eligible), **model))
+            missing_counts = any(r['subjects'][subject]['tested'] is None for r in eligible)
             for record, result in zip(eligible, results):
+                if missing_counts:
+                    # Regression propagation uses every member's sampling variance.
+                    # Zero placeholders must never become published certainty.
+                    result.update(low=None, high=None)
                 record['subjects'][subject].update(result, cohort_n=model['n'])
                 del record['subjects'][subject]['variance']
     return sorted(records.values(), key=lambda r: (r['school_id'],r['year'],r['level'],r['assessment'])), models

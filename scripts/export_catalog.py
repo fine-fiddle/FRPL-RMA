@@ -50,11 +50,11 @@ def export(database=DEFAULT_DB, output=ROOT/'data'):
             (folder/'import-2024.json').write_text(json.dumps(audit, separators=(',', ':'), allow_nan=False))
             catalog['states'][0]['regions'].append(dict(
                 id='statewide', name='Statewide', dataset='isbe-2024', status='ready' if ready else audit['status'],
-                schools='data/illinois/schools.json', boundaries=None, levels=['ES'],
+                schools='data/illinois/schools.json', boundaries='data/illinois/boundary.geojson', levels=['ES', 'HS'],
                 model_scope='Illinois statewide assessment cohorts',
                 audit='data/illinois/import-2024.json'))
             if ready:
-                audit['reason'] = 'IAR counts validated from EDC v3.1. SAT tested counts remain unavailable.'
+                audit['reason'] = 'IAR counts validated from EDC v3.1. SAT residuals are available; tested counts and sampling intervals are unavailable.'
                 (folder/'import-2024.json').write_text(json.dumps(audit, separators=(',', ':'), allow_nan=False))
             catalog['statewide_coverage'] = dict(
                 schools=len(schools),
