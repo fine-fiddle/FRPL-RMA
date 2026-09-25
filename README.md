@@ -17,7 +17,9 @@ Python 3.14 was used for the pinned requirements.
 ```sh
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
+.venv/bin/python scripts/build_database.py
 .venv/bin/python scripts/prepare_data.py
+.venv/bin/python scripts/export_catalog.py
 .venv/bin/python -m unittest discover -s tests -v
 node --check app.js
 ```
@@ -26,7 +28,30 @@ The checked-in CSV inputs reproduce data/schools.json without downloading anythi
 
 ## Hosting
 
-Publish the repository root from the `live-site` branch in GitHub **Settings → Pages → Deploy from a branch → live-site → / (root)**. `.nojekyll` disables Jekyll. All asset paths are relative, so project-site hosting at `/FRPL-RMA/` works. No build step is needed.
+Publish the repository root from the `master` branch in GitHub **Settings → Pages → Deploy from a branch → master → / (root)**. `.nojekyll` disables Jekyll. All asset paths are relative, so project-site hosting at `/FRPL-RMA/` works. No build step is needed on the hosting service.
+
+## Illinois pilot and SQLite
+
+The local canonical database is `data/build/schools.sqlite` (ignored by Git). Raw sources remain immutable inputs; SQLite holds school identities, annual economic observations, assessment observations and definitions, provenance, model runs and results. The browser downloads only generated JSON. SQLite is rebuilt transactionally to a temporary file before replacing the prior database.
+
+To include the official statewide 2024 extract:
+
+```sh
+mkdir -p data/raw
+curl -L --fail 'https://www.isbe.net/Documents/24-RC-Pub-Data-Set.xlsx' -o data/raw/24-RC-Pub-Data-Set.xlsx
+.venv/bin/python scripts/build_database.py --illinois data/raw/24-RC-Pub-Data-Set.xlsx
+.venv/bin/python scripts/prepare_data.py
+.venv/bin/python scripts/export_catalog.py
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+The 53 MB original XLSX is ignored by Git; its URL and SHA-256 are recorded in `data/manifest.json`. The reduced statewide import is `data/illinois/import-2024.json`. It retains raw suppression markers and source worksheet row numbers. SQLite keeps the original extracted demographic fields as well. The importer uses explicit column names and rejects duplicate identities, invalid numeric ranges and missing required fields. District and state summary rows are excluded.
+
+The pilot contains 3,835 school identities and separate IAR/SAT observations. The public workbook has no tested-student counts for these rates. Statewide comparisons remain `awaiting_tested_counts`; no enrollment-based substitute, uncertainty interval, or residual ranking is generated. Chicago's existing 51 models and website JSON are reproduced exactly through SQLite. The displayed selector exposes Illinois → Chicago and marks Statewide as in preparation.
+
+State standards, assessment year, tested grades and source population are part of a model's identity. IAR and SAT observations from a mixed-grade school remain separate. Region filtering must not silently refit a model. Cross-state proficiency and residual values are not a common scale. CPS IDs and statewide RCDTS IDs remain separate namespaces until an authoritative crosswalk is available; school names are not used to infer matches.
+
+Next: acquire matching tested counts and school coordinates, verify the CPS-to-RCDTS crosswalk, then enable statewide models and region filtering. Historical statewide importers need year-specific schema and standards checks before additional years are exposed.
 
 ## Statistical specification
 

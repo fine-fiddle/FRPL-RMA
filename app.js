@@ -189,7 +189,24 @@ function render(){hideTooltip();const activeId=document.activeElement?.id;render
 function setFilter(){state.query=$('#search').value.trim().toLowerCase();state.program=$('#program').value;ensureFocus();render();announce(`${filtered().length} matching schools. Regression unchanged.`);}
 async function init(){
   try{
-    [data,geography]=await Promise.all(['data/schools.json?v=residual-history-3','data/chicago-areas.geojson?v=history-2'].map(async url=>{const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
+    const catalogResponse = await fetch('data/manifest.json');
+    if (!catalogResponse.ok) throw new Error('Dataset catalog unavailable');
+    const catalog = await catalogResponse.json();
+    const stateSelect = $('#state-select'), regionSelect = $('#region-select');
+    stateSelect.replaceChildren(...catalog.states.map(s => new Option(s.name, s.id)));
+    const locationState = catalog.states.find(s => s.id === 'IL');
+    stateSelect.value = locationState.id;
+    regionSelect.replaceChildren(...locationState.regions.map(region => {
+      const option = new Option(region.status === 'ready' ? region.name : `${region.name} — in preparation`, region.id);
+      option.disabled = region.status !== 'ready';
+      return option;
+    }));
+    regionSelect.value = 'chicago';
+    $('#geography-note').textContent = 'Comparison population: Chicago Public Schools.' +
+      (locationState.regions.some(r => r.id === 'statewide') ? ' Statewide data imported; tested counts still needed before comparisons can be enabled.' : '');
+    document.querySelectorAll('a[href="#comparability"]').forEach(a => a.addEventListener('click', () => { $('#comparability').open = true; }));
+    const selectedRegion = locationState.regions.find(r => r.id === regionSelect.value);
+    [data,geography]=await Promise.all([selectedRegion.schools,selectedRegion.boundaries].map(async url=>{const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
     defaults();render();
     $('#coverage').textContent=`The directory contains ${data.schools.length} grade and high schools from the SY2023–24 profile. Eligible models include ${data.models.ES.math.n} grade schools and ${data.models.HS.math.n} high schools for each subject. Data retrieved September 17, 2026.`;
     $('#search').addEventListener('input',setFilter);$('#program').addEventListener('change',setFilter);

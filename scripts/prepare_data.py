@@ -1,8 +1,9 @@
-"""Prepare site JSON from source CSVs. No network or website build required."""
+"""Prepare site JSON from the canonical SQLite database. No network required."""
 from pathlib import Path
 import json
 import numpy as np
 import polars as pl
+from database import DEFAULT_DB, connect, chicago_frames, save_models
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -113,11 +114,14 @@ def build_history(assessments, incomes):
                 del record['subjects'][subject]['variance']
     return sorted(records.values(), key=lambda r: (r['school_id'],r['year'],r['level'],r['assessment'])), models
 
-def prepare():
-    profiles = pl.read_csv(ROOT/'data/source/cps-profile-sy2324.csv', infer_schema=False)
-    history = pl.read_csv(ROOT/'data/source/assessments-history.csv', infer_schema=False)
-    incomes = pl.read_csv(ROOT/'data/source/income-history.csv', infer_schema=False)
+def prepare(database=DEFAULT_DB):
+    if not Path(database).exists():
+        raise FileNotFoundError('Run scripts/build_database.py before preparing JSON')
+    with connect(database) as db:
+        profiles, history, incomes = chicago_frames(db)
     history_records, history_models = build_history(history, incomes)
+    with connect(database) as db:
+        save_models(db, history_records, history_models)
     current_income = {r['school_id']: r for r in incomes.iter_rows(named=True) if r['year'] == '2024'}
     schools = []
     for p in profiles.iter_rows(named=True):
@@ -149,4 +153,8 @@ def prepare():
     (ROOT/'data/history.json').write_text(json.dumps(dict(records=history_records, models=history_models), separators=(',',':'), allow_nan=False))
     print(json.dumps({level:{s:m['n'] for s,m in subjects.items()} for level,subjects in models.items()},indent=2))
 
-if __name__=='__main__': prepare()
+if __name__=='__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--database', type=Path, default=DEFAULT_DB)
+    prepare(parser.parse_args().database)

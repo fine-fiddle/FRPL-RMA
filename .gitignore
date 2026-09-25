@@ -2,3 +2,5 @@
 __pycache__/
 .DS_Store
 .sites-runtime/
+data/raw/
+data/build/
