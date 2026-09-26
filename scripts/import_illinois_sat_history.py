@@ -7,6 +7,7 @@ from database import ROOT, add_source, add_definition, numeric
 
 OUTPUT = ROOT/'data/source/illinois-sat-history.json'
 SOURCES = {
+    2018: ('18-RC-Pub-Data-Set.xlsx', 'Report-Card-Public-Data-Set.xlsx'),
     2019: ('19-RC-Pub-Data-Set.xlsx', '2019-Report-Card-Public-Data-Set.xlsx'),
     2021: ('21-RC-Pub-Data-Set.xlsx', '2021-RC-Pub-Data-Set.xlsx'),
     2022: ('22-RC-Pub-Data-Set.xlsx', '2022-Report-Card-Public-Data-Set.xlsx'),
@@ -24,7 +25,9 @@ def extract():
         workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
         rows = workbook['General'].values
         headers = next(rows)
-        indices = [headers.index(f) for f in FIELDS]
+        aliases = {'# Student Enrollment': 'Student Enrollment - Total',
+                   '% Student Enrollment - Low Income': 'Student Enrollment - Low Income %'} if year == 2018 else {}
+        indices = [headers.index(aliases.get(f, f)) for f in FIELDS]
         profiles = {r[0]: dict(zip(FIELDS, [r[i] for i in indices])) for r in rows
                     if r[headers.index('Type')] == 'School'}
         rows = workbook['SAT'].values
@@ -37,7 +40,7 @@ def extract():
                 continue
             levels = {s: [row[i] for i in ii] for s, ii in indices.items()}
             # Retain high-school suppression as well as reported mixed-grade results.
-            if profiles[row[0]]['School Type'] == 'High School' or any(
+            if str(profiles[row[0]]['School Type']).casefold() == 'high school' or any(
                     all(numeric(v) is not None for v in values) for values in levels.values()):
                 observations.append(dict(profile=profiles[row[0]], levels=levels))
         workbook.close()

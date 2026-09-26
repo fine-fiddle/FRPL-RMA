@@ -40,7 +40,7 @@ test('explicit empty selection survives reload, while absent selection gets defa
 });
 test('invalid filters and foreign school IDs are safely normalized',()=>{
   const a=app();
-  a.run(`restoreURL(new URLSearchParams('level=bad&subject=bad&program=Selective&schools=003,unknown,001,001&focus=unknown'),true);syncURL();`);
+  a.run(`restoreURL(new URLSearchParams('level=bad&subject=bad&program=bad&schools=003,unknown,001,001&focus=unknown'),true);syncURL();`);
   const p=new URL(a.window.location.href).searchParams;
   assert.equal(p.get('schools'),'001');
   assert.equal(p.get('level'),'ES');
@@ -55,4 +55,12 @@ test('query punctuation and high-school state round-trip',()=>{
   a.run(`restoreURL(new URL(window.location.href).searchParams,false);syncURL();`);
   assert.equal(a.window.location.href,first);
   assert.equal(new URL(first).searchParams.get('q'),'a & b + c');
+});
+test('verified CPS program filters survive statewide share links',()=>{
+  const a=app();
+  a.run(`restoreURL(new URLSearchParams('program=Selective&schools=002&focus=002'),true);syncURL();`);
+  const first=a.window.location.href;
+  assert.equal(new URL(first).searchParams.get('program'),'Selective');
+  a.run(`restoreURL(new URL(window.location.href).searchParams,true);syncURL();`);
+  assert.equal(a.window.location.href,first);
 });

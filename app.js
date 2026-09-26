@@ -24,7 +24,7 @@ function restoreURL(params, statewide) {
   const subject = params.get('subject') === 'ela' ? 'reading' : params.get('subject');
   state.subject = ['math','reading','combined'].includes(subject) ? subject : 'combined';
   const programs = [...$('#program').options].map(o=>o.value);
-  state.program = !statewide && programs.includes(params.get('program')) ? params.get('program') : 'all';
+  state.program = programs.includes(params.get('program')) ? params.get('program') : 'all';
   state.query = (params.get('q') || '').trim().toLowerCase();
   state.scope = params.get('scope') === 'filtered' ? 'filtered' : 'selected';
   defaults();
@@ -286,7 +286,9 @@ async function init(){
         const statewide = selectedRegion.id === 'statewide';
         state.level = 'ES'; $('#level').value = 'ES';
         $('#level option[value="HS"]').disabled = false;
-        $('#program').disabled = statewide;
+        $('#program').disabled = false;
+        $('#program').title = statewide ? 'CPS classifications are available for verified ID matches; other schools are Unclassified.' : '';
+        $('#program').previousElementSibling.textContent = statewide ? 'SCHOOL TYPE · CPS LABELS' : 'SCHOOL TYPE';
         state.query = ''; state.program = 'all'; $('#search').value = ''; $('#program').value = 'all';
         state.scope = 'selected'; $('#scope').value = state.scope;
         mapSvg = null;

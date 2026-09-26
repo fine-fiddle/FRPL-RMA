@@ -24,6 +24,13 @@
       "sha256": "3e4bb31144d359fe32a4342e28a1c65ef50f55e586e8bf1da054668ae2697c1c"
     },
     {
+      "id": "cps-state-crosswalk",
+      "dataset_id": "isbe-2024",
+      "path": "data/source/cps-illinois-crosswalk.json",
+      "url": "https://data.cityofchicago.org/d/c7jj-qjvh",
+      "sha256": "72ec91979b173e72e9fa0bcb7220cc13fb546a56ca39d69932e1f605be80f5e8"
+    },
+    {
       "id": "edc-iar-2024",
       "dataset_id": "isbe-2024",
       "path": "data/source/illinois-iar-counts-2024.csv",
@@ -45,11 +52,18 @@
       "sha256": "277a79a2e2b262f343cb2206c609dd205fcd00af1e80e189e353c74c19f3ccad"
     },
     {
+      "id": "isbe-history-2017",
+      "dataset_id": "isbe-2024",
+      "path": "data/source/illinois-history-2017.json",
+      "url": "https://www.isbe.net/ilreportcarddata",
+      "sha256": "4f710820f743958aead9d3440e98d90bea9681bf94cc3959758670f6775ce665"
+    },
+    {
       "id": "isbe-sat-history",
       "dataset_id": "isbe-2024",
       "path": "data/source/illinois-sat-history.json",
       "url": "https://www.isbe.net/ilreportcarddata",
-      "sha256": "deb488fcebbc71af2fc5bac02fc2277d1788fb674e9e750e9c544bd0e5cb056d"
+      "sha256": "84e01fa0e42fe02abe9f1d8c6f92d83a576cf7077f196f2ed2774c38e8cb4b58"
     },
     {
       "id": "nces-illinois-locations",
@@ -231,6 +245,36 @@
       "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf"
     },
     {
+      "id": "isbe-2024:2017:PARCC:ES",
+      "state": "IL",
+      "name": "PARCC",
+      "year": 2017,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "Illinois 2017 PARCC percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+      "source_url": "https://www.isbe.net/Pages/Report-Card-Metrics.aspx"
+    },
+    {
+      "id": "isbe-2024:2017:SAT:HS",
+      "state": "IL",
+      "name": "SAT",
+      "year": 2017,
+      "level": "HS",
+      "grades": "High-school tested grades under that year\u2019s rules",
+      "standard": "Illinois 2017 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+      "source_url": "https://www.isbe.net/Pages/Report-Card-Metrics.aspx"
+    },
+    {
+      "id": "isbe-2024:2018:SAT:HS",
+      "state": "IL",
+      "name": "SAT",
+      "year": 2018,
+      "level": "HS",
+      "grades": "High-school tested grades under that year\u2019s rules",
+      "standard": "Illinois 2018 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+      "source_url": "https://www.isbe.net/Pages/Report-Card-Metrics.aspx"
+    },
+    {
       "id": "isbe-2024:2019:SAT:HS",
       "state": "IL",
       "name": "SAT",
@@ -307,6 +351,18 @@
       "name": "CPS annual low-income enrollment",
       "definition": "Annual 20th-day low-income count divided by enrollment. Source labels vary by year.",
       "source_url": "https://www.cps.edu/about/district-data/demographics/"
+    },
+    {
+      "id": "isbe-low-income-2017",
+      "name": "Illinois Low Income 2017",
+      "definition": "Published 2017 Report Card low-income percentage.",
+      "source_url": "https://www.isbe.net/ilreportcarddata"
+    },
+    {
+      "id": "isbe-low-income-2018",
+      "name": "Illinois Low Income 2018",
+      "definition": "Published 2018 Report Card low-income percentage.",
+      "source_url": "https://www.isbe.net/Documents/Report-Card-Public-Data-Set.xlsx"
     },
     {
       "id": "isbe-low-income-2019",
@@ -749,172 +805,244 @@
       "input_sha256": "9bee8a23eef80918e756bca97fde099747f88f4e575d29bf373464890675fbea"
     },
     {
-      "id": "isbe-2024:2019:SAT:HS:combined:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2017:PARCC:ES:combined:ols-v1:f4267494fafd",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2017:PARCC:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
+    },
+    {
+      "id": "isbe-2024:2017:PARCC:ES:math:ols-v1:f4267494fafd",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2017:PARCC:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
+    },
+    {
+      "id": "isbe-2024:2017:PARCC:ES:reading:ols-v1:f4267494fafd",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2017:PARCC:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
+    },
+    {
+      "id": "isbe-2024:2017:SAT:HS:combined:ols-v1:f4267494fafd",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2017:SAT:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
+    },
+    {
+      "id": "isbe-2024:2017:SAT:HS:math:ols-v1:f4267494fafd",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2017:SAT:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
+    },
+    {
+      "id": "isbe-2024:2017:SAT:HS:reading:ols-v1:f4267494fafd",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2017:SAT:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
+    },
+    {
+      "id": "isbe-2024:2018:SAT:HS:combined:ols-v1:f4267494fafd",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2018:SAT:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
+    },
+    {
+      "id": "isbe-2024:2018:SAT:HS:math:ols-v1:f4267494fafd",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2018:SAT:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
+    },
+    {
+      "id": "isbe-2024:2018:SAT:HS:reading:ols-v1:f4267494fafd",
+      "dataset_id": "isbe-2024",
+      "definition_id": "isbe-2024:2018:SAT:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
+    },
+    {
+      "id": "isbe-2024:2019:SAT:HS:combined:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2019:SAT:HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2019:SAT:HS:math:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2019:SAT:HS:math:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2019:SAT:HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2019:SAT:HS:reading:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2019:SAT:HS:reading:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2019:SAT:HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2021:SAT:HS:combined:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2021:SAT:HS:combined:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2021:SAT:HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2021:SAT:HS:math:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2021:SAT:HS:math:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2021:SAT:HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2021:SAT:HS:reading:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2021:SAT:HS:reading:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2021:SAT:HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2022:SAT:HS:combined:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2022:SAT:HS:combined:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2022:SAT:HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2022:SAT:HS:math:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2022:SAT:HS:math:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2022:SAT:HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2022:SAT:HS:reading:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2022:SAT:HS:reading:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2022:SAT:HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2023:IAR:ES:combined:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2023:IAR:ES:combined:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2023:IAR:ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2023:IAR:ES:math:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2023:IAR:ES:math:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2023:IAR:ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2023:IAR:ES:reading:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2023:IAR:ES:reading:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2023:IAR:ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2023:SAT:HS:combined:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2023:SAT:HS:combined:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2023:SAT:HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2023:SAT:HS:math:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2023:SAT:HS:math:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2023:SAT:HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2023:SAT:HS:reading:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2023:SAT:HS:reading:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2023:SAT:HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2024:IAR:ES:combined:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2024:IAR:ES:combined:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:IAR:ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2024:IAR:ES:math:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2024:IAR:ES:math:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:IAR:ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2024:IAR:ES:reading:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2024:IAR:ES:reading:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:IAR:ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2024:SAT:HS:combined:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2024:SAT:HS:combined:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:SAT:HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2024:SAT:HS:math:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2024:SAT:HS:math:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:SAT:HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "isbe-2024:2024:SAT:HS:reading:ols-v1:c1f6268cb4e1",
+      "id": "isbe-2024:2024:SAT:HS:reading:ols-v1:f4267494fafd",
       "dataset_id": "isbe-2024",
       "definition_id": "isbe-2024:2024:SAT:HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "c1f6268cb4e15816dd55a31cd4a2f37adf04c2c0bfa41b33c6c94fdee5075880"
+      "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     }
   ],
   "states": [

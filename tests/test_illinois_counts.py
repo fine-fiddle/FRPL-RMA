@@ -23,14 +23,14 @@ class CountsTests(unittest.TestCase):
                     model = next(x for x in data['history_models'] if x['year']==r['year'] and x['subject']==subject and x['assessment']==r['assessment'] and x['level']==r['level'])
                     self.assertAlmostEqual(m['predicted'], model['intercept']+model['slope']*r['income'])
                     self.assertAlmostEqual(m['residual'], m['actual']-m['predicted'])
-                    if r['assessment']=='SAT':
+                    if r['assessment'] in ('SAT','PARCC'):
                         self.assertIsNone(m['tested'])
                         self.assertIsNone(m['low'])
                         self.assertIsNone(m['high'])
                     else:
                         self.assertLessEqual(m['low'], m['studentized'])
                         self.assertGreaterEqual(m['high'], m['studentized'])
-        self.assertTrue(all(len(s['history']) == 2 for s in minooka))
+        self.assertTrue(all([r['year'] for r in s['history']] == [2017,2023,2024] for s in minooka))
 
     def test_sat_sources_and_locations(self):
         root = Path(__file__).resolve().parents[1]
@@ -40,13 +40,13 @@ class CountsTests(unittest.TestCase):
                   for p in sources for r in p['observations']}
         high = next(s for s in data['schools'] if s['name']=='Minooka Community High School')
         self.assertEqual(high['level'], 'HS')
-        self.assertEqual([r['year'] for r in high['history']], [2019,2021,2022,2023,2024])
+        self.assertEqual([r['year'] for r in high['history']], [2017,2018,2019,2021,2022,2023,2024])
         for school in data['schools']:
             if school['latitude'] is not None:
                 self.assertTrue(36.9 <= school['latitude'] <= 42.6)
                 self.assertTrue(-91.6 <= school['longitude'] <= -87)
             for r in school['history']:
-                if r['assessment']!='SAT' or r['year']==2024:
+                if r['assessment']!='SAT' or r['year'] in (2017,2024):
                     continue
                 original=source[(school['id'],r['year'])]
                 for subject in ['math','reading']:

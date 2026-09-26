@@ -9,7 +9,7 @@ import re
 from pathlib import Path
 import polars as pl
 from database import ROOT, DEFAULT_DB, connect, add_source, save_models
-from prepare_data import build_history
+from prepare_data import build_history, category
 
 EXTRACT = ROOT/'data/source/illinois-iar-counts-2024.csv'
 URL = 'https://eddatacenter.org/api/data/3.1?state=IL&year=2024'
@@ -56,12 +56,20 @@ def prepare(database=DEFAULT_DB):
     counts = pl.read_csv(EXTRACT, infer_schema=False)
     location_source = ROOT/'data/source/illinois-locations.json'
     locations = {r['school_id']: r for r in json.loads(location_source.read_text())['locations']}
+    crosswalk_source = ROOT/'data/source/cps-illinois-crosswalk.json'
+    crosswalk = {r['school_id']:r['cps_id'] for r in json.loads(crosswalk_source.read_text())['matches']}
+    cps_profiles = {r['School_ID']: r for r in pl.read_csv(ROOT/'data/source/cps-profile-sy2324.csv', infer_schema=False).to_dicts()}
     count_ids = set(counts['StateAssignedSchID'])
     with connect(database) as db:
         from import_illinois_history import import_history
         import_history(db)
         from import_illinois_sat_history import import_history as import_sat_history
         import_sat_history(db)
+        from import_illinois_2017 import import_history as import_2017_history
+        import_2017_history(db)
+        db.execute("DELETE FROM source WHERE id='cps-state-crosswalk'")
+        add_source(db, 'cps-state-crosswalk', 'isbe-2024', crosswalk_source,
+                   'https://data.cityofchicago.org/d/c7jj-qjvh')
         db.execute("DELETE FROM source WHERE id='nces-illinois-locations'")
         add_source(db, 'nces-illinois-locations', 'isbe-2024', location_source,
                    'https://nces.ed.gov/opengis/rest/services/K12_School_Locations/EDGE_GEOCODE_PUBLICSCH_2324/MapServer/0')
@@ -82,7 +90,7 @@ def prepare(database=DEFAULT_DB):
             accepted += 1
         assessments = pl.DataFrame([dict(r) for r in db.execute("SELECT a.school_id,d.year,d.level,d.name assessment,a.subject,a.proficiency,a.tested FROM assessment_observation a JOIN assessment_definition d ON a.definition_id=d.id WHERE a.dataset_id='isbe-2024'")], infer_schema_length=None)
         incomes = pl.DataFrame([dict(r) for r in db.execute("SELECT school_id,year,name,enrollment,low_income,percentage FROM economic_observation WHERE dataset_id='isbe-2024'")], infer_schema_length=None)
-        records, models = build_history(assessments, incomes, point_only_assessments=('SAT',))
+        records, models = build_history(assessments, incomes, point_only_assessments=('SAT', 'PARCC'))
         save_models(db, records, models, 'isbe-2024')
         schools = []
         for record in records:
@@ -95,8 +103,12 @@ def prepare(database=DEFAULT_DB):
                 continue
             if record['level'] == 'ES' and not record['subjects'] and record['school_id'] not in count_ids:
                 continue
+            cps_id = crosswalk.get(record['school_id'])
+            classification = cps_profiles.get(cps_id, {}).get('Classification_Description')
             schools.append(dict(id=record['school_id'], name=p['name'], short=p['name'],
-                level=record['level'], program='Unclassified', district=p['district_name'], city=p['city'],
+                level=record['level'], program=category(classification) if classification else 'Unclassified',
+                cps_id=cps_id, program_source='CPS 2023–24 school-level classification' if classification else None,
+                district=p['district_name'], city=p['city'],
                 county=p['county'], income=record['income'], enrollment=record['enrollment'],
                 latitude=locations.get(record['school_id'], {}).get('latitude'),
                 longitude=locations.get(record['school_id'], {}).get('longitude'),
@@ -104,7 +116,7 @@ def prepare(database=DEFAULT_DB):
         by_level = {level: {m['subject']: m for m in models if m['level'] == level and m['year'] == 2024} for level in ['ES', 'HS']}
         output = dict(year='2023–24', assessment_year=2024, schools=schools, models=by_level,
             history_years=sorted({r['year'] for r in records}), history_models=models, counts_validation=dict(accepted=accepted, rejected=rejected),
-            coverage_note='2024 IAR and SAT rankings. IAR history covers 2023–24; SAT covers 2019 and 2021–24. Each model uses same-year income. SAT tested counts are unavailable: residuals are shown without sampling intervals. IAR requires verified EDC counts for every expected grade. Earlier IAR school aggregates remain unavailable; grade percentages cannot be averaged without valid weights. Admissions-program classifications are unavailable. Map locations use an exact state-ID to NCES-ID crosswalk and the NCES 2023–24 directory.')
+            coverage_note='2024 IAR and SAT rankings. Grade-school history includes 2017 PARCC and 2023–24 IAR; SAT covers 2017–19 and 2021–24. Each model uses same-year income. SAT and 2017 PARCC tested counts are unavailable: residuals are shown without sampling intervals. IAR requires verified EDC counts for every expected grade. School aggregates for 2018 PARCC and 2019–22 IAR remain unavailable. School-type labels are available only for verified CPS crosswalk matches using CPS 2023–24 classifications; all other schools are Unclassified, not presumed neighborhood schools. Map locations use an exact state-ID to NCES-ID crosswalk and the NCES 2023–24 directory.')
         folder = ROOT/'data/illinois'
         folder.mkdir(exist_ok=True)
         (folder/'schools.json').write_text(json.dumps(output, separators=(',', ':'), allow_nan=False))
