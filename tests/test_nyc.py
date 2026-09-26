@@ -9,6 +9,7 @@ import numpy as np
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from database import ROOT
 from prepare_nyc import import_data, number, validated_rate
+from prepare_nyc_types import classifications, TYPES
 
 
 class NYCTests(unittest.TestCase):
@@ -79,8 +80,10 @@ class NYCTests(unittest.TestCase):
         self.assertEqual(self.output['levels']['ES']['year'],2026)
         self.assertEqual(self.output['levels']['HS']['year'],2023)
         self.assertEqual(len(self.output['schools']),len({s['id'] for s in self.output['schools']}))
+        types=classifications()
         for s in self.output['schools']:
-            self.assertEqual(s['program'],'Unclassified')
+            self.assertEqual(s['programs'],types.get(s['id'],{'types':['Unclassified']})['types'])
+            self.assertTrue(set(s['programs']) <= set(TYPES))
             year=self.output['levels'][s['level']]['year']
             current=next((r for r in s['history'] if r['year']==year),None)
             self.assertEqual(s['metrics'],current['subjects'] if current else {})

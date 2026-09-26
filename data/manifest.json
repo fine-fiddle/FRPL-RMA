@@ -120,6 +120,13 @@
       "path": "data/raw/nyc-regents.xlsx",
       "url": "https://infohub.nyced.org/docs/default-source/default-document-library/2014-15-to-2022-23-nyc-regents-overall-and-by-category---public.xlsx",
       "sha256": "6722f937cd5817783e0593e3edad169b7bb6f43ef2ef740fa017508998470d74"
+    },
+    {
+      "id": "nyc-school-types",
+      "dataset_id": "nyc",
+      "path": "data/source/nyc-types.json",
+      "url": "https://www.myschools.nyc/en/schools/",
+      "sha256": "c69dbe6eff46f9c2b3de75b5873f16165d05a16a42a5ff0ed8c23d090a3f3fc0"
     }
   ],
   "assessments": [
@@ -1194,172 +1201,172 @@
       "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
     },
     {
-      "id": "nyc:2022:NYSTP (2018 standards):ES:combined:ols-v1:194274272ee6",
+      "id": "nyc:2022:NYSTP (2018 standards):ES:combined:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2022:NYSTP (2018 standards):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2022:NYSTP (2018 standards):ES:math:ols-v1:194274272ee6",
+      "id": "nyc:2022:NYSTP (2018 standards):ES:math:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2022:NYSTP (2018 standards):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2022:NYSTP (2018 standards):ES:reading:ols-v1:194274272ee6",
+      "id": "nyc:2022:NYSTP (2018 standards):ES:reading:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2022:NYSTP (2018 standards):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2022:Regents ELA / Algebra I:HS:combined:ols-v1:194274272ee6",
+      "id": "nyc:2022:Regents ELA / Algebra I:HS:combined:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2022:Regents ELA / Algebra I:HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2022:Regents ELA / Algebra I:HS:math:ols-v1:194274272ee6",
+      "id": "nyc:2022:Regents ELA / Algebra I:HS:math:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2022:Regents ELA / Algebra I:HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2022:Regents ELA / Algebra I:HS:reading:ols-v1:194274272ee6",
+      "id": "nyc:2022:Regents ELA / Algebra I:HS:reading:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2022:Regents ELA / Algebra I:HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2023:NYSTP (2023 standards):ES:combined:ols-v1:194274272ee6",
+      "id": "nyc:2023:NYSTP (2023 standards):ES:combined:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2023:NYSTP (2023 standards):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2023:NYSTP (2023 standards):ES:math:ols-v1:194274272ee6",
+      "id": "nyc:2023:NYSTP (2023 standards):ES:math:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2023:NYSTP (2023 standards):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2023:NYSTP (2023 standards):ES:reading:ols-v1:194274272ee6",
+      "id": "nyc:2023:NYSTP (2023 standards):ES:reading:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2023:NYSTP (2023 standards):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2023:Regents ELA / Algebra I:HS:combined:ols-v1:194274272ee6",
+      "id": "nyc:2023:Regents ELA / Algebra I:HS:combined:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2023:Regents ELA / Algebra I:HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2023:Regents ELA / Algebra I:HS:math:ols-v1:194274272ee6",
+      "id": "nyc:2023:Regents ELA / Algebra I:HS:math:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2023:Regents ELA / Algebra I:HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2023:Regents ELA / Algebra I:HS:reading:ols-v1:194274272ee6",
+      "id": "nyc:2023:Regents ELA / Algebra I:HS:reading:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2023:Regents ELA / Algebra I:HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2024:NYSTP (2023 standards):ES:combined:ols-v1:194274272ee6",
+      "id": "nyc:2024:NYSTP (2023 standards):ES:combined:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2024:NYSTP (2023 standards):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2024:NYSTP (2023 standards):ES:math:ols-v1:194274272ee6",
+      "id": "nyc:2024:NYSTP (2023 standards):ES:math:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2024:NYSTP (2023 standards):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2024:NYSTP (2023 standards):ES:reading:ols-v1:194274272ee6",
+      "id": "nyc:2024:NYSTP (2023 standards):ES:reading:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2024:NYSTP (2023 standards):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2025:NYSTP (2023 standards):ES:combined:ols-v1:194274272ee6",
+      "id": "nyc:2025:NYSTP (2023 standards):ES:combined:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2025:NYSTP (2023 standards):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2025:NYSTP (2023 standards):ES:math:ols-v1:194274272ee6",
+      "id": "nyc:2025:NYSTP (2023 standards):ES:math:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2025:NYSTP (2023 standards):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2025:NYSTP (2023 standards):ES:reading:ols-v1:194274272ee6",
+      "id": "nyc:2025:NYSTP (2023 standards):ES:reading:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2025:NYSTP (2023 standards):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2026:NYSTP (2023 standards):ES:combined:ols-v1:194274272ee6",
+      "id": "nyc:2026:NYSTP (2023 standards):ES:combined:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2026:NYSTP (2023 standards):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2026:NYSTP (2023 standards):ES:math:ols-v1:194274272ee6",
+      "id": "nyc:2026:NYSTP (2023 standards):ES:math:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2026:NYSTP (2023 standards):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "nyc:2026:NYSTP (2023 standards):ES:reading:ols-v1:194274272ee6",
+      "id": "nyc:2026:NYSTP (2023 standards):ES:reading:ols-v1:bdefa46a0aa9",
       "dataset_id": "nyc",
       "definition_id": "nyc:2026:NYSTP (2023 standards):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+      "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     }
   ],
   "states": [

@@ -1,5 +1,7 @@
 # Charter and admissions source audit
 
+**Admissions update:** current MySchools program data was subsequently obtained and now powers the website school-type filter. See [NYC school-type filtering](nyc-data.md#nyc-school-type-filtering). The 2021 coverage below describes the earlier historical extract and is not used by the filter. NYSED charter models remain unpublished.
+
 Retrieved September 26, 2026, on `codex/nyc-public-schools`. The data are gathered and validated, **not yet substituted into the website's NYCPS models**. The reproducible inputs are in `data/source/nyc-expansion.json`; `data/nyc/expansion-coverage.json` reports coverage and exclusions. Existing site rankings are unchanged.
 
 ## Charter assessment and income data

@@ -11,6 +11,7 @@ import zipfile
 import polars as pl
 from database import ROOT, DEFAULT_DB, connect, add_source, definition_id, save_models
 from prepare_data import build_history
+from prepare_nyc_types import classifications, SOURCE as TYPE_SOURCE, TYPES
 
 DATASET = 'nyc'
 EXTRACT = ROOT/'data/source/nyc.json'
@@ -157,12 +158,14 @@ def extract():
 
 
 def import_data(db, payload):
+    school_types = classifications()
     # Explicit deletions respect foreign keys and make each refresh reproducible.
     for table in ['model_run','assessment_observation','economic_observation','school','source']:
         db.execute(f'DELETE FROM {table} WHERE dataset_id=?',(DATASET,))
     db.execute('INSERT OR IGNORE INTO dataset VALUES (?,?,?,?,?)',
                (DATASET,'NY','New York City Public Schools','NYCPS published assessment cohorts','ready'))
     add_source(db,'nyc-extract',DATASET,EXTRACT,'https://infohub.nyced.org/reports/academics/test-results')
+    add_source(db,'nyc-school-types',DATASET,TYPE_SOURCE,'https://www.myschools.nyc/en/schools/')
     for key, source in payload['sources'].items():
         db.execute('INSERT INTO source VALUES (?,?,?,?,?,?)',
                    (f'nyc-{key}',DATASET,source['path'],source['url'],source['sha256'],payload['retrieved']))
@@ -170,6 +173,7 @@ def import_data(db, payload):
     for r in payload['assessments']:
         profiles.setdefault(r['school_id'],dict(school_id=r['school_id'],name=r['name']))
     for order, (sid,p) in enumerate(sorted(profiles.items())):
+        p = dict(p, school_types=school_types.get(sid, dict(types=['Unclassified'],evidence=[])))
         db.execute('INSERT INTO school VALUES (?,?,?,?,?,?,?,?,?,?)',
             (DATASET,sid,p['name'],sid[:2],f'NYC district {int(sid[:2])}',BOROUGHS[sid[2]],None,json.dumps(p),'nyc-extract',order))
     for order, r in enumerate(payload['income']):
@@ -208,6 +212,7 @@ def prepare(database=DEFAULT_DB):
         for r in records:
             histories[(r['school_id'],r['level'])].append(r)
         schools=[]
+        school_types=classifications()
         for sid,p in sorted(profiles.items()):
             # Source assessment membership, not names, controls inclusion. Mixed-grade
             # schools are listed under high school; their ES results still fit ES models.
@@ -218,7 +223,9 @@ def prepare(database=DEFAULT_DB):
             current=next((r for r in history if r['year']==snapshot[level]),None)
             current_income=next((r for r in payload['income'] if r['school_id']==sid and r['year']==snapshot[level]),None)
             fraction=number(current_income['fraction']) if current_income else None
-            schools.append(dict(id=sid,name=p['name'],short=p['name'],level=level,program='Unclassified',
+            types=school_types.get(sid,dict(types=['Unclassified'],evidence=[]))
+            schools.append(dict(id=sid,name=p['name'],short=p['name'],level=level,program=types['types'][0],
+                programs=types['types'],program_evidence=types['evidence'],
                 district=f'NYC district {int(sid[:2])}',city=BOROUGHS[sid[2]],income=100*fraction if fraction is not None else None,
                 enrollment=number(current_income['enrollment']) if current_income else None,
                 latitude=payload['locations'].get(sid,{}).get('latitude'),longitude=payload['locations'].get(sid,{}).get('longitude'),
@@ -230,10 +237,10 @@ def prepare(database=DEFAULT_DB):
                 math_label='Math · Algebra I',note='Regents ELA / Algebra I · score 65+ · exam takers, not a fixed grade cohort'),
         }
         exclusions=Counter(reason for r in records for reason in r['exclusions'].values())
-        output=dict(year='2025–26 / 2022–23',assessment_year=snapshot['ES'],levels=level_meta,
+        output=dict(year='2025–26 / 2022–23',assessment_year=snapshot['ES'],levels=level_meta,program_options=TYPES,
             schools=schools,models={level:{m['subject']:m for m in models if m['year']==year and m['level']==level} for level,year in snapshot.items()},
             history_years=sorted({r['year'] for r in records}),history_models=models,
-            coverage_note=f"NYCPS source coverage: {len(schools)} schools in the directory. Grade-school snapshot {snapshot['ES']}; Regents snapshot {snapshot['HS']}. Charter schools are excluded from the grade-school source; District 75 is generally excluded there. Only schools in the source cohorts are listed. Income is NYCPS Poverty, not Economic Need Index. Bounded poverty values are unavailable, never imputed. The demographic workbook omits schools closed before 2025–26, so historical models exclude schools without matching same-year income. Admissions classifications are unavailable. Locations use the August 2024 city school-point file; unmatched or ambiguous locations remain list-only.")
+            coverage_note=f"NYCPS source coverage: {len(schools)} schools in the directory. Grade-school snapshot {snapshot['ES']}; Regents snapshot {snapshot['HS']}. Charter schools are excluded from the grade-school source; District 75 is generally excluded there. Only schools in the source cohorts are listed. Income is NYCPS Poverty, not Economic Need Index. Bounded poverty values are unavailable, never imputed. The demographic workbook omits schools closed before 2025–26, so historical models exclude schools without matching same-year income. School types use public MySchools program methods (source school year 2025–26, retrieved September 26, 2026) and current LCGMS charter status. A school may match multiple types. Unmatched schools remain Unclassified. These labels do not describe historical admissions or change model membership. Locations use the August 2024 city school-point file; unmatched or ambiguous locations remain list-only.")
         folder=ROOT/'data/nyc';folder.mkdir(exist_ok=True)
         (folder/'schools.json').write_text(json.dumps(output,separators=(',',':'),allow_nan=False))
         (folder/'history.json').write_text(json.dumps(dict(records=records,models=models,exclusions=exclusions),separators=(',',':'),allow_nan=False))

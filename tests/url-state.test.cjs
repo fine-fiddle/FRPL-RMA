@@ -83,3 +83,20 @@ test('NYC share links retain DBNs and reject unavailable admissions filters',()=
   assert.equal(p.get('schools'),'02M475');assert.equal(p.get('focus'),'02M475');
   assert.equal(p.get('program'),'all');
 });
+
+test('NYC multi-program filters match either label and survive a shared URL',()=>{
+  const a=app();
+  a.run(`document.querySelector('#program').options=['all','Zoned','Gifted & Talented','Unclassified'].map(value=>({value}));
+    data.schools[0].programs=['Zoned','Gifted & Talented'];
+    data.schools[1].programs=['Unclassified'];
+    restoreURL(new URLSearchParams({program:'Gifted & Talented',schools:'001'}),false);syncURL();`);
+  assert.equal(a.run(`filtered().map(s=>s.id).join(',')`),'001');
+  assert.equal(new URL(a.window.location.href).searchParams.get('program'),'Gifted & Talented');
+  a.run(`restoreURL(new URL(window.location.href).searchParams,false);syncURL();`);
+  assert.equal(a.run(`filtered().length`),1);
+  a.run(`state.program='Zoned'`);
+  assert.equal(a.run(`filtered()[0].id`),'001');
+  a.run(`state.program='Unclassified'`);
+  assert.equal(a.run(`filtered()[0].id`),'002');
+  assert.equal(a.run(`matchesProgram({program:'Neighborhood'},'Neighborhood')`),true);
+});

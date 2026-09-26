@@ -9,7 +9,7 @@ This adapter adds New York → New York City, with independent NYCPS models. It 
 | Grade schools | 2026 | 2022–2026 | NYSTP grades 3–8, published all-grades/all-students Levels 3 + 4 percentage |
 | High schools | 2023 | 2022–2023 | Regents ELA and Algebra I, score 65 or above, highest score per student/exam/year |
 
-The grade-school source is NYCPS's district-school release, not all public schools statewide. Its notes exclude charter schools and generally District 75 from school-level records. Do not describe this as complete NYC public-school coverage. The directory contains 1,568 source-matched schools; 1,566 have unambiguous coordinates. Admissions classifications are not inferred; the NYC school-type filter is disabled.
+The grade-school source is NYCPS's district-school release, not all public schools statewide. Its notes exclude charter schools and generally District 75 from school-level records. Do not describe this as complete NYC public-school coverage. The directory contains 1,568 source-matched schools; 1,566 have unambiguous coordinates. The NYC school-type filter uses verified, overlapping program labels from MySchools and charter status from LCGMS; classifications are never inferred from school names. See the admissions section below.
 
 Regents records include January, June and August administrations. Exam takers can be in different grades and are not a fixed graduating cohort. Students who completed Algebra I in middle school may be absent from their high school's Algebra I denominator. This limits interpretation of high-school rankings. Math means Algebra I only; ELA and math populations can differ. Combined is the equally weighted mean of the two rates, not the percentage passing both. Keep the 2023 high-school year visible independently of the 2026 grade-school year.
 
@@ -52,4 +52,24 @@ The [city school-point file](https://data.cityofnewyork.us/d/jfju-ynrr) is dated
 
 Charter and admissions inputs have now been gathered and validated separately: see the [charter and admissions coverage audit](nyc-expansion-coverage.md). They are not yet part of the published NYCPS models; the audit describes the outcome and identity decisions needed before integration.
 
-Prioritize integrating the gathered NYSED assessment/economic sources with explicit outcome definitions, and archived annual demographics that retain schools subsequently closed. The NYCPS demographic notes warn that Poverty can understate need for charters not using NYCPS meal services; the new NYSED measure must have its own models. Current NYC admissions categories still need an authoritative program mapping rather than CPS labels or undated reuse of the 2021 directory. None of these gaps should be concealed by guessed data.
+Prioritize integrating the gathered NYSED assessment/economic sources with explicit outcome definitions, and archived annual demographics that retain schools subsequently closed. The NYCPS demographic notes warn that Poverty can understate need for charters not using NYCPS meal services; the new NYSED measure must have its own models. Refresh the dated MySchools program snapshot as admissions cycles change; never reuse the historical 2021 directory as current evidence. None of these gaps should be concealed by guessed data.
+
+## NYC school-type filtering
+
+`data/source/nyc-types.json` contains compact program records from the public MySchools kindergarten, middle-school, high-school and upper-grade G&T directories. The directory labels its school year 2025–26; retrieval was September 26, 2026. This is a source vintage, not a claim about every future admissions cycle. Page URLs and SHA-256 hashes are retained; public directory page counts and unique record IDs are checked before extraction. No login or student data is used.
+
+`prepare_nyc_types.py` maps explicit methods/flags to the nine requested categories and rejects unrecognized methods. Schools can have multiple labels. LaGuardia is both Specialized High School and Audition / Arts; talent tests (which include science) are Other / Special program. Educational option and language criteria also remain Other / Special program rather than being described as unrestricted open admission. G&T comes from program methods/flags, not names. Charter management uses the authoritative DBN in LCGMS. Unclassified means no verified classification, not neighborhood admission. Mixed-grade schools can match a program in another entry grade.
+
+The published directory includes 844 Zoned, 351 Unzoned / Open, 129 G&T, 166 Screened, 9 Specialized High School, 35 Audition / Arts, 65 Charter, 456 Other / Special program and 30 Unclassified schools. Counts overlap. The 65 charter labels are in the Regents/high-school source; the NYSTP grade-school release excludes charters. NYCPS Poverty can understate charter need when a school does not use NYCPS meal services, so these existing Regents records retain that limitation. The separate NYSED charter-inclusive models are still pending.
+
+Source evidence is stored with each school's SQLite profile and website record. Classification is a display filter only: it never changes regression cohorts, residuals or historical admissions assumptions. Illinois keeps its existing CPS labels.
+
+```sh
+# Optional network refresh and extraction of current public directory pages:
+.venv/bin/python scripts/prepare_nyc_types.py --download --extract
+# Then regenerate website data and catalog from committed inputs:
+.venv/bin/python scripts/prepare_nyc.py
+.venv/bin/python scripts/export_catalog.py
+```
+
+The 2021 source remains in the earlier expansion audit for historical research, but is not used by the website filter. Current MySchools access was recovered by following the public page's process IDs and paginated directory endpoints.
