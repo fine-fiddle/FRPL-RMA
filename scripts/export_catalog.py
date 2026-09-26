@@ -25,8 +25,11 @@ def export(database=DEFAULT_DB, output=ROOT/'data'):
                            'SELECT id,dataset_id,definition_id,subject,method_version,input_sha256 FROM model_run ORDER BY id')],
                        states=[dict(id='IL', name='Illinois', regions=[
                            dict(id='chicago', name='Chicago', dataset='cps', status='ready',
+                                geography='illinois',
                                 model_scope='CPS annual assessment cohorts', schools='data/schools.json',
-                                boundaries='data/chicago-areas.geojson')])])
+                                boundaries='data/chicago-areas.geojson',
+                                map_source='Community boundaries: City of Chicago',
+                                comparison='Comparison population: Chicago Public Schools · CPS annual assessment cohorts.')])])
         if db.execute("SELECT 1 FROM dataset WHERE id='isbe-2024'").fetchone():
             schools = [dict(r) for r in db.execute('''
                 SELECT s.school_id,s.name,s.district_id,s.district_name,s.city,s.county,
@@ -51,6 +54,9 @@ def export(database=DEFAULT_DB, output=ROOT/'data'):
             catalog['states'][0]['regions'].append(dict(
                 id='statewide', name='Statewide', dataset='isbe-2024', status='ready' if ready else audit['status'],
                 schools='data/illinois/schools.json', boundaries='data/illinois/boundary.geojson', levels=['ES', 'HS'],
+                geography='illinois',
+                map_source='Locations: NCES 2023–24 · Boundary: Illinois State Geological Survey',
+                comparison='Comparison population: Illinois statewide · 2024 IAR and SAT. Sampling intervals are unavailable where tested counts are missing.',
                 model_scope='Illinois statewide assessment cohorts',
                 audit='data/illinois/import-2024.json'))
             if ready:
@@ -64,8 +70,19 @@ def export(database=DEFAULT_DB, output=ROOT/'data'):
         if db.execute("SELECT 1 FROM dataset WHERE id='nyc' AND status='ready'").fetchone():
             catalog['states'].append(dict(id='NY',name='New York',regions=[dict(
                 id='nyc',name='New York City',dataset='nyc',status='ready',levels=['ES','HS'],
+                geography='nyc',
                 schools='data/nyc/schools.json',boundaries='data/nyc/boundary.geojson',
+                map_source='Locations: NYC school points, August 2024 · Boundaries: NYC Planning',
+                comparison='Comparison population: New York City Public Schools · {year} {note}. NYC models are independent of Illinois models.',
                 model_scope='NYCPS published NYSTP and Regents cohorts; separate tests and years')]))
+        if db.execute("SELECT 1 FROM dataset WHERE id='wi-dpi' AND status='ready'").fetchone():
+            catalog['states'].append(dict(id='WI',name='Wisconsin',regions=[dict(
+                id='wisconsin',name='Wisconsin',dataset='wi-dpi',status='ready',levels=['ES','HS'],
+                geography='wisconsin',
+                schools='data/wisconsin/schools.json',boundaries='data/wisconsin/boundary.geojson',
+                map_source='Locations: DPI 2026–27 public school points · Boundary: US Census TIGERweb',
+                comparison='Comparison population: Wisconsin statewide · Forward grades 3–8 and ACT grade 11. Income is same-year Wisconsin Economically Disadvantaged enrollment; DLM is excluded. Wisconsin models are independent of Illinois and New York models.',
+                model_scope='Wisconsin DPI published Forward and ACT cohorts; separate standards eras')]))
         (output/'manifest.json').write_text(json.dumps(catalog, indent=2, allow_nan=False)+'\n')
         print(json.dumps(catalog.get('statewide_coverage', {}), indent=2))
 

@@ -2,6 +2,8 @@
 
 New York → New York City includes grade-school NYSTP results through 2026 and separately labeled Regents ELA/Algebra I results through 2023, with same-year NYCPS Poverty data, residual histories and sampling intervals. Charter coverage, suppressed poverty values and historical closed-school coverage have explicit limitations. See the [NYC data guide](docs/nyc-data.md) for sources, definitions and rebuild commands.
 
+Wisconsin → Statewide adds Forward grades 3–8 and ACT grade 11 results for test-administration years 2015–2025, with same-year Wisconsin Economically Disadvantaged enrollment. DPI’s 2023-24 performance-level change is a separate assessment identity, DLM is excluded, and grade-school members require complete non-redacted grade counts. See the [Wisconsin data guide](docs/wisconsin-data.md).
+
 A build-free static website: HTML5, CSS, vanilla JavaScript and vendored D3 7.9.0. Python + Polars prepare the committed JSON. No server API, npm, tracking, map service or runtime CDN is required.
 
 ## Preview
@@ -51,6 +53,7 @@ curl -L --fail 'https://www.isbe.net/Documents/24-RC-Pub-Data-Set.xlsx' -o data/
 .venv/bin/python scripts/prepare_data.py
 .venv/bin/python scripts/prepare_illinois.py
 .venv/bin/python scripts/prepare_nyc.py
+.venv/bin/python scripts/prepare_wisconsin.py
 .venv/bin/python scripts/export_catalog.py
 .venv/bin/python -m unittest discover -s tests -v
 ```
@@ -80,6 +83,24 @@ Remaining source limitations: verified SAT and 2017 PARCC denominators, 2018 PAR
 The official [CPS identifier dataset for 2013–14](https://data.cityofchicago.org/d/c7jj-qjvh) provides a partial crosswalk. `scripts/prepare_cps_crosswalk.py` accepts only unique CPS/state ID pairs present in current CPS profiles whose NCES ID also agrees with the 2024 EDC/NCES crosswalk. It accepts 481 mappings and records excluded IDs/reasons in `data/source/cps-illinois-crosswalk.json`. Historical charter-network IDs shared by multiple campuses and changed NCES IDs are not merged. Download the JSON URL recorded in that file to `data/raw/cps-identifiers-2014.json`, then run the script to refresh. This establishes a checked directory link, not uninterrupted historical continuity or a shared regression population.
 
 See [Illinois source-gap audit](docs/illinois-data-gaps.md) for evidence, rejected substitutes, and next steps.
+
+## Wisconsin (WISEdash)
+
+Wisconsin → Statewide adds independent DPI models; results are not pooled with Illinois or New York. Grade schools use the Forward Exam in English language arts and mathematics, grades 3–8. High schools use the state-mandated grade 11 ACT with writing (ELA and Mathematics). Both outcomes are the share of **tested students** reaching the top two performance levels, aggregated from exact grade or subject counts.
+
+- DPI changed Forward and ACT performance levels in 2023-24 (Advanced + Proficient before; Advanced + Meeting after). The two eras are separate assessment identities, and history lines break at 2023-24.
+- School records cover FAY students. The same school year’s third-Friday-of-September enrollment supplies **Economically Disadvantaged** status: direct certification, National School Lunch Program free/reduced-price eligibility (at or below 185% of the federal poverty guidelines) or an alternate household income form. Suppressed values stay unavailable and are never imputed.
+- DLM is excluded. Forward 2019-20 is absent because the administration was waived; ACT 2019-20 records exist. A grade school enters a model only with complete, non-redacted results for every enrolled grade 3–8, so DPI redaction of small grades excludes many small schools. `data/wisconsin/history.json` records every exclusion; `data/source/wisconsin.json` retains the raw counts.
+- The ACT Statewide layout labels its year as expected graduation, but the files are test-administration years. The 2014-15 file matches ACT Graduates 2015-16 at the school level, and DPI’s ACT documentation pairs the 2014-15 administration with the 2015-16 graduating class.
+- Directory names, city, county and coordinates come from the DPI 2026-27 public school GIS layer (current September 4, 2026); the state outline is US Census TIGERweb. The directory is newer than the 2024-25 assessment snapshot, so schools closed before 2026-27 can be list-only.
+
+```sh
+.venv/bin/python scripts/prepare_wisconsin.py --extract   # with the raw archives in data/raw/
+.venv/bin/python scripts/prepare_wisconsin.py             # rebuild from the committed extract
+.venv/bin/python scripts/export_catalog.py
+```
+
+Raw archive URLs and checksums are in `scripts/prepare_wisconsin.py` and `data/source/wisconsin.json`. See [docs/wisconsin-data.md](docs/wisconsin-data.md) for definitions, the standards break, validation gates and coverage limits.
 
 ## Statistical specification
 

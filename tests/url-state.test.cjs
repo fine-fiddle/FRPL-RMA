@@ -84,6 +84,21 @@ test('NYC share links retain DBNs and reject unavailable admissions filters',()=
   assert.equal(p.get('program'),'all');
 });
 
+test('Wisconsin share links resolve and round-trip DPI school IDs',()=>{
+  const a=app();
+  a.run(`catalogForTest={states:[{id:'IL',regions:[{id:'chicago',status:'ready'}]},{id:'WI',regions:[{id:'wisconsin',status:'ready'}]}]};`);
+  assert.equal(a.run(`resolveGeography(catalogForTest,new URLSearchParams('state=WI&region=wisconsin')).region.id`),'wisconsin');
+  assert.equal(a.run(`resolveGeography(catalogForTest,new URLSearchParams('state=WI&region=nyc')).region.id`),'wisconsin');
+  assert.equal(a.run(`resolveGeography(catalogForTest,new URLSearchParams('state=unknown&region=wisconsin')).region.id`),'chicago');
+  a.run(`document.querySelector('#state-select').value='WI'; document.querySelector('#region-select').value='wisconsin';
+    data.schools[0].id='S00070020';data.schools[1].id='S00070040';data.schools[2].id='S25760040';
+    restoreURL(new URLSearchParams('level=ES&subject=ela&schools=S00070040&focus=S00070040&q=abbotsford'),false);syncURL();`);
+  const p=new URL(a.window.location.href).searchParams;
+  assert.equal(p.get('state'),'WI');assert.equal(p.get('region'),'wisconsin');
+  assert.equal(p.get('schools'),'S00070040');assert.equal(p.get('focus'),'S00070040');
+  assert.equal(p.get('subject'),'ela');assert.equal(p.get('q'),'abbotsford');
+});
+
 test('NYC multi-program filters match either label and survive a shared URL',()=>{
   const a=app();
   a.run(`document.querySelector('#program').options=['all','Zoned','Gifted & Talented','Unclassified'].map(value=>({value}));

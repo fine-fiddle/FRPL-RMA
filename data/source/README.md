@@ -1,6 +1,6 @@
 # Data provenance
 
-NYC inputs and their separate definitions are documented in the [NYC data guide](../../docs/nyc-data.md). `nyc.json` retains raw selected assessment and income values, official workbook notes, source URLs/checksums and verified map coordinates. The sections below describe the Chicago sources.
+NYC inputs and their separate definitions are documented in the [NYC data guide](../../docs/nyc-data.md). `nyc.json` retains raw selected assessment and income values, official workbook notes, source URLs/checksums and verified map coordinates. Wisconsin inputs (`wisconsin.json`) are documented in the [Wisconsin data guide](../../docs/wisconsin-data.md); that extract retains raw grade-level counts, the annual enrollment snapshots, source URLs/checksums and the DPI-derived directory. The sections below describe the Chicago sources.
 
 Retrieved September 17, 2026. All inputs are public school aggregates; no individual student records.
 
