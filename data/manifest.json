@@ -71,6 +71,55 @@
       "path": "data/source/illinois-locations.json",
       "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/EDGE_GEOCODE_PUBLICSCH_2324/MapServer/0",
       "sha256": "be6cea45a397e3a86104990f7ee8962362eff51aac94103a5c0283b344fe19bb"
+    },
+    {
+      "id": "nyc-boundary",
+      "dataset_id": "nyc",
+      "path": "data/raw/nyc-boundary.geojson",
+      "url": "https://data.cityofnewyork.us/resource/gthc-hcne.geojson",
+      "sha256": "7aa44d9fb611f2f518a226ff994a6516a261a8ce982ccf1e7b37d663687f443c"
+    },
+    {
+      "id": "nyc-ela",
+      "dataset_id": "nyc",
+      "path": "data/raw/nyc-school-ela.xlsx",
+      "url": "https://infohub.nyced.org/docs/default-source/default-document-library/school-ela-results-public.xlsx",
+      "sha256": "5a8c419e64091c65b06a01d2694d9bd11bcd45f424fe2756ffa47b8f02b4ce18"
+    },
+    {
+      "id": "nyc-extract",
+      "dataset_id": "nyc",
+      "path": "data/source/nyc.json",
+      "url": "https://infohub.nyced.org/reports/academics/test-results",
+      "sha256": "997d2ff3615671da2c1f2462c327bfa4c86aa95affa73132319b51743cee7f78"
+    },
+    {
+      "id": "nyc-income",
+      "dataset_id": "nyc",
+      "path": "data/raw/nyc-demographics.xlsx",
+      "url": "https://infohub.nyced.org/docs/default-source/default-document-library/demographic-snapshot-2021-22-to-2025-26-public.xlsx",
+      "sha256": "d7759afaf3e1cd821a512f84a23fae6b70aa818f116ee2fc56e18a7bcfcb69f2"
+    },
+    {
+      "id": "nyc-locations",
+      "dataset_id": "nyc",
+      "path": "data/raw/nyc-locations.zip",
+      "url": "https://data.cityofnewyork.us/download/jfju-ynrr/application/x-zip-compressed",
+      "sha256": "3bbff08963c926a28049ce04adab6de5f655b97fea6a3aa00f15952f223cbc04"
+    },
+    {
+      "id": "nyc-math",
+      "dataset_id": "nyc",
+      "path": "data/raw/nyc-school-math.xlsx",
+      "url": "https://infohub.nyced.org/docs/default-source/default-document-library/school-math-results-public.xlsx",
+      "sha256": "fc11957633937e324a7456ca80cce1b075ea379d85c4c7153d9c477f6f255a6a"
+    },
+    {
+      "id": "nyc-regents",
+      "dataset_id": "nyc",
+      "path": "data/raw/nyc-regents.xlsx",
+      "url": "https://infohub.nyced.org/docs/default-source/default-document-library/2014-15-to-2022-23-nyc-regents-overall-and-by-category---public.xlsx",
+      "sha256": "6722f937cd5817783e0593e3edad169b7bb6f43ef2ef740fa017508998470d74"
     }
   ],
   "assessments": [
@@ -343,6 +392,76 @@
       "grades": "High-school tested grades under that year\u2019s rules",
       "standard": "Illinois 2024 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
       "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf"
+    },
+    {
+      "id": "nyc:2022:NYSTP (2018 standards):ES",
+      "state": "NY",
+      "name": "NYSTP (2018 standards)",
+      "year": 2022,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "NYSTP Levels 3+4; 2023 standards break",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/school-math-results-public.xlsx"
+    },
+    {
+      "id": "nyc:2022:Regents ELA / Algebra I:HS",
+      "state": "NY",
+      "name": "Regents ELA / Algebra I",
+      "year": 2022,
+      "level": "HS",
+      "grades": "High-school exam takers; multiple grades",
+      "standard": "Regents ELA and Algebra I score 65+; highest score per student/exam/year; distinct subject populations",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/2014-15-to-2022-23-nyc-regents-overall-and-by-category---public.xlsx"
+    },
+    {
+      "id": "nyc:2023:NYSTP (2023 standards):ES",
+      "state": "NY",
+      "name": "NYSTP (2023 standards)",
+      "year": 2023,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "NYSTP Levels 3+4; 2023 standards break",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/school-math-results-public.xlsx"
+    },
+    {
+      "id": "nyc:2023:Regents ELA / Algebra I:HS",
+      "state": "NY",
+      "name": "Regents ELA / Algebra I",
+      "year": 2023,
+      "level": "HS",
+      "grades": "High-school exam takers; multiple grades",
+      "standard": "Regents ELA and Algebra I score 65+; highest score per student/exam/year; distinct subject populations",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/2014-15-to-2022-23-nyc-regents-overall-and-by-category---public.xlsx"
+    },
+    {
+      "id": "nyc:2024:NYSTP (2023 standards):ES",
+      "state": "NY",
+      "name": "NYSTP (2023 standards)",
+      "year": 2024,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "NYSTP Levels 3+4; 2023 standards break",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/school-math-results-public.xlsx"
+    },
+    {
+      "id": "nyc:2025:NYSTP (2023 standards):ES",
+      "state": "NY",
+      "name": "NYSTP (2023 standards)",
+      "year": 2025,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "NYSTP Levels 3+4; 2023 standards break",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/school-math-results-public.xlsx"
+    },
+    {
+      "id": "nyc:2026:NYSTP (2023 standards):ES",
+      "state": "NY",
+      "name": "NYSTP (2023 standards)",
+      "year": 2026,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "NYSTP Levels 3+4; 2023 standards break",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/school-math-results-public.xlsx"
     }
   ],
   "economic_measures": [
@@ -393,6 +512,36 @@
       "name": "Illinois Low Income",
       "definition": "Published 2024 Report Card percentage of enrolled students classified as low income. Uses the published percentage, retaining underlying counts separately.",
       "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf"
+    },
+    {
+      "id": "nyc-poverty-2022",
+      "name": "NYCPS Poverty 2022",
+      "definition": "NYCPS share qualifying for free/reduced-price meals or HRA benefits; bounded values stay unavailable. This is not the Economic Need Index.",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/demographic-snapshot-2021-22-to-2025-26-public.xlsx"
+    },
+    {
+      "id": "nyc-poverty-2023",
+      "name": "NYCPS Poverty 2023",
+      "definition": "NYCPS share qualifying for free/reduced-price meals or HRA benefits; bounded values stay unavailable. This is not the Economic Need Index.",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/demographic-snapshot-2021-22-to-2025-26-public.xlsx"
+    },
+    {
+      "id": "nyc-poverty-2024",
+      "name": "NYCPS Poverty 2024",
+      "definition": "NYCPS share qualifying for free/reduced-price meals or HRA benefits; bounded values stay unavailable. This is not the Economic Need Index.",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/demographic-snapshot-2021-22-to-2025-26-public.xlsx"
+    },
+    {
+      "id": "nyc-poverty-2025",
+      "name": "NYCPS Poverty 2025",
+      "definition": "NYCPS share qualifying for free/reduced-price meals or HRA benefits; bounded values stay unavailable. This is not the Economic Need Index.",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/demographic-snapshot-2021-22-to-2025-26-public.xlsx"
+    },
+    {
+      "id": "nyc-poverty-2026",
+      "name": "NYCPS Poverty 2026",
+      "definition": "NYCPS share qualifying for free/reduced-price meals or HRA benefits; bounded values stay unavailable. This is not the Economic Need Index.",
+      "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/demographic-snapshot-2021-22-to-2025-26-public.xlsx"
     }
   ],
   "model_runs": [
@@ -1043,6 +1192,174 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "f4267494fafd88a43a6157542d95813ac50116447073f98ba7c856cf34885a87"
+    },
+    {
+      "id": "nyc:2022:NYSTP (2018 standards):ES:combined:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2022:NYSTP (2018 standards):ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2022:NYSTP (2018 standards):ES:math:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2022:NYSTP (2018 standards):ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2022:NYSTP (2018 standards):ES:reading:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2022:NYSTP (2018 standards):ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2022:Regents ELA / Algebra I:HS:combined:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2022:Regents ELA / Algebra I:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2022:Regents ELA / Algebra I:HS:math:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2022:Regents ELA / Algebra I:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2022:Regents ELA / Algebra I:HS:reading:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2022:Regents ELA / Algebra I:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2023:NYSTP (2023 standards):ES:combined:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2023:NYSTP (2023 standards):ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2023:NYSTP (2023 standards):ES:math:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2023:NYSTP (2023 standards):ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2023:NYSTP (2023 standards):ES:reading:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2023:NYSTP (2023 standards):ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2023:Regents ELA / Algebra I:HS:combined:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2023:Regents ELA / Algebra I:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2023:Regents ELA / Algebra I:HS:math:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2023:Regents ELA / Algebra I:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2023:Regents ELA / Algebra I:HS:reading:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2023:Regents ELA / Algebra I:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2024:NYSTP (2023 standards):ES:combined:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2024:NYSTP (2023 standards):ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2024:NYSTP (2023 standards):ES:math:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2024:NYSTP (2023 standards):ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2024:NYSTP (2023 standards):ES:reading:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2024:NYSTP (2023 standards):ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2025:NYSTP (2023 standards):ES:combined:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2025:NYSTP (2023 standards):ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2025:NYSTP (2023 standards):ES:math:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2025:NYSTP (2023 standards):ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2025:NYSTP (2023 standards):ES:reading:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2025:NYSTP (2023 standards):ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2026:NYSTP (2023 standards):ES:combined:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2026:NYSTP (2023 standards):ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2026:NYSTP (2023 standards):ES:math:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2026:NYSTP (2023 standards):ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
+    },
+    {
+      "id": "nyc:2026:NYSTP (2023 standards):ES:reading:ols-v1:194274272ee6",
+      "dataset_id": "nyc",
+      "definition_id": "nyc:2026:NYSTP (2023 standards):ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "194274272ee6c129cde0bfb6041839101bcadea9766bac92c1bc8bc72d6ecb8f"
     }
   ],
   "states": [
@@ -1072,6 +1389,25 @@
           ],
           "model_scope": "Illinois statewide assessment cohorts",
           "audit": "data/illinois/import-2024.json"
+        }
+      ]
+    },
+    {
+      "id": "NY",
+      "name": "New York",
+      "regions": [
+        {
+          "id": "nyc",
+          "name": "New York City",
+          "dataset": "nyc",
+          "status": "ready",
+          "levels": [
+            "ES",
+            "HS"
+          ],
+          "schools": "data/nyc/schools.json",
+          "boundaries": "data/nyc/boundary.geojson",
+          "model_scope": "NYCPS published NYSTP and Regents cohorts; separate tests and years"
         }
       ]
     }

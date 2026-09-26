@@ -1,7 +1,14 @@
 'use strict';
 const $ = selector => document.querySelector(selector);
 const state = { level: 'ES', subject: 'combined', program: 'all', query: '', selected: new Set(), focus: null, scope: 'selected' };
-let data, geography, mapZoom, mapSvg;
+let data, geography, mapZoom, mapSvg, activeRegion;
+function resolveGeography(catalog, params) {
+  const locationState = catalog.states.find(s=>s.id===params.get('state')) || catalog.states[0];
+  const region = locationState.regions.find(r=>r.id===params.get('region') && r.status==='ready') || locationState.regions.find(r=>r.status==='ready');
+  return {locationState,region};
+}
+const levelInfo = () => data?.levels?.[state.level] || {year:2024, outcome:'Proficiency',math_label:'Math'};
+const outcomeLabel = () => levelInfo().outcome;
 const LIST_PAGE_SIZE = 75;
 let listLimit = LIST_PAGE_SIZE, searchTimer;
 function syncURL() {
@@ -23,7 +30,7 @@ function restoreURL(params, statewide) {
   state.level = ['ES','HS'].includes(params.get('level')) ? params.get('level') : 'ES';
   const subject = params.get('subject') === 'ela' ? 'reading' : params.get('subject');
   state.subject = ['math','reading','combined'].includes(subject) ? subject : 'combined';
-  const programs = [...$('#program').options].map(o=>o.value);
+  const programs = [...$('#program').options].filter(o=>!o.disabled).map(o=>o.value);
   state.program = programs.includes(params.get('program')) ? params.get('program') : 'all';
   state.query = (params.get('q') || '').trim().toLowerCase();
   state.scope = params.get('scope') === 'filtered' ? 'filtered' : 'selected';
@@ -56,7 +63,7 @@ const displayName = s => s.short.replace(/\bHS\b/g, 'High School').replace(/\bES
 function tooltip(event, s) {
   const m = metric(s);
   const tip = $('#tooltip');
-  tip.innerHTML = `<strong>${escapeHTML(s.name)}</strong>${escapeHTML(s.district || s.program)} · Low income ${pct(s.income)}<br>${m ? `Proficiency ${pct(m.actual)} · Residual ${signed(m.studentized)}<br>${testedLabel(m.tested)} · ${intervalLabel(m)}${state.subject === 'combined' ? ' (smaller subject count)' : ''}` : 'Comparable assessment data unavailable'}`;
+  tip.innerHTML = `<strong>${escapeHTML(s.name)}</strong>${escapeHTML(s.district || s.program)} · Low income ${pct(s.income)}<br>${m ? `${outcomeLabel()} ${pct(m.actual)} · Residual ${signed(m.studentized)}<br>${testedLabel(m.tested)} · ${intervalLabel(m)}${state.subject === 'combined' ? ' (smaller subject count)' : ''}` : 'Comparable assessment data unavailable'}`;
   tip.hidden = false;
   const box = event.currentTarget.getBoundingClientRect();
   const x = event.clientX || box.x + box.width / 2, y = event.clientY || box.y;
@@ -122,15 +129,17 @@ function renderMap() {
   host.replaceChildren();
   if (!geography) {
     mapSvg = null;
-    host.innerHTML = '<p class="empty">Statewide map coordinates are not available yet. Use the searchable school list to explore Illinois rankings.</p>';
+    host.innerHTML = '<p class="empty">Map coordinates are unavailable. Use the searchable school list.</p>';
     return;
   }
   mapSvg = d3.select(host).append('svg').attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img').attr('aria-label','Map of matching schools. Choose a marker to inspect it. The school list provides a keyboard-accessible alternative.');
   const projection = d3.geoMercator().fitExtent([[20,12],[width - 35,height-12]], geography);
   const layer = mapSvg.append('g');
   layer.selectAll('path').data(geography.features).join('path').attr('d',d3.geoPath(projection)).attr('fill','#e1e7eb').attr('stroke','#fafcfd').attr('stroke-width',.65);
-  const lake = projection([-87.555,41.90]);
-  layer.append('text').attr('x',lake[0]).attr('y',lake[1]).attr('fill','#9bacb7').attr('font-size',12).attr('font-style','italic').attr('transform',`rotate(-65 ${lake[0]} ${lake[1]})`).text('Lake Michigan');
+  if (activeRegion?.id !== 'nyc') {
+    const lake = projection([-87.555,41.90]);
+    layer.append('text').attr('x',lake[0]).attr('y',lake[1]).attr('fill','#9bacb7').attr('font-size',12).attr('font-style','italic').attr('transform',`rotate(-65 ${lake[0]} ${lake[1]})`).text('Lake Michigan');
+  }
   const rows = filtered().filter(s => s.latitude != null && s.longitude != null).sort((a,b) => Number(state.selected.has(a.id))-Number(state.selected.has(b.id)));
   layer.selectAll('circle').data(rows).join('circle').attr('class','chart-point').attr('cx',s=>projection([s.longitude,s.latitude])[0]).attr('cy',s=>projection([s.longitude,s.latitude])[1]).attr('r',s=>state.focus===s.id?6:state.selected.has(s.id)?4.7:2.8).attr('fill',s=>state.focus===s.id?color.focus:metric(s)?metric(s).studentized>=0?color.above:color.below:color.gray).attr('fill-opacity',s=>state.selected.has(s.id)?1:.65).attr('stroke',s=>state.selected.has(s.id)?'#fff':'none').attr('stroke-width',1.5).on('mouseenter',tooltip).on('mousemove',tooltip).on('mouseleave',hideTooltip).on('click',(e,s)=>{hideTooltip();inspect(s.id,true);}).append('title').text(s=>s.name);
   mapZoom = d3.zoom().scaleExtent([1,9]).translateExtent([[-width,-height],[width*2,height*2]]).on('zoom',e=>{layer.attr('transform',e.transform);layer.selectAll('circle').attr('stroke-width',1.5/e.transform.k);});
@@ -143,13 +152,14 @@ function renderScatter() {
   const width=host.clientWidth-18, height=host.clientHeight, margin={left:44,right:17,top:22,bottom:45};
   const rows=cohort().filter(s=>metric(s));
   const m=model(), selected=schoolById(state.focus), sm=selected && metric(selected);
+  if (!m) { host.innerHTML='<p class="empty">No eligible model is available for this subject and level.</p>'; $('#model-size').textContent=''; $('#focus-summary').textContent=''; return; }
   const predictions=[m.intercept,m.intercept+100*m.slope];
   const x=d3.scaleLinear().domain([0,100]).range([margin.left,width-margin.right]);
   const y=d3.scaleLinear().domain([Math.min(0,...predictions)-2,Math.max(100,...predictions)+2]).range([height-margin.bottom,margin.top]);
-  const svg=d3.select(host).append('svg').attr('viewBox',`0 0 ${width} ${height}`).attr('role','img').attr('aria-label',`${subjectLabel()} proficiency versus low-income enrollment; regression slope ${m.slope.toFixed(2)}. ${sm?`${selected.name}: actual ${pct(sm.actual)}, predicted ${pct(sm.predicted)}, residual ${signed(sm.residual,1)} percentage points.`:''}`);
+  const svg=d3.select(host).append('svg').attr('viewBox',`0 0 ${width} ${height}`).attr('role','img').attr('aria-label',`${subjectLabel()} ${outcomeLabel().toLowerCase()} versus low-income enrollment; regression slope ${m.slope.toFixed(2)}. ${sm?`${selected.name}: actual ${pct(sm.actual)}, predicted ${pct(sm.predicted)}, residual ${signed(sm.residual,1)} percentage points.`:''}`);
   svg.append('g').attr('class','axis').attr('transform',`translate(${margin.left},0)`).call(d3.axisLeft(y).tickValues([0,25,50,75,100]).tickFormat(d=>`${d}%`).tickSize(-(width-margin.left-margin.right))).call(g=>g.select('.domain').remove());
   svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).ticks(5).tickFormat(d=>`${d}%`).tickSize(0)).call(g=>g.selectAll('text').attr('dy',16));
-  svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',12).attr('fill','#667386').text(`${state.subject==='combined'?'Mean':state.subject==='reading'?'ELA':'Math'} proficiency`);
+  svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',12).attr('fill','#667386').text(`${state.subject==='combined'?'Mean':state.subject==='reading'?'ELA':levelInfo().math_label} ${outcomeLabel().toLowerCase()}`);
   svg.append('text').attr('x',(width+margin.left)/2).attr('y',height-7).attr('text-anchor','middle').attr('font-size',12).attr('fill','#667386').text('Economic disadvantage (% low income)');
   const matching=new Set(filtered().map(s=>s.id));
   svg.append('g').selectAll('circle').data(rows).join('circle').attr('class','chart-point').attr('cx',s=>x(s.income)).attr('cy',s=>y(metric(s).actual)).attr('r',s=>state.selected.has(s.id)?4:2.5).attr('fill',s=>state.selected.has(s.id)?color.focus:color.gray).attr('opacity',s=>matching.has(s.id)?.55:.12).on('mouseenter',tooltip).on('mouseleave',hideTooltip).on('click',(e,s)=>{hideTooltip();inspect(s.id,true);});
@@ -186,7 +196,7 @@ function renderHistory() {
   }
   const width = Math.max(host.clientWidth - 20, 300), height = 280;
   const margin = {left: 46, right: 22, top: 20, bottom: 48};
-  const historyYears = data.history_years || [2015,2016,2017,2018,2019,2021,2022,2023,2024];
+  const historyYears = data.history_models?.filter(m=>m.level===state.level).map(m=>m.year) || data.history_years || [2024];
   const firstYear = Math.min(...historyYears), lastYear = Math.max(...historyYears);
   const x = d3.scaleLinear().domain(firstYear === lastYear ? [firstYear-.5,lastYear+.5] : [firstYear,lastYear]).range([margin.left, width - margin.right]);
   const extent = Math.max(2, ...values.flatMap(d=>[Math.abs(d.value),Math.abs(d.low || 0),Math.abs(d.high || 0)]));
@@ -250,7 +260,16 @@ function renderComparison() {
   groups.append('circle').attr('cx',s=>x(metric(s).studentized)).attr('cy',24).attr('r',4.5).attr('fill',s=>metric(s).studentized>=0?color.above:color.below);
   groups.append('text').attr('x',width-4).attr('y',28).attr('text-anchor','end').attr('font-size',12).attr('font-weight',650).attr('fill',s=>metric(s).studentized>=0?color.above:color.below).text(s=>signed(metric(s).studentized));
 }
-function render(){hideTooltip();const activeId=document.activeElement?.id;renderList();renderMap();renderScatter();renderComparison();renderHistory();syncURL();if(activeId)document.getElementById(activeId)?.focus({preventScroll:true});}
+function renderContext(){
+  const info=levelInfo(), nyc=activeRegion?.id==='nyc';
+  $('.year-tag strong').textContent=nyc && state.level==='HS' ? `${info.year-1}–${String(info.year).slice(-2)}` : `Spring ${info.year}`;
+  $('.intro .eyebrow').textContent=`${activeRegion?.id==='statewide'?'ILLINOIS':activeRegion?.name.toUpperCase() || 'CHICAGO'} PUBLIC SCHOOLS / ${info.year-1}–${String(info.year).slice(-2)}`;
+  $('[data-subject="math"]').textContent=info.math_label;
+  $('#assessment-context').textContent=nyc ? `${info.year} · ${info.note}` : '';
+  $('#assessment-context').hidden=!nyc;
+  $('#geography-note').textContent=nyc ? `Comparison population: New York City Public Schools · ${info.year} ${info.note}. NYC models are independent of Illinois models.` : activeRegion?.id==='statewide' ? 'Comparison population: Illinois statewide · 2024 IAR and SAT. Sampling intervals are unavailable where tested counts are missing.' : 'Comparison population: Chicago Public Schools · CPS annual assessment cohorts.';
+}
+function render(){hideTooltip();const activeId=document.activeElement?.id;renderContext();renderList();renderMap();renderScatter();renderComparison();renderHistory();syncURL();if(activeId)document.getElementById(activeId)?.focus({preventScroll:true});}
 function setFilter(){clearTimeout(searchTimer);listLimit=LIST_PAGE_SIZE;state.query=$('#search').value.trim().toLowerCase();state.program=$('#program').value;ensureFocus();render();announce(`${filtered().length} matching schools. Regression unchanged.`);}
 function scheduleSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(setFilter,150);}
 async function init(){
@@ -260,16 +279,17 @@ async function init(){
     const catalog = await catalogResponse.json();
     const stateSelect = $('#state-select'), regionSelect = $('#region-select');
     stateSelect.replaceChildren(...catalog.states.map(s => new Option(s.name, s.id)));
-    const locationState = catalog.states.find(s => s.id === 'IL');
-    stateSelect.value = locationState.id;
-    regionSelect.replaceChildren(...locationState.regions.map(region => {
-      const option = new Option(region.status === 'ready' ? region.name : `${region.name} — in preparation`, region.id);
-      option.disabled = region.status !== 'ready';
-      return option;
-    }));
     const initialParams = new URLSearchParams(window.location.search);
+    let locationState;
     function selectURLRegion(params) {
-      regionSelect.value = locationState.regions.some(r=>r.id===params.get('region') && r.status==='ready') ? params.get('region') : 'chicago';
+      const resolved=resolveGeography(catalog,params);
+      locationState=resolved.locationState;
+      stateSelect.value=locationState.id;
+      regionSelect.replaceChildren(...locationState.regions.map(region=>{
+        const option=new Option(region.status==='ready'?region.name:`${region.name} — in preparation`,region.id);
+        option.disabled=region.status!=='ready';return option;
+      }));
+      regionSelect.value=resolved.region.id;
     }
     selectURLRegion(initialParams);
     let loadVersion = 0;
@@ -283,21 +303,24 @@ async function init(){
         const loaded = await Promise.all([selectedRegion.schools,selectedRegion.boundaries].map(async url=>{if (!url) return null;const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
         if (version !== loadVersion) return;
         [data,geography] = loaded;
-        const statewide = selectedRegion.id === 'statewide';
+        activeRegion=selectedRegion;
+        const statewide = selectedRegion.id === 'statewide', nyc=selectedRegion.id==='nyc';
         state.level = 'ES'; $('#level').value = 'ES';
         $('#level option[value="HS"]').disabled = false;
-        $('#program').disabled = false;
-        $('#program').title = statewide ? 'CPS classifications are available for verified ID matches; other schools are Unclassified.' : '';
-        $('#program').previousElementSibling.textContent = statewide ? 'SCHOOL TYPE · CPS LABELS' : 'SCHOOL TYPE';
+        for (const option of $('#level').options) option.textContent=data.levels?.[option.value]?.label || (option.value==='ES'?'Grade schools · IAR':'High schools · SAT');
+        $('#program').disabled = nyc;
+        for (const option of $('#program').options) option.disabled=nyc && option.value!=='all';
+        $('#program').title = nyc ? 'NYC admissions classifications have not been verified.' : statewide ? 'CPS classifications are available for verified ID matches; other schools are Unclassified.' : '';
+        $('#program').previousElementSibling.textContent = nyc ? 'SCHOOL TYPE · UNAVAILABLE' : statewide ? 'SCHOOL TYPE · CPS LABELS' : 'SCHOOL TYPE';
         state.query = ''; state.program = 'all'; $('#search').value = ''; $('#program').value = 'all';
         state.scope = 'selected'; $('#scope').value = state.scope;
         mapSvg = null;
-        $('.map-panel h2').textContent = statewide ? 'Across Illinois' : 'Across Chicago';
-        $('.intro .eyebrow').textContent = statewide ? 'ILLINOIS PUBLIC SCHOOLS / 2023–24' : 'CHICAGO PUBLIC SCHOOLS / 2023–24';
-        $('#map').setAttribute('aria-label', statewide ? 'Illinois school map' : 'Chicago school map');
-        $('.map-source').textContent = statewide ? `Locations: NCES 2023–24 · Boundary: Illinois State Geological Survey · ${data.schools.filter(s=>s.latitude!=null&&s.longitude!=null).length} of ${data.schools.length} schools mapped · Scroll or pinch to zoom` : 'Community boundaries: City of Chicago · Scroll or pinch to zoom';
+        $('.map-panel h2').textContent = `Across ${statewide?'Illinois':selectedRegion.name}`;
+        $('#map').setAttribute('aria-label', `${selectedRegion.name} school map`);
+        const mapped=data.schools.filter(s=>s.latitude!=null&&s.longitude!=null).length;
+        $('.map-source').textContent = nyc ? `Locations: NYC school points, August 2024 · Boundaries: NYC Planning · ${mapped} of ${data.schools.length} schools mapped · Scroll or pinch to zoom` : statewide ? `Locations: NCES 2023–24 · Boundary: Illinois State Geological Survey · ${mapped} of ${data.schools.length} schools mapped · Scroll or pinch to zoom` : 'Community boundaries: City of Chicago · Scroll or pinch to zoom';
         $('#map-reset').disabled = false;
-        $('#geography-note').textContent = statewide ? 'Comparison population: Illinois statewide · 2024 IAR and SAT. Sampling intervals are unavailable where tested counts are missing.' : 'Comparison population: Chicago Public Schools · CPS annual assessment cohorts.';
+        document.querySelectorAll('[data-geography]').forEach(el=>{el.hidden=el.dataset.geography===(nyc?'illinois':'nyc');});
         $('#coverage').textContent = data.coverage_note || `The directory contains ${data.schools.length} grade and high schools. Math models include ${data.models.ES.math.n} grade schools and ${data.models.HS.math.n} high schools. Data retrieved September 17, 2026.`;
         if (params) restoreURL(params, statewide); else defaults();
         render();
@@ -307,6 +330,10 @@ async function init(){
         console.error(error); $('#load-error').hidden = false;
       } finally { if (version === loadVersion) regionSelect.disabled = false; }
     }
+    stateSelect.addEventListener('change',()=>{
+      selectURLRegion(new URLSearchParams({state:stateSelect.value}));
+      loadRegion();
+    });
     regionSelect.addEventListener('change', () => loadRegion());
     window.addEventListener('popstate', () => {
       const params = new URLSearchParams(window.location.search);

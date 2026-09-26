@@ -1,4 +1,6 @@
-# Achievement x Economic Disadvantage — Illinois school comparator
+# Achievement x Economic Disadvantage — public school comparator
+
+New York → New York City includes grade-school NYSTP results through 2026 and separately labeled Regents ELA/Algebra I results through 2023, with same-year NYCPS Poverty data, residual histories and sampling intervals. Charter coverage, suppressed poverty values and historical closed-school coverage have explicit limitations. See the [NYC data guide](docs/nyc-data.md) for sources, definitions and rebuild commands.
 
 A build-free static website: HTML5, CSS, vanilla JavaScript and vendored D3 7.9.0. Python + Polars prepare the committed JSON. No server API, npm, tracking, map service or runtime CDN is required.
 
@@ -48,6 +50,7 @@ curl -L --fail 'https://www.isbe.net/Documents/24-RC-Pub-Data-Set.xlsx' -o data/
 .venv/bin/python scripts/build_database.py --illinois data/raw/24-RC-Pub-Data-Set.xlsx
 .venv/bin/python scripts/prepare_data.py
 .venv/bin/python scripts/prepare_illinois.py
+.venv/bin/python scripts/prepare_nyc.py
 .venv/bin/python scripts/export_catalog.py
 .venv/bin/python -m unittest discover -s tests -v
 ```
@@ -79,6 +82,8 @@ The official [CPS identifier dataset for 2013–14](https://data.cityofchicago.o
 See [Illinois source-gap audit](docs/illinois-data-gaps.md) for evidence, rejected substitutes, and next steps.
 
 ## Statistical specification
+
+The snapshot and history dates in this section describe the Illinois/Chicago release. NYC uses the same regression and interval formulas with the distinct measures and years in the [NYC data guide](docs/nyc-data.md).
 
 - Snapshot: SY2023–24 demographics and spring 2024 assessments. Historical, not current admissions data.
 - Historical view: matched annual income and assessments, 2015–2019 and 2021–2024. Grade schools use IAR/PARCC; high schools use 2015–2016 PARCC and 2018–2019 / 2021–2024 SAT. The source workbook has no 2017 SAT records, and 2020 testing was canceled. No missing year is interpolated.

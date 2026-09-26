@@ -13,6 +13,7 @@
 - `scripts/database.py`, `scripts/schema.sql`, `scripts/build_database.py`: canonical data, import validation, and provenance.
 - `scripts/prepare_data.py`: statistical calculations and Chicago exports.
 - `scripts/prepare_illinois.py`, `scripts/import_illinois*.py`: statewide models and history.
+- `scripts/prepare_nyc.py`, [NYC data guide](docs/nyc-data.md): NYC extraction, separate NY definitions, models and coverage limits.
 - `scripts/prepare_locations.py`: authoritative school-ID crosswalk and map coordinates.
 - `scripts/export_catalog.py`: dataset catalog and import audit.
 - `data/source/`: reproducible extracts; `data/*.json` and `data/illinois/`: website output.
@@ -60,16 +61,17 @@ git diff --check
 Run checks appropriate to the change. Verify interactive changes in a browser; numerical tests alone do not establish that charts or controls work.
 For data changes, regenerate affected exports and inspect coverage/exclusions, same-year joins, and model output. Run the importer twice to check repeatability.
 
-Full Illinois rebuild, with the official workbook already downloaded:
+Full site rebuild, with the official Illinois workbook already downloaded:
 
 ```sh
 .venv/bin/python scripts/build_database.py --illinois data/raw/24-RC-Pub-Data-Set.xlsx
 .venv/bin/python scripts/prepare_data.py
 .venv/bin/python scripts/prepare_illinois.py
+.venv/bin/python scripts/prepare_nyc.py
 .venv/bin/python scripts/export_catalog.py
 ```
 
-Omitting `--illinois` rebuilds a Chicago-only database; exporting its catalog removes statewide availability. Do not accidentally publish that result. Source download and extraction steps are in the README.
+Omitting `--illinois` rebuilds a Chicago-only database; exporting its catalog removes statewide availability. Run `prepare_nyc.py` to restore NYC before exporting the full catalog. Do not accidentally publish a reduced catalog. Source download and extraction steps are in the README and NYC data guide.
 
 ## Expansion and delivery
 

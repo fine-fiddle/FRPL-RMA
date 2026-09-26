@@ -61,6 +61,11 @@ def export(database=DEFAULT_DB, output=ROOT/'data'):
                 schools_with_income=sum(s['economic_disadvantage'] is not None for s in schools),
                 reported_subject_rates=sum(a['proficiency'] is not None for a in assessments),
                 tested_counts=sum(a['tested'] is not None for a in assessments))
+        if db.execute("SELECT 1 FROM dataset WHERE id='nyc' AND status='ready'").fetchone():
+            catalog['states'].append(dict(id='NY',name='New York',regions=[dict(
+                id='nyc',name='New York City',dataset='nyc',status='ready',levels=['ES','HS'],
+                schools='data/nyc/schools.json',boundaries='data/nyc/boundary.geojson',
+                model_scope='NYCPS published NYSTP and Regents cohorts; separate tests and years')]))
         (output/'manifest.json').write_text(json.dumps(catalog, indent=2, allow_nan=False)+'\n')
         print(json.dumps(catalog.get('statewide_coverage', {}), indent=2))
 
