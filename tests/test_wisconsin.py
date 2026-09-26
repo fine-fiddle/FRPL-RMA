@@ -105,6 +105,19 @@ class WisconsinTests(unittest.TestCase):
         self.assertFalse(db.execute('PRAGMA foreign_key_check').fetchall())
         db.close()
 
+    def test_boundary_is_shoreline_clipped(self):
+        # The TIGERweb jurisdictional State layer extends into Lake Michigan (max longitude
+        # about -86.25), which leaves a school-less band over the lake and hides Door County's
+        # coastline. The Census cartographic boundary is clipped to the shoreline.
+        boundary = json.loads((ROOT / 'data/wisconsin/boundary.geojson').read_text())
+        geometry = boundary['features'][0]['geometry']
+        self.assertEqual(geometry['type'], 'Polygon')
+        self.assertGreater(len(geometry['coordinates']), 5)
+        points = [p for ring in geometry['coordinates'] for p in ring]
+        self.assertLess(max(p[0] for p in points), -86.7)
+        self.assertGreater(max(p[1] for p in points), 47.0)
+        self.assertLess(min(p[1] for p in points), 42.6)
+
     def test_snapshot_scope_and_standard_break(self):
         self.assertEqual(self.output['levels']['ES']['year'], 2025)
         self.assertEqual(self.output['levels']['HS']['year'], 2025)

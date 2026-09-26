@@ -10,6 +10,7 @@ import json
 import math
 import re
 import shutil
+import struct
 import zipfile
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -21,7 +22,7 @@ from prepare_data import build_history
 DATASET = 'wi-dpi'
 EXTRACT = ROOT / 'data/source/wisconsin.json'
 GIS_CSV = ROOT / 'data/raw/wi-public-schools.csv'
-BOUNDARY_RAW = ROOT / 'data/raw/wi-boundary.geojson'
+BOUNDARY_ZIP = ROOT / 'data/raw/cb_2024_us_state_500k.zip'
 BOUNDARY = ROOT / 'data/wisconsin/boundary.geojson'
 BASE = 'https://dpi.wi.gov/sites/default/files/wise/downloads/'
 OLD = 'https://dpi.wi.gov/sites/default/files/imce/zip/'
@@ -56,9 +57,7 @@ ENROLLMENT = {year: BASE + f'enrollment_certified_{year}.zip' for year in
                '2020-21', '2021-22', '2022-23', '2023-24', '2024-25']}
 GIS_URL = ('https://data-wi-dpi.opendata.arcgis.com/api/download/v1/items/'
            'd383fe81275e46f2a5a5c4f1a0c2eb85/csv?layers=20')
-BOUNDARY_URL = ('https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/'
-                'State_County/MapServer/0/query?where=STATE%3D%2755%27&outFields=NAME'
-                '&returnGeometry=true&outSR=4326&f=geojson')
+BOUNDARY_URL = ('https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_state_500k.zip')
 
 STRICT = dict(infer_schema_length=20000, schema_overrides={
     'DISTRICT_CODE': pl.Utf8, 'SCHOOL_CODE': pl.Utf8, 'GRADE_LEVEL': pl.Utf8})
@@ -289,6 +288,67 @@ def parse_directory():
     return directory
 
 
+def wisconsin_boundary():
+    """Shoreline-clipped Wisconsin geometry from the Census cartographic boundary file.
+
+    The TIGERweb State layer follows jurisdictional limits into Lake Michigan, which
+    leaves a wide school-less band and hides the Door County coastline. The GENZ
+    cartographic boundary is clipped to the shoreline and keeps offshore islands.
+    """
+    if not BOUNDARY_ZIP.exists():
+        raise FileNotFoundError(f'Missing raw source: {BOUNDARY_ZIP}')
+    with zipfile.ZipFile(BOUNDARY_ZIP) as archive:
+        shp = archive.read('cb_2024_us_state_500k.shp')
+        dbf = archive.read('cb_2024_us_state_500k.dbf')
+    count = struct.unpack_from('<I', dbf, 4)[0]
+    header, record = struct.unpack_from('<HH', dbf, 8)
+    fields, pos = [], 32
+    while dbf[pos] != 0x0d:
+        fields.append((dbf[pos:pos + 11].split(b'\0')[0].decode(), dbf[pos + 16]))
+        pos += 32
+    start = pos + 1
+    target = None
+    for r in range(count):
+        offset = start + r * record + 1
+        for name, length in fields:
+            value = dbf[offset:offset + length].decode('latin1').strip()
+            offset += length
+            if name == 'STATEFP' and value == '55':
+                target = r
+                break
+        if target is not None:
+            break
+    if target is None:
+        raise ValueError('Wisconsin not found in the cartographic boundary file')
+    pos = 100
+    for r in range(count):
+        number, length = struct.unpack_from('>II', shp, pos)
+        content = pos + 8
+        if r == target:
+            if struct.unpack_from('<I', shp, content)[0] != 5:
+                raise ValueError('Unexpected cartographic boundary shape type')
+            num_parts, num_points = struct.unpack_from('<II', shp, content + 36)
+            parts = struct.unpack_from(f'<{num_parts}I', shp, content + 44)
+            points = struct.unpack_from(f'<{num_points * 2}d', shp, content + 44 + 4 * num_parts)
+            rings = []
+            for p in range(num_parts):
+                first = parts[p]
+                last = parts[p + 1] if p + 1 < num_parts else num_points
+                ring = []
+                for i in range(first, last):
+                    x, y = points[2 * i], points[2 * i + 1]
+                    if not -93.0 <= x <= -86.0 or not 42.4 <= y <= 47.4:
+                        raise ValueError('Cartographic boundary outside Wisconsin bounds')
+                    ring.append([round(x, 5), round(y, 5)])
+                area = sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(ring, ring[1:]))
+                if area > 0:
+                    ring.reverse()
+                rings.append(ring)
+            return dict(type='Polygon', coordinates=rings)
+        pos = content + length * 2
+    raise ValueError('Cartographic boundary shape record missing')
+
+
 def extract():
     payload_sources = {}
     missing = []
@@ -300,8 +360,8 @@ def extract():
                 missing.append(zip_name)
     if missing:
         raise FileNotFoundError('Missing raw sources: ' + ', '.join(sorted(missing)))
-    if not BOUNDARY_RAW.exists():
-        raise FileNotFoundError(f'Missing raw source: {BOUNDARY_RAW}')
+    if not BOUNDARY_ZIP.exists():
+        raise FileNotFoundError(f'Missing raw source: {BOUNDARY_ZIP}')
 
     enrollment = []
     for year, url in ENROLLMENT.items():
@@ -319,21 +379,16 @@ def extract():
                                     assessment=ACT_NAME[era(year)], grades={'11': counts}))
     payload = dict(retrieved='2026-09-26', levels=LEVELS, sources=payload_sources,
                    directory_source=source_entry(GIS_CSV, GIS_URL),
-                   boundary_source=source_entry(BOUNDARY_RAW, BOUNDARY_URL),
+                   boundary_source=source_entry(BOUNDARY_ZIP, BOUNDARY_URL),
                    enrollment=sorted(enrollment, key=lambda r: (r['school_id'], r['year'])),
                    assessments=assessments, directory=parse_directory())
     EXTRACT.parent.mkdir(parents=True, exist_ok=True)
     EXTRACT.write_text(json.dumps(payload, separators=(',', ':'), allow_nan=False))
-    boundary = json.loads(BOUNDARY_RAW.read_text())
-    for feature in boundary['features']:
-        rings = feature['geometry']['coordinates']
-        for i, ring in enumerate(rings):
-            area = sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(ring, ring[1:]))
-            if (i == 0 and area > 0) or (i > 0 and area < 0):
-                ring.reverse()
-            ring[:] = [[round(x, 5), round(y, 5)] for x, y in ring]
+    feature = dict(type='Feature', properties=dict(STATEFP='55', NAME='Wisconsin'),
+                   geometry=wisconsin_boundary())
     BOUNDARY.parent.mkdir(parents=True, exist_ok=True)
-    BOUNDARY.write_text(json.dumps(boundary, separators=(',', ':')))
+    BOUNDARY.write_text(json.dumps(dict(type='FeatureCollection', features=[feature]),
+                                   separators=(',', ':')))
     print(f'Extracted {len(enrollment)} enrollment, {len(assessments)} assessment records, '
           f'{len(payload["directory"])} directory schools')
 

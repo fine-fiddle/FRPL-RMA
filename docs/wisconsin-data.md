@@ -12,9 +12,9 @@ All inputs are public aggregate files from the Wisconsin Department of Public In
 | High-school results | `act_statewide_certified_*.zip` | 2014-15 – 2024-25 | as above |
 | Same-year income | `enrollment_certified_*.zip` | 2014-15 – 2024-25 | as above |
 | Directory and coordinates | Public Schools, Wisconsin (GIS item `d383fe81275e46f2a5a5c4f1a0c2eb85`, layer 20) | current 2026-27 | `data/raw/wi-public-schools.csv` |
-| State outline | US Census TIGERweb State/County layer 0 | 2026 retrieval | `data/raw/wi-boundary.geojson` |
+| State outline | US Census cartographic boundary `cb_2024_us_state_500k` (shoreline-clipped) | 2024 vintage | `data/raw/cb_2024_us_state_500k.zip` |
 
-The download page mixes two URL prefixes by vintage; the exact URL per year is recorded in `scripts/prepare_wisconsin.py` and in `data/source/wisconsin.json`. Raw archives stay in the ignored `data/raw/`. The committed extract records each source's SHA-256.
+The download page mixes two URL prefixes by vintage; the exact URL per year is recorded in `scripts/prepare_wisconsin.py` and in `data/source/wisconsin.json`. Raw archives stay in the ignored `data/raw/`. The committed extract records each source's SHA-256. The state outline uses the Census cartographic boundary rather than the TIGERweb jurisdictional State layer: TIGERweb extends Wisconsin into Lake Michigan, which draws a wide school-less band over the lake and hides the Door County coastline. The cartographic boundary is clipped to the shoreline and keeps Washington Island and the other offshore islands.
 
 `enrollment_certified` is the third-Friday-of-September snapshot. The 2024-25 file is the most recent in this release. The DPI directory layer is labeled 2026-27 and was current September 4, 2026; locations can therefore be newer than the assessment snapshot, and schools that closed before 2026-27 may be absent from the directory even when they remain in earlier models.
 
@@ -64,7 +64,7 @@ The dominant exclusion is DPI grade-level redaction: 12,428 of 29,776 Forward sc
 
 ## Rebuild
 
-Place the raw files from the table above under `data/raw/` with their published filenames (plus `wi-public-schools.csv` and `wi-boundary.geojson`), then:
+Place the raw files from the table above under `data/raw/` with their published filenames (plus `wi-public-schools.csv` and `cb_2024_us_state_500k.zip`), then:
 
 ```sh
 .venv/bin/python scripts/prepare_wisconsin.py --extract

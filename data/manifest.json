@@ -208,9 +208,9 @@
     {
       "id": "wi-boundary",
       "dataset_id": "wi-dpi",
-      "path": "data/raw/wi-boundary.geojson",
-      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/0/query?where=STATE%3D%2755%27&outFields=NAME&returnGeometry=true&outSR=4326&f=geojson",
-      "sha256": "71732d04adf42a48d2c085da50e5b42a000c9cdbddbe77897eab0a15242650e1"
+      "path": "data/raw/cb_2024_us_state_500k.zip",
+      "url": "https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_state_500k.zip",
+      "sha256": "3e81cbb6cf5f60d9b01ef3e730afa14d61ce5f784252a0b33a696135e71447bc"
     },
     {
       "id": "wi-directory",
@@ -301,7 +301,7 @@
       "dataset_id": "wi-dpi",
       "path": "data/source/wisconsin.json",
       "url": "https://dpi.wi.gov/wisedash/public/download-files",
-      "sha256": "88b54f8c12ab757528756e81a67af1a5a7b4ee54053c0483d29aebe61d7b2cd2"
+      "sha256": "37c8573d844651ac32fa427e83f91442b9f70089dea78edf8070042417593659"
     },
     {
       "id": "wi-forward-2015-16",
@@ -1873,484 +1873,484 @@
       "input_sha256": "bdefa46a0aa9f0bc103bdb13511e0f3b956ea368e0bff798a41b6dc6e14cdd15"
     },
     {
-      "id": "wi-dpi:2015:ACT (pre-2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2015:ACT (pre-2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2015:ACT (pre-2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2015:ACT (pre-2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2015:ACT (pre-2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2015:ACT (pre-2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2015:ACT (pre-2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2015:ACT (pre-2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2015:ACT (pre-2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2016:ACT (pre-2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2016:ACT (pre-2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2016:ACT (pre-2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2016:ACT (pre-2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2016:ACT (pre-2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2016:ACT (pre-2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2016:ACT (pre-2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2016:ACT (pre-2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2016:ACT (pre-2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2016:Forward (pre-2023-24 levels):ES:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2016:Forward (pre-2023-24 levels):ES:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2016:Forward (pre-2023-24 levels):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2016:Forward (pre-2023-24 levels):ES:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2016:Forward (pre-2023-24 levels):ES:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2016:Forward (pre-2023-24 levels):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2016:Forward (pre-2023-24 levels):ES:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2016:Forward (pre-2023-24 levels):ES:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2016:Forward (pre-2023-24 levels):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2017:ACT (pre-2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2017:ACT (pre-2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2017:ACT (pre-2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2017:ACT (pre-2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2017:ACT (pre-2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2017:ACT (pre-2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2017:ACT (pre-2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2017:ACT (pre-2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2017:ACT (pre-2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2017:Forward (pre-2023-24 levels):ES:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2017:Forward (pre-2023-24 levels):ES:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2017:Forward (pre-2023-24 levels):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2017:Forward (pre-2023-24 levels):ES:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2017:Forward (pre-2023-24 levels):ES:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2017:Forward (pre-2023-24 levels):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2017:Forward (pre-2023-24 levels):ES:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2017:Forward (pre-2023-24 levels):ES:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2017:Forward (pre-2023-24 levels):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2018:ACT (pre-2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2018:ACT (pre-2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2018:ACT (pre-2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2018:ACT (pre-2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2018:ACT (pre-2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2018:ACT (pre-2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2018:ACT (pre-2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2018:ACT (pre-2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2018:ACT (pre-2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2018:Forward (pre-2023-24 levels):ES:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2018:Forward (pre-2023-24 levels):ES:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2018:Forward (pre-2023-24 levels):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2018:Forward (pre-2023-24 levels):ES:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2018:Forward (pre-2023-24 levels):ES:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2018:Forward (pre-2023-24 levels):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2018:Forward (pre-2023-24 levels):ES:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2018:Forward (pre-2023-24 levels):ES:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2018:Forward (pre-2023-24 levels):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2019:ACT (pre-2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2019:ACT (pre-2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2019:ACT (pre-2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2019:ACT (pre-2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2019:ACT (pre-2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2019:ACT (pre-2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2019:ACT (pre-2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2019:ACT (pre-2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2019:ACT (pre-2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2019:Forward (pre-2023-24 levels):ES:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2019:Forward (pre-2023-24 levels):ES:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2019:Forward (pre-2023-24 levels):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2019:Forward (pre-2023-24 levels):ES:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2019:Forward (pre-2023-24 levels):ES:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2019:Forward (pre-2023-24 levels):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2019:Forward (pre-2023-24 levels):ES:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2019:Forward (pre-2023-24 levels):ES:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2019:Forward (pre-2023-24 levels):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2020:ACT (pre-2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2020:ACT (pre-2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2020:ACT (pre-2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2020:ACT (pre-2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2020:ACT (pre-2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2020:ACT (pre-2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2020:ACT (pre-2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2020:ACT (pre-2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2020:ACT (pre-2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2021:ACT (pre-2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2021:ACT (pre-2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2021:ACT (pre-2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2021:ACT (pre-2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2021:ACT (pre-2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2021:ACT (pre-2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2021:ACT (pre-2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2021:ACT (pre-2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2021:ACT (pre-2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2021:Forward (pre-2023-24 levels):ES:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2021:Forward (pre-2023-24 levels):ES:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2021:Forward (pre-2023-24 levels):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2021:Forward (pre-2023-24 levels):ES:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2021:Forward (pre-2023-24 levels):ES:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2021:Forward (pre-2023-24 levels):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2021:Forward (pre-2023-24 levels):ES:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2021:Forward (pre-2023-24 levels):ES:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2021:Forward (pre-2023-24 levels):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2022:ACT (pre-2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2022:ACT (pre-2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2022:ACT (pre-2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2022:ACT (pre-2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2022:ACT (pre-2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2022:ACT (pre-2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2022:ACT (pre-2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2022:ACT (pre-2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2022:ACT (pre-2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2022:Forward (pre-2023-24 levels):ES:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2022:Forward (pre-2023-24 levels):ES:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2022:Forward (pre-2023-24 levels):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2022:Forward (pre-2023-24 levels):ES:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2022:Forward (pre-2023-24 levels):ES:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2022:Forward (pre-2023-24 levels):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2022:Forward (pre-2023-24 levels):ES:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2022:Forward (pre-2023-24 levels):ES:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2022:Forward (pre-2023-24 levels):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2023:ACT (pre-2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2023:ACT (pre-2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2023:ACT (pre-2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2023:ACT (pre-2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2023:ACT (pre-2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2023:ACT (pre-2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2023:ACT (pre-2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2023:ACT (pre-2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2023:ACT (pre-2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2023:Forward (pre-2023-24 levels):ES:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2023:Forward (pre-2023-24 levels):ES:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2023:Forward (pre-2023-24 levels):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2023:Forward (pre-2023-24 levels):ES:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2023:Forward (pre-2023-24 levels):ES:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2023:Forward (pre-2023-24 levels):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2023:Forward (pre-2023-24 levels):ES:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2023:Forward (pre-2023-24 levels):ES:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2023:Forward (pre-2023-24 levels):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2024:ACT (2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2024:ACT (2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2024:ACT (2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2024:ACT (2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2024:ACT (2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2024:ACT (2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2024:ACT (2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2024:ACT (2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2024:ACT (2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2024:Forward (2023-24 levels):ES:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2024:Forward (2023-24 levels):ES:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2024:Forward (2023-24 levels):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2024:Forward (2023-24 levels):ES:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2024:Forward (2023-24 levels):ES:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2024:Forward (2023-24 levels):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2024:Forward (2023-24 levels):ES:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2024:Forward (2023-24 levels):ES:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2024:Forward (2023-24 levels):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2025:ACT (2023-24 levels):HS:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2025:ACT (2023-24 levels):HS:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2025:ACT (2023-24 levels):HS",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2025:ACT (2023-24 levels):HS:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2025:ACT (2023-24 levels):HS:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2025:ACT (2023-24 levels):HS",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2025:ACT (2023-24 levels):HS:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2025:ACT (2023-24 levels):HS:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2025:ACT (2023-24 levels):HS",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2025:Forward (2023-24 levels):ES:combined:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2025:Forward (2023-24 levels):ES:combined:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2025:Forward (2023-24 levels):ES",
       "subject": "combined",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2025:Forward (2023-24 levels):ES:math:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2025:Forward (2023-24 levels):ES:math:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2025:Forward (2023-24 levels):ES",
       "subject": "math",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     },
     {
-      "id": "wi-dpi:2025:Forward (2023-24 levels):ES:reading:ols-v1:6d90ef23df7d",
+      "id": "wi-dpi:2025:Forward (2023-24 levels):ES:reading:ols-v1:49599347a568",
       "dataset_id": "wi-dpi",
       "definition_id": "wi-dpi:2025:Forward (2023-24 levels):ES",
       "subject": "reading",
       "method_version": "ols-studentized-v1",
-      "input_sha256": "6d90ef23df7db59f5f76613764ce6aafdcb9f539246c284287a135c4ec6edd3f"
+      "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
     }
   ],
   "states": [
@@ -2427,7 +2427,7 @@
           "geography": "wisconsin",
           "schools": "data/wisconsin/schools.json",
           "boundaries": "data/wisconsin/boundary.geojson",
-          "map_source": "Locations: DPI 2026\u201327 public school points \u00b7 Boundary: US Census TIGERweb",
+          "map_source": "Locations: DPI 2026\u201327 public school points \u00b7 Boundary: US Census cartographic boundaries",
           "comparison": "Comparison population: Wisconsin statewide \u00b7 Forward grades 3\u20138 and ACT grade 11. Income is same-year Wisconsin Economically Disadvantaged enrollment; DLM is excluded. Wisconsin models are independent of Illinois and New York models.",
           "model_scope": "Wisconsin DPI published Forward and ACT cohorts; separate standards eras"
         }

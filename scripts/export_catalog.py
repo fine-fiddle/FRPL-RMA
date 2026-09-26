@@ -80,7 +80,7 @@ def export(database=DEFAULT_DB, output=ROOT/'data'):
                 id='wisconsin',name='Wisconsin',dataset='wi-dpi',status='ready',levels=['ES','HS'],
                 geography='wisconsin',
                 schools='data/wisconsin/schools.json',boundaries='data/wisconsin/boundary.geojson',
-                map_source='Locations: DPI 2026–27 public school points · Boundary: US Census TIGERweb',
+                map_source='Locations: DPI 2026–27 public school points · Boundary: US Census cartographic boundaries',
                 comparison='Comparison population: Wisconsin statewide · Forward grades 3–8 and ACT grade 11. Income is same-year Wisconsin Economically Disadvantaged enrollment; DLM is excluded. Wisconsin models are independent of Illinois and New York models.',
                 model_scope='Wisconsin DPI published Forward and ACT cohorts; separate standards eras')]))
         (output/'manifest.json').write_text(json.dumps(catalog, indent=2, allow_nan=False)+'\n')
