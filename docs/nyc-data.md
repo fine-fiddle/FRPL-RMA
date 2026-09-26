@@ -50,4 +50,6 @@ The [city school-point file](https://data.cityofnewyork.us/d/jfju-ynrr) is dated
 
 ## Next source improvements
 
-Prioritize a newer Regents school-level release and archived annual demographics that retain schools subsequently closed. Charter expansion needs assessment records and a reliable matching economic measure: the demographic notes warn that Poverty can understate need for charters not using NYCPS meal services. NYC admissions categories need their own authoritative program mapping rather than CPS labels. None of these gaps should be concealed by guessed data.
+Charter and admissions inputs have now been gathered and validated separately: see the [charter and admissions coverage audit](nyc-expansion-coverage.md). They are not yet part of the published NYCPS models; the audit describes the outcome and identity decisions needed before integration.
+
+Prioritize integrating the gathered NYSED assessment/economic sources with explicit outcome definitions, and archived annual demographics that retain schools subsequently closed. The NYCPS demographic notes warn that Poverty can understate need for charters not using NYCPS meal services; the new NYSED measure must have its own models. Current NYC admissions categories still need an authoritative program mapping rather than CPS labels or undated reuse of the 2021 directory. None of these gaps should be concealed by guessed data.
