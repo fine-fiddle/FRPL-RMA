@@ -77,12 +77,33 @@ def export(database=DEFAULT_DB, output=ROOT/'data'):
                 model_scope='NYCPS published NYSTP and Regents cohorts; separate tests and years')]))
         if db.execute("SELECT 1 FROM dataset WHERE id='wi-dpi' AND status='ready'").fetchone():
             catalog['states'].append(dict(id='WI',name='Wisconsin',regions=[dict(
-                id='wisconsin',name='Wisconsin',dataset='wi-dpi',status='ready',levels=['ES','HS'],
+                id='wisconsin',name='Tested-count history',dataset='wi-dpi',status='ready',levels=['ES','HS'],
                 geography='wisconsin',
                 schools='data/wisconsin/schools.json',boundaries='data/wisconsin/boundary.geojson',
                 map_source='Locations: DPI 2026–27 public school points · Boundary: US Census cartographic boundaries',
                 comparison='Comparison population: Wisconsin statewide · Forward grades 3–8 and ACT grade 11. Income is same-year Wisconsin Economically Disadvantaged enrollment; DLM is excluded. Wisconsin models are independent of Illinois and New York models.',
                 model_scope='Wisconsin DPI published Forward and ACT cohorts; separate standards eras')]))
+        if db.execute("SELECT 1 FROM dataset WHERE id='wi-reportcards' AND status='ready'").fetchone():
+            wisconsin = next((s for s in catalog['states'] if s['id'] == 'WI'), None)
+            if wisconsin is None:
+                wisconsin = dict(id='WI', name='Wisconsin', regions=[])
+                catalog['states'].append(wisconsin)
+            published = []
+            for region, name, folder, levels in [
+                ('wisconsin-totals', 'School totals', 'reportcards', ['ES', 'HS']),
+                ('wisconsin-mixed', 'Mixed-grade school totals', 'reportcards-mixed', ['HS']),
+            ]:
+                published.append(dict(
+                    id=region, name=name, dataset='wi-reportcards', status='ready', levels=levels,
+                    geography='wisconsin', schools=f'data/wisconsin/{folder}/schools.json',
+                    boundaries='data/wisconsin/boundary.geojson',
+                    map_source='Locations: DPI 2026–27 public school points · Boundary: US Census cartographic boundaries',
+                    comparison='Comparison population: Wisconsin statewide · {year} {note}. '
+                    'WSAS school totals include DLM; grade schools, high schools and mixed-grade schools '
+                    'have separate models. Same-year income; no tested counts or sampling intervals.',
+                    model_scope='Published WSAS school report-card rates; separate grade-span populations',
+                    audit='data/wisconsin/coverage-comparison.json'))
+            wisconsin['regions'] = published + wisconsin['regions']
         (output/'manifest.json').write_text(json.dumps(catalog, indent=2, allow_nan=False)+'\n')
         print(json.dumps(catalog.get('statewide_coverage', {}), indent=2))
 

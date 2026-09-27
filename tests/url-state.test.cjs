@@ -115,3 +115,20 @@ test('NYC multi-program filters match either label and survive a shared URL',()=
   assert.equal(a.run(`filtered()[0].id`),'002');
   assert.equal(a.run(`matchesProgram({program:'Neighborhood'},'Neighborhood')`),true);
 });
+
+test('mixed-grade Wisconsin region restores its available level and explicit empty selection',()=>{
+  const a=app();
+  a.run(`activeRegion={id:'wisconsin-mixed',levels:['HS']};
+    document.querySelector('#state-select').value='WI';
+    document.querySelector('#region-select').value='wisconsin-mixed';
+    restoreURL(new URLSearchParams('level=ES&schools='),false);syncURL();`);
+  const p=new URL(a.window.location.href).searchParams;
+  assert.equal(p.get('level'),'HS');
+  assert.equal(p.get('schools'),'');
+  assert.equal(p.get('region'),'wisconsin-mixed');
+  a.run(`restoreURL(new URL(window.location.href).searchParams,false);syncURL();`);
+  assert.equal(new URL(a.window.location.href).searchParams.get('schools'),'');
+  a.run(`activeRegion={id:'wisconsin-totals',levels:['ES','HS']};
+    restoreURL(new URLSearchParams('level=bogus'),false);`);
+  assert.equal(a.run('state.level'),'ES');
+});

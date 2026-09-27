@@ -15,6 +15,7 @@
 - `scripts/prepare_illinois.py`, `scripts/import_illinois*.py`: statewide models and history.
 - `scripts/prepare_nyc.py`, [NYC data guide](docs/nyc-data.md): NYC extraction, separate NY definitions, models and coverage limits.
 - `scripts/prepare_wisconsin.py`, [Wisconsin data guide](docs/wisconsin-data.md): WISEdash extraction, two DPI standards eras, tested-only Forward/ACT models, redaction exclusions.
+- `scripts/prepare_wisconsin_reportcards.py`: separate published 2024–25 WSAS school totals, including DLM; distinct grade-school, high-school and mixed-grade models. No tested counts or sampling intervals; never splice these rates into Forward/ACT history.
 - `scripts/prepare_locations.py`: authoritative school-ID crosswalk and map coordinates.
 - `scripts/export_catalog.py`: dataset catalog and import audit.
 - `data/source/`: reproducible extracts; `data/*.json` and `data/illinois/`: website output.
@@ -70,6 +71,7 @@ Full site rebuild, with the official Illinois workbook already downloaded:
 .venv/bin/python scripts/prepare_illinois.py
 .venv/bin/python scripts/prepare_nyc.py
 .venv/bin/python scripts/prepare_wisconsin.py
+.venv/bin/python scripts/prepare_wisconsin_reportcards.py
 .venv/bin/python scripts/export_catalog.py
 ```
 

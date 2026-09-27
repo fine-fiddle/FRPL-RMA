@@ -2,7 +2,7 @@
 
 New York → New York City includes grade-school NYSTP results through 2026 and separately labeled Regents ELA/Algebra I results through 2023, with same-year NYCPS Poverty data, residual histories and sampling intervals. Charter coverage, suppressed poverty values and historical closed-school coverage have explicit limitations. See the [NYC data guide](docs/nyc-data.md) for sources, definitions and rebuild commands.
 
-Wisconsin → Statewide adds Forward grades 3–8 and ACT grade 11 results for test-administration years 2015–2025, with same-year Wisconsin Economically Disadvantaged enrollment. DPI’s 2023-24 performance-level change is a separate assessment identity, DLM is excluded, and grade-school members require complete non-redacted grade counts. See the [Wisconsin data guide](docs/wisconsin-data.md).
+Wisconsin → School totals uses published 2024–25 WSAS school-wide rates, with 1,890 Combined schools across separate grade-school, high-school and mixed-grade comparisons. This adds 625 analyzable school IDs beyond the original view without reconstructing suppressed grades. Counts and sampling intervals are unavailable in these broader models. Wisconsin → Tested-count history preserves the separate Forward/ACT series for 2015–2025. All models use same-year Wisconsin Economically Disadvantaged enrollment. See the [Wisconsin data guide](docs/wisconsin-data.md).
 
 A build-free static website: HTML5, CSS, vanilla JavaScript and vendored D3 7.9.0. Python + Polars prepare the committed JSON. No server API, npm, tracking, map service or runtime CDN is required.
 
@@ -54,6 +54,7 @@ curl -L --fail 'https://www.isbe.net/Documents/24-RC-Pub-Data-Set.xlsx' -o data/
 .venv/bin/python scripts/prepare_illinois.py
 .venv/bin/python scripts/prepare_nyc.py
 .venv/bin/python scripts/prepare_wisconsin.py
+.venv/bin/python scripts/prepare_wisconsin_reportcards.py
 .venv/bin/python scripts/export_catalog.py
 .venv/bin/python -m unittest discover -s tests -v
 ```
@@ -84,9 +85,13 @@ The official [CPS identifier dataset for 2013–14](https://data.cityofchicago.o
 
 See [Illinois source-gap audit](docs/illinois-data-gaps.md) for evidence, rejected substitutes, and next steps.
 
-## Wisconsin (WISEdash)
+## Wisconsin
 
-Wisconsin → Statewide adds independent DPI models; results are not pooled with Illinois or New York. Grade schools use the Forward Exam in English language arts and mathematics, grades 3–8. High schools use the state-mandated grade 11 ACT with writing (ELA and Mathematics). Both outcomes are the share of **tested students** reaching the top two performance levels, aggregated from exact grade or subject counts.
+**School totals** is the default Wisconsin comparison, using DPI's published 2024–25 percentages scoring Meeting or Advanced. Grade schools and high schools have separate models; **Mixed-grade school totals** is a separate comparison for schools spanning both ranges. The 1,890 Combined schools comprise 1,377 grade schools, 384 high schools and 129 mixed-grade schools. These are single-year WSAS rates including DLM and, at high-school grades, PreACT Secure and ACT. They are not overall accountability scores or multi-year Achievement Scores. The workbook supplies no tested counts, so all nine models show point estimates without sampling intervals. This snapshot is not connected to the different general-assessment history.
+
+Rebuild the broader comparisons from committed extracts with `.venv/bin/python scripts/prepare_wisconsin_reportcards.py`, then export the catalog. The [data guide](docs/wisconsin-data.md) explains extraction, grade-span partitions and the coverage audit. The original tested-count comparisons below remain available without numerical changes.
+
+Wisconsin → Tested-count history uses independent DPI models; results are not pooled with Illinois or New York. Grade schools use the Forward Exam in English language arts and mathematics, grades 3–8. High schools use the state-mandated grade 11 ACT with writing (ELA and Mathematics). Both outcomes are the share of **tested students** reaching the top two performance levels, aggregated from exact grade or subject counts.
 
 - DPI changed Forward and ACT performance levels in 2023-24 (Advanced + Proficient before; Advanced + Meeting after). The two eras are separate assessment identities, and history lines break at 2023-24.
 - School records cover FAY students. The same school year’s third-Friday-of-September enrollment supplies **Economically Disadvantaged** status: direct certification, National School Lunch Program free/reduced-price eligibility (at or below 185% of the federal poverty guidelines) or an alternate household income form. Suppressed values stay unavailable and are never imputed.
@@ -97,6 +102,7 @@ Wisconsin → Statewide adds independent DPI models; results are not pooled with
 ```sh
 .venv/bin/python scripts/prepare_wisconsin.py --extract   # with the raw archives in data/raw/
 .venv/bin/python scripts/prepare_wisconsin.py             # rebuild from the committed extract
+.venv/bin/python scripts/prepare_wisconsin_reportcards.py # broader published school totals
 .venv/bin/python scripts/export_catalog.py
 ```
 

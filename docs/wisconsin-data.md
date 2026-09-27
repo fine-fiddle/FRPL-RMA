@@ -1,6 +1,46 @@
-# Wisconsin data (WISEdash)
+# Wisconsin data: school totals and WISEdash history
 
-This adapter adds Wisconsin → Statewide, with independent DPI models. It does not pool Wisconsin with Illinois or New York.
+Wisconsin has three comparison choices with independent DPI models. None pools Wisconsin with Illinois or New York.
+
+## Broader published school totals
+
+**School totals** is the default when choosing Wisconsin. It uses `Percent Meeting ELA 2025` and `Percent Meeting Mathematics 2025` in DPI's [2024–25 school report-card workbook](https://dpi.wi.gov/sites/default/files/imce/accountability/xlsx/2024-25_school_reportcard_data.xlsx), downloaded through the [official portal](https://apps6.dpi.wi.gov/reportcards/). These single-year fields mean Meeting + Advanced, not Meeting alone. Workbook proportions are converted to percentages. We do not use the multi-year Achievement Score, Overall Accountability Score, participation rate, or prior-year columns.
+
+This is an intentional methodological addition: unsuppressed school-wide percentages support point estimates without counts, as with the site's SAT models. The workbook notes say statistics for groups smaller than 20 are not reported. We respect that masking but cannot independently validate each school's tested count. No counts are inferred from rounded rates, enrollment or participation. **All nine new models omit sampling intervals.** The minimum-ten-tested gate remains unchanged for the original tested-count series; the point-only allowance is restricted to the three explicitly named school-total assessment identities.
+
+The [2024–25 technical guide](https://dpi.wi.gov/media/26129/download?inline), pages 14–17, describes FAY status and performance-level percentages: non-testers, invalidated tests and non-FAY students are excluded from Achievement calculations. WSAS includes Forward, PreACT Secure, ACT and DLM as applicable. These published composite rates differ from the general-assessment-only Forward/ACT counts. We never substitute a report-card rate into an existing Forward/ACT model or concatenate their histories.
+
+Grade spans in the same year's report-card row define three disjoint populations:
+
+| Comparison | Grade-span rule | Math | ELA | Combined |
+| --- | --- | ---: | ---: | ---: |
+| School totals: grade schools | Highest grade ≤ 8 | 1,377 | 1,377 | 1,377 |
+| School totals: high schools | Lowest grade ≥ 9 | 386 | 384 | 384 |
+| Mixed-grade school totals | Lowest grade ≤ 8 and highest grade ≥ 9 | 129 | 129 | 129 |
+
+Mixed-grade schools are a separate comparison choice with their own assessment identity and regression. Their internal `HS` level means the span includes high school, not that the outcome is ACT-only. Grade mix still varies within each population and is not controlled. Grade-school filters exclude every school spanning high-school grades. Private Choice and Private All Students rows are excluded; independent public charter schools are included. All 2,061 public report-card identities remain searchable in their respective comparison, including 171 without eligible Combined results. There are 2,006 mapped schools and 55 list-only schools.
+
+Income uses **same-year** WISEdash 2024–25 enrollment, joined by authoritative four-digit district and school codes. Report-card enrollment or economic percentages never backfill missing WISEdash income. Profiles and grade spans use 2024–25 report cards; coordinates come from the separately identified current directory.
+
+The broader comparisons have **1,890 eligible Combined schools**. The original site's selectable snapshot has 1,266 (891 grade schools and 375 high schools): its grade-school *model* contains 935, but 44 are assigned to high school in its directory. There are 625 newly analyzable school IDs and one original-only ID: a net increase of 624, or 49.3%. These counts do not make the different residual measures interchangeable. Exact IDs appear in [`coverage-comparison.json`](../data/wisconsin/coverage-comparison.json). The original-only school, Discovery Charter School (`S11830110`), has suppressed report-card rates and remains available in **Tested-count history**.
+
+Only the workbook's 2024–25 rates are imported. Older report-card years require their own grade-span and standards audit; no historical grade span is inferred from a current row. The broader view displays one point labeled as a snapshot. The original tested-count history still covers 2015–2025.
+
+### Rebuild and provenance
+
+`data/source/wisconsin-reportcards.json` retains raw selected cells, worksheet row numbers, field definitions, workbook notes, and workbook/technical-guide URLs and SHA-256 hashes. SQLite stores the new observations and nine models under `wi-reportcards`. Outputs are in `data/wisconsin/reportcards/` and `data/wisconsin/reportcards-mixed/`. The importer replaces only its own dataset.
+
+```sh
+# Offline rebuild from committed extracts; preserve the existing full database.
+.venv/bin/python scripts/prepare_wisconsin_reportcards.py
+.venv/bin/python scripts/export_catalog.py
+```
+
+To regenerate the extract, download the workbook above as `data/raw/2024-25_school_reportcard_data.xlsx` and the guide as `data/raw/wi-report-card-technical-guide-2024-25.pdf`, then run the new script with `--extract`. `openpyxl` is already pinned in requirements. Tests independently refit deleted-school regressions, verify raw rates and same-year income, check grade-span boundaries and suppression, and exercise repeated imports.
+
+## Original tested-count series
+
+The following sections describe **Tested-count history**, preserved from the original Wisconsin branch.
 
 ## Sources
 

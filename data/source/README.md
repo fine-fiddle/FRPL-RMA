@@ -1,5 +1,7 @@
 # Data provenance
 
+`wisconsin-reportcards.json` retains selected raw cells, row numbers, field definitions, workbook notes and SHA-256 source hashes for the separate 2024–25 Wisconsin school-total comparisons. It uses same-year income and directory coordinates from `wisconsin.json`. See the [Wisconsin data guide](../../docs/wisconsin-data.md) for population differences, point-only models, coverage and rebuild instructions.
+
 NYC inputs and their separate definitions are documented in the [NYC data guide](../../docs/nyc-data.md). `nyc.json` retains raw selected assessment and income values, official workbook notes, source URLs/checksums and verified map coordinates. Wisconsin inputs (`wisconsin.json`) are documented in the [Wisconsin data guide](../../docs/wisconsin-data.md); that extract retains raw grade-level counts, the annual enrollment snapshots, source URLs/checksums and the DPI-derived directory. The sections below describe the Chicago sources.
 
 Retrieved September 17, 2026. All inputs are public school aggregates; no individual student records.

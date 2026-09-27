@@ -27,7 +27,8 @@ function syncURL() {
   if (url.href !== window.location.href) window.history.replaceState(null, '', url);
 }
 function restoreURL(params, statewide) {
-  state.level = ['ES','HS'].includes(params.get('level')) ? params.get('level') : 'ES';
+  const levels = activeRegion?.levels || ['ES','HS'];
+  state.level = levels.includes(params.get('level')) ? params.get('level') : levels[0];
   const subject = params.get('subject') === 'ela' ? 'reading' : params.get('subject');
   state.subject = ['math','reading','combined'].includes(subject) ? subject : 'combined';
   const programs = [...$('#program').options].filter(o=>!o.disabled).map(o=>o.value);
@@ -55,6 +56,7 @@ const subjectLabel = () => ({ math: 'Math', reading: 'ELA', combined: 'Combined'
 const incomeLabel = () => data?.income_label || 'low income';
 const incomeTitle = () => incomeLabel().charAt(0).toUpperCase() + incomeLabel().slice(1);
 const metric = s => s.metrics[state.subject];
+const unavailableReason = s => s.exclusions?.[state.subject] || s.history?.find(r=>r.year===levelInfo().year)?.exclusions?.[state.subject] || 'Comparable assessment data unavailable';
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const schoolById = id => data.schools.find(s => s.id === id);
 const cohort = () => data.schools.filter(s => s.level === state.level);
@@ -67,7 +69,7 @@ const displayName = s => s.short.replace(/\bHS\b/g, 'High School').replace(/\bES
 function tooltip(event, s) {
   const m = metric(s);
   const tip = $('#tooltip');
-  tip.innerHTML = `<strong>${escapeHTML(s.name)}</strong>${escapeHTML(s.district || s.program)} · ${escapeHTML(incomeLabel())} ${pct(s.income)}<br>${m ? `${outcomeLabel()} ${pct(m.actual)} · Residual ${signed(m.studentized)}<br>${testedLabel(m.tested)} · ${intervalLabel(m)}${state.subject === 'combined' ? ' (smaller subject count)' : ''}` : 'Comparable assessment data unavailable'}`;
+  tip.innerHTML = `<strong>${escapeHTML(s.name)}</strong>${escapeHTML(s.district || s.program)} · ${escapeHTML(incomeLabel())} ${pct(s.income)}<br>${m ? `${outcomeLabel()} ${pct(m.actual)} · Residual ${signed(m.studentized)}<br>${testedLabel(m.tested)} · ${intervalLabel(m)}${state.subject === 'combined' && m.tested != null ? ' (smaller subject count)' : ''}` : escapeHTML(unavailableReason(s))}`;
   tip.hidden = false;
   const box = event.currentTarget.getBoundingClientRect();
   const x = event.clientX || box.x + box.width / 2, y = event.clientY || box.y;
@@ -176,7 +178,7 @@ function renderScatter() {
     const right=xx<width*.65;
     svg.append('text').attr('x',xx+(right?10:-10)).attr('y',(ya+yp)/2+3).attr('text-anchor',right?'start':'end').attr('font-size',12).attr('font-weight',700).attr('fill',color.focus).attr('paint-order','stroke').attr('stroke','white').attr('stroke-width',3).text(`ε ${signed(sm.residual,1)} pp`);
     $('#focus-summary').innerHTML=`<strong>${escapeHTML(displayName(selected))} <span style="font-weight:400">· focus school</span></strong><div class="focus-stats"><div><span>Actual</span><b>${pct(sm.actual)}</b></div><div><span>Predicted</span><b>${pct(sm.predicted)}</b></div><div class="gap-value"><span>Difference · ε</span><b style="color:${sm.residual>=0?color.above:color.below}">${signed(sm.residual,1)} <small>pp</small></b></div></div>`;
-  }else $('#focus-summary').innerHTML=`<p>${selected?escapeHTML(displayName(selected))+' has no comparable data for this subject.':'Choose a school to see actual and predicted proficiency.'}</p>`;
+  }else $('#focus-summary').innerHTML=`<p>${selected?escapeHTML(displayName(selected))+': '+escapeHTML(unavailableReason(selected))+'.':'Choose a school to see actual and predicted proficiency.'}</p>`;
   $('#model-size').textContent=`${m.n} SCHOOLS`;
 }
 function renderHistory() {
@@ -237,13 +239,14 @@ function renderHistory() {
   $('#history-table').innerHTML = `<table><caption>${escapeHTML(displayName(school))} · ${label}: annual actual versus predicted</caption><thead><tr><th>Year / test</th><th>${escapeHTML(incomeTitle())}</th><th>Actual</th><th>Predicted</th><th>Difference</th><th>Studentized residual</th><th>95% interval</th><th>Tested</th><th>Model schools</th></tr></thead><tbody>${history.map(r=>{const m=r.subjects[state.subject]; return m ? `<tr><th>${r.year} ${escapeHTML(r.assessment)}</th><td>${pct(r.income)}</td><td>${pct(m.actual)}</td><td>${pct(m.predicted)}</td><td>${signed(m.residual,1)} pp</td><td>${signed(m.studentized)}</td><td>${intervalLabel(m)}</td><td>${m.tested == null ? 'Unavailable' : m.tested.toLocaleString()}</td><td>${m.cohort_n}</td></tr>` : `<tr><th>${r.year} ${escapeHTML(r.assessment)}</th><td>${pct(r.income)}</td><td colspan="7">${escapeHTML(r.exclusions[state.subject] || 'No eligible result')}</td></tr>`;}).join('')}</tbody></table>`;
 }
 function renderComparison() {
-  const selection=$('#selection'); selection.replaceChildren(); $('#combined-count-note').hidden=state.subject!=='combined';
+  const selection=$('#selection'); selection.replaceChildren(); $('#combined-count-note').hidden=true;
   for (const id of state.selected) {
     const s=schoolById(id), chip=document.createElement('span');chip.className='chip';
     chip.innerHTML=`${escapeHTML(displayName(s))}<button aria-label="Remove ${escapeHTML(s.name)}">×</button>`;
     chip.querySelector('button').addEventListener('click',()=>choose(id,false));selection.append(chip);
   }
   let rows=(state.scope==='selected'?cohort().filter(s=>state.selected.has(s.id)):filtered()).filter(s=>metric(s));
+  $('#combined-count-note').hidden=state.subject!=='combined' || !rows.some(s=>metric(s).tested != null);
   $('.chart-footnote span').textContent = rows.some(s=>!hasInterval(metric(s))) ? 'Sampling intervals unavailable where tested counts are missing' : 'Approximate 95% sampling interval';
   rows.sort((a,b)=>metric(b).studentized-metric(a).studentized);
   const host=$('#residuals'), axisHost=$('#residual-axis');host.replaceChildren();axisHost.replaceChildren();
@@ -268,7 +271,7 @@ function renderContext(){
   const info=levelInfo(), nyc=activeRegion?.id==='nyc';
   const stateName = activeState?.name || '';
   $('.year-tag strong').textContent=nyc && state.level==='HS' ? `${info.year-1}–${String(info.year).slice(-2)}` : `Spring ${info.year}`;
-  $('.intro .eyebrow').textContent=`${activeRegion?.id==='statewide' ? stateName.toUpperCase() : activeRegion?.name.toUpperCase() || 'CHICAGO'} PUBLIC SCHOOLS / ${info.year-1}–${String(info.year).slice(-2)}`;
+  $('.intro .eyebrow').textContent=`${activeRegion?.id==='statewide' || activeRegion?.geography==='wisconsin' ? stateName.toUpperCase() : activeRegion?.name.toUpperCase() || 'CHICAGO'} PUBLIC SCHOOLS / ${info.year-1}–${String(info.year).slice(-2)}`;
   $('[data-subject="math"]').textContent=info.math_label;
   $('#assessment-context').textContent=info.note ? `${info.year} · ${info.note}` : '';
   $('#assessment-context').hidden=!info.note;
@@ -311,9 +314,13 @@ async function init(){
         activeRegion=selectedRegion;
         activeState=locationState;
         const statewide = selectedRegion.id === 'statewide', nyc=selectedRegion.id==='nyc';
-        state.level = 'ES'; $('#level').value = 'ES';
-        $('#level option[value="HS"]').disabled = false;
-        for (const option of $('#level').options) option.textContent=data.levels?.[option.value]?.label || (option.value==='ES'?'Grade schools · IAR':'High schools · SAT');
+        const availableLevels = selectedRegion.levels || ['ES','HS'];
+        state.level = availableLevels[0]; $('#level').value = state.level;
+        for (const option of $('#level').options) {
+          option.disabled = !availableLevels.includes(option.value);
+          option.hidden = option.disabled;
+          option.textContent=data.levels?.[option.value]?.label || (option.value==='ES'?'Grade schools · IAR':'High schools · SAT');
+        }
         const options = data.program_options || ['Neighborhood','Classical','Selective','Magnet','Charter','Other','Unclassified'];
         $('#program').innerHTML = '<option value="all">All school types</option>' + options.map(value=>`<option value="${escapeHTML(value)}">${escapeHTML(value==='Selective'?'Selective enrollment':value)}</option>`).join('');
         $('#program').disabled = options.length <= 1;
@@ -322,13 +329,14 @@ async function init(){
         state.query = ''; state.program = 'all'; $('#search').value = ''; $('#program').value = 'all';
         state.scope = 'selected'; $('#scope').value = state.scope;
         mapSvg = null;
-        $('.map-panel h2').textContent = `Across ${statewide ? locationState.name : selectedRegion.name}`;
-        $('#map').setAttribute('aria-label', `${selectedRegion.name} school map`);
+        $('.map-panel h2').textContent = `Across ${statewide || selectedRegion.geography==='wisconsin' ? locationState.name : selectedRegion.name}`;
+        $('#map').setAttribute('aria-label', `${selectedRegion.geography==='wisconsin' ? locationState.name : selectedRegion.name} school map`);
         const mapped=data.schools.filter(s=>s.latitude!=null&&s.longitude!=null).length;
         $('.map-source').textContent = `${selectedRegion.map_source || 'School locations'} · ${mapped} of ${data.schools.length} schools mapped · Scroll or pinch to zoom`;
         $('#map-reset').disabled = false;
         document.querySelectorAll('[data-geography]').forEach(el=>{el.hidden=el.dataset.geography!==selectedRegion.geography;});
         $('#coverage').textContent = data.coverage_note || `The directory contains ${data.schools.length} grade and high schools. Math models include ${data.models.ES.math.n} grade schools and ${data.models.HS.math.n} high schools. Data retrieved September 17, 2026.`;
+        $('#wisconsin-coverage').textContent = data.coverage_note || '';
         if (params) restoreURL(params, statewide); else defaults();
         render();
         $('#load-error').hidden = true;

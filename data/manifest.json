@@ -365,6 +365,48 @@
       "path": "data/raw/forward_certified_2024-25.zip",
       "url": "https://dpi.wi.gov/sites/default/files/wise/downloads/forward_certified_2024-25.zip",
       "sha256": "49424486dbee147fa2308ecc1ca94b6645ecbe9b553960ada5c39585a7a4cb11"
+    },
+    {
+      "id": "wi-rc-directory",
+      "dataset_id": "wi-reportcards",
+      "path": "data/raw/wi-public-schools.csv",
+      "url": "https://data-wi-dpi.opendata.arcgis.com/api/download/v1/items/d383fe81275e46f2a5a5c4f1a0c2eb85/csv?layers=20",
+      "sha256": "1a1d1ff01609b14bfbfcec4e3b2e14ba531ae5d6910fc33ef9a2c444557ee4d4"
+    },
+    {
+      "id": "wi-rc-extract",
+      "dataset_id": "wi-reportcards",
+      "path": "data/source/wisconsin-reportcards.json",
+      "url": "https://dpi.wi.gov/sites/default/files/imce/accountability/xlsx/2024-25_school_reportcard_data.xlsx",
+      "sha256": "1319e887f3a4fcbfaa0a6c666d8f6d4f5d77a4db16a4a009f930625eb029685e"
+    },
+    {
+      "id": "wi-rc-guide",
+      "dataset_id": "wi-reportcards",
+      "path": "data/raw/wi-report-card-technical-guide-2024-25.pdf",
+      "url": "https://dpi.wi.gov/media/26129/download?inline",
+      "sha256": "493f165f462f13c95338d78b775a80edb5ea774a75a5f09965621bae2dcbdf57"
+    },
+    {
+      "id": "wi-rc-income",
+      "dataset_id": "wi-reportcards",
+      "path": "data/raw/enrollment_certified_2024-25.zip",
+      "url": "https://dpi.wi.gov/sites/default/files/wise/downloads/enrollment_certified_2024-25.zip",
+      "sha256": "d2e9d8529bd347a332ea868e0a80710c4b54c9726decd751c15bbc71db6b263e"
+    },
+    {
+      "id": "wi-rc-wise-extract",
+      "dataset_id": "wi-reportcards",
+      "path": "data/source/wisconsin.json",
+      "url": "https://dpi.wi.gov/wisedash/public/download-files",
+      "sha256": "37c8573d844651ac32fa427e83f91442b9f70089dea78edf8070042417593659"
+    },
+    {
+      "id": "wi-rc-workbook",
+      "dataset_id": "wi-reportcards",
+      "path": "data/raw/2024-25_school_reportcard_data.xlsx",
+      "url": "https://dpi.wi.gov/sites/default/files/imce/accountability/xlsx/2024-25_school_reportcard_data.xlsx",
+      "sha256": "8db531d0bcb6236a64495c5b3f19dc161dbd68c02cfb9a7d3c2d6e055342738e"
     }
   ],
   "assessments": [
@@ -907,6 +949,36 @@
       "grades": "3\u20138",
       "standard": "Forward ELA and mathematics, grades 3\u20138, general assessment (DLM excluded), tested students only. Forward (2023-24 levels) at the 2023-24 performance levels; top two levels are Advanced + Meeting.",
       "source_url": "https://dpi.wi.gov/sites/default/files/wise/downloads/forward_certified_2024-25.zip"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 3\u20138:ES",
+      "state": "WI",
+      "name": "WSAS school totals \u00b7 grades 3\u20138",
+      "year": 2025,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "Published single-year WSAS Meeting + Advanced percentages for FAY students; Forward, PreACT Secure, ACT and DLM as applicable to the school grade span. No tested counts in the workbook; point estimates only. Separate grade-span populations; not the multi-year Achievement Score or overall accountability rating.",
+      "source_url": "https://dpi.wi.gov/sites/default/files/imce/accountability/xlsx/2024-25_school_reportcard_data.xlsx"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 9\u201311:HS",
+      "state": "WI",
+      "name": "WSAS school totals \u00b7 grades 9\u201311",
+      "year": 2025,
+      "level": "HS",
+      "grades": "9\u201311",
+      "standard": "Published single-year WSAS Meeting + Advanced percentages for FAY students; Forward, PreACT Secure, ACT and DLM as applicable to the school grade span. No tested counts in the workbook; point estimates only. Separate grade-span populations; not the multi-year Achievement Score or overall accountability rating.",
+      "source_url": "https://dpi.wi.gov/sites/default/files/imce/accountability/xlsx/2024-25_school_reportcard_data.xlsx"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 mixed grade spans:HS",
+      "state": "WI",
+      "name": "WSAS school totals \u00b7 mixed grade spans",
+      "year": 2025,
+      "level": "HS",
+      "grades": "3\u201311",
+      "standard": "Published single-year WSAS Meeting + Advanced percentages for FAY students; Forward, PreACT Secure, ACT and DLM as applicable to the school grade span. No tested counts in the workbook; point estimates only. Separate grade-span populations; not the multi-year Achievement Score or overall accountability rating.",
+      "source_url": "https://dpi.wi.gov/sites/default/files/imce/accountability/xlsx/2024-25_school_reportcard_data.xlsx"
     }
   ],
   "economic_measures": [
@@ -1050,6 +1122,12 @@
     },
     {
       "id": "wi-econ-2024-25",
+      "name": "Wisconsin Economically Disadvantaged 2024-25",
+      "definition": "Wisconsin Economically Disadvantaged: identified by Direct Certification, or a household meeting National School Lunch Program free/reduced-price income guidelines (at or below 185% of the federal poverty guidelines), or an alternate household income form. Reported for every student each year, including Community Eligibility Provision schools. Percentage uses the third-Friday-of-September enrolled count. Suppressed values stay unavailable.",
+      "source_url": "https://dpi.wi.gov/sites/default/files/wise/downloads/enrollment_certified_2024-25.zip"
+    },
+    {
+      "id": "wi-rc-econ-2025",
       "name": "Wisconsin Economically Disadvantaged 2024-25",
       "definition": "Wisconsin Economically Disadvantaged: identified by Direct Certification, or a household meeting National School Lunch Program free/reduced-price income guidelines (at or below 185% of the federal poverty guidelines), or an alternate household income form. Reported for every student each year, including Community Eligibility Provision schools. Percentage uses the third-Friday-of-September enrolled count. Suppressed values stay unavailable.",
       "source_url": "https://dpi.wi.gov/sites/default/files/wise/downloads/enrollment_certified_2024-25.zip"
@@ -2351,6 +2429,78 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "49599347a5682a59c51c5e360c57b685ed39355b2ca4e08f33c39a5715721a55"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 3\u20138:ES:combined:ols-v1:608c0639d0c2",
+      "dataset_id": "wi-reportcards",
+      "definition_id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 3\u20138:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "608c0639d0c29f0b38bb7cb9119c3a8fb72673b99ddea55377b3f7ac21be88fc"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 3\u20138:ES:math:ols-v1:608c0639d0c2",
+      "dataset_id": "wi-reportcards",
+      "definition_id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 3\u20138:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "608c0639d0c29f0b38bb7cb9119c3a8fb72673b99ddea55377b3f7ac21be88fc"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 3\u20138:ES:reading:ols-v1:608c0639d0c2",
+      "dataset_id": "wi-reportcards",
+      "definition_id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 3\u20138:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "608c0639d0c29f0b38bb7cb9119c3a8fb72673b99ddea55377b3f7ac21be88fc"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 9\u201311:HS:combined:ols-v1:608c0639d0c2",
+      "dataset_id": "wi-reportcards",
+      "definition_id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 9\u201311:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "608c0639d0c29f0b38bb7cb9119c3a8fb72673b99ddea55377b3f7ac21be88fc"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 9\u201311:HS:math:ols-v1:608c0639d0c2",
+      "dataset_id": "wi-reportcards",
+      "definition_id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 9\u201311:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "608c0639d0c29f0b38bb7cb9119c3a8fb72673b99ddea55377b3f7ac21be88fc"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 9\u201311:HS:reading:ols-v1:608c0639d0c2",
+      "dataset_id": "wi-reportcards",
+      "definition_id": "wi-reportcards:2025:WSAS school totals \u00b7 grades 9\u201311:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "608c0639d0c29f0b38bb7cb9119c3a8fb72673b99ddea55377b3f7ac21be88fc"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 mixed grade spans:HS:combined:ols-v1:608c0639d0c2",
+      "dataset_id": "wi-reportcards",
+      "definition_id": "wi-reportcards:2025:WSAS school totals \u00b7 mixed grade spans:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "608c0639d0c29f0b38bb7cb9119c3a8fb72673b99ddea55377b3f7ac21be88fc"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 mixed grade spans:HS:math:ols-v1:608c0639d0c2",
+      "dataset_id": "wi-reportcards",
+      "definition_id": "wi-reportcards:2025:WSAS school totals \u00b7 mixed grade spans:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "608c0639d0c29f0b38bb7cb9119c3a8fb72673b99ddea55377b3f7ac21be88fc"
+    },
+    {
+      "id": "wi-reportcards:2025:WSAS school totals \u00b7 mixed grade spans:HS:reading:ols-v1:608c0639d0c2",
+      "dataset_id": "wi-reportcards",
+      "definition_id": "wi-reportcards:2025:WSAS school totals \u00b7 mixed grade spans:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "608c0639d0c29f0b38bb7cb9119c3a8fb72673b99ddea55377b3f7ac21be88fc"
     }
   ],
   "states": [
@@ -2416,8 +2566,41 @@
       "name": "Wisconsin",
       "regions": [
         {
+          "id": "wisconsin-totals",
+          "name": "School totals",
+          "dataset": "wi-reportcards",
+          "status": "ready",
+          "levels": [
+            "ES",
+            "HS"
+          ],
+          "geography": "wisconsin",
+          "schools": "data/wisconsin/reportcards/schools.json",
+          "boundaries": "data/wisconsin/boundary.geojson",
+          "map_source": "Locations: DPI 2026\u201327 public school points \u00b7 Boundary: US Census cartographic boundaries",
+          "comparison": "Comparison population: Wisconsin statewide \u00b7 {year} {note}. WSAS school totals include DLM; grade schools, high schools and mixed-grade schools have separate models. Same-year income; no tested counts or sampling intervals.",
+          "model_scope": "Published WSAS school report-card rates; separate grade-span populations",
+          "audit": "data/wisconsin/coverage-comparison.json"
+        },
+        {
+          "id": "wisconsin-mixed",
+          "name": "Mixed-grade school totals",
+          "dataset": "wi-reportcards",
+          "status": "ready",
+          "levels": [
+            "HS"
+          ],
+          "geography": "wisconsin",
+          "schools": "data/wisconsin/reportcards-mixed/schools.json",
+          "boundaries": "data/wisconsin/boundary.geojson",
+          "map_source": "Locations: DPI 2026\u201327 public school points \u00b7 Boundary: US Census cartographic boundaries",
+          "comparison": "Comparison population: Wisconsin statewide \u00b7 {year} {note}. WSAS school totals include DLM; grade schools, high schools and mixed-grade schools have separate models. Same-year income; no tested counts or sampling intervals.",
+          "model_scope": "Published WSAS school report-card rates; separate grade-span populations",
+          "audit": "data/wisconsin/coverage-comparison.json"
+        },
+        {
           "id": "wisconsin",
-          "name": "Wisconsin",
+          "name": "Tested-count history",
           "dataset": "wi-dpi",
           "status": "ready",
           "levels": [
