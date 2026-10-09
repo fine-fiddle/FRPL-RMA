@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "MS",
+    "name": "Mississippi"
+  },
+  "prepare_script": "scripts/prepare_mississippi.py",
+  "regions": [
+    {
+      "id": "mississippi",
+      "name": "Statewide",
+      "dataset": "ms-maap-dc-2025",
+      "status": "ready",
+      "geography": "mississippi",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/mississippi/schools.json",
+      "boundaries": null,
+      "comparison": "Mississippi \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Mississippi operational grade schools with complete native regular MAAP grade counts and individual same-year CCD direct certification",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}

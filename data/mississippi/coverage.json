@@ -1,0 +1,60 @@
+{
+  "year": 2025,
+  "schools": 511,
+  "cohorts": {
+    "grade": {
+      "directory": 511,
+      "eligible": {
+        "math": 354,
+        "reading": 413,
+        "combined": 339
+      }
+    }
+  },
+  "exclusions": {
+    "A required grade has suppressed, ranged or unavailable native achievement counts": 213,
+    "Math: A required grade has suppressed, ranged or unavailable native achievement counts; ELA: A required grade has suppressed, ranged or unavailable native achievement counts": 76,
+    "Math: A required grade has suppressed, ranged or unavailable native achievement counts": 42,
+    "Incomplete or extra native grades for required grade-school response": 42,
+    "Math: Incomplete or extra native grades for required grade-school response": 32,
+    "ELA: A required grade has suppressed, ranged or unavailable native achievement counts": 15,
+    "Math: Incomplete or extra native grades for required grade-school response; ELA: Incomplete or extra native grades for required grade-school response": 3,
+    "Math: Incomplete or extra native grades for required grade-school response; ELA: A required grade has suppressed, ranged or unavailable native achievement counts": 4
+  },
+  "source_audit": {
+    "native_school_profiles": 788,
+    "grade_school_profiles": 511,
+    "excluded": {
+      "Outside verified operational grade-school scope": 277
+    },
+    "income_unavailable": 0,
+    "state_lunch_notes": [
+      {
+        "State or Jurisdiction": "Mississippi",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0007",
+        "Error Message": "The total Direct Certification was greater than the count of students reported as Free Lunch Qualified.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 1,
+        "State Note": "The LEA did not report any students with free or reduced priced lunch.",
+        "LEA NCES ID": "2801194",
+        "SCH NCES ID": "280119401201"
+      }
+    ],
+    "score_denominator": "Complete regular-assessment proficient + not-proficient grade counts; invalid scores excluded by official protocol",
+    "apr_valid_count_check": {
+      "ELA": {
+        "04": 30437,
+        "08": 32025
+      },
+      "MATH": {
+        "04": 30404,
+        "08": 32009
+      }
+    },
+    "mapped": 0
+  }
+}
