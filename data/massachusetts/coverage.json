@@ -1,0 +1,37 @@
+{
+  "year": 2025,
+  "bands": {
+    "grade": {
+      "schools": 1396,
+      "mapped": 1384,
+      "eligible": {
+        "math": 1228,
+        "reading": 1228,
+        "combined": 1228
+      }
+    },
+    "high": {
+      "schools": 274,
+      "mapped": 270,
+      "eligible": {
+        "math": 242,
+        "reading": 243,
+        "combined": 242
+      }
+    },
+    "mixed": {
+      "schools": 145,
+      "mapped": 142,
+      "eligible": {
+        "math": 126,
+        "reading": 126,
+        "combined": 126
+      }
+    }
+  },
+  "public_enrollment_schools": 1817,
+  "excluded_zero_enrollment_schools": 2,
+  "unmatched_assessment_rows": 0,
+  "missing_income_schools": 4,
+  "grade10_mixed_school_rows_retained_not_modeled": 252
+}

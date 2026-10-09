@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "prepare_script": "scripts/prepare_massachusetts.py",
+  "state": {
+    "id": "MA",
+    "name": "Massachusetts"
+  },
+  "regions": [
+    {
+      "id": "massachusetts",
+      "name": "Statewide",
+      "dataset": "ma-mcas",
+      "status": "ready",
+      "geography": "massachusetts",
+      "levels": [
+        "ES",
+        "HS"
+      ],
+      "schools": "data/massachusetts/schools.json",
+      "comparison": "Massachusetts \u00b7 {year} \u00b7 {outcome} \u00b7 {note}",
+      "model_scope": "Separate Massachusetts MCAS cohorts by same-year grade population and subject",
+      "map_source": "Exact CCD 2024\u201325 Massachusetts organization-code crosswalk to NCES 2023\u201324 coordinates"
+    },
+    {
+      "id": "massachusetts-mixed",
+      "name": "Mixed-grade schools",
+      "dataset": "ma-mcas",
+      "status": "ready",
+      "geography": "massachusetts",
+      "levels": [
+        "HS"
+      ],
+      "schools": "data/massachusetts/mixed/schools.json",
+      "comparison": "Massachusetts \u00b7 {year} \u00b7 {outcome} \u00b7 {note}",
+      "model_scope": "Separate Massachusetts MCAS cohorts by same-year grade population and subject",
+      "map_source": "Exact CCD 2024\u201325 Massachusetts organization-code crosswalk to NCES 2023\u201324 coordinates"
+    }
+  ]
+}
