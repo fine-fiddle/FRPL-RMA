@@ -1,0 +1,36 @@
+{
+  "year": 2025,
+  "schools": 1886,
+  "cohorts": {
+    "grade": {
+      "directory": 1886,
+      "eligible": {
+        "math": 1877,
+        "reading": 1884,
+        "combined": 1876
+      }
+    }
+  },
+  "exclusions": {
+    "Native GLP rate is suppressed or unavailable": 11,
+    "Math: Native GLP rate is suppressed or unavailable": 8,
+    "Math: Native GLP rate is suppressed or unavailable; ELA: Native GLP rate is suppressed or unavailable": 1,
+    "ELA: Native GLP rate is suppressed or unavailable": 1
+  },
+  "source_audit": {
+    "approved_point_only": true,
+    "native_source": "Disag_2024-25_Data.txt",
+    "native_population": "subgroup ALL; type RG regular multiple choice; subject MA/RD; grade GS native 3\u20138 composite",
+    "native_definition": "DPI source description pp1\u20132 explicitly separates RG, ALL and NCEXTEND1. GS includes NC Math1 EOC at grade8; GLP is Level3 and above.",
+    "denominator": "Source num_tested retained raw only. Valid-score scope not independently verified for intervals; every tested field is null.",
+    "income_collection": "APR 2025",
+    "income_precision": "Current all-years workbook may revise the earlier report-card copy by 0.1 percentage points; preserve the current APR2025 published value and its checksum.",
+    "grade_scope": "Exact same-year CCD state-ID parts, unadjusted grade offers and reconciled grade membership; excludes all high/mixed/unknown scopes.",
+    "excluded": {
+      "Mixed, high, adjusted or unknown grade configuration": 193,
+      "Missing exact same-year CCD school identity (includes district/state aggregates)": 125,
+      "April individual EDS percentage or enrollment is missing or suppressed": 8
+    },
+    "native_units": 2212
+  }
+}

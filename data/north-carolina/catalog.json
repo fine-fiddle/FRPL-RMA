@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "NC",
+    "name": "North Carolina"
+  },
+  "prepare_script": "scripts/prepare_north_carolina.py",
+  "regions": [
+    {
+      "id": "north-carolina",
+      "name": "Statewide",
+      "dataset": "nc-native-eds",
+      "status": "ready",
+      "geography": "north-carolina",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/north-carolina/schools.json",
+      "boundaries": null,
+      "comparison": "North Carolina \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "North Carolina public grade schools with exact native regular-test totals and April2025 individual EDS",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}
