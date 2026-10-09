@@ -1,0 +1,46 @@
+{
+  "year": 2025,
+  "schools": 1068,
+  "cohorts": {
+    "grade": {
+      "directory": 870,
+      "eligible": {
+        "math": 865,
+        "reading": 867,
+        "combined": 865
+      }
+    },
+    "high": {
+      "directory": 198,
+      "eligible": {
+        "math": 161,
+        "reading": 188,
+        "combined": 161
+      }
+    }
+  },
+  "exclusions": {
+    "Native school-total rate is suppressed or unavailable": 55,
+    "Math: Native school-total rate is suppressed or unavailable; ELA: Native school-total rate is suppressed or unavailable": 13,
+    "Math: Native school-total rate is suppressed or unavailable": 29
+  },
+  "source_audit": {
+    "approved_point_only": true,
+    "native_units": 1250,
+    "assessment": "ODE native school All Grades Assessment Group Reports, Total Population (All Students), published Percent Proficient; Level 3 or 4, including Oregon Extended assessments.",
+    "denominator": "AGR performance is the resolved valid-score population enrolled May 1, excluding beginning EL and invalid/nonattempt/opt-out scores; valid partial tests are included. Manual table 11 printed 14 separates AGR performance from participation and the AAG/Accountability 95%-rule denominator. Counts are raw only and every tested field is null.",
+    "high_school": "Current grade 11 resolved-score population includes prior-year passing high-school scores under the state highest-score rule, not only tests administered in 2025.",
+    "income": "Same-year spring school enrollment and individual SEP administrative flags; source codebook column M states enrolled May 2025 and qualifying status at any time in 2024\u201325.",
+    "directory": "School ID and District ID are native institution keys in all three files. AAG media school-year 26 is 2024\u201325. Use only native Grades, not its accountability proficiency fields.",
+    "source_caveats": [
+      "AGR workbook Definitions still says district special-education program students are excluded. The dated June 2025 inclusion manual printed 5 explicitly supersedes this: SB 923 requires their school assignment and inclusion.",
+      "The 2025 media codebook enrollment row retains a 2023 date, whereas the spring enrollment Notes and Report Year explicitly identify 2024\u201325. Income uses the spring workbook, not that stale enrollment sentence.",
+      "The manual contains conflicting older calendar dates in some general EL paragraphs; use the explicit beginning-EL A/B flag exclusion and 2024\u201325 AGR calculation table, without inferring a cutoff from stale prose."
+    ],
+    "excluded": {
+      "Spring individual poverty rate or enrollment is missing or suppressed": 42,
+      "Mixed, untested or unknown native grade span": 137,
+      "Missing exact native same-year school income or grade identity": 3
+    }
+  }
+}

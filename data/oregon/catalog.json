@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "OR",
+    "name": "Oregon"
+  },
+  "prepare_script": "scripts/prepare_oregon.py",
+  "regions": [
+    {
+      "id": "oregon",
+      "name": "Statewide",
+      "dataset": "or-native-sep",
+      "status": "ready",
+      "geography": "oregon",
+      "levels": [
+        "ES",
+        "HS"
+      ],
+      "schools": "data/oregon/schools.json",
+      "boundaries": null,
+      "comparison": "Oregon \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Oregon accountable public grade and high schools, separate native AGR assessment cohorts with same-year spring individual poverty; mixed grades excluded",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}
