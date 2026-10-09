@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "AR",
+    "name": "Arkansas"
+  },
+  "prepare_script": "scripts/prepare_arkansas.py",
+  "regions": [
+    {
+      "id": "arkansas",
+      "name": "Statewide",
+      "dataset": "ar-atlas-dc-2025",
+      "status": "ready",
+      "geography": "arkansas",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/arkansas/schools.json",
+      "boundaries": null,
+      "comparison": "Arkansas \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Arkansas operational grade schools with native post-correction ATLAS totals and individual same-year CCD direct certification",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}

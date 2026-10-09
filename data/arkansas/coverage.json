@@ -1,0 +1,38 @@
+{
+  "year": 2025,
+  "schools": 654,
+  "cohorts": {
+    "grade": {
+      "directory": 654,
+      "eligible": {
+        "math": 653,
+        "reading": 653,
+        "combined": 653
+      }
+    }
+  },
+  "exclusions": {
+    "Native schoolwide ATLAS rate suppressed, ranged or unavailable": 2,
+    "Math: Native schoolwide ATLAS rate suppressed, ranged or unavailable; ELA: Native schoolwide ATLAS rate suppressed, ranged or unavailable": 1
+  },
+  "source_audit": {
+    "native_school_profiles": 1017,
+    "grade_school_profiles": 654,
+    "excluded": {
+      "Outside verified operational grade-school scope": 363
+    },
+    "income_unavailable": 0,
+    "unused_native_dc": {
+      "year": 2025,
+      "field": "Direct Certification (Final)",
+      "school_rows": 1075,
+      "numeric_zero": 1060,
+      "unavailable": 15,
+      "nonzero": 0
+    },
+    "state_lunch_notes": [],
+    "approved_point_only": true,
+    "score_denominator": "Native N Tested retained raw; no independently verified valid-score count imported",
+    "mapped": 0
+  }
+}
