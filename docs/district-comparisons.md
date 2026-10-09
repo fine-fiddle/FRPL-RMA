@@ -315,6 +315,8 @@ The [Los Angeles Unified roster and model audits](los-angeles-district.md) use e
 
 The [Miami-Dade roster and numerical audits](miami-dade-district.md) keep exact CCD district membership separate from Florida's native enrolled-grade school population. They document offered-versus-enrolled grade differences, raw individual lunch eligibility, collocated/virtual exclusions and missing score counts. The district region uses independently checked pure grade-school fits with no sampling intervals; high-school and mixed assessment scope remain unaudited. Statewide Florida remains its own comparison.
 
+The [Clark County roster and source audit](clark-county-district.md) reconciles exact Nevada LEA `3200060` / `NV-02` membership with same-year grades 3–8 totals and direct certification. It retains 379 operational roster records, 289 eligible source profiles and 286 usable schools for each subject. Nevada's ungraded offers require explicit zero ungraded enrollment and reconciled grade subtotals. These are source counts; separate district fits, influence checks and integration remain pending. The planning queue still includes Clark County, and high-school assessment scope remains unverified.
+
 
 ## Provenance and rebuild
 
