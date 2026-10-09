@@ -1,0 +1,50 @@
+{
+  "year": 2025,
+  "schools": 1205,
+  "cohorts": {
+    "grade": {
+      "directory": 1205,
+      "eligible": {
+        "math": 344,
+        "reading": 169,
+        "combined": 148
+      }
+    }
+  },
+  "exclusions": {
+    "A required grade has protected or unavailable native valid/proficient counts": 1875,
+    "Math: A required grade has protected or unavailable native valid/proficient counts; ELA: A required grade has protected or unavailable native valid/proficient counts": 829,
+    "ELA: A required grade has protected or unavailable native valid/proficient counts": 196,
+    "Math: A required grade has protected or unavailable native valid/proficient counts": 21,
+    "Incomplete or extra native grades for required grade-school response": 22,
+    "Math: Incomplete or extra native grades for required grade-school response; ELA: Incomplete or extra native grades for required grade-school response": 11
+  },
+  "source_audit": {
+    "native_school_profiles": 1221,
+    "grade_school_profiles": 1205,
+    "excluded": {
+      "Outside verified operational grade-school scope": 15,
+      "Missing exact same-year CCD state-ID directory match": 1
+    },
+    "income_unavailable": 0,
+    "state_lunch_notes": [
+      {
+        "State or Jurisdiction": "Oklahoma",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "ALL-0008",
+        "Error Message": "A category set was not reported.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 1,
+        "State Note": "Oklahoma does not currently distinguish between FL and RPL. Our \"free and reduced price lunch\" counts match our economically disadvantaged counts.",
+        "LEA NCES ID": null,
+        "SCH NCES ID": null
+      }
+    ],
+    "score_denominator": "Complete native Valid N; only Valid Participant status Z, not Total N",
+    "standards_change": "2025 restored 2023 cuts; 2024 descriptors retained",
+    "mapped": 0
+  }
+}
