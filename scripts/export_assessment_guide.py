@@ -27,7 +27,7 @@ PSAT_SOURCE_URL = ('https://www.michigan.gov/mde/-/media/Project/Websites/mde/OE
                    'PSAT-8_9-for-Grade-8-Performance-Level-Information.pdf?'
                    'hash=5262B1C6A190B3DEE23168F8015F123B&rev=ae6c6e11dc744013bd37b586f30c2b16')
 PROVIDER_EVIDENCE_PATH = 'data/source/assessment-provider-evidence.json'
-PROVIDER_EVIDENCE_SHA256 = 'd91b077978eefaa9d111c564f56e09802eba133c01f5e0843dac83dfb6bcfd02'
+PROVIDER_EVIDENCE_SHA256 = 'da4db2344ffaa085854385d1a9ab1a53198a15472c280ca6b7ff8f5057bb89fc'
 DESCRIPTION = (
     'Latest assessments included in this project, separately by released dataset '
     'and model population. A year is the ending year of the school year. Test '

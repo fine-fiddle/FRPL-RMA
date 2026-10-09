@@ -104,7 +104,7 @@ class AssessmentGuideTests(unittest.TestCase):
     def test_provider_is_explicitly_bound_to_audited_owner_evidence(self):
         rows = [a for state in self.guide['states'] for a in state['assessments']]
         published = [a for a in rows if a['provider'] is not None]
-        self.assertEqual(len(published), 9)
+        self.assertEqual(len(published), 10)
         psat = next(a for a in published if a['provider'] == 'College Board')
         self.assertEqual((psat['state'], psat['dataset_id'], psat['year']), ('MI', 'mi-psat8-2025', 2025))
         self.assertEqual(psat['provider'], 'College Board')
@@ -134,7 +134,7 @@ class AssessmentGuideTests(unittest.TestCase):
         rows = [a for s in self.guide['states'] for a in s['assessments']
                 if a['provider'] == 'Smarter Balanced Assessment Consortium']
         self.assertEqual({a['id'] for a in rows}, expected)
-        self.assertEqual(len(rows), 8)
+        self.assertEqual(len(rows), 9)
         self.assertEqual({a['state'] for a in rows}, {'CA', 'DE', 'NV', 'WA'})
         source_ids = {s['id'] for s in evidence['sources']}
         guide_sources = {s['id']: s for s in self.guide['sources']}
@@ -186,6 +186,31 @@ class AssessmentGuideTests(unittest.TestCase):
         self.assertIsNone(row['ambition_comparison'])
         self.assertEqual(parse_qs(urlsplit(row['regions'][0]['url']).query),
                          dict(state=['FL'], region=['miami-dade'], level=['ES']))
+
+    def test_clark_county_has_exact_native_definition_and_explicit_district_provider_binding(self):
+        rows = self.by_state['NV']['assessments']
+        district = [a for a in rows if a['dataset_id'] == 'nv-clark-county-2025']
+        self.assertEqual(len(district), 1)
+        row = district[0]
+        statewide = next(a for a in rows if a['dataset_id'] == 'nv-edc-ccd-dc')
+        for field in ['name', 'year', 'level', 'grades', 'standard', 'source_url']:
+            self.assertEqual(row[field], statewide[field])
+        self.assertEqual([r['id'] for r in row['regions']], ['clark-county'])
+        self.assertEqual([r['id'] for r in statewide['regions']], ['nevada'])
+        self.assertEqual(parse_qs(urlsplit(row['regions'][0]['url']).query),
+                         dict(state=['NV'], region=['clark-county'], level=['ES']))
+        self.assertEqual(row['provider'], 'Smarter Balanced Assessment Consortium')
+        self.assertEqual(row['provider_role'], 'Assessment developer (member-led consortium)')
+        binding = provider_binding(row, load_provider_evidence())
+        self.assertEqual(set(binding['definition']),
+                         {'id', 'state', 'name', 'year', 'level', 'grades', 'standard', 'source_url'})
+        self.assertIsNone(binding['legal_owner'])
+        self.assertIsNone(binding['delivery_provider'])
+        self.assertIsNone(row['ambition_comparison'])
+        for field in ['standard', 'source_url']:
+            changed = dict(row, **{field: 'Changed unaudited native definition'})
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, 'provider definition changed'):
+                provider_binding(changed, load_provider_evidence())
 
     def test_provider_roles_do_not_propagate_from_titles_membership_or_new_years(self):
         evidence = load_provider_evidence()

@@ -122,6 +122,8 @@ def scope(row):
         return 'existing_los_angeles'
     if row['LEAID'] == '1200390':
         return 'existing_miami_dade'
+    if row['LEAID'] == '3200060':
+        return 'existing_clark_county'
     if row['LEAID'] == '1709930':
         return 'existing_chicago'
     if row['LEAID'] == '1500030':
@@ -282,6 +284,8 @@ def render(payload):
                 status = 'Existing Los Angeles Unified comparison; pure cohorts'
             elif row['scope'] == 'existing_miami_dade':
                 status = 'Existing Miami-Dade comparison; pure grade schools only'
+            elif row['scope'] == 'existing_clark_county':
+                status = 'Existing Clark County comparison; native grade-school scope only'
             elif row['scope'] == 'existing_hawaii_statewide':
                 status = 'Existing statewide comparison'
             elif row['scope'] == 'existing_nyc_component':
@@ -293,7 +297,7 @@ def render(payload):
     table('First tier · largest new district comparisons', main)
     table('Second tier · substantial regional comparisons', secondary)
     lines.extend(['## Existing comparisons and components', '',
-        'CPS, Los Angeles Unified and Miami-Dade grade schools are implemented. Hawaii’s single state LEA already has its statewide '
+        'CPS, Los Angeles Unified, Miami-Dade grade schools and Clark County native grade schools are implemented. Hawaii’s single state LEA already has its statewide '
         'comparison. The NYC geographic LEAs below are components of the existing NYC system; '
         'they would be optional subdistrict work, not additional whole-city systems. Do not '
         'add their counts to the Chancellor’s Office supervisory total or include District 75 '
@@ -334,6 +338,15 @@ def render(payload):
         'score counts. The district region uses independently checked pure grade-school '
         'fits with no sampling intervals; high-school and mixed assessment scope remain '
         'unaudited. Statewide Florida remains its own comparison.', ''])
+    lines.extend([
+        'The [Clark County source, numerical and integration audits](clark-county-district.md) '
+        'retain exact Nevada LEA 3200060 / NV-02 membership and the reported-zero '
+        'ungraded-enrollment safeguard. The region retains 289 native source profiles '
+        'with independent 286-school Math, ELA and Combined district models. All '
+        '299 native lower configurations and wider operational exclusions remain '
+        'auditable. Valid-score counts and sampling intervals are unavailable; '
+        'high-school and mixed assessment scope remains unaudited. Statewide Nevada '
+        'remains its own comparison.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

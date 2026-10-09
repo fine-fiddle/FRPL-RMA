@@ -9,6 +9,9 @@
 .history-panel{margin-top:20px}.history-chart{height:280px;padding:0 10px 8px}.history-chart svg{width:100%;height:100%;overflow:visible}.history-point{cursor:pointer}.history-point:focus{outline:none;stroke:var(--ink);stroke-width:3}.history-note{margin:0;background:#f8fafc;border-top:1px solid var(--line);padding:12px 22px;font-size:12px;color:var(--muted)}
 .history-details{padding:12px 22px}.history-details summary{cursor:pointer;font-size:13px;font-weight:600}.history-table{overflow-x:auto;margin-top:12px}.history-table table{border-collapse:collapse;width:100%;font-size:12px;white-space:nowrap}.history-table caption{text-align:left;padding:8px 0;font-weight:600}.history-table th,.history-table td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line)}.history-table th:first-child{text-align:left}.history-table thead{background:#f8fafc}
 
+/* Honor the hidden state on the comparison legend's flex container. */
+.chart-footnote[hidden]{display:none}
+
 /* Allow the full site name to wrap on narrow screens. */
 .assessment-context a{white-space:nowrap}
 .geography-control{display:flex;align-items:center;gap:8px;flex-shrink:0}.geography-control select{max-width:190px;padding:7px;border:1px solid var(--line);border-radius:5px;background:white;color:var(--ink);font-size:13px}.geography-note,.assessment-context{font-size:13px;color:var(--muted);margin:0 0 12px}.assessment-context{max-width:960px}.topbar{flex-wrap:wrap}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "NV",
+    "name": "Nevada"
+  },
+  "prepare_script": "scripts/prepare_clark_county.py",
+  "regions": [
+    {
+      "id": "clark-county",
+      "name": "Clark County",
+      "dataset": "nv-clark-county-2025",
+      "status": "ready",
+      "geography": "clark-county",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/clark-county/schools.json",
+      "boundaries": null,
+      "comparison": "Clark County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Clark County independent 2024\u201325 native grade-school district models: exact operational CCD LEA 3200060 / native NV-02 attachments. Nevada reported-zero ungraded enrollment plus reconciled PK\u20138 membership, complete unadjusted lower offer flags and highest grade 01\u201308 define the native configuration. Retain 289 native G38 source profiles, including three suppressed profiles, and all 299 configurations in coverage. Exact attached charter/type/virtual evidence remains explicit; source missingness determines eligibility. Separate same-year SBAC Regular G38 Levels 3-4 Math, ELA and Combined point-only district OLS; high/mixed populations remain outside approval.",
+      "map_source": "School coordinates and district boundaries are unavailable in the audited Clark County source release.",
+      "statewide": false,
+      "audit": "data/clark-county/coverage.json"
+    }
+  ]
+}

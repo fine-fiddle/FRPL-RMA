@@ -1837,6 +1837,90 @@
       "sha256": "03f24547726ebf7529d946cee85f84e3de3ac3962b5dbc8b96e0a4db3744247d"
     },
     {
+      "id": "nv-clark-county-2025:ccd_directory_2025",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_029_2425_w_1a_073025.zip",
+      "sha256": "39326da788aa322353d20ceaf8ad4baed26272502cd05b066cf6c594988b21ab"
+    },
+    {
+      "id": "nv-clark-county-2025:ccd_lunch_2025",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/raw/ccd_sch_033_2425_l_2a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_033_2425_l_2a_073025.zip",
+      "sha256": "97bda749e778ee74cb731d181bbcdaf0f9c6cd6edf94cb31518a5bbeab411dd6"
+    },
+    {
+      "id": "nv-clark-county-2025:ccd_membership_2025",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/raw/ccd_sch_052_2425_l_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_052_2425_l_1a_073025.zip",
+      "sha256": "4a7f660c5fc5eaae488dd02fd43498f349fc828b227edd0970d5b6995ead4d4d"
+    },
+    {
+      "id": "nv-clark-county-2025:ccd_state_notes_2025",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/raw/SY_2024-25_CCD_Final_2a_Data_Notes.xlsx",
+      "url": "https://nces.ed.gov/ccd/xls/SY_2024-25_CCD_Final_2a_Data_Notes.xlsx",
+      "sha256": "6476b6b28b700389e261b87377d9cd249935503d53b5919fe1b7ef8b1052d1a7"
+    },
+    {
+      "id": "nv-clark-county-2025:edc_2025",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/raw/edc-2025/nv.csv",
+      "url": "https://www.eddatacenter.org/api/data/3.1?state=NV&year=2025",
+      "sha256": "721216581f35e182ef723802503be8c5e3e518d21398633b6da034590217c9e0"
+    },
+    {
+      "id": "nv-clark-county-2025:edc_codebook_v3_1",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/raw/EDC_codebook_v3.1.xlsx",
+      "url": "https://www.eddatacenter.org/data_codebooks/EDC_codebook_v3.1.xlsx",
+      "sha256": "cfaf3eeb482b416106e4a7b775c9554768fbf4900b0518c861979d646b6b2574"
+    },
+    {
+      "id": "nv-clark-county-2025:edc_technical_v3_1",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/raw/EDC_technical_documentation_v3.1.pdf",
+      "url": "https://www.eddatacenter.org/data_documentation/EDC_technical_documentation_v3.1.pdf",
+      "sha256": "749c52497e37cfd73c0e29afadea3d90d6b50950844f070247594f44254a7968"
+    },
+    {
+      "id": "nv-clark-county-2025:extract",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/source/clark-county.json",
+      "url": "https://www.eddatacenter.org/api/data/3.1?state=NV&year=2025",
+      "sha256": "45464769a82ccabeedd1a35d8e252dd256d5182399f8fd54840e413ecf125ed2"
+    },
+    {
+      "id": "nv-clark-county-2025:nces_lunch_definitions",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/raw/ccd-lunch-definition.html",
+      "url": "https://nces.ed.gov/learn/blog/understanding-school-lunch-eligibility-common-core-data",
+      "sha256": "03f24547726ebf7529d946cee85f84e3de3ac3962b5dbc8b96e0a4db3744247d"
+    },
+    {
+      "id": "nv-clark-county-2025:numerical_audit",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/source/clark-county-model-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/clark-county-model-audit.json",
+      "sha256": "44304bb83de3bb9656490bfcc933685fa5e29782460fa474d4a94fbd2e0332c5"
+    },
+    {
+      "id": "nv-clark-county-2025:roster_audit",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/source/clark-county-district-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/clark-county-district-audit.json",
+      "sha256": "7cac2c5521f7a5995956b5b190df616e68f61ac756aed5ca09d2228449269823"
+    },
+    {
+      "id": "nv-clark-county-2025:state_extract",
+      "dataset_id": "nv-clark-county-2025",
+      "path": "data/source/ccd-state-snapshots.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/ccd-state-snapshots.json",
+      "sha256": "3b6e55bba0055c582eb14a461697c64131a36e4cd555bca94965e5f77cac91fc"
+    },
+    {
       "id": "nv-edc-ccd-dc:ccd_directory_2025",
       "dataset_id": "nv-edc-ccd-dc",
       "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
@@ -16222,6 +16306,16 @@
       "source_url": "https://newmexicoschools.com/"
     },
     {
+      "id": "nv-clark-county-2025:2025:SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
+      "state": "NV",
+      "name": "SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC",
+      "year": 2025,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "Levels 3-4; Nevada 2025 regular assessment; separate state model",
+      "source_url": "https://nevadareportcard.nv.gov/di/main/assessment"
+    },
+    {
       "id": "nv-edc-ccd-dc:2025:SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
       "state": "NV",
       "name": "SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC",
@@ -16923,6 +17017,12 @@
       "id": "nm-edc-ccd-dc:income",
       "name": "Direct certification",
       "definition": "Reported school-level CCD 2024\u201325 Direct Certification Education Unit Total divided by reported positive same-year CCD Membership Education Unit Total, including pre-K where enrolled. Direct certification identifies individual students categorically eligible through benefits and other qualifying statuses (for example SNAP, TANF, FDPIR, foster care, migrant, homeless and Head Start; Medicaid eligibility varies by state). It is a benefits-based economic proxy, not all students eligible through household income or all students receiving free meals at a CEP school. No CEP multiplier, universal-meal count, FRPL fallback, tested-subgroup ratio or prior-year income is used. CCD membership is the fall snapshot; counts use the same academic year and exact NCES ID. DC includes Medicaid free and reduced eligibility starting 2023\u201324; collection system changed and matured in 2025.",
+      "source_url": "https://nces.ed.gov/learn/blog/understanding-school-lunch-eligibility-common-core-data"
+    },
+    {
+      "id": "nv-clark-county-2025:income",
+      "name": "Direct certification",
+      "definition": "Reported school-level CCD 2024\u201325 Direct Certification Education Unit Total divided by reported positive same-year CCD Membership Education Unit Total, including pre-K where enrolled. Direct certification identifies individual students categorically eligible through benefits and other qualifying statuses (for example SNAP, TANF, FDPIR, foster care, migrant, homeless and Head Start; Medicaid eligibility varies by state). It is a benefits-based economic proxy, not all students eligible through household income or all students receiving free meals at a CEP school. No CEP multiplier, universal-meal count, FRPL fallback, tested-subgroup ratio or prior-year income is used. CCD membership is the fall snapshot; counts use the same academic year and exact NCES ID. Some districts classified DC students as reduced-price rather than free lunch. This does not justify replacing DC with free lunch counts.",
       "source_url": "https://nces.ed.gov/learn/blog/understanding-school-lunch-eligibility-common-core-data"
     },
     {
@@ -18716,6 +18816,30 @@
       "input_sha256": "9f0f44d4c6e559084d75995893c2152a2006c2a6ccfca71feab674bd07814ff7"
     },
     {
+      "id": "nv-clark-county-2025:2025:SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES:combined:ols-v1:c5044918a9b6",
+      "dataset_id": "nv-clark-county-2025",
+      "definition_id": "nv-clark-county-2025:2025:SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c5044918a9b63ac68f0190c26a2965ef2498047a4f950f4ab9386767f84a01b0"
+    },
+    {
+      "id": "nv-clark-county-2025:2025:SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES:math:ols-v1:c5044918a9b6",
+      "dataset_id": "nv-clark-county-2025",
+      "definition_id": "nv-clark-county-2025:2025:SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c5044918a9b63ac68f0190c26a2965ef2498047a4f950f4ab9386767f84a01b0"
+    },
+    {
+      "id": "nv-clark-county-2025:2025:SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES:reading:ols-v1:c5044918a9b6",
+      "dataset_id": "nv-clark-county-2025",
+      "definition_id": "nv-clark-county-2025:2025:SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "c5044918a9b63ac68f0190c26a2965ef2498047a4f950f4ab9386767f84a01b0"
+    },
+    {
       "id": "nv-edc-ccd-dc:2025:SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES:combined:ols-v1:9cbcb3f32f81",
       "dataset_id": "nv-edc-ccd-dc",
       "definition_id": "nv-edc-ccd-dc:2025:SBAC grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
@@ -20505,6 +20629,23 @@
       "id": "NV",
       "name": "Nevada",
       "regions": [
+        {
+          "id": "clark-county",
+          "name": "Clark County",
+          "dataset": "nv-clark-county-2025",
+          "status": "ready",
+          "geography": "clark-county",
+          "levels": [
+            "ES"
+          ],
+          "schools": "data/clark-county/schools.json",
+          "boundaries": null,
+          "comparison": "Clark County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Clark County independent 2024\u201325 native grade-school district models: exact operational CCD LEA 3200060 / native NV-02 attachments. Nevada reported-zero ungraded enrollment plus reconciled PK\u20138 membership, complete unadjusted lower offer flags and highest grade 01\u201308 define the native configuration. Retain 289 native G38 source profiles, including three suppressed profiles, and all 299 configurations in coverage. Exact attached charter/type/virtual evidence remains explicit; source missingness determines eligibility. Separate same-year SBAC Regular G38 Levels 3-4 Math, ELA and Combined point-only district OLS; high/mixed populations remain outside approval.",
+          "map_source": "School coordinates and district boundaries are unavailable in the audited Clark County source release.",
+          "statewide": false,
+          "audit": "data/clark-county/coverage.json"
+        },
         {
           "id": "nevada",
           "name": "Statewide",

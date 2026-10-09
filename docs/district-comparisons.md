@@ -2,7 +2,7 @@
 
 Implement these after the statewide basics. A district comparison would fit its own same-year, assessment, level and subject models, as CPS does. A filter using statewide predictions remains a district view of the statewide model; it is not a district comparison.
 
-Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 76 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
+Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 75 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
 ## Selection and implementation gates
 
@@ -17,7 +17,6 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 76 fir
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
-| Clark County | NV | 3200060 | 306,038 | 296 / 10 | Available; district audit pending |
 | BROWARD | FL | 1200180 | 243,553 | 243 / 45 | Available; district audit pending |
 | HILLSBOROUGH | FL | 1200870 | 220,360 | 218 / 34 | Available; district audit pending |
 | ORANGE | FL | 1201440 | 205,853 | 206 / 31 | Available; district audit pending |
@@ -273,7 +272,7 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 76 fir
 
 ## Existing comparisons and components
 
-CPS, Los Angeles Unified and Miami-Dade grade schools are implemented. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
+CPS, Los Angeles Unified, Miami-Dade grade schools and Clark County native grade schools are implemented. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
 
 ## Existing scope · size references
 
@@ -282,6 +281,7 @@ CPS, Los Angeles Unified and Miami-Dade grade schools are implemented. Hawaii’
 | Los Angeles Unified | CA | 0622710 | 408,026 | 572 / 147 | Existing Los Angeles Unified comparison; pure cohorts |
 | MIAMI-DADE | FL | 1200390 | 333,233 | 365 / 81 | Existing Miami-Dade comparison; pure grade schools only |
 | Chicago Public Schools Dist 299 | IL | 1709930 | 324,130 | 303 / 125 | Existing CPS comparison; size reference |
+| Clark County | NV | 3200060 | 306,038 | 296 / 10 | Existing Clark County comparison; native grade-school scope only |
 | Hawaii Department of Education | HI | 1500030 | 167,071 | 224 / 2 | Existing statewide comparison |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #31 | NY | 3600103 | 60,164 | 35 / 3 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT # 2 | NY | 3600077 | 55,345 | 34 / 50 | Optional NYC subdistrict audit |
@@ -315,7 +315,7 @@ The [Los Angeles Unified roster and model audits](los-angeles-district.md) use e
 
 The [Miami-Dade roster and numerical audits](miami-dade-district.md) keep exact CCD district membership separate from Florida's native enrolled-grade school population. They document offered-versus-enrolled grade differences, raw individual lunch eligibility, collocated/virtual exclusions and missing score counts. The district region uses independently checked pure grade-school fits with no sampling intervals; high-school and mixed assessment scope remain unaudited. Statewide Florida remains its own comparison.
 
-The [Clark County roster and numerical audits](clark-county-district.md) reconcile exact Nevada LEA `3200060` / `NV-02` membership with same-year grades 3–8 totals and direct certification. They retain 379 operational roster records, 289 source profiles and separate independently checked 286-school Math, ELA and Combined fits. Nevada's ungraded offers require explicit zero ungraded enrollment and reconciled grade subtotals. Deleted-school and influence diagnostics produce no numerical hold; no school is removed by those flags. Counts and sampling intervals remain unavailable. Canonical/browser integration remains pending, the planning queue still includes Clark County, and high-school assessment scope remains unverified.
+The [Clark County source, numerical and integration audits](clark-county-district.md) retain exact Nevada LEA 3200060 / NV-02 membership and the reported-zero ungraded-enrollment safeguard. The region retains 289 native source profiles with independent 286-school Math, ELA and Combined district models. All 299 native lower configurations and wider operational exclusions remain auditable. Valid-score counts and sampling intervals are unavailable; high-school and mixed assessment scope remains unaudited. Statewide Nevada remains its own comparison.
 
 
 ## Provenance and rebuild
