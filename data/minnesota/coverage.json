@@ -1,0 +1,823 @@
+{
+  "year": 2025,
+  "schools": 1776,
+  "cohorts": {
+    "grade": {
+      "directory": 1275,
+      "eligible": {
+        "math": 1129,
+        "reading": 1128,
+        "combined": 1128
+      }
+    },
+    "high": {
+      "directory": 501,
+      "eligible": {
+        "math": 266,
+        "reading": 240,
+        "combined": 235
+      }
+    }
+  },
+  "exclusions": {
+    "Native proficiency or valid-score components privacy suppressed": 356,
+    "Math: Native proficiency or valid-score components privacy suppressed; ELA: Native proficiency or valid-score components privacy suppressed": 143,
+    "Missing or invalid same-year income": 170,
+    "Math: Missing or invalid same-year income; ELA: Missing or invalid same-year income": 82,
+    "Math: Missing or invalid same-year income; ELA: Native proficiency or valid-score components privacy suppressed": 4,
+    "No native schoolwide subject result": 263,
+    "Math: No native schoolwide subject result; ELA: No native schoolwide subject result": 112,
+    "Math: Native proficiency or valid-score components privacy suppressed; ELA: No native schoolwide subject result": 26,
+    "ELA: No native schoolwide subject result": 6,
+    "Math: Native proficiency or valid-score components privacy suppressed": 5,
+    "ELA: Native proficiency or valid-score components privacy suppressed": 26,
+    "Math: No native schoolwide subject result; ELA: Native proficiency or valid-score components privacy suppressed": 7,
+    "Math: Native proficiency or valid-score components privacy suppressed; ELA: Missing or invalid same-year income": 2
+  },
+  "source_audit": {
+    "exclusions": {
+      "Mixed tested grade-school and high-school enrollment": 417,
+      "Outside the tested grade-school and high-school populations": 211,
+      "Native test grades establish mixed scope beyond fall grade profile": 22,
+      "High-school ID shares primary or early-childhood enrollment": 1,
+      "Tribal/BIE District Type 34 outside state-public jurisdiction": 4,
+      "Assessment school absent from same-year native enrollment": 18
+    },
+    "native_profile_count": 2431,
+    "metadata": {
+      "math": {
+        "information": [
+          [
+            "All Standards-Based Math Assessment Data for Public Schools"
+          ],
+          [
+            "Beginning in 2019, the data provided in this updated file format includes assessment data available to the public for both MCA-III and MTAS-III tests, labeled as \"All Standards-Based (MCA/MTAS/ALTMCA)\" in the \"Test Name\" column. Previously, public assessment data was available as separate individual files by test name. Assessment data are provided for the state, district, school, and county levels (data at the charter authorizer level will be added in the near future). Select the relevant tab in the spreadsheet to access data for each level. There is a column definitions tab in each Excel file that provides an explanation of the content and fields in the file."
+          ],
+          [
+            null
+          ],
+          [
+            "Please refer to the User Guide for more information."
+          ],
+          [
+            "If you have needs for assessment data not provided in this file, please email mde.analytics@state.mn.us."
+          ],
+          [
+            "end of worksheet"
+          ]
+        ],
+        "definitions": [
+          [
+            "Data Element",
+            "Column Definition"
+          ],
+          [
+            "Data Year",
+            "School year in which the data were reported."
+          ],
+          [
+            "County Number",
+            "County number."
+          ],
+          [
+            "County Name",
+            "County name."
+          ],
+          [
+            "District Number",
+            "District number."
+          ],
+          [
+            "District Type",
+            "District type."
+          ],
+          [
+            "District Name/Charter Authorizer Name",
+            "District name."
+          ],
+          [
+            "School Number",
+            "School number."
+          ],
+          [
+            "School Name",
+            "School name."
+          ],
+          [
+            "ECSU Number",
+            "Educational Cooperative Service Unit number."
+          ],
+          [
+            "Economic Development Region",
+            "Economic development region."
+          ],
+          [
+            "School Classification",
+            "School classification code."
+          ],
+          [
+            "Test Name",
+            "Assessments included. Any summary data for MCA, MTAS, or ALTMCA will appear when All Standards-Based (MCA/MTAS/ALTMCA) is selected."
+          ],
+          [
+            "Grade",
+            "Grade of test."
+          ],
+          [
+            "Subject",
+            "Subject of test."
+          ],
+          [
+            "Group Category",
+            "Broad category of students included."
+          ],
+          [
+            "Student Group",
+            "Student group description."
+          ],
+          [
+            "Total Tested",
+            "Number of students receiving a valid score."
+          ],
+          [
+            "Filter All",
+            "Indication that the total tested is less than 10."
+          ],
+          [
+            "Count Valid Scores MCA",
+            "Number of students receiving a valid score on MCA-III."
+          ],
+          [
+            "Filter MCA",
+            "Indication that the count of students receiving a valid score on MCA-III is less than 10."
+          ],
+          [
+            "Count Valid Scores MTAS",
+            "Number of students receiving a valid score on MTAS-III."
+          ],
+          [
+            "Filter MTAS",
+            "Indication that the count of students receiving a valid score on MTAS-III is less than 10."
+          ],
+          [
+            "Count Level D",
+            "Count of students in achievement level D (D=Does not meet standards)."
+          ],
+          [
+            "Count Level P",
+            "Count of students in achievement level P (P=Partially meets standards)."
+          ],
+          [
+            "Count Level M",
+            "Count of students in achievement level M (M=Meets standards)."
+          ],
+          [
+            "Count Level E",
+            "Count of students in achievement level E (E=Exceed standards)."
+          ],
+          [
+            "Percent Proficient",
+            "Count of students who meet or exceed standards divided by the total tested."
+          ],
+          [
+            "Percent Level D",
+            "Percent of students in achievement level D (D=Does not meet standards)."
+          ],
+          [
+            "Percent Level P",
+            "Percent of students in achievement level P (P=Partially meets standards)."
+          ],
+          [
+            "Percent Level M",
+            "Percent of students in achievement level M (M=Meets standards)."
+          ],
+          [
+            "Percent Level E",
+            "Percent of students in achievement level E (E=Exceed standards)."
+          ],
+          [
+            "MCA Average Score",
+            "Average scale score for MCA-III tests."
+          ],
+          [
+            "MCA Standard Deviation",
+            "Standard deviation of the scale scores for MCA-III tests."
+          ],
+          [
+            "MTAS Average Score",
+            "Average scale score for MTAS-III tests."
+          ],
+          [
+            "MTAS Standard Deviation",
+            "Standard deviation of the scale scores for MTAS-III tests."
+          ],
+          [
+            "Count Absent",
+            "Count of students absent."
+          ],
+          [
+            "Count Invalid - Student Behavior",
+            "Count of students determined to be invalid due to student behavior."
+          ],
+          [
+            "Count Invalid - Device",
+            "Count of students determined to be invalid due to a device."
+          ],
+          [
+            "Count Invalid - Other",
+            "Count of students determined to be invalid due to other reasons."
+          ],
+          [
+            "Count Medical Exempt",
+            "Count of students with a medical exemption."
+          ],
+          [
+            "Count Not Attempted",
+            "Count of students who did not attempt the test."
+          ],
+          [
+            "Count Not Complete",
+            "Count of students who did not complete the test."
+          ],
+          [
+            "Count Not Enrolled",
+            "Count of students who were not enrolled."
+          ],
+          [
+            "Count Refused - Parent",
+            "Count of students with parent refusal. "
+          ],
+          [
+            "Count Refused - Student",
+            "Count of students with student refusal."
+          ],
+          [
+            "Count Wrong Grade",
+            "Count of students taken for the wrong grade."
+          ],
+          [
+            "Count Valid Scores MCA with Accommodations",
+            "Count of students with valid scores with accommodations assigned on the MCA"
+          ],
+          [
+            "Count Extenuating Circumstances  Attempted",
+            "Count of students attempted, but not finished due to extenuating circumstances."
+          ],
+          [
+            "Count Extenuating Circumstances Not Attempted",
+            "Count of students with extenuating circumstances not attempted."
+          ],
+          [
+            "end of worksheet",
+            null
+          ]
+        ]
+      },
+      "reading": {
+        "information": [
+          [
+            "All Standards-Based Reading Assessment Data for Public Schools"
+          ],
+          [
+            "Beginning in 2019, the data provided in this updated file format includes assessment data available to the public for both MCA-III and MTAS-III tests, labeled as \"All Standards-Based (MCA/MTAS/ALTMCA)\" in the \"Test Name\" column. Previously, public assessment data was available as separate individual files by test name. Assessment data are provided for the state, district, school, and county levels (data at the charter authorizer level will be added in the near future). Select the relevant tab in the spreadsheet to access data for each level. There is a column definitions tab in each Excel file that provides an explanation of the content and fields in the file."
+          ],
+          [
+            null
+          ],
+          [
+            "Please refer to the User Guide for more information."
+          ],
+          [
+            "If you have needs for assessment data not provided in this file, please email mde.analytics@state.mn.us."
+          ],
+          [
+            "end of worksheet"
+          ]
+        ],
+        "definitions": [
+          [
+            "Data Element",
+            "Column Definition"
+          ],
+          [
+            "Data Year",
+            "School year in which the data were reported."
+          ],
+          [
+            "County Number",
+            "County number."
+          ],
+          [
+            "County Name",
+            "County name."
+          ],
+          [
+            "District Number",
+            "District number."
+          ],
+          [
+            "District Type",
+            "District type."
+          ],
+          [
+            "District Name/Charter Authorizer Name",
+            "District name."
+          ],
+          [
+            "School Number",
+            "School number."
+          ],
+          [
+            "School Name",
+            "School name."
+          ],
+          [
+            "ECSU Number",
+            "Educational Cooperative Service Unit number."
+          ],
+          [
+            "Economic Development Region",
+            "Economic development region."
+          ],
+          [
+            "School Classification",
+            "School classification code."
+          ],
+          [
+            "Test Name",
+            "Assessments included. Any summary data for MCA, MTAS, or ALTMCA will appear when All Standards-Based (MCA/MTAS/ALTMCA) is selected."
+          ],
+          [
+            "Grade",
+            "Grade of test."
+          ],
+          [
+            "Subject",
+            "Subject of test."
+          ],
+          [
+            "Group Category",
+            "Broad category of students included."
+          ],
+          [
+            "Student Group",
+            "Student group description."
+          ],
+          [
+            "Total Tested",
+            "Number of students receiving a valid score."
+          ],
+          [
+            "Filter All",
+            "Indication that the total tested is less than 10."
+          ],
+          [
+            "Count Valid Scores MCA",
+            "Number of students receiving a valid score on MCA-III."
+          ],
+          [
+            "Filter MCA",
+            "Indication that the count of students receiving a valid score on MCA-III is less than 10."
+          ],
+          [
+            "Count Valid Scores MTAS",
+            "Number of students receiving a valid score on MTAS-III."
+          ],
+          [
+            "Filter MTAS",
+            "Indication that the count of students receiving a valid score on MTAS-III is less than 10."
+          ],
+          [
+            "Count Level D",
+            "Count of students in achievement level D (D=Does not meet standards)."
+          ],
+          [
+            "Count Level P",
+            "Count of students in achievement level P (P=Partially meets standards)."
+          ],
+          [
+            "Count Level M",
+            "Count of students in achievement level M (M=Meets standards)."
+          ],
+          [
+            "Count Level E",
+            "Count of students in achievement level E (E=Exceed standards)."
+          ],
+          [
+            "Percent Proficient",
+            "Count of students who meet or exceed standards divided by the total tested."
+          ],
+          [
+            "Percent Level D",
+            "Percent of students in achievement level D (D=Does not meet standards)."
+          ],
+          [
+            "Percent Level P",
+            "Percent of students in achievement level P (P=Partially meets standards)."
+          ],
+          [
+            "Percent Level M",
+            "Percent of students in achievement level M (M=Meets standards)."
+          ],
+          [
+            "Percent Level E",
+            "Percent of students in achievement level E (E=Exceed standards)."
+          ],
+          [
+            "MCA Average Score",
+            "Average scale score for MCA-III tests."
+          ],
+          [
+            "MCA Standard Deviation",
+            "Standard deviation of the scale scores for MCA-III tests."
+          ],
+          [
+            "MTAS Average Score",
+            "Average scale score for MTAS-III tests."
+          ],
+          [
+            "MTAS Standard Deviation",
+            "Standard deviation of the scale scores for MTAS-III tests."
+          ],
+          [
+            "Count Absent",
+            "Count of students absent."
+          ],
+          [
+            "Count Invalid - Student Behavior",
+            "Count of students determined to be invalid due to student behavior."
+          ],
+          [
+            "Count Invalid - Device",
+            "Count of students determined to be invalid due to a device."
+          ],
+          [
+            "Count Invalid - Other",
+            "Count of students determined to be invalid due to other reasons."
+          ],
+          [
+            "Count Medical Exempt",
+            "Count of students with a medical exemption."
+          ],
+          [
+            "Count Not Attempted",
+            "Count of students who did not attempt the test."
+          ],
+          [
+            "Count Not Complete",
+            "Count of students who did not complete the test."
+          ],
+          [
+            "Count Not Enrolled",
+            "Count of students who were not enrolled."
+          ],
+          [
+            "Count Refused - Parent",
+            "Count of students with parent refusal."
+          ],
+          [
+            "Count Refused - Student",
+            "Count of students with student refusal."
+          ],
+          [
+            "Count Wrong Grade",
+            "Count of students taken for the wrong grade."
+          ],
+          [
+            "Count Valid Scores MCA with Accommodations",
+            "Count of students with valid scores with accommodations assigned on the MCA"
+          ],
+          [
+            "Count Extenuating Circumstances  Attempted",
+            "Count of students attempted, but not finished due to extenuating circumstances."
+          ],
+          [
+            "Count Extenuating Circumstances Not Attempted",
+            "Count of students with extenuating circumstances not attempted."
+          ],
+          [
+            "end of worksheet",
+            null
+          ]
+        ]
+      },
+      "enrollment": {
+        "information": [
+          [
+            "Enrollment Data"
+          ],
+          [
+            "All enrollment counts provided are based on the October 1 enrollment reported to MDE. The data provided in this file combines the previous Gender/Ethnicity and Special Populations files into one report. Data are provided for the state, district, school and county levels. To see data at each of these levels, click the tab at the bottom of the spreadsheet. The column definitions tab provides an explanation of what data are displayed in the file."
+          ],
+          [
+            "File Update Note:"
+          ],
+          [
+            "Student Privacy Note: The Minnesota Department of Education (MDE) is now implementing privacy protection rules in the enrollment data. Within the file, any blank cell is one that cannot be reported due to these rules and you can get more specific information about why using the column definitions. MDE has historically implemented primary suppression in public reporting. For most reports, this meant that if there was a student group with fewer than 10 students, the data was not reported. MDE is now implementing primary suppression, complementary suppression, and data blurring rules to further protect student privacy in compliance with federal and state guidelines.\n\nStudent Identification: The Minnesota Department of Education (MDE) is now reporting students using eight state-defined racial and ethnic groups, including the use of the state definition of American Indian and the new Other Indigenous group. The tabs labeled \u201cState,\u201d \u201cCounty,\u201d \u201cDistrict,\u201d and \u201cSchool\u201d report students using these groups. In these tabs, students count as American Indian if they meet the state definition regardless of any other racial or ethnic groups with which they may have identified. The state of Minnesota\u2019s definition of American Indian includes any of the original people within what is now the borders of the United States (excluding Hawaii) or Canada who maintain cultural identification through tribal affiliation or community recognition. This is different from the federal definition of American Indian or Alaska Native which includes students whose only racial or ethnic identification is with the original peoples of North, Central, or South America. Within the eight state racial or ethnic groups, the new Other Indigenous group includes students who meet the federal definition of American Indian or Alaska Native but not the state definition of American Indian, which means they identify only with indigenous peoples from Central and South America. The \u201cState-Federal,\u201d \u201cCounty-Federal,\u201d \u201cDistrict-Federal,\u201d and \u201cSchool-Federal\u201d tabs report students following federal guidance. All tabs include students attending Tribally Controlled Schools for the first time for the 24-25 Data/School Year."
+          ],
+          [
+            "For more information, please see our Privacy Protection Rules documentation."
+          ],
+          [
+            "If you have needs for enrollment data not provided in this file, please email mde.analytics@state.mn.us."
+          ],
+          [
+            "end of worksheet"
+          ]
+        ],
+        "definitions": [
+          [
+            "Enrollment Data",
+            null
+          ],
+          [
+            "Data Element",
+            "Column Definitions"
+          ],
+          [
+            "Data Year",
+            "Year of October 1 Enrollment data reported"
+          ],
+          [
+            "County Number",
+            "County number"
+          ],
+          [
+            "County Name",
+            "County name"
+          ],
+          [
+            "District Number",
+            "District number"
+          ],
+          [
+            "District Type",
+            "District type"
+          ],
+          [
+            "District Name",
+            "District name"
+          ],
+          [
+            "School Number",
+            "School number"
+          ],
+          [
+            "School Name",
+            "School name"
+          ],
+          [
+            "ECSU Number",
+            "Educational Cooperative Service Unit number"
+          ],
+          [
+            "Economic Development Region",
+            "Economic development region"
+          ],
+          [
+            "School Classification",
+            "School classification code"
+          ],
+          [
+            "Grade",
+            "Grade; School Readiness Plus and Voluntary PreKindergarten are both considered PK. ECSE is early childhood special education. All Grades includes all grades PK-12."
+          ],
+          [
+            "Total Enrollment",
+            "Total number of students enrolled on October 1"
+          ],
+          [
+            "Filter Groups",
+            "Indication that the total enrollment is less than 10 and only gender and race or ethnicity data should be displayed"
+          ],
+          [
+            "Total Female Count",
+            "Total female students enrolled"
+          ],
+          [
+            "Total Female Percent",
+            "Percent of total enrollment who are females"
+          ],
+          [
+            "Total Male Count",
+            "Total male students enrolled"
+          ],
+          [
+            "Total Male Percent",
+            "Percent of total enrollment who are males"
+          ],
+          [
+            "Total American Indian Count",
+            "Total American Indian students enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total American Indian Percent",
+            "Percent of total enrollment who are American Indian using the state race/ethnicity definitions"
+          ],
+          [
+            "American Indian Female Count",
+            "Total American Indian students who are female enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "American Indian Male Count",
+            "Total American Indian students who are male enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Asian Count",
+            "Total Asian students enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Asian Percent",
+            "Percent of total enrollment who are Asian using the state race/ethnicity definitions"
+          ],
+          [
+            "Asian Female Count",
+            "Total Asian students who are female enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Asian Male Count",
+            "Total Asian students who are male enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Black or African American Count",
+            "Total Black or African American students enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Black or African American Percent",
+            "Percent of total enrollment who are Black or African American using the state race/ethnicity definitions"
+          ],
+          [
+            "Black or African American Female Count",
+            "Total Black or African American students who are female enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Black or African American Male Count",
+            "Total Black or African American students who are male enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Hispanic or Latino Count",
+            "Total Hispanic or Latino students enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Hispanic or Latino Percent",
+            "Percent of total enrollment who are Hispanic or Latino using the state race/ethnicity definitions"
+          ],
+          [
+            "Hispanic or Latino Female Count",
+            "Total Hispanic or Latino students who are female enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Hispanic or Latino Male Count",
+            "Total Hispanic or Latino students who are male enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Native Hawaiian or Pacific Islander Count",
+            "Total Native Hawaiian or Pacific Islander students enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Native Hawaiian or Pacific Islander Percent",
+            "Percent of total enrollment who are Native Hawaiian or Pacific Islander using the state race/ethnicity definitions"
+          ],
+          [
+            "Native Hawaiian or Pacific Islander Female Count",
+            "Total Native Hawaiian or Pacific Islander students who are female enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Native Hawaiian or Pacific Islander Male Count",
+            "Total Native Hawaiian or Pacific Islander students who are male enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Other Indigenous Peoples Count",
+            "Total Other Indigenous Peoples students enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Other Indigenous Peoples Percent",
+            "Percent of total enrollment who are Other Indigenous Peoples using the state race/ethnicity definitions"
+          ],
+          [
+            "Other Indigenous Peoples Female Count",
+            "Total Other Indigenous Peoples students who are female enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Other Indigenous Peoples Male Count",
+            "Total Other Indigenous Peoples students who are male enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total White Count",
+            "Total students who are White enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total White Percent",
+            "Percent of total enrollment who are White using the state race/ethnicity definitions"
+          ],
+          [
+            "White Female Count",
+            "Total White students who are female enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "White Male Count",
+            "Total White students who are male enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Two or More Races Count",
+            "Total students who are two or more races enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Two or More Races Percent",
+            "Percent of total enrollment who are two or more races using the state race/ethnicity definitions"
+          ],
+          [
+            "Two or More Races Female Count",
+            "Total two or more races who are female enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Two or More Races Male Count",
+            "Total two or more races who are male enrolled using the state race/ethnicity definitions"
+          ],
+          [
+            "Total Students of Color or American Indian Count",
+            "Total students who are not included in the white group enrolled"
+          ],
+          [
+            "Percent Students of Color or American Indian",
+            "Percent of total enrollment who are not included in the White group enrolled"
+          ],
+          [
+            "Total Students Eligible for Free or Reduced Priced Meals Count",
+            "Total students who are eligible for free or reduced priced meals enrolled"
+          ],
+          [
+            "Total Students Eligible for Free or Reduced Priced Meals Percent",
+            "Percent of total enrollment who are eligible for free or reduced priced meals"
+          ],
+          [
+            "Total Students Receiving Special Education Services Count",
+            "Total students who are receiving special education services enrolled"
+          ],
+          [
+            "Total Students Receiving Special Education Services Percent",
+            "Percent of total enrollment who are receiving special education services"
+          ],
+          [
+            "Total English Learner Identified Count",
+            "Total students who are identified as English learners enrolled"
+          ],
+          [
+            "Total English Learner Identified Percent",
+            "Percent of total enrollment who are identified as English learners"
+          ],
+          [
+            "Total Students Experiencing Homelessness Count",
+            "Total students who are experiencing homelessness enrolled"
+          ],
+          [
+            "Total Students Experiencing Homelessness Percent",
+            "Percent of total enrollment who are experiencing homelessness"
+          ],
+          [
+            "Additional Suppression Free or Reduced Priced Meals Applied",
+            "Indication that suppression of free or reduced priced meals variables occurred because of complementary suppression rules"
+          ],
+          [
+            "Additional Suppression Special Education Applied",
+            "Indication that suppression of special education variables occurred because of complementary suppression rules"
+          ],
+          [
+            "Additional Suppression English Learner Identified Applied",
+            "Indication that suppression of English learner variables occurred because of complementary suppression rules"
+          ],
+          [
+            "Additional Suppression Homeless Applied",
+            "Indication that suppression of homeless variables occurred because of complementary suppression rules"
+          ],
+          [
+            "end of worksheet",
+            null
+          ]
+        ]
+      }
+    },
+    "documentary_evidence": {
+      "marss_reference_2024_25": {
+        "url": "https://education.mn.gov/mdeprod/idcplg?IdcService=GET_FILE&allowInterrupt=1&dDocName=060311&dID=137017",
+        "verified": "Official indexed PDF, July 2024, FY 2024\u201325: individual Economic Indicator 0/1/2/7/8 distinguishes ineligible, reduced, free and direct certification."
+      },
+      "cep_guidance": {
+        "url": "https://education.mn.gov/mdeprod/idcplg?IdcService=GET_FILE&allowInterrupt=1&dDocName=055515&dID=135955",
+        "verified": "Official indexed PDF, revised June 2024: free universal meals do not establish individual eligibility; public CEP schools collect alternate applications annually and report actual eligibility to MARSS."
+      },
+      "alternate_application_2024_25": {
+        "url": "https://education.mn.gov/mdeprod/idcplg?IdcService=GET_DYNAMIC_CONVERSION&dID=136653",
+        "verified": "Official public HTML preview, School Year 2024\u201325: individual eligibility required under CEP, Provision 2/3 and no meal programs; prior-year approvals cannot be carried into current MARSS reporting."
+      },
+      "privacy_rules": {
+        "url": "https://education.mn.gov/MDE/About/MDE086067",
+        "verified": "Official reporting FAQ: blurring publishes ranges rather than exact numbers; complementary suppression prevents subtraction recovery. Blank and range cells remain missing."
+      },
+      "bie_scope": {
+        "url": "https://education.mn.gov/mdeprod/groups/educ/documents/basic/bwrl/mdc1/~edisp/mde075526.pdf",
+        "verified": "Official MDE SIS Vendor and District Test Plan v10.2, School Classification descriptor: combined classification 40 is limited to District Type 34 Bureau of Indian Education. Native 2024\u201325 enrollment newly includes tribal-controlled schools; Type 34 is excluded."
+      }
+    }
+  }
+}

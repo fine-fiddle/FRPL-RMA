@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "MN",
+    "name": "Minnesota"
+  },
+  "prepare_script": "scripts/prepare_minnesota.py",
+  "regions": [
+    {
+      "id": "minnesota",
+      "name": "Statewide",
+      "dataset": "mn-mca-mtas-2025",
+      "status": "ready",
+      "geography": "minnesota",
+      "levels": [
+        "ES",
+        "HS"
+      ],
+      "schools": "data/minnesota/schools.json",
+      "boundaries": null,
+      "comparison": "Minnesota \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Separate Minnesota pure grade-school and pure high-school valid-score models",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}
