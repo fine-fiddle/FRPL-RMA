@@ -1,0 +1,51 @@
+{
+  "year": 2025,
+  "schools": 861,
+  "cohorts": {
+    "grade": {
+      "directory": 861,
+      "eligible": {
+        "math": 838,
+        "reading": 854,
+        "combined": 834
+      }
+    }
+  },
+  "exclusions": {
+    "Published native grade total is suppressed, ranged or missing": 30,
+    "Math: Published native grade total is suppressed, ranged or missing": 20,
+    "ELA: Published native grade total is suppressed, ranged or missing": 4,
+    "Math: Published native grade total is suppressed, ranged or missing; ELA: Published native grade total is suppressed, ranged or missing": 3
+  },
+  "source_audit": {
+    "native_g38_provenance": "EDC v3.1 GradeLevel codebook labels G38 as SEA-sourced aggregate grades 3\u20138. Use exact published ProficientOrAbove_percent only; EDC may sum achievement-level percentages within this native total. No grade aggregation is performed.",
+    "tested_denominator": "Unverified; retained raw but excluded from every model and interval.",
+    "school_year": "2024-25",
+    "proficiency_criteria": "Levels 4-5",
+    "ccd_release": "Directory/membership Final 1a; lunch Final 2a June 2026",
+    "excluded_lea_ids": [],
+    "state_lunch_notes": [
+      {
+        "State or Jurisdiction": "Louisiana",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0013",
+        "Error Message": "The count of students reported for Direct Certification in the SEA in the current SY varied significantly from the prior SY.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 1,
+        "State Note": "Louisiana begins reporting Direct Certification table in FS033 since SY 2024-2025.",
+        "LEA NCES ID": null,
+        "SCH NCES ID": null
+      }
+    ],
+    "approved_point_only": true,
+    "approval_basis": "SEA-native G38 grade total documented in EDC v3.1 codebook; exact published rate, one regular assessment/threshold, same-year reported individual-school CCD DC and membership, audited grade scope and state notes.",
+    "source_schools": 1033,
+    "exclusions": {
+      "Not an unambiguous grade school in the same-year CCD directory": 171,
+      "School not operational in the same-year CCD directory": 1
+    }
+  }
+}

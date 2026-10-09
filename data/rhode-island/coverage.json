@@ -1,0 +1,67 @@
+{
+  "year": 2025,
+  "schools": 220,
+  "cohorts": {
+    "grade": {
+      "directory": 220,
+      "eligible": {
+        "math": 214,
+        "reading": 218,
+        "combined": 214
+      }
+    }
+  },
+  "exclusions": {
+    "Published native grade total is suppressed, ranged or missing": 8,
+    "Math: Published native grade total is suppressed, ranged or missing": 4,
+    "Math: Published native grade total is suppressed, ranged or missing; ELA: Published native grade total is suppressed, ranged or missing": 2
+  },
+  "source_audit": {
+    "native_g38_provenance": "EDC v3.1 GradeLevel codebook labels G38 as SEA-sourced aggregate grades 3\u20138. Use exact published ProficientOrAbove_percent only; EDC may sum achievement-level percentages within this native total. No grade aggregation is performed.",
+    "tested_denominator": "Unverified; retained raw but excluded from every model and interval.",
+    "school_year": "2024-25",
+    "proficiency_criteria": "Levels 3-4",
+    "ccd_release": "Directory/membership Final 1a; lunch Final 2a June 2026",
+    "excluded_lea_ids": [
+      "4400150"
+    ],
+    "state_lunch_notes": [
+      {
+        "State or Jurisdiction": "Rhode Island",
+        "School Year": "SY 2024-25",
+        "File Number": "['029' '033' '052']",
+        "File Name": "Directory, Free and Reduced Price Lunch, Membership",
+        "Level": "sch",
+        "Rule ID": "CCD-0012",
+        "Error Message": "Free and Reduced-Price Lunch or Direct Certification was reported for a school with no Membership.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 1,
+        "State Note": "FRL data reported in main school.",
+        "LEA NCES ID": "4400150",
+        "SCH NCES ID": "440015000502"
+      },
+      {
+        "State or Jurisdiction": "Rhode Island",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0014",
+        "Error Message": "The count of students reported for Free and Reduced-Price Lunch in the SEA in the current SY varied significantly from the prior SY.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 1,
+        "State Note": "Verified.",
+        "LEA NCES ID": null,
+        "SCH NCES ID": null
+      }
+    ],
+    "approved_point_only": true,
+    "approval_basis": "SEA-native G38 grade total documented in EDC v3.1 codebook; exact published rate, one regular assessment/threshold, same-year reported individual-school CCD DC and membership, audited grade scope and state notes.",
+    "source_schools": 231,
+    "exclusions": {
+      "Not an unambiguous grade school in the same-year CCD directory": 5,
+      "Known LEA lunch allocation scope requires clarification": 6
+    },
+    "primary_crosscheck": "All 231 school G38 rows per subject match official RIDE By_School rates and raw tested values."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "NV",
+    "name": "Nevada"
+  },
+  "prepare_script": "scripts/prepare_ccd_states.py",
+  "regions": [
+    {
+      "id": "nevada",
+      "name": "Statewide",
+      "dataset": "nv-edc-ccd-dc",
+      "status": "ready",
+      "geography": "nevada",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/nevada/schools.json",
+      "boundaries": null,
+      "comparison": "Nevada \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Nevada public grade schools with exact native rates and reported same-year school DC and membership",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}

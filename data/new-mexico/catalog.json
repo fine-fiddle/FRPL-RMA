@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "NM",
+    "name": "New Mexico"
+  },
+  "prepare_script": "scripts/prepare_ccd_states.py",
+  "regions": [
+    {
+      "id": "new-mexico",
+      "name": "Statewide",
+      "dataset": "nm-edc-ccd-dc",
+      "status": "ready",
+      "geography": "new-mexico",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/new-mexico/schools.json",
+      "boundaries": null,
+      "comparison": "New Mexico \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "New Mexico public grade schools with exact native rates and reported same-year school DC and membership",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}

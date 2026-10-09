@@ -1,0 +1,50 @@
+{
+  "year": 2025,
+  "schools": 193,
+  "cohorts": {
+    "grade": {
+      "directory": 193,
+      "eligible": {
+        "math": 191,
+        "reading": 189,
+        "combined": 189
+      }
+    }
+  },
+  "exclusions": {
+    "Published native grade total is suppressed, ranged or missing": 6,
+    "Math: Published native grade total is suppressed, ranged or missing; ELA: Published native grade total is suppressed, ranged or missing": 2,
+    "ELA: Published native grade total is suppressed, ranged or missing": 2
+  },
+  "source_audit": {
+    "native_g38_provenance": "EDC v3.1 GradeLevel codebook labels G38 as SEA-sourced aggregate grades 3\u20138. Use exact published ProficientOrAbove_percent only; EDC may sum achievement-level percentages within this native total. No grade aggregation is performed.",
+    "tested_denominator": "Unverified; retained raw but excluded from every model and interval.",
+    "school_year": "2024-25",
+    "proficiency_criteria": "Levels 3-4",
+    "ccd_release": "Directory/membership Final 1a; lunch Final 2a June 2026",
+    "excluded_lea_ids": [],
+    "state_lunch_notes": [
+      {
+        "State or Jurisdiction": "Alaska",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0013",
+        "Error Message": "The count of students reported for Direct Certification in the SEA in the current SY varied significantly from the prior SY.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 1,
+        "State Note": "The 2023-2024 school year had a significantly lower than average count of students reported for Direct Certification. The 2024-2025 counts are closer to historical averages.",
+        "LEA NCES ID": null,
+        "SCH NCES ID": null
+      }
+    ],
+    "approved_point_only": true,
+    "approval_basis": "SEA-native G38 grade total documented in EDC v3.1 codebook; exact published rate, one regular assessment/threshold, same-year reported individual-school CCD DC and membership, audited grade scope and state notes.",
+    "source_schools": 430,
+    "exclusions": {
+      "Not an unambiguous grade school in the same-year CCD directory": 235,
+      "CCD direct certification is missing, suppressed or nonreported": 2
+    }
+  }
+}

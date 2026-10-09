@@ -1,0 +1,81 @@
+{
+  "year": 2025,
+  "schools": 579,
+  "cohorts": {
+    "grade": {
+      "directory": 579,
+      "eligible": {
+        "math": 535,
+        "reading": 565,
+        "combined": 534
+      }
+    }
+  },
+  "exclusions": {
+    "Published native grade total is suppressed, ranged or missing": 58,
+    "Math: Published native grade total is suppressed, ranged or missing; ELA: Published native grade total is suppressed, ranged or missing": 13,
+    "Math: Published native grade total is suppressed, ranged or missing": 31,
+    "ELA: Published native grade total is suppressed, ranged or missing": 1
+  },
+  "source_audit": {
+    "native_g38_provenance": "EDC v3.1 GradeLevel codebook labels G38 as SEA-sourced aggregate grades 3\u20138. Use exact published ProficientOrAbove_percent only; EDC may sum achievement-level percentages within this native total. No grade aggregation is performed.",
+    "tested_denominator": "Unverified; retained raw but excluded from every model and interval.",
+    "school_year": "2024-25",
+    "proficiency_criteria": "Levels 3-4",
+    "ccd_release": "Directory/membership Final 1a; lunch Final 2a June 2026",
+    "excluded_lea_ids": [],
+    "state_lunch_notes": [
+      {
+        "State or Jurisdiction": "New Mexico",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0007",
+        "Error Message": "The total Direct Certification was greater than the count of students reported as Free Lunch Qualified.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 17,
+        "State Note": "NMPED started collecting and directly certifies (DC) Medicaid information starting SY23-24.  Medicaid can be reported as either Free or Reduced.  Since all DC is no longer all reported as Free, the number of Direct Certified can be greater than the Free Count.",
+        "LEA NCES ID": "3500060, 3501920, 3501260, 3501650, 3501320, 3500840, 3501020, 3500122",
+        "SCH NCES ID": "350006000853, 350006000894, 350192000471, 350126000345, 350165000427, 350165000428, 350165000429, 350165000431, 350165000433, 350165000430, 350165000434, 350132000909, 350132000362, 350084000256, 350102000294, 350102000295, 350012201071"
+      },
+      {
+        "State or Jurisdiction": "New Mexico",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0013",
+        "Error Message": "The count of students reported for Direct Certification in the SEA in the current SY varied significantly from the prior SY.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 1,
+        "State Note": "NMPED implemented a new system for collecting data starting SY23-24.  Due to this change and data collection has been maturing which has resulted in better data collection for SY24-25.",
+        "LEA NCES ID": null,
+        "SCH NCES ID": null
+      },
+      {
+        "State or Jurisdiction": "New Mexico",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0014",
+        "Error Message": "The count of students reported for Free and Reduced-Price Lunch in the SEA in the current SY varied significantly from the prior SY.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 1,
+        "State Note": "NMPED implemented a new system for collecting data starting SY23-24.  Due to this change and data collection has been maturing which has resulted in better data collection for SY24-25.",
+        "LEA NCES ID": null,
+        "SCH NCES ID": null
+      }
+    ],
+    "approved_point_only": true,
+    "approval_basis": "SEA-native G38 grade total documented in EDC v3.1 codebook; exact published rate, one regular assessment/threshold, same-year reported individual-school CCD DC and membership, audited grade scope and state notes.",
+    "source_schools": 655,
+    "exclusions": {
+      "Not an unambiguous grade school in the same-year CCD directory": 73,
+      "Same-year CCD membership is missing, nonreported or zero": 1,
+      "School not operational in the same-year CCD directory": 1,
+      "Missing same-year CCD directory identity": 1
+    }
+  }
+}

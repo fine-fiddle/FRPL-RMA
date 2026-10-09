@@ -1,0 +1,37 @@
+{
+  "year": 2025,
+  "schools": 1317,
+  "cohorts": {
+    "grade": {
+      "directory": 1317,
+      "eligible": {
+        "math": 1300,
+        "reading": 1304,
+        "combined": 1297
+      }
+    }
+  },
+  "exclusions": {
+    "Published native grade total is suppressed, ranged or missing": 30,
+    "Math: Published native grade total is suppressed, ranged or missing; ELA: Published native grade total is suppressed, ranged or missing": 10,
+    "Math: Published native grade total is suppressed, ranged or missing": 7,
+    "ELA: Published native grade total is suppressed, ranged or missing": 3
+  },
+  "source_audit": {
+    "native_g38_provenance": "EDC v3.1 GradeLevel codebook labels G38 as SEA-sourced aggregate grades 3\u20138. Use exact published ProficientOrAbove_percent only; EDC may sum achievement-level percentages within this native total. No grade aggregation is performed.",
+    "tested_denominator": "Unverified; retained raw but excluded from every model and interval.",
+    "school_year": "2024-25",
+    "proficiency_criteria": "Levels 3-4",
+    "ccd_release": "Directory/membership Final 1a; lunch Final 2a June 2026",
+    "excluded_lea_ids": [],
+    "state_lunch_notes": [],
+    "approved_point_only": true,
+    "approval_basis": "SEA-native G38 grade total documented in EDC v3.1 codebook; exact published rate, one regular assessment/threshold, same-year reported individual-school CCD DC and membership, audited grade scope and state notes.",
+    "source_schools": 1458,
+    "exclusions": {
+      "Not an unambiguous grade school in the same-year CCD directory": 136,
+      "Missing same-year CCD directory identity": 3,
+      "CCD direct certification is missing, suppressed or nonreported": 2
+    }
+  }
+}

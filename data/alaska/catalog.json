@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "AK",
+    "name": "Alaska"
+  },
+  "prepare_script": "scripts/prepare_ccd_states.py",
+  "regions": [
+    {
+      "id": "alaska",
+      "name": "Statewide",
+      "dataset": "ak-edc-ccd-dc",
+      "status": "ready",
+      "geography": "alaska",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/alaska/schools.json",
+      "boundaries": null,
+      "comparison": "Alaska \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Alaska public grade schools with exact native rates and reported same-year school DC and membership",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}

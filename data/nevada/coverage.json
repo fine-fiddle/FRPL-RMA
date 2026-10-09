@@ -1,0 +1,52 @@
+{
+  "year": 2025,
+  "schools": 528,
+  "cohorts": {
+    "grade": {
+      "directory": 528,
+      "eligible": {
+        "math": 513,
+        "reading": 514,
+        "combined": 511
+      }
+    }
+  },
+  "exclusions": {
+    "Published native grade total is suppressed, ranged or missing": 29,
+    "Math: Published native grade total is suppressed, ranged or missing; ELA: Published native grade total is suppressed, ranged or missing": 12,
+    "Math: Published native grade total is suppressed, ranged or missing": 3,
+    "ELA: Published native grade total is suppressed, ranged or missing": 2
+  },
+  "source_audit": {
+    "native_g38_provenance": "EDC v3.1 GradeLevel codebook labels G38 as SEA-sourced aggregate grades 3\u20138. Use exact published ProficientOrAbove_percent only; EDC may sum achievement-level percentages within this native total. No grade aggregation is performed.",
+    "tested_denominator": "Unverified; retained raw but excluded from every model and interval.",
+    "school_year": "2024-25",
+    "proficiency_criteria": "Levels 3-4",
+    "ccd_release": "Directory/membership Final 1a; lunch Final 2a June 2026",
+    "excluded_lea_ids": [],
+    "state_lunch_notes": [
+      {
+        "State or Jurisdiction": "Nevada",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0007",
+        "Error Message": "The total Direct Certification was greater than the count of students reported as Free Lunch Qualified.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 18,
+        "State Note": "This data originates from school districts, it is accurate as presented. However, some districts misidentified Direct Certification student as R-Reduced rather than F-Free. Moving forward, the Nevada Department of Education will enhance its review of district-submitted data to promptly detect and rectify such errors before EDFacts data submissions",
+        "LEA NCES ID": "3200120, 3200180, 3200480, 3200001",
+        "SCH NCES ID": "320012000622, 320012000969, 320018000147, 320018000148, 320048000389, 320048000467, 320048000961, 320048000979, 320048000561, 320048000525, 320048000682, 320048000880, 320048000225, 320048000562, 320048000664, 320048000844, 320000100976, 320000100817"
+      }
+    ],
+    "approved_point_only": true,
+    "approval_basis": "SEA-native G38 grade total documented in EDC v3.1 codebook; exact published rate, one regular assessment/threshold, same-year reported individual-school CCD DC and membership, audited grade scope and state notes.",
+    "source_schools": 595,
+    "exclusions": {
+      "Not an unambiguous grade school in the same-year CCD directory": 47,
+      "CCD direct certification is missing, suppressed or nonreported": 19,
+      "Same-year CCD membership is missing, nonreported or zero": 1
+    }
+  }
+}
