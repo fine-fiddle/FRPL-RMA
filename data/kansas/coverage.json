@@ -1,0 +1,38 @@
+{
+  "year": 2025,
+  "schools": 1058,
+  "cohorts": {
+    "grade": {
+      "directory": 895,
+      "eligible": {
+        "math": 895,
+        "reading": 895,
+        "combined": 895
+      }
+    },
+    "high": {
+      "directory": 163,
+      "eligible": {
+        "math": 163,
+        "reading": 163,
+        "combined": 163
+      }
+    }
+  },
+  "exclusions": {},
+  "source_audit": {
+    "approved_point_only": true,
+    "native_units": 1253,
+    "native_population": "2025 sheet, All Students, All Grades, Math/ELA; native Report Card KAP+DLM combined assessment population.",
+    "assessment_scope_evidence": "Official September 9,2025 KSBE meeting video, KSDE/KU state assessment score reports: 1:41:37 KSDE adds DLM to KU general results; 1:41:53 combines both; 1:42:01 says public report card includes alternate students. Official minutes p5 identify the presenting KSDE/KU team and planned release. Preserve source captions and primary video URL.",
+    "proficient": "Sum the independently published unsuppressed school-total Level3 and Level4 percentages only. Published levels are rounded; do not reconstruct masked levels, counts, grades or rates from complementary categories.",
+    "denominator": "Native four-level performance percentages; published Not Tested is separate. No valid-score count is established for this extract. Every tested field is null and every model is point-only.",
+    "income": "Report Card native demographic API, year2025, demoType3, rptType1: all enrolled students. KIDS2024\u201325v1.15 p8 ties ENRL September20 to Report Card; p35 defines individual D34 including CEP direct certification/HES. FY25 Enrollment Handbook p38 requires individual eligibility, not automatic universal free meals.",
+    "grades": "Exact same-year CCD KS-ORG-BUILDING crosswalk; unadjusted grade offers and reconciled grade membership. Separate pure grade and pure high schools, excluding all mixed/unknown configurations.",
+    "standards": "2025 is a refreshed general assessment with new scale scores and cut scores. Combined native totals include DLM alternate academic standards. No history is joined.",
+    "excluded": {
+      "Mixed, untested, adjusted or unknown grade configuration": 194,
+      "Native enrolled ED rate or reported same-year membership is unavailable": 1
+    }
+  }
+}

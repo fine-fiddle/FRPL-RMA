@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "KS",
+    "name": "Kansas"
+  },
+  "prepare_script": "scripts/prepare_kansas.py",
+  "regions": [
+    {
+      "id": "kansas",
+      "name": "Statewide",
+      "dataset": "ks-native-ed",
+      "status": "ready",
+      "geography": "kansas",
+      "levels": [
+        "ES",
+        "HS"
+      ],
+      "schools": "data/kansas/schools.json",
+      "boundaries": null,
+      "comparison": "Kansas \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Kansas public pure grade and pure high schools, separate native all-grades KAP+DLM cohorts with same-year individual enrolled economic disadvantage; mixed grades excluded",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}
