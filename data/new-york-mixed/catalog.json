@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "NY",
+    "name": "New York"
+  },
+  "prepare_script": "scripts/prepare_new_york.py",
+  "regions": [
+    {
+      "id": "new-york-mixed",
+      "name": "Mixed-grade schools \u00b7 grades 3\u20138",
+      "dataset": "ny-src-2025-mixed",
+      "status": "ready",
+      "geography": "new-york-mixed",
+      "levels": [
+        "HS"
+      ],
+      "schools": "data/new-york-mixed/schools.json",
+      "boundaries": null,
+      "comparison": "New York \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Separate New York mixed-school native grade3\u20138 total models",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "year": 2025,
+  "schools": 2634,
+  "cohorts": {
+    "ES": {
+      "directory": 2634,
+      "eligible": {
+        "math": 2506,
+        "reading": 2573,
+        "combined": 2505
+      }
+    }
+  },
+  "exclusions": {
+    "Missing or suppressed native grades3\u20138 school total or proficiency count": 119,
+    "Math: Missing or suppressed native grades3\u20138 school total or proficiency count": 68,
+    "Math: Missing or suppressed native grades3\u20138 school total or proficiency count; ELA: Missing or suppressed native grades3\u20138 school total or proficiency count": 24,
+    "Missing or suppressed proficiency": 18,
+    "Math: Missing or suppressed proficiency; ELA: Missing or suppressed proficiency": 9,
+    "Missing or invalid same-year income": 52,
+    "Math: Missing or invalid same-year income; ELA: Missing or invalid same-year income": 25,
+    "ELA: Missing or suppressed native grades3\u20138 school total or proficiency count": 1,
+    "Math: Missing or suppressed native grades3\u20138 school total or proficiency count; ELA: Missing or invalid same-year income": 2
+  },
+  "source_audit": {
+    "excluded_profiles": {
+      "Not in same-year public school directory": 789,
+      "No supported enrolled grade3\u20138 or unknown grade counts": 1076
+    }
+  }
+}
