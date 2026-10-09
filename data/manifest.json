@@ -1102,6 +1102,160 @@
       "sha256": "03f24547726ebf7529d946cee85f84e3de3ac3962b5dbc8b96e0a4db3744247d"
     },
     {
+      "id": "mi-mstep-2025:assessment",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/raw/michigan/grades-3-8-2025.csv",
+      "url": "https://www.mischooldata.org/k-12-data-files/",
+      "sha256": "789a4eeeac9f8ed4e3da0f64a8270805250721facf3da6abc52a4253ee8821ce"
+    },
+    {
+      "id": "mi-mstep-2025:assessment_metadata",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/raw/michigan/assessment-proficiency-metadata.html",
+      "url": "https://www.mischooldata.org/grades-3-8-state-testing-includes-psat-data-proficiency/",
+      "sha256": "cf5660d51a260aeeb8973393e5bbda13e7588b46b16b100f996750447b17c315"
+    },
+    {
+      "id": "mi-mstep-2025:dc_faq",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/raw/michigan/direct-certification-faq-2024-25.pdf",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/ohns/School-Nutrition-Programs/Direct-Certification/2024-2025--Direct-Certification/FAQ-for-DC-Requirements-SY-24-25.pdf?hash=014F75E3EBA43302752F9560978D2777&rev=1f692a3c3e5c411ea77d58624d96568c",
+      "sha256": "2c9a1852c917cb7c59dbf729fc40002c72715c126925ed4063f668c1e5814db6"
+    },
+    {
+      "id": "mi-mstep-2025:disclosure",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/raw/michigan/assessment-disclosure.pdf",
+      "url": "https://www.michigan.gov/-/media/Project/Websites/cepi/MISchoolData/Grades_38_and_High_School_Assessments_Disclosure_Avoidance.pdf",
+      "sha256": "737aef7f21ba2e1a294ce0b3373fde05ef6c3defecd1e160753586662aab87f2"
+    },
+    {
+      "id": "mi-mstep-2025:enrollment_metadata",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/raw/michigan/student-enrollment-counts-report.html",
+      "url": "https://www.mischooldata.org/student-enrollment-counts-report/",
+      "sha256": "31b7dd0f9aaedff617f90adc602c53166159d36e66cd9579fd4dad76abce6f62"
+    },
+    {
+      "id": "mi-mstep-2025:extract",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/source/michigan.json",
+      "url": "https://www.mischooldata.org/k-12-data-files/",
+      "sha256": "c88be4869d8bed951ecdf6ad1bf32bc09cc926eac70cd990c9e34b40813b2af2"
+    },
+    {
+      "id": "mi-mstep-2025:identity_definition",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/raw/michigan/msds-section25-guide.pdf",
+      "url": "https://www.michigan.gov/-/media/Project/Websites/cepi/MSDS/Section25_User_Guide.pdf",
+      "sha256": "a8869f1109176592a6e6d3a8d1510c889edde1ea765ca92873d918803ae95d3a"
+    },
+    {
+      "id": "mi-mstep-2025:individual_faq",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/raw/michigan/31a-faq-2024-25.pdf",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/OES/Programs/Section-31a/Section_31a_FAQ.pdf?hash=E4B6DA7763F511D87C8736882E3B1F58&rev=9cc53929961542f580dda0fa917f7d49",
+      "sha256": "7f50a24be7668d3eb2171dff561577b30ac5602e9640856200a724c4ae7aa34a"
+    },
+    {
+      "id": "mi-mstep-2025:individual_memo",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/raw/michigan/at-risk-october2024.pdf",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/Memos/2024/10/At-Risk-Section-31a-Funding.pdf?rev=2427d9e20ff54d15b83adfe1660fe04e",
+      "sha256": "f100a0f14d0b0691c52bc0411d64c77d12f2924f23e932e5b0cbaf3170a11842"
+    },
+    {
+      "id": "mi-mstep-2025:psat8_levels",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/raw/michigan/psat8-performance-levels.pdf",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/OEAA/PSAT/PSAT-8_9-for-Grade-8-Performance-Level-Information.pdf?hash=5262B1C6A190B3DEE23168F8015F123B&rev=ae6c6e11dc744013bd37b586f30c2b16",
+      "sha256": "e0636c07a99d476e1a8a96b636494514e712bd4f8e67fb8a4cab5b20c2e1f69f"
+    },
+    {
+      "id": "mi-mstep-2025:student_count",
+      "dataset_id": "mi-mstep-2025",
+      "path": "data/raw/michigan/student-count-2025.csv",
+      "url": "https://www.mischooldata.org/k-12-data-files/",
+      "sha256": "498d9234733341fb9ed02c58514fd5d79c13cb55c91c3d2425299e669c2f3818"
+    },
+    {
+      "id": "mi-psat8-2025:assessment",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/grades-3-8-2025.csv",
+      "url": "https://www.mischooldata.org/k-12-data-files/",
+      "sha256": "789a4eeeac9f8ed4e3da0f64a8270805250721facf3da6abc52a4253ee8821ce"
+    },
+    {
+      "id": "mi-psat8-2025:assessment_metadata",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/assessment-proficiency-metadata.html",
+      "url": "https://www.mischooldata.org/grades-3-8-state-testing-includes-psat-data-proficiency/",
+      "sha256": "cf5660d51a260aeeb8973393e5bbda13e7588b46b16b100f996750447b17c315"
+    },
+    {
+      "id": "mi-psat8-2025:dc_faq",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/direct-certification-faq-2024-25.pdf",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/ohns/School-Nutrition-Programs/Direct-Certification/2024-2025--Direct-Certification/FAQ-for-DC-Requirements-SY-24-25.pdf?hash=014F75E3EBA43302752F9560978D2777&rev=1f692a3c3e5c411ea77d58624d96568c",
+      "sha256": "2c9a1852c917cb7c59dbf729fc40002c72715c126925ed4063f668c1e5814db6"
+    },
+    {
+      "id": "mi-psat8-2025:disclosure",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/assessment-disclosure.pdf",
+      "url": "https://www.michigan.gov/-/media/Project/Websites/cepi/MISchoolData/Grades_38_and_High_School_Assessments_Disclosure_Avoidance.pdf",
+      "sha256": "737aef7f21ba2e1a294ce0b3373fde05ef6c3defecd1e160753586662aab87f2"
+    },
+    {
+      "id": "mi-psat8-2025:enrollment_metadata",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/student-enrollment-counts-report.html",
+      "url": "https://www.mischooldata.org/student-enrollment-counts-report/",
+      "sha256": "31b7dd0f9aaedff617f90adc602c53166159d36e66cd9579fd4dad76abce6f62"
+    },
+    {
+      "id": "mi-psat8-2025:extract",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/source/michigan.json",
+      "url": "https://www.mischooldata.org/k-12-data-files/",
+      "sha256": "c88be4869d8bed951ecdf6ad1bf32bc09cc926eac70cd990c9e34b40813b2af2"
+    },
+    {
+      "id": "mi-psat8-2025:identity_definition",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/msds-section25-guide.pdf",
+      "url": "https://www.michigan.gov/-/media/Project/Websites/cepi/MSDS/Section25_User_Guide.pdf",
+      "sha256": "a8869f1109176592a6e6d3a8d1510c889edde1ea765ca92873d918803ae95d3a"
+    },
+    {
+      "id": "mi-psat8-2025:individual_faq",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/31a-faq-2024-25.pdf",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/OES/Programs/Section-31a/Section_31a_FAQ.pdf?hash=E4B6DA7763F511D87C8736882E3B1F58&rev=9cc53929961542f580dda0fa917f7d49",
+      "sha256": "7f50a24be7668d3eb2171dff561577b30ac5602e9640856200a724c4ae7aa34a"
+    },
+    {
+      "id": "mi-psat8-2025:individual_memo",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/at-risk-october2024.pdf",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/Memos/2024/10/At-Risk-Section-31a-Funding.pdf?rev=2427d9e20ff54d15b83adfe1660fe04e",
+      "sha256": "f100a0f14d0b0691c52bc0411d64c77d12f2924f23e932e5b0cbaf3170a11842"
+    },
+    {
+      "id": "mi-psat8-2025:psat8_levels",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/psat8-performance-levels.pdf",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/OEAA/PSAT/PSAT-8_9-for-Grade-8-Performance-Level-Information.pdf?hash=5262B1C6A190B3DEE23168F8015F123B&rev=ae6c6e11dc744013bd37b586f30c2b16",
+      "sha256": "e0636c07a99d476e1a8a96b636494514e712bd4f8e67fb8a4cab5b20c2e1f69f"
+    },
+    {
+      "id": "mi-psat8-2025:student_count",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/student-count-2025.csv",
+      "url": "https://www.mischooldata.org/k-12-data-files/",
+      "sha256": "498d9234733341fb9ed02c58514fd5d79c13cb55c91c3d2425299e669c2f3818"
+    },
+    {
       "id": "mn-mca-mtas-2025:assessment_guide",
       "dataset_id": "mn-mca-mtas-2025",
       "path": "data/raw/minnesota/assessment-guide.pdf",
@@ -15802,6 +15956,26 @@
       "source_url": "https://www.maine.gov/doe/dashboard"
     },
     {
+      "id": "mi-mstep-2025:2025:Michigan M-STEP \u00b7 enrolled grades 3\u20137 \u00b7 2025:ES",
+      "state": "MI",
+      "name": "Michigan M-STEP \u00b7 enrolled grades 3\u20137 \u00b7 2025",
+      "year": 2025,
+      "level": "ES",
+      "grades": "3\u20137",
+      "standard": "Native M-STEP Advanced or Proficient under each tested grade\u2019s Math/ELA achievement standards; MI-Access excluded",
+      "source_url": "https://www.mischooldata.org/k-12-data-files/"
+    },
+    {
+      "id": "mi-psat8-2025:2025:Michigan PSAT 8/9 \u00b7 grade 8 \u00b7 2025:ES",
+      "state": "MI",
+      "name": "Michigan PSAT 8/9 \u00b7 grade 8 \u00b7 2025",
+      "year": 2025,
+      "level": "ES",
+      "grades": "8",
+      "standard": "Native grade 8 PSAT Advanced or Proficient, meeting grade 8 College Board benchmarks: Reading/Writing 390 and Math 430; separate from M-STEP and MI-Access",
+      "source_url": "https://www.mischooldata.org/k-12-data-files/"
+    },
+    {
       "id": "mn-mca-mtas-2025:2025:MCA-III/MTAS \u00b7 Math 11 / ELA 10:HS",
       "state": "MN",
       "name": "MCA-III/MTAS \u00b7 Math 11 / ELA 10",
@@ -16528,6 +16702,18 @@
       "name": "Direct certification",
       "definition": "Reported school-level CCD 2024\u201325 Direct Certification Education Unit Total divided by reported positive same-year CCD Membership Education Unit Total, including pre-K where enrolled. Direct certification identifies individual students categorically eligible through benefits and other qualifying statuses (for example SNAP, TANF, FDPIR, foster care, migrant, homeless and Head Start; Medicaid eligibility varies by state). It is a benefits-based economic proxy, not all students eligible through household income or all students receiving free meals at a CEP school. No CEP multiplier, universal-meal count, FRPL fallback, tested-subgroup ratio or prior-year income is used. CCD membership is the fall snapshot; counts use the same academic year and exact NCES ID. 2025 DC expands to students previously reported as reduced-price lunch; keep this definition era separate.",
       "source_url": "https://nces.ed.gov/learn/blog/understanding-school-lunch-eligibility-common-core-data"
+    },
+    {
+      "id": "mi-mstep-2025:income",
+      "name": "Michigan MSDS individual economic disadvantage",
+      "definition": "Same-record 2024\u201325 fall unduplicated school headcount: independently published ECONOMIC_DISADVANTAGED_ENROLLMENT divided by TOTAL_ENROLLMENT. School records exclude Pre-K. Individual Supplemental Nutrition Eligibility includes approved household applications or Education Benefits forms, direct certification and authorized household extensions. The October 24, 2024 MDE memorandum and FY2024\u201325 Section 31a FAQ require individual eligibility even at CEP schools and under universal free meals; meal access and reimbursement claims do not make every pupil economically disadvantaged. Protected counts remain unavailable. This enrolled population differs from the spring tested population; administrative eligibility and application nonresponse can affect the count.",
+      "source_url": "https://www.mischooldata.org/student-enrollment-counts-report/"
+    },
+    {
+      "id": "mi-psat8-2025:income",
+      "name": "Michigan MSDS individual economic disadvantage",
+      "definition": "Same-record 2024\u201325 fall unduplicated school headcount: independently published ECONOMIC_DISADVANTAGED_ENROLLMENT divided by TOTAL_ENROLLMENT. School records exclude Pre-K. Individual Supplemental Nutrition Eligibility includes approved household applications or Education Benefits forms, direct certification and authorized household extensions. The October 24, 2024 MDE memorandum and FY2024\u201325 Section 31a FAQ require individual eligibility even at CEP schools and under universal free meals; meal access and reimbursement claims do not make every pupil economically disadvantaged. Protected counts remain unavailable. This enrolled population differs from the spring tested population; administrative eligibility and application nonresponse can affect the count.",
+      "source_url": "https://www.mischooldata.org/student-enrollment-counts-report/"
     },
     {
       "id": "mn-mca-mtas-2025:income",
@@ -18024,6 +18210,54 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "43a6320a35f7cd43ae0bedc04d2e237a156789b9ec115a7eff1d140bd3a92db4"
+    },
+    {
+      "id": "mi-mstep-2025:2025:Michigan M-STEP \u00b7 enrolled grades 3\u20137 \u00b7 2025:ES:combined:ols-v1:d68e1995d19e",
+      "dataset_id": "mi-mstep-2025",
+      "definition_id": "mi-mstep-2025:2025:Michigan M-STEP \u00b7 enrolled grades 3\u20137 \u00b7 2025:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "d68e1995d19e2bd6c5cb17f43b8f9654ab8594ea557e57a574d77dad7d5e619d"
+    },
+    {
+      "id": "mi-mstep-2025:2025:Michigan M-STEP \u00b7 enrolled grades 3\u20137 \u00b7 2025:ES:math:ols-v1:d68e1995d19e",
+      "dataset_id": "mi-mstep-2025",
+      "definition_id": "mi-mstep-2025:2025:Michigan M-STEP \u00b7 enrolled grades 3\u20137 \u00b7 2025:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "d68e1995d19e2bd6c5cb17f43b8f9654ab8594ea557e57a574d77dad7d5e619d"
+    },
+    {
+      "id": "mi-mstep-2025:2025:Michigan M-STEP \u00b7 enrolled grades 3\u20137 \u00b7 2025:ES:reading:ols-v1:d68e1995d19e",
+      "dataset_id": "mi-mstep-2025",
+      "definition_id": "mi-mstep-2025:2025:Michigan M-STEP \u00b7 enrolled grades 3\u20137 \u00b7 2025:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "d68e1995d19e2bd6c5cb17f43b8f9654ab8594ea557e57a574d77dad7d5e619d"
+    },
+    {
+      "id": "mi-psat8-2025:2025:Michigan PSAT 8/9 \u00b7 grade 8 \u00b7 2025:ES:combined:ols-v1:35576af79e9e",
+      "dataset_id": "mi-psat8-2025",
+      "definition_id": "mi-psat8-2025:2025:Michigan PSAT 8/9 \u00b7 grade 8 \u00b7 2025:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "35576af79e9edf851207a6699983b509961fdb22949880cf81d80ee607cfb65d"
+    },
+    {
+      "id": "mi-psat8-2025:2025:Michigan PSAT 8/9 \u00b7 grade 8 \u00b7 2025:ES:math:ols-v1:35576af79e9e",
+      "dataset_id": "mi-psat8-2025",
+      "definition_id": "mi-psat8-2025:2025:Michigan PSAT 8/9 \u00b7 grade 8 \u00b7 2025:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "35576af79e9edf851207a6699983b509961fdb22949880cf81d80ee607cfb65d"
+    },
+    {
+      "id": "mi-psat8-2025:2025:Michigan PSAT 8/9 \u00b7 grade 8 \u00b7 2025:ES:reading:ols-v1:35576af79e9e",
+      "dataset_id": "mi-psat8-2025",
+      "definition_id": "mi-psat8-2025:2025:Michigan PSAT 8/9 \u00b7 grade 8 \u00b7 2025:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "35576af79e9edf851207a6699983b509961fdb22949880cf81d80ee607cfb65d"
     },
     {
       "id": "mn-mca-mtas-2025:2025:MCA-III/MTAS \u00b7 Math 11 / ELA 10:HS:combined:ols-v1:a44b1220b26e",
@@ -19861,6 +20095,44 @@
           "comparison": "Massachusetts \u00b7 {year} \u00b7 {outcome} \u00b7 {note}",
           "model_scope": "Separate Massachusetts MCAS cohorts by same-year grade population and subject",
           "map_source": "Exact CCD 2024\u201325 Massachusetts organization-code crosswalk to NCES 2023\u201324 coordinates",
+          "statewide": true
+        }
+      ]
+    },
+    {
+      "id": "MI",
+      "name": "Michigan",
+      "regions": [
+        {
+          "id": "michigan-mstep",
+          "name": "Grade schools \u00b7 M-STEP grades 3\u20137",
+          "dataset": "mi-mstep-2025",
+          "status": "ready",
+          "geography": "michigan-mstep",
+          "levels": [
+            "ES"
+          ],
+          "schools": "data/michigan/mstep/schools.json",
+          "boundaries": null,
+          "comparison": "Michigan \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Michigan public pure grade schools with same-year individual fall enrolled economic disadvantage; Grade schools \u00b7 M-STEP grades 3\u20137; regular All Students valid-score results only; MI-Access, mixed grades, high-school and ungraded enrollment excluded",
+          "map_source": "School coordinates are unavailable in the audited source extract.",
+          "statewide": true
+        },
+        {
+          "id": "michigan-psat8",
+          "name": "Grade schools \u00b7 PSAT grade 8",
+          "dataset": "mi-psat8-2025",
+          "status": "ready",
+          "geography": "michigan-psat8",
+          "levels": [
+            "ES"
+          ],
+          "schools": "data/michigan/psat8/schools.json",
+          "boundaries": null,
+          "comparison": "Michigan \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Michigan public pure grade schools with same-year individual fall enrolled economic disadvantage; Grade schools \u00b7 PSAT grade 8; regular All Students valid-score results only; MI-Access, mixed grades, high-school and ungraded enrollment excluded",
+          "map_source": "School coordinates are unavailable in the audited source extract.",
           "statewide": true
         }
       ]

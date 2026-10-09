@@ -304,6 +304,11 @@ These agencies meet the district-size/cohort screen, or have at least 50,000 stu
 | UPLIFT EDUCATION | TX | 4800030 | 23,384 | 32 / 13 | Independent charter district |
 | Richmond City Public Schools | VA | 5103240 | 20,962 | 33 / 8 | Regular district; federal charter designation needs scope review |
 
+## Additional native-source follow-up
+
+Detroit Public Schools Community District (Michigan; NCES LEA `2601103`) warrants follow-up beyond the conservative CCD configuration screen. The [Michigan native audit](michigan-data.md#district-follow-up) resolves grade-school configuration, but current usable Math and Combined cohorts fall below the 30-school implementation floor. It remains a district source/cohort hold; it is not included in the CCD-only candidate totals above.
+
+
 ## Provenance and rebuild
 
 Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; it is not a sum of school enrollment and is never a tested-score denominator. Every included agency retains its native raw directory/total records and source-row numbers. Reconstructed operational counts from the school directory remain separate from the native LEA operational-school field. The extract retains exact potential school IDs, source URLs and SHA-256 hashes. It is a planning artifact and never enables a browser comparison.

@@ -7,13 +7,12 @@ ready regression population.
 
 ## Current unresolved states
 
-The release queue contains 38 available states. Each available comparison has its own restricted population and source definitions; this is not complete school coverage. The remaining twelve states have these concrete next steps:
+The release queue contains 39 available states. Each available comparison has its own restricted population and source definitions; this is not complete school coverage. The remaining eleven states have these concrete next steps:
 
 | State | Evidence and resolution |
 | --- | --- |
 | Connecticut | [Native guest exports fail](connecticut-data.md); obtain the current official assessment and individual eligibility exports. |
 | Kentucky | [Actual school totals or valid grade weights are missing](kentucky-data.md); verify source-specific assessed proficiency and individual income definitions. |
-| Michigan | The normal public bulk-download form requires an authorized delivery email; acquisition is pending that address. |
 | Nebraska | [Accountability level counts can include nonparticipants](nebraska-data.md); obtain an actual scored-student population. |
 | New Hampshire | [Assessment CSV lacks school IDs](new-hampshire-data.md); obtain a native ID export or authoritative exact crosswalk. |
 | North Dakota | [Income definitions and nutrition plant-to-school IDs remain unresolved](north-dakota-data.md); establish individual eligibility and a complete exact mapping. |
@@ -24,13 +23,11 @@ The release queue contains 38 available states. Each available comparison has it
 | West Virginia | [Native rates show a participation-adjusted denominator](west-virginia-data.md); obtain independently published actual scored numerators and denominators. |
 | Wyoming | [Native grade data lack school IDs, totals and exact weights](wyoming-data.md); obtain authoritative-ID school totals or complete valid-score grade counts. |
 
-## Michigan: earlier route failures; current public flow recovered
+## Michigan: public bulk files acquired and audited
 
-Initial HTTP requests to the legacy report and public download page returned `403 Forbidden`. Browser verification subsequently found that the [legacy report](https://legacy.mischooldata.org/DistrictSchoolProfiles2/AssessmentResults/AssessmentGradesPerformance2.aspx) is decommissioned and displays Restricted Access. The earlier guessed `/grades-3-8-assessments-performance-level/` path displays Page Not Found.
+Initial requests to legacy and guessed routes failed, but the official [K–12 Data Files form](https://www.mischooldata.org/k-12-data-files/) supplied authentic 2024–25 Grades 3–8 Assessments and Student Count CSVs through its normal email-delivery and browser-download flow. Both native files are saved with full checksums. Personal addresses and temporary download links are not committed source provenance.
 
-The current public menu instead links [Grades 3–8 State Testing](https://www.mischooldata.org/grades-3-8-state-testing-includes-psat-data-performance/) and [K–12 Data Files](https://www.mischooldata.org/k-12-data-files/). The latter loads its 2024–25 year, assessment category and Grades3–8 file controls in the browser. Its [current field layouts](https://www.michigan.gov/cepi/-/media/Project/Websites/cepi/MISchoolData/Reference/Data-File-Table-Layouts__051426.xlsx) are public. The public download form requires an email address to deliver the selected files asynchronously. Acquisition is pending the user’s authorized delivery address; no address has been invented or submitted.
-
-This recovers source discovery, not modeling approval. No new Michigan extract or model is ready. The next steps remain obtaining same-year native school assessment and individual enrolled Supplemental Nutrition Eligibility data, then auditing the grade8 PSAT transition, suppression, valid scores and exact IDs. No secure login or CAPTCHA bypass was attempted.
+The [Michigan source audit](michigan-data.md) resolves individual enrolled economic disadvantage under universal meals and CEP, all-valid-score denominators, exact school/year identity, complete grade weights and response suppression. The adapter provides separate M-STEP grades 3–7 and PSAT grade 8 comparisons, with 1,520 and 476 Combined schools respectively. Earlier access failures are no longer a current Michigan blocker. High-school, MI-Access, mixed-grade and historical expansions remain separate future audits; no secure login or CAPTCHA bypass was used.
 
 ## Minnesota: normal public downloads recovered
 

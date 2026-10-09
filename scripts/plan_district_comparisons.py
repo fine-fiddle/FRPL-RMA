@@ -271,7 +271,7 @@ def render(payload):
         for row in rows:
             state = states[row['state']]
             status = 'Available; district audit pending' if state['status'] == 'statewide_ready' else (
-                'Michigan delivery pending' if row['state'] == 'MI' else 'State source hold')
+                'State audit pending' if state['status'] == 'implementation' else 'State source hold')
             if row['scope'] == 'existing_chicago':
                 status = 'Existing CPS comparison; size reference'
             elif row['scope'] == 'existing_hawaii_statewide':
@@ -305,6 +305,14 @@ def render(payload):
         counts = row['potential_cohorts']
         lines.append(f'| {row["name"]} | {row["state"]} | {row["nces_lea_id"]} | {row["enrollment"]:,} | '
                      f'{counts["ES"]} / {counts["HS"]} | {reason} |')
+    if states['MI']['status'] == 'statewide_ready':
+        lines.extend(['', '## Additional native-source follow-up', '',
+            'Detroit Public Schools Community District (Michigan; NCES LEA `2601103`) '
+            'warrants follow-up beyond the conservative CCD configuration screen. The '
+            '[Michigan native audit](michigan-data.md#district-follow-up) resolves grade-school '
+            'configuration, but current usable Math and Combined cohorts fall below the '
+            '30-school implementation floor. It remains a district source/cohort hold; '
+            'it is not included in the CCD-only candidate totals above.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

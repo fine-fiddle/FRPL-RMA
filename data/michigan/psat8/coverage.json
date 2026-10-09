@@ -1,0 +1,148 @@
+{
+  "year": 2025,
+  "schools": 677,
+  "cohorts": {
+    "grade": {
+      "directory": 677,
+      "eligible": {
+        "math": 492,
+        "reading": 593,
+        "combined": 476
+      }
+    }
+  },
+  "exclusions": {
+    "One or more enrolled tested grades have suppressed or unavailable native valid-score counts": 171,
+    "Math: One or more enrolled tested grades have suppressed or unavailable native valid-score counts": 71,
+    "One or more enrolled tested grades have a protected or unavailable native PercentMet": 91,
+    "Math: One or more enrolled tested grades have a protected or unavailable native PercentMet": 46,
+    "Math: One or more enrolled tested grades have a protected or unavailable native PercentMet; ELA: One or more enrolled tested grades have a protected or unavailable native PercentMet": 5,
+    "ELA: One or more enrolled tested grades have a protected or unavailable native PercentMet": 8,
+    "Math: One or more enrolled tested grades have suppressed or unavailable native valid-score counts; ELA: One or more enrolled tested grades have suppressed or unavailable native valid-score counts": 32,
+    "Math: One or more enrolled tested grades have suppressed or unavailable native valid-score counts; ELA: One or more enrolled tested grades have a protected or unavailable native PercentMet": 25,
+    "ELA: One or more enrolled tested grades have suppressed or unavailable native valid-score counts": 8,
+    "Math: One or more enrolled tested grades have a protected or unavailable native PercentMet; ELA: One or more enrolled tested grades have suppressed or unavailable native valid-score counts": 2,
+    "Missing one or more enrolled tested grades in the native subject report": 7,
+    "Math: Missing one or more enrolled tested grades in the native subject report; ELA: Missing one or more enrolled tested grades in the native subject report": 3,
+    "Math: One or more enrolled tested grades have suppressed or unavailable native valid-score counts; ELA: Missing one or more enrolled tested grades in the native subject report": 1
+  },
+  "source_audit": {
+    "approved_native_regular_valid_scores": true,
+    "approved_individual_income": true,
+    "source_contract": {
+      "school_year": "24 - 25 School Year",
+      "public_school_entities": [
+        "ISD School",
+        "LEA School",
+        "PSA School",
+        "State School"
+      ],
+      "individual_fall_income": true,
+      "universal_meals_not_individual_eligibility": true,
+      "assessment_population": "All Students; TestPopulation=N/A; public school entities; native regular test only",
+      "valid_score_evidence": "MI School Data Grades 3\u20138 State Testing report metadata: these reports include all valid tests taken by public school students; nonpublic and home-schooled scores are excluded. NumberAssessed is the native count in that valid-test report, not fall enrollment, expected participation or a federal 95%-rule denominator. https://www.mischooldata.org/grades-3-8-state-testing-includes-psat-data-proficiency/",
+      "native_aggregate": "Use independently published TotalMet and NumberAssessed, never components or complements",
+      "response_protection": "Require numeric unbounded PercentMet for every enrolled tested grade, as well as exact counts with NumberAssessed>=10",
+      "grade_scope": "Native pure grade-school type, exact zero grades 9\u201312 and ungraded; complete explicit enrolled grade set, including <10 as potentially enrolled and therefore required",
+      "join": "Exact SchoolYear+BuildingCode, with identical DistrictCode/ISDCode/EntityType/SchoolLevel across native files",
+      "sources": {
+        "assessment": {
+          "path": "data/raw/michigan/grades-3-8-2025.csv",
+          "url": "https://www.mischooldata.org/k-12-data-files/",
+          "bytes": 239163392,
+          "sha256": "789a4eeeac9f8ed4e3da0f64a8270805250721facf3da6abc52a4253ee8821ce"
+        },
+        "student_count": {
+          "path": "data/raw/michigan/student-count-2025.csv",
+          "url": "https://www.mischooldata.org/k-12-data-files/",
+          "bytes": 1550519,
+          "sha256": "498d9234733341fb9ed02c58514fd5d79c13cb55c91c3d2425299e669c2f3818"
+        },
+        "assessment_metadata": {
+          "path": "data/raw/michigan/assessment-proficiency-metadata.html",
+          "url": "https://www.mischooldata.org/grades-3-8-state-testing-includes-psat-data-proficiency/",
+          "bytes": 196245,
+          "sha256": "cf5660d51a260aeeb8973393e5bbda13e7588b46b16b100f996750447b17c315"
+        },
+        "enrollment_metadata": {
+          "path": "data/raw/michigan/student-enrollment-counts-report.html",
+          "url": "https://www.mischooldata.org/student-enrollment-counts-report/",
+          "bytes": 180533,
+          "sha256": "31b7dd0f9aaedff617f90adc602c53166159d36e66cd9579fd4dad76abce6f62"
+        },
+        "individual_memo": {
+          "path": "data/raw/michigan/at-risk-october2024.pdf",
+          "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/Memos/2024/10/At-Risk-Section-31a-Funding.pdf?rev=2427d9e20ff54d15b83adfe1660fe04e",
+          "bytes": 258168,
+          "sha256": "f100a0f14d0b0691c52bc0411d64c77d12f2924f23e932e5b0cbaf3170a11842"
+        },
+        "individual_faq": {
+          "path": "data/raw/michigan/31a-faq-2024-25.pdf",
+          "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/OES/Programs/Section-31a/Section_31a_FAQ.pdf?hash=E4B6DA7763F511D87C8736882E3B1F58&rev=9cc53929961542f580dda0fa917f7d49",
+          "bytes": 348727,
+          "sha256": "7f50a24be7668d3eb2171dff561577b30ac5602e9640856200a724c4ae7aa34a"
+        },
+        "dc_faq": {
+          "path": "data/raw/michigan/direct-certification-faq-2024-25.pdf",
+          "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/ohns/School-Nutrition-Programs/Direct-Certification/2024-2025--Direct-Certification/FAQ-for-DC-Requirements-SY-24-25.pdf?hash=014F75E3EBA43302752F9560978D2777&rev=1f692a3c3e5c411ea77d58624d96568c",
+          "bytes": 156506,
+          "sha256": "2c9a1852c917cb7c59dbf729fc40002c72715c126925ed4063f668c1e5814db6"
+        },
+        "disclosure": {
+          "path": "data/raw/michigan/assessment-disclosure.pdf",
+          "url": "https://www.michigan.gov/-/media/Project/Websites/cepi/MISchoolData/Grades_38_and_High_School_Assessments_Disclosure_Avoidance.pdf",
+          "bytes": 147228,
+          "sha256": "737aef7f21ba2e1a294ce0b3373fde05ef6c3defecd1e160753586662aab87f2"
+        },
+        "psat8_levels": {
+          "path": "data/raw/michigan/psat8-performance-levels.pdf",
+          "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/OEAA/PSAT/PSAT-8_9-for-Grade-8-Performance-Level-Information.pdf?hash=5262B1C6A190B3DEE23168F8015F123B&rev=ae6c6e11dc744013bd37b586f30c2b16",
+          "bytes": 137074,
+          "sha256": "e0636c07a99d476e1a8a96b636494514e712bd4f8e67fb8a4cab5b20c2e1f69f"
+        },
+        "identity_definition": {
+          "path": "data/raw/michigan/msds-section25-guide.pdf",
+          "url": "https://www.michigan.gov/-/media/Project/Websites/cepi/MSDS/Section25_User_Guide.pdf",
+          "bytes": 926937,
+          "sha256": "a8869f1109176592a6e6d3a8d1510c889edde1ea765ca92873d918803ae95d3a"
+        }
+      }
+    },
+    "native_school_profiles": 3293,
+    "pure_grade_profiles": 2114,
+    "pure_grade_exact_income_profiles": 2095,
+    "native_assessment_rows": 2151,
+    "directory": 677,
+    "eligible": {
+      "math": 492,
+      "reading": 593,
+      "combined": 476
+    },
+    "subject_exclusions": {
+      "math": {
+        "One or more enrolled tested grades have suppressed or unavailable native valid-score counts": 129,
+        "One or more enrolled tested grades have a protected or unavailable native PercentMet": 53,
+        "Missing one or more enrolled tested grades in the native subject report": 3
+      },
+      "reading": {
+        "One or more enrolled tested grades have a protected or unavailable native PercentMet": 38,
+        "One or more enrolled tested grades have suppressed or unavailable native valid-score counts": 42,
+        "Missing one or more enrolled tested grades in the native subject report": 4
+      }
+    },
+    "directory_exclusions": {
+      "No enrolled grade in this assessment population": 1418,
+      "Mixed, high, ungraded or unknown native grade configuration": 1179,
+      "Individual enrolled economic-disadvantage or total count is protected or unavailable": 19
+    },
+    "assessment": "Native regular PSAT only; MI-Access FI/SI/P alternate populations remain excluded.",
+    "proficiency": "Sum independently published exact TotalMet and NumberAssessed across the full explicit enrolled tested-grade set, then divide. Numeric unbounded PercentMet is required in every grade; missing grades and protected values are never reconstructed.",
+    "valid_score_denominator": "MI School Data Grades 3\u20138 State Testing report metadata: these reports include all valid tests taken by public school students; nonpublic and home-schooled scores are excluded. NumberAssessed is the native count in that valid-test report, not fall enrollment, expected participation or a federal 95%-rule denominator. https://www.mischooldata.org/grades-3-8-state-testing-includes-psat-data-proficiency/",
+    "tested_vs_enrolled": "The native testing report assigns a result to the building where the test was taken; income uses the fall enrollment building. Same-year school-ID matching does not assert identical tested/enrolled students.",
+    "income": "Same-record 2024\u201325 fall unduplicated school headcount: independently published ECONOMIC_DISADVANTAGED_ENROLLMENT divided by TOTAL_ENROLLMENT. School records exclude Pre-K. Individual Supplemental Nutrition Eligibility includes approved household applications or Education Benefits forms, direct certification and authorized household extensions. The October 24, 2024 MDE memorandum and FY2024\u201325 Section 31a FAQ require individual eligibility even at CEP schools and under universal free meals; meal access and reimbursement claims do not make every pupil economically disadvantaged. Protected counts remain unavailable. This enrolled population differs from the spring tested population; administrative eligibility and application nonresponse can affect the count.",
+    "identity": "Native five-digit BuildingCode+SchoolYear, with exact DistrictCode, ISDCode, EntityType and SchoolLevel agreement; no name join or NCES substitution.",
+    "grades": "Explicit native enrolled grade set; <10 is potentially enrolled and requires that grade. Grades 9\u201312 and ungraded must each be exact 0. Developmental kindergarten is a subset, ignored; Pre-K is excluded from native school totals.",
+    "revisions": "Dated 2024 income documents establish selected-year eligibility. Current report metadata defines valid tests. Historical interpretive-guide URL revisions returned 2026 contents and are not claimed as dated 2025 evidence.",
+    "history": "Single 2024\u201325 snapshot, separately fit M-STEP and PSAT grade 8; no incompatible history or national pooling."
+  }
+}

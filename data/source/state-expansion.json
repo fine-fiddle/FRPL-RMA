@@ -3206,23 +3206,27 @@
       "abbreviation": "MI",
       "name": "Michigan",
       "fips": "26",
-      "status": "implementation",
+      "status": "statewide_ready",
       "candidate_snapshot": {
         "year": 2025,
         "school_year": "2024-25",
         "target": "grade_school_snapshot",
-        "discovery_status": "edc_available_actual_extract_not_audited",
+        "discovery_status": "native_bulk_files_acquired_and_audited_in_separate_adapter",
         "approved_for_modeling": false,
         "edc_url": "https://www.eddatacenter.org/api/data/3.1?state=MI&year=2025",
         "edc_documentation_source_id": "edc_v3_1_documentation",
         "sea_sources": [
           {
             "url": "https://www.mischooldata.org/k-12-data-files/",
-            "status": "listed_in_edc_appendix_b_not_independently_fetched"
+            "status": "native_2024_25_bulk_csvs_downloaded_and_checksums_verified"
+          },
+          {
+            "url": "https://www.mischooldata.org/grades-3-8-state-testing-includes-psat-data-proficiency/",
+            "status": "valid_score_population_and_standards_metadata_verified"
           }
         ],
         "sea_via_data_request": false,
-        "planned_raw_path": "data/raw/edc-mi-2025.csv",
+        "planned_raw_path": "data/raw/michigan/grades-3-8-2025.csv",
         "planned_extract_path": "data/source/michigan.json",
         "subjects": [
           "math",
@@ -3236,17 +3240,15 @@
           "G07",
           "G08"
         ],
-        "grade_aggregation_status": "prefer_verified_school_total_otherwise_complete_grades_and_valid_score_weights",
+        "grade_aggregation_status": "complete_explicit_native_enrolled_grades_with_independently_visible_total_met_and_valid_score_weights",
         "proficiency_levels_edc": [
           3,
           4
         ],
-        "assessment_type_status": "actual_extract_requires_cohort_audit",
-        "tested_denominator_status": "unverified_source_denominator",
-        "income_status": "same_year_state_definition_and_join_unverified",
-        "income_candidate_source_ids": [
-          "ccd_lunch_2025"
-        ],
+        "assessment_type_status": "separate_regular_mstep_3_7_and_psat_8_models_mi_access_excluded",
+        "tested_denominator_status": "native_number_assessed_verified_all_valid_public_tests",
+        "income_status": "same_year_native_individual_msds_economic_disadvantage_audited",
+        "income_candidate_source_ids": [],
         "income_requirements": [
           "enrolled_students_not_tested_subgroup_ratio",
           "same_school_year",
@@ -3257,14 +3259,17 @@
         "id_audit": {
           "edc_hyphenates_district_school_id": false,
           "edc_fills_missing_school_id_from_nces": false,
-          "nces_join_status": "verify_unique_exact_crosswalk"
+          "nces_join_status": "native_five_digit_building_code_and_year_with_matching_district_isd_entity_and_level_no_nces_or_name_substitution"
         },
         "high_school_status": "not_covered_by_edc_grades_3_8",
         "history_status": "requires_same_year_income_and_assessment_era_audit"
       },
-      "method_notes": [],
+      "method_notes": [
+        "Native M-STEP grades 3–7 and grade 8 PSAT have separate models; complete explicit enrolled grades and exact TotalMet/NumberAssessed are required. Protected PercentMet remains missing even when counts are visible. MI-Access and mixed/high/ungraded schools are excluded.",
+        "Contemporaneous 2024–25 guidance requires individual MSDS eligibility under CEP and universal meals. Fall school headcount is matched by exact building/year to spring test-taken building results; those student populations differ. Sampling intervals use verified counts for every model member."
+      ],
       "next_steps": [
-        "MI School Data requires an authorized email address to deliver 2024–25 statewide Grades 3–8 Assessments and Student Count bulk files; current public report route recovered. Audit the individual Supplemental Nutrition Eligibility definition and separate M-STEP grades3–7 from PSAT8 before modeling."
+        "Audit native high-school assessments, mixed-grade populations and compatible prior-year income/assessment standards separately; expand no current model by pooling PSAT, M-STEP or MI-Access."
       ],
       "ccd_lunch_audit": {
         "schools": 3356,
@@ -3338,6 +3343,14 @@
         "issues": [
           "no_reported_direct_certification_totals"
         ]
+      },
+      "existing_release": {
+        "scope": "Michigan native M-STEP grades 3–7 and separate PSAT grade 8 models for public pure grade schools; individual fall MSDS economic disadvantage, complete valid-score grade coverage and protected-response exclusions",
+        "snapshot_year": 2025,
+        "source_extracts": [
+          "data/source/michigan.json"
+        ],
+        "guide": "docs/michigan-data.md"
       }
     },
     {
