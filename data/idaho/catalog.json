@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "ID",
+    "name": "Idaho"
+  },
+  "prepare_script": "scripts/prepare_idaho.py",
+  "regions": [
+    {
+      "id": "idaho",
+      "name": "Statewide",
+      "dataset": "id-isat-2025",
+      "status": "ready",
+      "geography": "idaho",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/idaho/schools.json",
+      "boundaries": null,
+      "comparison": "Idaho \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Idaho operational grade schools with same-year individual eligibility and complete native performance-level counts proving valid-score school totals",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}

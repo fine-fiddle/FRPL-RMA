@@ -1,0 +1,58 @@
+{
+  "year": 2025,
+  "schools": 480,
+  "cohorts": {
+    "grade-schools": {
+      "directory": 480,
+      "eligible": {
+        "math": 345,
+        "reading": 357,
+        "combined": 336
+      }
+    }
+  },
+  "exclusions": {
+    "Individual economic eligibility count suppressed, blurred or unavailable; Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 61,
+    "Individual economic eligibility count suppressed, blurred or unavailable": 97,
+    "Math: Individual economic eligibility count suppressed, blurred or unavailable; Native proficient total or complete performance-level counts suppressed, blurred or unavailable; ELA: Individual economic eligibility count suppressed, blurred or unavailable": 4,
+    "Math: Individual economic eligibility count suppressed, blurred or unavailable; ELA: Individual economic eligibility count suppressed, blurred or unavailable": 46,
+    "Math: Individual economic eligibility count suppressed, blurred or unavailable; Native proficient total or complete performance-level counts suppressed, blurred or unavailable; ELA: Individual economic eligibility count suppressed, blurred or unavailable; Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 28,
+    "Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 100,
+    "Math: Native proficient total or complete performance-level counts suppressed, blurred or unavailable; ELA: Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 35,
+    "ELA: Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 9,
+    "Math: Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 21,
+    "Math: Individual economic eligibility count suppressed, blurred or unavailable; ELA: Individual economic eligibility count suppressed, blurred or unavailable; Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 1
+  },
+  "source_audit": {
+    "native_school_profiles": 739,
+    "exact_directory_matches": 739,
+    "grade_school_profiles": 480,
+    "excluded": {
+      "Outside operational same-year CCD grade-school scope": 259
+    },
+    "income_unavailable": 79,
+    "native_display_high_grade_conflicts": [
+      "479-1341",
+      "493-1371",
+      "532-1424",
+      "594-1501"
+    ],
+    "outcome_exclusions": {
+      "math": {
+        "Individual economic eligibility count suppressed, blurred or unavailable": 47,
+        "Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 56,
+        "Individual economic eligibility count suppressed, blurred or unavailable; Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 32
+      },
+      "reading": {
+        "Individual economic eligibility count suppressed, blurred or unavailable": 50,
+        "Individual economic eligibility count suppressed, blurred or unavailable; Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 29,
+        "Native proficient total or complete performance-level counts suppressed, blurred or unavailable": 44
+      }
+    },
+    "valid_score_reconciliation": {
+      "grade_school_complete_subject_rows": 799,
+      "below_95_participation_subject_rows": 11
+    },
+    "mapped": 0
+  }
+}
