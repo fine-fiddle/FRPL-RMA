@@ -1,0 +1,29 @@
+{
+  "year": 2025,
+  "schools": 6573,
+  "cohorts": {
+    "grade-schools": {
+      "directory": 6573,
+      "eligible": {
+        "math": 6118,
+        "reading": 6117,
+        "combined": 6117
+      }
+    }
+  },
+  "exclusions": {
+    "TAPR native school-total result missing or masked; suppression is preserved": 904,
+    "Math: TAPR native school-total result missing or masked; suppression is preserved; ELA: TAPR native school-total result missing or masked; suppression is preserved": 452,
+    "Missing or fewer than 10 tested": 7,
+    "Math: Missing or fewer than 10 tested; ELA: Missing or fewer than 10 tested": 3,
+    "ELA: Missing or fewer than 10 tested": 1
+  },
+  "source_audit": {
+    "public_campuses": 9084,
+    "grade_school_profiles": 6573,
+    "excluded": {
+      "High/mixed grade campus enrolling grades 9\u201312": 2511
+    },
+    "mapped": 0
+  }
+}
