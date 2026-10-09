@@ -1,0 +1,27 @@
+{
+  "year": 2025,
+  "public_enrollment_schools": 1550,
+  "grade_schools": 1186,
+  "excluded_district_level_enrollment": 7,
+  "excluded_high_or_mixed": 364,
+  "eligible": {
+    "math": 795,
+    "reading": 795,
+    "combined": 795
+  },
+  "mapped": 0,
+  "income_exclusions": {
+    "Iowa suppressed individual FRL eligibility": 41,
+    "Same-year K\u201312 income not reported": 274
+  },
+  "assessment_exclusions": {
+    "math": {
+      "Assessment not reported": 334,
+      "At least one grade has suppressed assessment counts; incomplete aggregate": 25
+    },
+    "reading": {
+      "Assessment not reported": 334,
+      "At least one grade has suppressed assessment counts; incomplete aggregate": 25
+    }
+  }
+}

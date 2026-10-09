@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "prepare_script": "scripts/prepare_iowa.py",
+  "state": {
+    "id": "IA",
+    "name": "Iowa"
+  },
+  "regions": [
+    {
+      "id": "iowa",
+      "name": "Grade schools",
+      "dataset": "ia-isasp-dlm",
+      "status": "ready",
+      "geography": "iowa",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/iowa/schools.json",
+      "boundaries": null,
+      "comparison": "Iowa \u00b7 {year} \u00b7 ISASP + DLM \u00b7 {note}",
+      "model_scope": "Public grade schools with complete grades 3\u20138 score aggregates and same-year individual FRL eligibility",
+      "map_source": "School coordinates unavailable; no authoritative school-ID coordinate crosswalk imported"
+    }
+  ]
+}
