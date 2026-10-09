@@ -1,0 +1,38 @@
+{
+  "year": 2025,
+  "schools": 831,
+  "cohorts": {
+    "grade": {
+      "directory": 831,
+      "eligible": {
+        "math": 819,
+        "reading": 821,
+        "combined": 818
+      }
+    }
+  },
+  "exclusions": {
+    "Protected or unavailable native actual score-level/ME count": 4,
+    "Math: Protected or unavailable native actual score-level/ME count": 3,
+    "Same-day grade and PIP enrollment do not reconcile": 18,
+    "Math: Same-day grade and PIP enrollment do not reconcile; ELA: Same-day grade and PIP enrollment do not reconcile": 9,
+    "ELA: Protected or unavailable native actual score-level/ME count": 1
+  },
+  "source_audit": {
+    "native_school_profiles": 952,
+    "grade_school_profiles": 831,
+    "excluded": {
+      "Outside verified operational grade-school scope": 57,
+      "Separate E/M report cards require complete grade-band union audit": 64
+    },
+    "income_unavailable": 9,
+    "headcount_audit": {
+      "income_schools": 1226,
+      "grade_schools": 1226,
+      "enrollment_disagreements": 10
+    },
+    "score_denominator": "Sum of independently visible actual achievement-level counts; native eligible total not used",
+    "income_scope": "Individual Day135 current-membership PIP with three-year benefits eligibility lookback",
+    "mapped": 0
+  }
+}
