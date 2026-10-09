@@ -6,6 +6,8 @@ The [tests and standards guide](assessments.html) maps the latest included asses
 
 After the statewide basics, the [district comparison queue](docs/district-comparisons.md) identifies systems large enough for their own comparisons, like CPS. It uses dated official enrollment and potential school cohorts; each district still needs an audit of usable outcomes, same-year income and model stability before implementation.
 
+The [Los Angeles Unified source audit](docs/los-angeles-district.md) makes its exact district roster and pure assessment cohorts reproducible. Separate district models remain a follow-up to that audit.
+
 Michigan uses separate 2024–25 M-STEP grades 3–7 and PSAT grade 8 comparisons, with same-year MSDS individual economic disadvantage. Complete native grade counts support valid-score aggregation and sampling intervals; protected response percentages remain excluded even when counts are visible. Mixed/high schools and MI-Access are outside these comparisons. See the [Michigan data guide](docs/michigan-data.md) for definitions, coverage and reproducible bulk-file extraction.
 
 New York → New York City includes grade-school NYSTP results through 2026 and separately labeled Regents ELA/Algebra I results through 2023, with same-year NYCPS Poverty data, residual histories and sampling intervals. Charter coverage, suppressed poverty values and historical closed-school coverage have explicit limitations. See the [NYC data guide](docs/nyc-data.md) for sources, definitions and rebuild commands.
