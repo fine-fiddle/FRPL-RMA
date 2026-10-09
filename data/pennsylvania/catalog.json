@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "prepare_script": "scripts/prepare_pennsylvania.py",
+  "state": {
+    "id": "PA",
+    "name": "Pennsylvania"
+  },
+  "regions": [
+    {
+      "id": "pennsylvania",
+      "name": "Grade schools",
+      "dataset": "pa-pssa",
+      "status": "ready",
+      "geography": "pennsylvania",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/pennsylvania/schools.json",
+      "boundaries": null,
+      "comparison": "Pennsylvania \u00b7 {year} \u00b7 PSSA \u00b7 {note}",
+      "model_scope": "Public grade-school native PSSA grades 3\u20138 totals and same-year individual economic status",
+      "map_source": "School coordinates unavailable; no authoritative coordinate crosswalk imported"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "year": 2025,
+  "public_enrollment_schools": 3389,
+  "grade_schools": 2172,
+  "excluded_high_or_mixed": 1217,
+  "excluded_iu_aggregates": 27,
+  "unmatched_native_assessment_rows": 0,
+  "eligible": {
+    "math": 2008,
+    "reading": 2008,
+    "combined": 2008
+  },
+  "mapped": 0,
+  "income_exclusions": {
+    "Same-year individual economic status not reported": 55
+  },
+  "assessment_exclusions": {
+    "math": {
+      "PSSA school total not reported": 161,
+      "PDE suppressed native school-total proficiency (fewer than 11 scored)": 3
+    },
+    "reading": {
+      "PSSA school total not reported": 161,
+      "PDE suppressed native school-total proficiency (fewer than 11 scored)": 3
+    }
+  }
+}
