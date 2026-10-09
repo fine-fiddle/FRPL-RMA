@@ -1,0 +1,2057 @@
+{
+  "schema_version": 1,
+  "description": "Latest assessments included in this project, separately by released dataset and model population. A year is the ending year of the school year. Test names, grades and proficiency definitions describe those source populations; they are not a common achievement scale or a ranking of state ambition. Shared colors identify an explicitly named test family, not equivalent thresholds. Provider identities and relative threshold comparisons remain unavailable unless supported by separately audited evidence. States without released comparisons remain visible with their source-audit status.",
+  "sources": [
+    {
+      "id": "released-assessment-definitions",
+      "path": "data/manifest.json",
+      "role": "Exact stored proficiency definitions and source URLs"
+    },
+    {
+      "id": "50-state-expansion-registry",
+      "path": "data/source/state-expansion.json",
+      "role": "State identifiers, publication status and audit guides"
+    },
+    {
+      "id": "mi-psat8-2025:psat8_levels",
+      "dataset_id": "mi-psat8-2025",
+      "path": "data/raw/michigan/psat8-performance-levels.pdf",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/OEAA/PSAT/PSAT-8_9-for-Grade-8-Performance-Level-Information.pdf?hash=5262B1C6A190B3DEE23168F8015F123B&rev=ae6c6e11dc744013bd37b586f30c2b16",
+      "sha256": "e0636c07a99d476e1a8a96b636494514e712bd4f8e67fb8a4cab5b20c2e1f69f",
+      "role": "Audited PSAT owner and grade-8 benchmark evidence"
+    },
+    {
+      "path": "data/us-states.geojson",
+      "url": "https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_state_500k.zip",
+      "sha256": "3e81cbb6cf5f60d9b01ef3e730afa14d61ce5f784252a0b33a696135e71447bc",
+      "role": "50-state map source archive"
+    }
+  ],
+  "states": [
+    {
+      "id": "AL",
+      "name": "Alabama",
+      "fips": "01",
+      "status": "statewide_ready",
+      "guide": "docs/alabama-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "al-acap-dc-2025:2025:Alabama ACAP Summative/Alternate grades 3–8 · CCD DC:ES",
+          "state": "AL",
+          "name": "Alabama ACAP Summative/Alternate grades 3–8 · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8 at schools with no high-school enrollment/offers",
+          "standard": "2024–25 native All Grades / All Gender / All Race / All Ethnicity / All SubPopulation Proficient Rate at operational grade schools with complete same-year grade offers and enrolled-grade counts proving no high-school grades. ACAP Summative and Alternate ELA/Math in grades 3–8, Levels 3 or 4 among the native valid-score proficiency population. This is the separately published unweighted participation/proficiency measure, not the weighted Academic Achievement Indicator, annual MIP targets or feeder-assigned accountability score. Native school totals are used without grade averaging. Published two-decimal rates only: native Tested is retained raw but not used as a proficiency denominator because it need not equal the response population, particularly for ELA exemptions. Sampling intervals are unavailable for all models. Suppressed *, ~, ranged and missing rates stay unavailable.",
+          "source_url": "https://www.alabamaachieves.org/reports-data/school-data/glossary-of-terms/",
+          "dataset_id": "al-acap-dc-2025",
+          "family": "Alabama ACAP Summative/Alternate",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "alabama",
+              "name": "Statewide",
+              "url": "./?state=AL&region=alabama&level=ES",
+              "model_scope": "Alabama operational grade schools with native ACAP school totals and individual same-year CCD direct certification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AK",
+      "name": "Alaska",
+      "fips": "02",
+      "status": "statewide_ready",
+      "guide": "docs/ccd-state-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ak-edc-ccd-dc:2025:AK STAR grades 3–8 · grade schools · CCD DC:ES",
+          "state": "AK",
+          "name": "AK STAR grades 3–8 · grade schools · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Levels 3-4; Alaska 2025 regular assessment; separate state model",
+          "source_url": "https://education.alaska.gov/compass/Report/2024-2025",
+          "dataset_id": "ak-edc-ccd-dc",
+          "family": "AK STAR",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "alaska",
+              "name": "Statewide",
+              "url": "./?state=AK&region=alaska&level=ES",
+              "model_scope": "Alaska public grade schools with exact native rates and reported same-year school DC and membership"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AZ",
+      "name": "Arizona",
+      "fips": "04",
+      "status": "statewide_ready",
+      "guide": "docs/arizona-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "az-ade-2025:2025:AASA/MSAA grades 3–8 · native totals 2025:ES",
+          "state": "AZ",
+          "name": "AASA/MSAA grades 3–8 · native totals 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Native All Students, FAY Status All; valid Spring 2025 test results, highest repeated score; published integer Percent Passing (levels 3+4), largest-remainder rounding. Native All Assessments includes AASA and MSAA; restricted to schools without enrolled grades 9–12. Alternate standards included in the published total.",
+          "source_url": "https://www.azed.gov/accountability-research/data",
+          "dataset_id": "az-ade-2025",
+          "family": "AASA/MSAA",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "arizona",
+              "name": "Statewide",
+              "url": "./?state=AZ&region=arizona&level=ES",
+              "model_scope": "Native grade-school totals including MSAA alternate standards, and separate regular ACT grade 11 in high and mixed-grade schools"
+            }
+          ]
+        },
+        {
+          "id": "az-ade-2025:2025:ACT grade 11 · native regular results 2025:HS",
+          "state": "AZ",
+          "name": "ACT grade 11 · native regular results 2025",
+          "year": 2025,
+          "level": "HS",
+          "grades": "11",
+          "standard": "Native All Students, FAY Status All; valid Spring 2025 test results, highest repeated score; published integer Percent Passing (levels 3+4), largest-remainder rounding. Separate regular ACT grade 11; MSAA and mixed all-assessment school totals excluded. Some valid-score counts are suppressed, so every high-school sampling interval is unavailable.",
+          "source_url": "https://www.azed.gov/accountability-research/data",
+          "dataset_id": "az-ade-2025",
+          "family": "ACT",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "arizona",
+              "name": "Statewide",
+              "url": "./?state=AZ&region=arizona&level=HS",
+              "model_scope": "Native grade-school totals including MSAA alternate standards, and separate regular ACT grade 11 in high and mixed-grade schools"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AR",
+      "name": "Arkansas",
+      "fips": "05",
+      "status": "statewide_ready",
+      "guide": "docs/arkansas-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ar-atlas-dc-2025:2025:Arkansas ATLAS grades 3–8 · post-correction · CCD DC:ES",
+          "state": "AR",
+          "name": "Arkansas ATLAS grades 3–8 · post-correction · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8 at schools with no high-school enrollment/offers",
+          "standard": "2024–25 post-correction ATLAS native Schools / No-Grade ELA and Math Level 3 & 4 rates at operational grade schools with complete same-year CCD offers and enrollment proving no high-school grades. ELA includes Reading and Writing and is distinct from the Reading component. Math is the grade-level Math assessment, distinct from Algebra, Geometry and Math Combined; advanced students taking only an EOC Math assessment are outside this response. At these grade schools tested grades are 3–8. Native schoolwide rates among tested score-level students are used without grade averaging or federal 95% accountability adjustment; DLM is separately published and is not included. Rates are published to one decimal. N Tested remains raw audit evidence; verified valid-score denominators are not imported and all sampling intervals are unavailable. Suppression, ranges and missingness remain unavailable. This is a single 2025 snapshot, not a continuation of ACT Aspire history.",
+          "source_url": "https://docs.google.com/document/d/1Qhf9liDMCPG34QAGGk4MQt5FrRwKhNNYMx5hLUGd2Dc/edit?usp=sharing",
+          "dataset_id": "ar-atlas-dc-2025",
+          "family": "Arkansas ATLAS",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "arkansas",
+              "name": "Statewide",
+              "url": "./?state=AR&region=arkansas&level=ES",
+              "model_scope": "Arkansas operational grade schools with native post-correction ATLAS totals and individual same-year CCD direct certification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CA",
+      "name": "California",
+      "fips": "06",
+      "status": "statewide_ready",
+      "guide": "docs/california-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ca-cde-2025:2025:Smarter Balanced grades 3–8:ES",
+          "state": "CA",
+          "name": "Smarter Balanced grades 3–8",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "2024–25 CAASPP Smarter Balanced Standard Met or Exceeded (Levels 3+4); all students, valid scores only. California alternate assessments are excluded. Exact proficient and valid-score counts are summed across complete tested grades.",
+          "source_url": "https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx",
+          "dataset_id": "ca-cde-2025",
+          "family": "Smarter Balanced",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "california",
+              "name": "Statewide",
+              "url": "./?state=CA&region=california&level=ES",
+              "model_scope": "California all-students Smarter Balanced valid-score cohorts; separate tested grades"
+            }
+          ]
+        },
+        {
+          "id": "ca-cde-2025:2025:Smarter Balanced grade 11:HS",
+          "state": "CA",
+          "name": "Smarter Balanced grade 11",
+          "year": 2025,
+          "level": "HS",
+          "grades": "11",
+          "standard": "2024–25 CAASPP Smarter Balanced Standard Met or Exceeded (Levels 3+4); all students, valid scores only. California alternate assessments are excluded. Exact proficient and valid-score counts are summed across complete tested grades.",
+          "source_url": "https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx",
+          "dataset_id": "ca-cde-2025",
+          "family": "Smarter Balanced",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "california",
+              "name": "Statewide",
+              "url": "./?state=CA&region=california&level=HS",
+              "model_scope": "California all-students Smarter Balanced valid-score cohorts; separate tested grades"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CO",
+      "name": "Colorado",
+      "fips": "08",
+      "status": "statewide_ready",
+      "guide": "docs/colorado-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "co-cde-2025:2025:CMAS 2020 standards:ES",
+          "state": "CO",
+          "name": "CMAS 2020 standards",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "2025 CMAS Met or Exceeded Expectations; 2020 Colorado Academic Standards; ELA only, CSLA and CoAlt excluded.",
+          "source_url": "https://ed.cde.state.co.us/assessment/cmas-dataandresults-2025",
+          "dataset_id": "co-cde-2025",
+          "family": "CMAS 2020 standards",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "colorado",
+              "name": "Statewide",
+              "url": "./?state=CO&region=colorado&level=ES",
+              "model_scope": "Colorado CMAS school totals and separate grade-11 digital SAT valid-score cohorts"
+            }
+          ]
+        },
+        {
+          "id": "co-cde-2025:2025:Digital SAT grade 11:HS",
+          "state": "CO",
+          "name": "Digital SAT grade 11",
+          "year": 2025,
+          "level": "HS",
+          "grades": "11",
+          "standard": "2025 digital SAT Met or Exceeded Expectations; published Colorado Reading and Writing and math categories; PSAT excluded.",
+          "source_url": "https://ed.cde.state.co.us/assessment/sat-psat/sat-psat-data",
+          "dataset_id": "co-cde-2025",
+          "family": "Digital SAT",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "colorado",
+              "name": "Statewide",
+              "url": "./?state=CO&region=colorado&level=HS",
+              "model_scope": "Colorado CMAS school totals and separate grade-11 digital SAT valid-score cohorts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CT",
+      "name": "Connecticut",
+      "fips": "09",
+      "status": "audited_blocker",
+      "guide": "docs/connecticut-data.md",
+      "blocker_summary": "Official EdSight guest SAS export fails to log on; independently reproduced in the browser on2026-10-09.",
+      "assessments": []
+    },
+    {
+      "id": "DE",
+      "name": "Delaware",
+      "fips": "10",
+      "status": "statewide_ready",
+      "guide": "docs/delaware-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "de-native-2025:2025:Smarter Balanced Summative Assessment · Delaware · 2025:ES",
+          "state": "DE",
+          "name": "Smarter Balanced Summative Assessment · Delaware · 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Regular native school performance; SBAC Levels3/4 or SAT state proficiency benchmarks, alternate assessments excluded.",
+          "source_url": "https://data.delaware.gov/resource/ms6b-mt82.json?%24where=schoolyear%3D%272025%27+and+race%3D%27All+Students%27+and+gender%3D%27All+Students%27+and+geography%3D%27All+Students%27+and+grade%3D%27All+Students%27+and+specialdemo%3D%27All+Students%27&%24limit=50000&%24order=districtcode%2Cschoolcode",
+          "dataset_id": "de-native-2025",
+          "family": "Smarter Balanced",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "delaware",
+              "name": "Statewide",
+              "url": "./?state=DE&region=delaware&level=ES",
+              "model_scope": "Delaware unique public reporting units: separate pure grade-school SBAC and pure high-school SAT, same-year individual SNAP/TANF"
+            }
+          ]
+        },
+        {
+          "id": "de-native-2025:2025:SAT School-Day (Spring) · Delaware · 2025:HS",
+          "state": "DE",
+          "name": "SAT School-Day (Spring) · Delaware · 2025",
+          "year": 2025,
+          "level": "HS",
+          "grades": "11",
+          "standard": "Regular native school performance; SBAC Levels3/4 or SAT state proficiency benchmarks, alternate assessments excluded.",
+          "source_url": "https://data.delaware.gov/resource/ms6b-mt82.json?%24where=schoolyear%3D%272025%27+and+race%3D%27All+Students%27+and+gender%3D%27All+Students%27+and+geography%3D%27All+Students%27+and+grade%3D%27All+Students%27+and+specialdemo%3D%27All+Students%27&%24limit=50000&%24order=districtcode%2Cschoolcode",
+          "dataset_id": "de-native-2025",
+          "family": "SAT School-Day (Spring)",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "delaware",
+              "name": "Statewide",
+              "url": "./?state=DE&region=delaware&level=HS",
+              "model_scope": "Delaware unique public reporting units: separate pure grade-school SBAC and pure high-school SAT, same-year individual SNAP/TANF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FL",
+      "name": "Florida",
+      "fips": "12",
+      "status": "statewide_ready",
+      "guide": "docs/florida-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "fl-schoolgrades-2025:2025:Florida School Grades FAST + FAA + Math EOC · grade schools:ES",
+          "state": "FL",
+          "name": "Florida School Grades FAST + FAA + Math EOC · grade schools",
+          "year": 2025,
+          "level": "ES",
+          "grades": "Grade schools: FAST3–8, FAA, Math EOC and source-attributed students",
+          "standard": "2024–25 native School Grades English Language Arts Achievement and Mathematics Achievement components: Level 3 or above / valid assessed students under Florida full-year-enrollment and home-zoned attribution rules, including eligible FAA Performance Task but excluding FAA Datafolio. ELA FAST PM3 grades 3–10 and Math FAST PM3 grades 3–8 plus B.E.S.T./Access Algebra 1/Geometry EOCs; this cohort enrolls no grades 9–12 in the same-year Survey 2 registry. ELL included after two US-school years; medical/extraordinary exemptions excluded. Components require at least 10 eligible students. Native whole-percent rates only; score denominators absent, so all model sampling intervals unavailable. Collocated combined results and provider-specific virtual rates are excluded from individual-school matches.",
+          "source_url": "https://www.fldoe.org/file/18534/SchoolGradesCalcGuide25.pdf",
+          "dataset_id": "fl-schoolgrades-2025",
+          "family": "Florida School Grades FAST + FAA + Math EOC",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "florida",
+              "name": "Statewide",
+              "url": "./?state=FL&region=florida&level=ES",
+              "model_scope": "Florida public grade schools; separate native full-year school-grade achievement components and raw individual lunch eligibility"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GA",
+      "name": "Georgia",
+      "fips": "13",
+      "status": "statewide_ready",
+      "guide": "docs/ccd-state-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ga-edc-ccd-dc:2025:Georgia Milestones EOG grades 3–8 · grade schools · CCD DC:ES",
+          "state": "GA",
+          "name": "Georgia Milestones EOG grades 3–8 · grade schools · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Levels 3-4; Georgia 2025 regular assessment; separate state model",
+          "source_url": "https://goews.georgia.gov/dashboards-data-report-card/downloadable-data",
+          "dataset_id": "ga-edc-ccd-dc",
+          "family": "Georgia Milestones EOG",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "georgia",
+              "name": "Statewide",
+              "url": "./?state=GA&region=georgia&level=ES",
+              "model_scope": "Georgia public grade schools with exact native rates and reported same-year school DC and membership"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "HI",
+      "name": "Hawaii",
+      "fips": "15",
+      "status": "statewide_ready",
+      "guide": "docs/hawaii-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "hi-kpi-dc-2025:2025:Hawaii KPI SBA/KĀʻEO/HSA alternate · 3–8:ES",
+          "state": "HI",
+          "name": "Hawaii KPI SBA/KĀʻEO/HSA alternate · 3–8",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Official 2024–25 KPI schoolwide All Students LA/Math proficiency, including Smarter Balanced, Kaiapuni KĀʻEO and HSA alternate assessments. The dated KPI Technical Guide pages 3–4 defines the denominator as Full School Year students taking the test and receiving a valid score, with proficient students in the numerator. FSY requires enrollment at the same school on official fall, last Wednesday of January and spring participation count dates. This is the state KPI valid-score measure, not a federal ESSA achievement indicator with nonparticipant assignments. Page 8 suppresses groups below 11 rather than pooling prior years. Whole-number native school totals are preserved; no grade averages, tested counts or inferred counts are used. Sampling intervals are unavailable. Grade-school models exclude schools with high-school offers or any ungraded enrollment of unresolved grade scope.",
+          "source_url": "https://doe-arch-prod-reports-repository-565393024988.s3.us-west-2.amazonaws.com/strivehi-performance/2025/KPI_Technical_Guide_2025.pdf",
+          "dataset_id": "hi-kpi-dc-2025",
+          "family": "Hawaii KPI SBA/KĀʻEO/HSA alternate",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "hawaii",
+              "name": "Statewide",
+              "url": "./?state=HI&region=hawaii&level=ES",
+              "model_scope": "Hawaii verified grade-school FSY KPI population with same-year individual CCD direct certification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ID",
+      "name": "Idaho",
+      "fips": "16",
+      "status": "statewide_ready",
+      "guide": "docs/idaho-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "id-isat-2025:2025:Idaho ISAT/IDAA · grades 3–8 · verified native score totals:ES",
+          "state": "ID",
+          "name": "Idaho ISAT/IDAA · grades 3–8 · verified native score totals",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8 at schools offering no high-school grades",
+          "standard": "2024–25 native ISAT/IDAA school All Students totals, Level 3 (Proficient) or Level 4 (Advanced), grades 3–8 at operational schools offering no grade 9–13, adult or ungraded classes in the same-year CCD directory. Includes Idaho alternate assessment and follows native school attribution/continuous-enrollment rules. The federal 95% denominator may exceed valid scores. Accept a subject only when all four native performance-level counts are independently published, unmasked, their sum equals every native proficiency/level NSize and the independently published participation Student Count (the official valid-scale-score numerator), and Levels 3+4 equal the published proficient count. Then use exact proficient / verified valid scores. The participation enrollment denominator is never used as a score denominator; never reconstruct a masked level.",
+          "source_url": "https://www.sde.idaho.gov/wp-content/uploads/2025/09/2025-Accountability-Reporting-Business-Rules-Draft.pdf",
+          "dataset_id": "id-isat-2025",
+          "family": "Idaho ISAT/IDAA",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "idaho",
+              "name": "Statewide",
+              "url": "./?state=ID&region=idaho&level=ES",
+              "model_scope": "Idaho operational grade schools with same-year individual eligibility and complete native performance-level counts proving valid-score school totals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IL",
+      "name": "Illinois",
+      "fips": "17",
+      "status": "statewide_ready",
+      "guide": "README.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "cps:2024:IAR/PARCC:ES",
+          "state": "IL",
+          "name": "IAR/PARCC",
+          "year": 2024,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Illinois 2024 IAR/PARCC percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+          "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf",
+          "dataset_id": "cps",
+          "family": "IAR/PARCC",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "chicago",
+              "name": "Chicago",
+              "url": "./?state=IL&region=chicago&level=ES",
+              "model_scope": "CPS annual assessment cohorts"
+            }
+          ]
+        },
+        {
+          "id": "isbe-2024:2024:IAR:ES",
+          "state": "IL",
+          "name": "IAR",
+          "year": 2024,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Illinois 2024 IAR percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+          "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf",
+          "dataset_id": "isbe-2024",
+          "family": "IAR",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "statewide",
+              "name": "Statewide",
+              "url": "./?state=IL&region=statewide&level=ES",
+              "model_scope": "Illinois statewide assessment cohorts"
+            }
+          ]
+        },
+        {
+          "id": "cps:2024:SAT:HS",
+          "state": "IL",
+          "name": "SAT",
+          "year": 2024,
+          "level": "HS",
+          "grades": "High-school tested grades under that year’s rules",
+          "standard": "Illinois 2024 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+          "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf",
+          "dataset_id": "cps",
+          "family": "SAT",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "chicago",
+              "name": "Chicago",
+              "url": "./?state=IL&region=chicago&level=HS",
+              "model_scope": "CPS annual assessment cohorts"
+            }
+          ]
+        },
+        {
+          "id": "isbe-2024:2024:SAT:HS",
+          "state": "IL",
+          "name": "SAT",
+          "year": 2024,
+          "level": "HS",
+          "grades": "High-school tested grades under that year’s rules",
+          "standard": "Illinois 2024 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+          "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf",
+          "dataset_id": "isbe-2024",
+          "family": "SAT",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "statewide",
+              "name": "Statewide",
+              "url": "./?state=IL&region=statewide&level=HS",
+              "model_scope": "Illinois statewide assessment cohorts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IN",
+      "name": "Indiana",
+      "fips": "18",
+      "status": "statewide_ready",
+      "guide": "docs/indiana-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "in-ilearn:2025:ILEARN grades 3–8 · grade schools:ES",
+          "state": "IN",
+          "name": "ILEARN grades 3–8 · grade schools",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Spring 2025 ILEARN general-assessment native school totals: At + Above Proficiency divided by the total with performance-level scores. All testers except ESA testers; school assigned by tested location. I AM alternate assessment excluded. Grade-school and mixed-grade populations are separate. Not an ELA-and-math intersection.",
+          "source_url": "https://www.in.gov/doe/files/ILEARN-2025-Grade3-8-Final-School_20250714-2.xlsx",
+          "dataset_id": "in-ilearn",
+          "family": "ILEARN",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "indiana",
+              "name": "Grade schools",
+              "url": "./?state=IN&region=indiana&level=ES",
+              "model_scope": "Separate public grade-school ILEARN grades 3–8 cohort"
+            }
+          ]
+        },
+        {
+          "id": "in-ilearn:2025:ILEARN grades 3–8 · mixed-grade schools:HS",
+          "state": "IN",
+          "name": "ILEARN grades 3–8 · mixed-grade schools",
+          "year": 2025,
+          "level": "HS",
+          "grades": "3–8",
+          "standard": "Spring 2025 ILEARN general-assessment native school totals: At + Above Proficiency divided by the total with performance-level scores. All testers except ESA testers; school assigned by tested location. I AM alternate assessment excluded. Grade-school and mixed-grade populations are separate. Not an ELA-and-math intersection.",
+          "source_url": "https://www.in.gov/doe/files/ILEARN-2025-Grade3-8-Final-School_20250714-2.xlsx",
+          "dataset_id": "in-ilearn",
+          "family": "ILEARN",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "indiana-mixed",
+              "name": "Mixed-grade schools",
+              "url": "./?state=IN&region=indiana-mixed&level=HS",
+              "model_scope": "Separate public mixed-grade ILEARN grades 3–8 cohort"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IA",
+      "name": "Iowa",
+      "fips": "19",
+      "status": "statewide_ready",
+      "guide": "docs/iowa-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ia-isasp-dlm:2025:ISASP + DLM grades 3–8 · grade schools:ES",
+          "state": "IA",
+          "name": "ISASP + DLM grades 3–8 · grade schools",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Iowa 2024–25 public school workbook, grades 3–8. Aggregate exact Proficient and Total Tested counts only when every grade has complete unsuppressed counts or published zero tested. The file includes ISASP and DLM alternate assessments and Partial Academic Year students, and excludes English learners in their first or second year enrolled in the US. Proficient / Total Tested; not a 95%-participation denominator. Grade schools have no enrolled grades 9–12 in the same-year fall snapshot.",
+          "source_url": "https://educate.iowa.gov/media/11702/download?inline=",
+          "dataset_id": "ia-isasp-dlm",
+          "family": "ISASP + DLM",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "iowa",
+              "name": "Grade schools",
+              "url": "./?state=IA&region=iowa&level=ES",
+              "model_scope": "Public grade schools with complete grades 3–8 score aggregates and same-year individual FRL eligibility"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KS",
+      "name": "Kansas",
+      "fips": "20",
+      "status": "statewide_ready",
+      "guide": "docs/kansas-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ks-native-ed:2025:Kansas native KAP + DLM · Grade schools · 2025:ES",
+          "state": "KS",
+          "name": "Kansas native KAP + DLM · Grade schools · 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Native Level3 proficient or Level4 advanced; general and alternate academic achievement standards; refreshed 2025 KAP",
+          "source_url": "https://ksreportcard.ksde.gov/2024_2025_Assessment_Full_File.xlsx",
+          "dataset_id": "ks-native-ed",
+          "family": "Kansas native KAP + DLM",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "kansas",
+              "name": "Statewide",
+              "url": "./?state=KS&region=kansas&level=ES",
+              "model_scope": "Kansas public pure grade and pure high schools, separate native all-grades KAP+DLM cohorts with same-year individual enrolled economic disadvantage; mixed grades excluded"
+            }
+          ]
+        },
+        {
+          "id": "ks-native-ed:2025:Kansas native KAP + DLM · High schools · 2025:HS",
+          "state": "KS",
+          "name": "Kansas native KAP + DLM · High schools · 2025",
+          "year": 2025,
+          "level": "HS",
+          "grades": "10",
+          "standard": "Native Level3 proficient or Level4 advanced; general and alternate academic achievement standards; refreshed 2025 KAP",
+          "source_url": "https://ksreportcard.ksde.gov/2024_2025_Assessment_Full_File.xlsx",
+          "dataset_id": "ks-native-ed",
+          "family": "Kansas native KAP + DLM",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "kansas",
+              "name": "Statewide",
+              "url": "./?state=KS&region=kansas&level=HS",
+              "model_scope": "Kansas public pure grade and pure high schools, separate native all-grades KAP+DLM cohorts with same-year individual enrolled economic disadvantage; mixed grades excluded"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KY",
+      "name": "Kentucky",
+      "fips": "21",
+      "status": "audited_blocker",
+      "guide": "docs/kentucky-data.md",
+      "blocker_summary": "Native ASMT provides per-grade rates without valid-score weights; ACCT grade-band rates assign nonparticipants novice and cannot substitute. Grade10 ASMT and SRC individual-income definitions remain unverified.",
+      "assessments": []
+    },
+    {
+      "id": "LA",
+      "name": "Louisiana",
+      "fips": "22",
+      "status": "statewide_ready",
+      "guide": "docs/ccd-state-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "la-edc-ccd-dc:2025:LEAP 2025 grades 3–8 · grade schools · CCD DC:ES",
+          "state": "LA",
+          "name": "LEAP 2025 grades 3–8 · grade schools · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Levels 4-5; Louisiana 2025 regular assessment; separate state model",
+          "source_url": "https://doe.louisiana.gov/data-and-reports/elementary-and-middle-school-performance",
+          "dataset_id": "la-edc-ccd-dc",
+          "family": "LEAP 2025",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "louisiana",
+              "name": "Statewide",
+              "url": "./?state=LA&region=louisiana&level=ES",
+              "model_scope": "Louisiana public grade schools with exact native rates and reported same-year school DC and membership"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ME",
+      "name": "Maine",
+      "fips": "23",
+      "status": "statewide_ready",
+      "guide": "docs/ccd-state-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "me-edc-ccd-dc:2025:Maine Through Year Assessment grades 3–8 · grade schools · CCD DC:ES",
+          "state": "ME",
+          "name": "Maine Through Year Assessment grades 3–8 · grade schools · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Levels 3-4; Maine 2025 regular assessment; separate state model",
+          "source_url": "https://www.maine.gov/doe/dashboard",
+          "dataset_id": "me-edc-ccd-dc",
+          "family": "Maine Through Year Assessment",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "maine",
+              "name": "Statewide",
+              "url": "./?state=ME&region=maine&level=ES",
+              "model_scope": "Maine public grade schools with exact native rates and reported same-year school DC and membership"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MD",
+      "name": "Maryland",
+      "fips": "24",
+      "status": "statewide_ready",
+      "guide": "docs/maryland-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "md-mcap-2025:2025:MCAP regular ELA/math · grade schools · 2025:ES",
+          "state": "MD",
+          "name": "MCAP regular ELA/math · grade schools · 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8 plus accelerated math courses",
+          "standard": "Native MCAP regular performance Levels3/4 school All Grades totals; includes course-level middle-school mathematics, excludes alternate DLM.",
+          "source_url": "https://www.reportcard.msde.maryland.gov/DataDownloads/FileDownload/562",
+          "dataset_id": "md-mcap-2025",
+          "family": "MCAP regular ELA/math",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "maryland",
+              "name": "Statewide",
+              "url": "./?state=MD&region=maryland&level=ES",
+              "model_scope": "Maryland regular MCAP native school totals at public grade schools with same-year individual direct certification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MA",
+      "name": "Massachusetts",
+      "fips": "25",
+      "status": "statewide_ready",
+      "guide": "docs/massachusetts-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ma-mcas:2025:MCAS grades 3–8 · grade schools:ES",
+          "state": "MA",
+          "name": "MCAS grades 3–8 · grade schools",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Spring 2025 Next-Generation MCAS general assessment, published Meeting + Exceeding Expectations percentage for All Students; native ALL (03-08) school total or grade 10. Score denominators reconcile to four achievement levels. MCAS-Alt is excluded. Only accountable test-status T students, aggregated to official schools; not participation, growth, or the federal minimum-95% accountability denominator.",
+          "source_url": "https://www.doe.mass.edu/mcas/tech/2025-technical-report.pdf",
+          "dataset_id": "ma-mcas",
+          "family": "MCAS",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "massachusetts",
+              "name": "Statewide",
+              "url": "./?state=MA&region=massachusetts&level=ES",
+              "model_scope": "Separate Massachusetts MCAS cohorts by same-year grade population and subject"
+            }
+          ]
+        },
+        {
+          "id": "ma-mcas:2025:MCAS grade 10 · high schools:HS",
+          "state": "MA",
+          "name": "MCAS grade 10 · high schools",
+          "year": 2025,
+          "level": "HS",
+          "grades": "10",
+          "standard": "Spring 2025 Next-Generation MCAS general assessment, published Meeting + Exceeding Expectations percentage for All Students; native ALL (03-08) school total or grade 10. Score denominators reconcile to four achievement levels. MCAS-Alt is excluded. Only accountable test-status T students, aggregated to official schools; not participation, growth, or the federal minimum-95% accountability denominator.",
+          "source_url": "https://www.doe.mass.edu/mcas/tech/2025-technical-report.pdf",
+          "dataset_id": "ma-mcas",
+          "family": "MCAS",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "massachusetts",
+              "name": "Statewide",
+              "url": "./?state=MA&region=massachusetts&level=HS",
+              "model_scope": "Separate Massachusetts MCAS cohorts by same-year grade population and subject"
+            }
+          ]
+        },
+        {
+          "id": "ma-mcas:2025:MCAS grades 3–8 · mixed-grade schools:HS",
+          "state": "MA",
+          "name": "MCAS grades 3–8 · mixed-grade schools",
+          "year": 2025,
+          "level": "HS",
+          "grades": "3–8",
+          "standard": "Spring 2025 Next-Generation MCAS general assessment, published Meeting + Exceeding Expectations percentage for All Students; native ALL (03-08) school total or grade 10. Score denominators reconcile to four achievement levels. MCAS-Alt is excluded. Only accountable test-status T students, aggregated to official schools; not participation, growth, or the federal minimum-95% accountability denominator.",
+          "source_url": "https://www.doe.mass.edu/mcas/tech/2025-technical-report.pdf",
+          "dataset_id": "ma-mcas",
+          "family": "MCAS",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "massachusetts-mixed",
+              "name": "Mixed-grade schools",
+              "url": "./?state=MA&region=massachusetts-mixed&level=HS",
+              "model_scope": "Separate Massachusetts MCAS cohorts by same-year grade population and subject"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MI",
+      "name": "Michigan",
+      "fips": "26",
+      "status": "statewide_ready",
+      "guide": "docs/michigan-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "mi-mstep-2025:2025:Michigan M-STEP · enrolled grades 3–7 · 2025:ES",
+          "state": "MI",
+          "name": "Michigan M-STEP · enrolled grades 3–7 · 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–7",
+          "standard": "Native M-STEP Advanced or Proficient under each tested grade’s Math/ELA achievement standards; MI-Access excluded",
+          "source_url": "https://www.mischooldata.org/k-12-data-files/",
+          "dataset_id": "mi-mstep-2025",
+          "family": "Michigan M-STEP",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "michigan-mstep",
+              "name": "Grade schools · M-STEP grades 3–7",
+              "url": "./?state=MI&region=michigan-mstep&level=ES",
+              "model_scope": "Michigan public pure grade schools with same-year individual fall enrolled economic disadvantage; Grade schools · M-STEP grades 3–7; regular All Students valid-score results only; MI-Access, mixed grades, high-school and ungraded enrollment excluded"
+            }
+          ]
+        },
+        {
+          "id": "mi-psat8-2025:2025:Michigan PSAT 8/9 · grade 8 · 2025:ES",
+          "state": "MI",
+          "name": "Michigan PSAT 8/9 · grade 8 · 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "8",
+          "standard": "Native grade 8 PSAT Advanced or Proficient, meeting grade 8 College Board benchmarks: Reading/Writing 390 and Math 430; separate from M-STEP and MI-Access",
+          "source_url": "https://www.mischooldata.org/k-12-data-files/",
+          "dataset_id": "mi-psat8-2025",
+          "family": "Michigan PSAT 8/9",
+          "provider": "College Board",
+          "provider_source_url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/OEAA/PSAT/PSAT-8_9-for-Grade-8-Performance-Level-Information.pdf?hash=5262B1C6A190B3DEE23168F8015F123B&rev=ae6c6e11dc744013bd37b586f30c2b16",
+          "provider_role": "Assessment owner and publisher",
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "michigan-psat8",
+              "name": "Grade schools · PSAT grade 8",
+              "url": "./?state=MI&region=michigan-psat8&level=ES",
+              "model_scope": "Michigan public pure grade schools with same-year individual fall enrolled economic disadvantage; Grade schools · PSAT grade 8; regular All Students valid-score results only; MI-Access, mixed grades, high-school and ungraded enrollment excluded"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MN",
+      "name": "Minnesota",
+      "fips": "27",
+      "status": "statewide_ready",
+      "guide": "docs/minnesota-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "mn-mca-mtas-2025:2025:MCA-III/MTAS · grades 3–8:ES",
+          "state": "MN",
+          "name": "MCA-III/MTAS · grades 3–8",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Native 2024–25 schoolwide All Standards-Based MCA-III/MTAS results, All Categories/All students, Grade 0. The native workbook defines Total Tested as students receiving a valid score and proficiency as students at Meets or Exceeds Standards divided by Total Tested. Absent, invalid, refused and other no-score categories are separate and are not included in that denominator. Published numeric M/E counts are used directly; suppressed components are never recovered. Native subject totals are not grade percentage averages and do not apply a 95% participation denominator. This one-year population includes alternate standards and makes no historical standards-continuity claim.",
+          "source_url": "https://education.mn.gov/mdeprod/idcplg?IdcService=GET_FILE&RevisionSelectionMethod=latestReleased&Rendition=primary&dDocName=PROD087031",
+          "dataset_id": "mn-mca-mtas-2025",
+          "family": "MCA-III/MTAS",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "minnesota",
+              "name": "Statewide",
+              "url": "./?state=MN&region=minnesota&level=ES",
+              "model_scope": "Separate Minnesota pure grade-school and pure high-school valid-score models"
+            }
+          ]
+        },
+        {
+          "id": "mn-mca-mtas-2025:2025:MCA-III/MTAS · Math 11 / ELA 10:HS",
+          "state": "MN",
+          "name": "MCA-III/MTAS · Math 11 / ELA 10",
+          "year": 2025,
+          "level": "HS",
+          "grades": "Math 11; ELA 10",
+          "standard": "Native 2024–25 schoolwide All Standards-Based MCA-III/MTAS results, All Categories/All students, Grade 0. The native workbook defines Total Tested as students receiving a valid score and proficiency as students at Meets or Exceeds Standards divided by Total Tested. Absent, invalid, refused and other no-score categories are separate and are not included in that denominator. Published numeric M/E counts are used directly; suppressed components are never recovered. Native subject totals are not grade percentage averages and do not apply a 95% participation denominator. This one-year population includes alternate standards and makes no historical standards-continuity claim.",
+          "source_url": "https://education.mn.gov/mdeprod/idcplg?IdcService=GET_FILE&RevisionSelectionMethod=latestReleased&Rendition=primary&dDocName=PROD087031",
+          "dataset_id": "mn-mca-mtas-2025",
+          "family": "MCA-III/MTAS",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "minnesota",
+              "name": "Statewide",
+              "url": "./?state=MN&region=minnesota&level=HS",
+              "model_scope": "Separate Minnesota pure grade-school and pure high-school valid-score models"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS",
+      "name": "Mississippi",
+      "fips": "28",
+      "status": "statewide_ready",
+      "guide": "docs/mississippi-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ms-maap-dc-2025:2025:Mississippi regular MAAP complete grades 3–8 · CCD DC:ES",
+          "state": "MS",
+          "name": "Mississippi regular MAAP complete grades 3–8 · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "Complete offered/enrolled grades 3–8 at verified grade schools",
+          "standard": "2024–25 native regular MAAP All-student proficient and not-proficient counts are summed across every required offered/enrolled grade 3–8 at operational grade schools. Every grade must have both independently visible integer counts; NR, ranges, missing grades and other protected cells make the entire subject unavailable. The 2025 assessment protocol excludes voided, incomplete and irregular scores before warehouse reporting. The Indicator 3 protocol defines proficiency among valid scores and includes full-academic-year and non-full-academic-year students. Native state grade 4/8 totals independently match the 2024–25 SPP/APR valid-score counts. No participation, enrollment or 95% denominator is substituted. Proficient means MAAP Level 4 or 5; Level 3 Passing is not proficient. Alternate MAAP-A, high-school EOCs and science are outside this response. The complete-count population supports propagated sampling intervals; it differs from report-card accountability/FAY rates and the first-time media release. This is a single 2025 snapshot.",
+          "source_url": "https://mdek12.org/wp-content/uploads/sites/39/2026/02/C-Protocol-618-Assessment-REVISED.pdf",
+          "dataset_id": "ms-maap-dc-2025",
+          "family": "Mississippi regular MAAP complete",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "mississippi",
+              "name": "Statewide",
+              "url": "./?state=MS&region=mississippi&level=ES",
+              "model_scope": "Mississippi operational grade schools with complete native regular MAAP grade counts and individual same-year CCD direct certification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MO",
+      "name": "Missouri",
+      "fips": "29",
+      "status": "statewide_ready",
+      "guide": "docs/missouri-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "mo-map-2025:2025:MAP regular grades 3–8 · complete grade schools:ES",
+          "state": "MO",
+          "name": "MAP regular grades 3–8 · complete grade schools",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Regular Missouri MAP grades 3–8, Spring 2025, All Students/Total. Each school subject combines only its complete offered tested-grade range using published Proficient and Advanced counts divided by the sum of verified reportable MAP-score counts. Both proficiency components must be unsuppressed in every grade; suppressed components and third-party combined values never recover missing cells. The native Performance Level report defines reportable as students receiving a MAP score, excluding no-score and invalid-attempt records. Accountable enrollment and participation are not substituted. MAP alternate, EOC, high-school and mixed-grade populations are excluded. Published counts support sampling intervals.",
+          "source_url": "https://apps.dese.mo.gov/MCDS/FileDownloadWebHandler.ashx?filename=b5a8c206-07062024_MAP_Data_Download_Supporting-Documentation.xlsx",
+          "dataset_id": "mo-map-2025",
+          "family": "MAP regular",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "missouri",
+              "name": "Statewide",
+              "url": "./?state=MO&region=missouri&level=ES",
+              "model_scope": "Missouri regular MAP grade schools with complete unsuppressed proficiency counts and native non-CEP individual January FRL"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MT",
+      "name": "Montana",
+      "fips": "30",
+      "status": "statewide_ready",
+      "guide": "docs/montana-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "mt-mast-nslp:2025:Montana MAST · native G38 · 2025:ES",
+          "state": "MT",
+          "name": "Montana MAST · native G38 · 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "MAST 2025 Levels 3–4; refreshed regular assessment and cut scores",
+          "source_url": "https://www.eddatacenter.org/api/data/3.1?state=MT&year=2025",
+          "dataset_id": "mt-mast-nslp",
+          "family": "Montana MAST",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "montana",
+              "name": "Statewide",
+              "url": "./?state=MT&region=montana&level=ES",
+              "model_scope": "Montana public pure grade schools in regular non-CEP NSLP with exact same-year native school identities; native MAST G38 totals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NE",
+      "name": "Nebraska",
+      "fips": "31",
+      "status": "audited_blocker",
+      "guide": "docs/nebraska-data.md",
+      "blocker_summary": "Native NSCAS achievement can assign unexcused nonparticipants the lowest level. Count equality alone does not resolve differing EL participation/performance populations, and NA is not a verified zero. Non-CEP individual ADVISER income is available.",
+      "assessments": []
+    },
+    {
+      "id": "NV",
+      "name": "Nevada",
+      "fips": "32",
+      "status": "statewide_ready",
+      "guide": "docs/ccd-state-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "nv-edc-ccd-dc:2025:SBAC grades 3–8 · grade schools · CCD DC:ES",
+          "state": "NV",
+          "name": "SBAC grades 3–8 · grade schools · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Levels 3-4; Nevada 2025 regular assessment; separate state model",
+          "source_url": "https://nevadareportcard.nv.gov/di/main/assessment",
+          "dataset_id": "nv-edc-ccd-dc",
+          "family": "Smarter Balanced",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "nevada",
+              "name": "Statewide",
+              "url": "./?state=NV&region=nevada&level=ES",
+              "model_scope": "Nevada public grade schools with exact native rates and reported same-year school DC and membership"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NH",
+      "name": "New Hampshire",
+      "fips": "33",
+      "status": "audited_blocker",
+      "guide": "docs/new-hampshire-data.md",
+      "blocker_summary": "Native 2024–25 income now has an exact authoritative directory crosswalk; assessment CSV still has names without IDs, and the public dashboard export has not supplied a current assessment-ID link.",
+      "assessments": []
+    },
+    {
+      "id": "NJ",
+      "name": "New Jersey",
+      "fips": "34",
+      "status": "statewide_ready",
+      "guide": "docs/new-jersey-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "nj-spr-2025:2025:NJSLA/DLM grades 3–8 · valid scores:ES",
+          "state": "NJ",
+          "name": "NJSLA/DLM grades 3–8 · valid scores",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Native NJSLA and DLM combined school totals, grades 3–8 at schools without high-school enrollment. NJSLA Levels4/5 and DLM Levels3/4; valid-score proficiency, not FederalProficiencyRate or participation. Accountability school assignment and half-year attendance rules apply. No grade-level reconstruction.",
+          "source_url": "https://nj.gov/education/spr/resources/doc/SPR_ReferenceGuide.pdf",
+          "dataset_id": "nj-spr-2025",
+          "family": "NJSLA/DLM",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "new-jersey",
+              "name": "Statewide",
+              "url": "./?state=NJ&region=new-jersey&level=ES",
+              "model_scope": "Separate NJSLA/DLM grade-school and NJGPA grade11 public-school cohorts"
+            }
+          ]
+        },
+        {
+          "id": "nj-spr-2025:2025:NJGPA grade 11:HS",
+          "state": "NJ",
+          "name": "NJGPA grade 11",
+          "year": 2025,
+          "level": "HS",
+          "grades": "11",
+          "standard": "Published grade11 NJGPA graduation-ready valid-score rate; grade12 make-ups excluded. ELA grade10 standards; math AlgebraI and Geometry. Separate from NJSLA/DLM accountability outcomes.",
+          "source_url": "https://nj.gov/education/spr/resources/doc/SPR_ReferenceGuide.pdf",
+          "dataset_id": "nj-spr-2025",
+          "family": "NJGPA",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "new-jersey",
+              "name": "Statewide",
+              "url": "./?state=NJ&region=new-jersey&level=HS",
+              "model_scope": "Separate NJSLA/DLM grade-school and NJGPA grade11 public-school cohorts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NM",
+      "name": "New Mexico",
+      "fips": "35",
+      "status": "statewide_ready",
+      "guide": "docs/ccd-state-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "nm-edc-ccd-dc:2025:NM-MSSA grades 3–8 · grade schools · CCD DC:ES",
+          "state": "NM",
+          "name": "NM-MSSA grades 3–8 · grade schools · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Levels 3-4; New Mexico 2025 regular assessment; separate state model",
+          "source_url": "https://newmexicoschools.com/",
+          "dataset_id": "nm-edc-ccd-dc",
+          "family": "NM-MSSA",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "new-mexico",
+              "name": "Statewide",
+              "url": "./?state=NM&region=new-mexico&level=ES",
+              "model_scope": "New Mexico public grade schools with exact native rates and reported same-year school DC and membership"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NY",
+      "name": "New York",
+      "fips": "36",
+      "status": "statewide_ready",
+      "guide": "docs/new-york-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ny-src-2025-grade:2025:NYSTP/middle-grade Regents 3–8 · grade schools:ES",
+          "state": "NY",
+          "name": "NYSTP/middle-grade Regents 3–8 · grade schools",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Native NYSED Annual EM school totals ELA3_8 and MATH3_8, All Students. ELA proficiency is Levels 3–4; math is Levels 3 and above, including middle-grade Regents results in NYSED’s published total. NYSAA alternate results are separate and excluded. Rates use directly reported NUM_PROF / NUM_TESTED; NUM_TESTED means valid scores. TOTAL_COUNT includes students without a valid score and is never a tested denominator. No grade aggregation or reconstruction of suppressed cells.",
+          "source_url": "https://data.nysed.gov/files/essa/24-25/SRC2025.zip",
+          "dataset_id": "ny-src-2025-grade",
+          "family": "NYSTP/middle-grade Regents 3–8",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "new-york",
+              "name": "Statewide",
+              "url": "./?state=NY&region=new-york&level=ES",
+              "model_scope": "Separate New York grade-school native grade3–8 total models"
+            }
+          ]
+        },
+        {
+          "id": "nyc:2026:NYSTP (2023 standards):ES",
+          "state": "NY",
+          "name": "NYSTP (2023 standards)",
+          "year": 2026,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "NYSTP Levels 3+4; 2023 standards break",
+          "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/school-math-results-public.xlsx",
+          "dataset_id": "nyc",
+          "family": "NYSTP (2023 standards)",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "nyc",
+              "name": "New York City",
+              "url": "./?state=NY&region=nyc&level=ES",
+              "model_scope": "NYCPS published NYSTP and Regents cohorts; separate tests and years"
+            }
+          ]
+        },
+        {
+          "id": "ny-src-2025-mixed:2025:NYSTP/middle-grade Regents 3–8 · mixed schools:HS",
+          "state": "NY",
+          "name": "NYSTP/middle-grade Regents 3–8 · mixed schools",
+          "year": 2025,
+          "level": "HS",
+          "grades": "3–8",
+          "standard": "Native NYSED Annual EM school totals ELA3_8 and MATH3_8, All Students. ELA proficiency is Levels 3–4; math is Levels 3 and above, including middle-grade Regents results in NYSED’s published total. NYSAA alternate results are separate and excluded. Rates use directly reported NUM_PROF / NUM_TESTED; NUM_TESTED means valid scores. TOTAL_COUNT includes students without a valid score and is never a tested denominator. No grade aggregation or reconstruction of suppressed cells.",
+          "source_url": "https://data.nysed.gov/files/essa/24-25/SRC2025.zip",
+          "dataset_id": "ny-src-2025-mixed",
+          "family": "NYSTP/middle-grade Regents 3–8",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "new-york-mixed",
+              "name": "Mixed-grade schools · grades 3–8",
+              "url": "./?state=NY&region=new-york-mixed&level=HS",
+              "model_scope": "Separate New York mixed-school native grade3–8 total models"
+            }
+          ]
+        },
+        {
+          "id": "nyc:2023:Regents ELA / Algebra I:HS",
+          "state": "NY",
+          "name": "Regents ELA / Algebra I",
+          "year": 2023,
+          "level": "HS",
+          "grades": "High-school exam takers; multiple grades",
+          "standard": "Regents ELA and Algebra I score 65+; highest score per student/exam/year; distinct subject populations",
+          "source_url": "https://infohub.nyced.org/docs/default-source/default-document-library/2014-15-to-2022-23-nyc-regents-overall-and-by-category---public.xlsx",
+          "dataset_id": "nyc",
+          "family": "Regents ELA / Algebra I",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "nyc",
+              "name": "New York City",
+              "url": "./?state=NY&region=nyc&level=HS",
+              "model_scope": "NYCPS published NYSTP and Regents cohorts; separate tests and years"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NC",
+      "name": "North Carolina",
+      "fips": "37",
+      "status": "statewide_ready",
+      "guide": "docs/north-carolina-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "nc-native-eds:2025:NC regular EOG + grade-8 Math 1 · grade schools · 2025:ES",
+          "state": "NC",
+          "name": "NC regular EOG + grade-8 Math 1 · grade schools · 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "GLP Level3 and above, regular EOG reading and mathematics including grade8 NC Math1 EOC",
+          "source_url": "https://accrpt.tops.ncsu.edu/docs/disag_datasets/Disag_2024-25.zip",
+          "dataset_id": "nc-native-eds",
+          "family": "NC regular EOG + grade-8 Math 1",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "north-carolina",
+              "name": "Statewide",
+              "url": "./?state=NC&region=north-carolina&level=ES",
+              "model_scope": "North Carolina public grade schools with exact native regular-test totals and April2025 individual EDS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ND",
+      "name": "North Dakota",
+      "fips": "38",
+      "status": "audited_blocker",
+      "guide": "docs/north-dakota-data.md",
+      "blocker_summary": "Native exact proficiency endpoints are usable, but same-year individual low-income definitions remain unverified and native nutrition plants lack an authoritative school-unit crosswalk.",
+      "assessments": []
+    },
+    {
+      "id": "OH",
+      "name": "Ohio",
+      "fips": "39",
+      "status": "audited_blocker",
+      "guide": "docs/ohio-data.md",
+      "blocker_summary": "DatedFY25 EMIS permits unverified CEP/provision blanket coding, public economic totals do not separate individual codes, and native nutrition reporting sites lack complete school mappings and annual income-population proof.",
+      "assessments": []
+    },
+    {
+      "id": "OK",
+      "name": "Oklahoma",
+      "fips": "40",
+      "status": "statewide_ready",
+      "guide": "docs/oklahoma-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ok-ostp-dc-2025:2025:Oklahoma regular OSTP complete grades 3–8 · 2025 reset · CCD DC:ES",
+          "state": "OK",
+          "name": "Oklahoma regular OSTP complete grades 3–8 · 2025 reset · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "Complete offered/enrolled grades 3–8 at verified grade schools",
+          "standard": "2024–25 regular OSTP grades 3–8 use Proficient plus Advanced student counts divided by native Valid N, summed across every required offered/enrolled grade at operational grade schools. Appendix V of the official same-year technical report defines valid participants as attempted, valid scores and explicitly excludes Did Not Attempt, exemption, invalidation and alternate-assessment records from tested aggregates. Total N includes such records and is never a substitute. Every required grade must publish its own valid N and both proficient counts; protected counts, absent grades and zero valid totals make the entire subject unavailable. Suppressed lower-level counts are not reconstructed. School totals are calculated from exact visible counts, not rounded percentages. OAAP alternate tests, science and high-school assessments are outside this response. In May 2025 CEQA rescinded the 2024 ELA/Math cut scores and restored the 2023 cuts for spring 2025 while retaining the 2024 descriptors. This is an explicit standards reset and a single 2025 snapshot, not connected 2024 history. Valid counts support propagated sampling intervals. This response differs from report-card FAY achievement points and targets.",
+          "source_url": "https://oklahoma.gov/content/dam/ok/en/osde/documents/services/assessments/state-testing-resources/24-25%20OK_TechReport_Part-II_AppM-V.pdf",
+          "dataset_id": "ok-ostp-dc-2025",
+          "family": "Oklahoma regular OSTP complete",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "oklahoma",
+              "name": "Statewide",
+              "url": "./?state=OK&region=oklahoma&level=ES",
+              "model_scope": "Oklahoma operational grade schools with complete visible regular OSTP valid/proficient counts and individual same-year CCD DC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "OR",
+      "name": "Oregon",
+      "fips": "41",
+      "status": "statewide_ready",
+      "guide": "docs/oregon-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "or-native-sep:2025:Oregon OSAS + Extended · grade schools · 2025:ES",
+          "state": "OR",
+          "name": "Oregon OSAS + Extended · grade schools · 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Published Level 3 or 4, academic and alternate standards; native AGR resolved valid-score population",
+          "source_url": "https://www.oregon.gov/ode/educator-resources/assessment/Documents/TestResults2425/pagr_schools_math_all_2425.xlsx",
+          "dataset_id": "or-native-sep",
+          "family": "Oregon OSAS + Extended",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "oregon",
+              "name": "Statewide",
+              "url": "./?state=OR&region=oregon&level=ES",
+              "model_scope": "Oregon accountable public grade and high schools, separate native AGR assessment cohorts with same-year spring individual poverty; mixed grades excluded"
+            }
+          ]
+        },
+        {
+          "id": "or-native-sep:2025:Oregon OSAS resolved grade 11 + Extended · 2025:HS",
+          "state": "OR",
+          "name": "Oregon OSAS resolved grade 11 + Extended · 2025",
+          "year": 2025,
+          "level": "HS",
+          "grades": "11",
+          "standard": "Published Level 3 or 4, academic and alternate standards; native AGR resolved valid-score population",
+          "source_url": "https://www.oregon.gov/ode/educator-resources/assessment/Documents/TestResults2425/pagr_schools_math_all_2425.xlsx",
+          "dataset_id": "or-native-sep",
+          "family": "Oregon OSAS resolved",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "oregon",
+              "name": "Statewide",
+              "url": "./?state=OR&region=oregon&level=HS",
+              "model_scope": "Oregon accountable public grade and high schools, separate native AGR assessment cohorts with same-year spring individual poverty; mixed grades excluded"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PA",
+      "name": "Pennsylvania",
+      "fips": "42",
+      "status": "statewide_ready",
+      "guide": "docs/pennsylvania-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "pa-pssa:2025:PSSA grades 3–8 · grade schools:ES",
+          "state": "PA",
+          "name": "PSSA grades 3–8 · grade schools",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Published 2025 PSSA All Students / Total school rows, grades 3–8, ELA and Math; Percent Proficient and above and Number Scored. Native school totals are used without aggregating rounded grade percentages or reconstructing suppression. PSSA general assessment only, excluding PASA alternate assessment. Source excludes students enrolled after October 1, homeschoolers, excluded school aggregations, ELL enrolled for less than one year, LIFE students entering EL after the previous testing window and students who did not attempt. Rates suppressed below 11 scored. Grade schools have no enrolled grades 9–12 in the same-year October snapshot.",
+          "source_url": "https://www.pa.gov/content/dam/copapwp-pagov/en/education/documents/data-and-reporting/pssa-and-ayp-results/2025-pssa-school-level-data.xlsx",
+          "dataset_id": "pa-pssa",
+          "family": "PSSA",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "pennsylvania",
+              "name": "Grade schools",
+              "url": "./?state=PA&region=pennsylvania&level=ES",
+              "model_scope": "Public grade-school native PSSA grades 3–8 totals and same-year individual economic status"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "RI",
+      "name": "Rhode Island",
+      "fips": "44",
+      "status": "statewide_ready",
+      "guide": "docs/ccd-state-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "ri-edc-ccd-dc:2025:RICAS grades 3–8 · grade schools · CCD DC:ES",
+          "state": "RI",
+          "name": "RICAS grades 3–8 · grade schools · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Levels 3-4; Rhode Island 2025 regular assessment; separate state model",
+          "source_url": "https://www3.ride.ri.gov/ADP",
+          "dataset_id": "ri-edc-ccd-dc",
+          "family": "RICAS",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "rhode-island",
+              "name": "Statewide",
+              "url": "./?state=RI&region=rhode-island&level=ES",
+              "model_scope": "Rhode Island public grade schools with exact native rates and reported same-year school DC and membership"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SC",
+      "name": "South Carolina",
+      "fips": "45",
+      "status": "statewide_ready",
+      "guide": "docs/south-carolina-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "sc-fay-scored-pip-2025:2025:South Carolina FAY SC READY + SC-Alt actual scored · Day135 PIP:ES",
+          "state": "SC",
+          "name": "South Carolina FAY SC READY + SC-Alt actual scored · Day135 PIP",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8 at verified single-report-card grade schools",
+          "standard": "2024–25 native FAY SC READY + SC-Alt school score-level counts from the research workbook supply an actual scored-student fraction: independently visible NbrME divided by the sum of NbrExceeding, NbrReady, NbrClose and NbrInNeedOfSupport. The historical manual pp.29–31 affirmatively describes each separate level as students who scored at that level, and reports Not Tested separately. All four counts and the published ME numerator must be visible; ME must equal the top two levels. Masked Not Tested remains masked and is never reconstructed. Native NbrTOT and PctME include eligible nonparticipants and are audit evidence, not this response or denominator. No 95% participation count or accountability points are used. This is the manual-defined FAY population enrolled continuously from day45 through day160 and in the testing window, subject to authorized exclusions including recently arrived multilingual learners. SC READY Levels 3/4 and SC-Alt Meets/Exceeds are combined as native thresholds at verified grade schools with tested grades 3–8; alternate tests are not silently described as regular-only. Profiles with separate E/M report cards are excluded pending complete band-union audit. ELA assesses revised 2023 standards in 2025; this is a single-year snapshot without connected earlier history. Complete actual score-level counts support sampling intervals.",
+          "source_url": "https://www.eoc.sc.gov/sites/eoc/files/Documents/Acct%20Manual%2024%2025/FINAL%20Accountability%20Manual%20SY%202024-25%20%28UPDATED%202025%2003%2030%3B%20REDLINE%29.pdf",
+          "dataset_id": "sc-fay-scored-pip-2025",
+          "family": "South Carolina FAY SC READY + SC-Alt actual scored",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "south-carolina",
+              "name": "Statewide",
+              "url": "./?state=SC&region=south-carolina&level=ES",
+              "model_scope": "South Carolina operational grade schools with a single E/M report card, actual FAY score-level counts and individual Day135 PIP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SD",
+      "name": "South Dakota",
+      "fips": "46",
+      "status": "audited_blocker",
+      "guide": "docs/south-dakota-data.md",
+      "blocker_summary": "Native economic-disadvantage classification includes all CEP/provisional students, CCD direct-certification definition changes lack affected IDs, and primary2025 manuals disagree about invalidated proficiency scores.",
+      "assessments": []
+    },
+    {
+      "id": "TN",
+      "name": "Tennessee",
+      "fips": "47",
+      "status": "statewide_ready",
+      "guide": "docs/ccd-state-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "tn-edc-ccd-dc:2025:TNReady grades 3–8 · grade schools · CCD DC:ES",
+          "state": "TN",
+          "name": "TNReady grades 3–8 · grade schools · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Levels 3-4; Tennessee 2025 regular assessment; separate state model",
+          "source_url": "https://www.tn.gov/education/districts/federal-programs-and-oversight/data/data-downloads.html",
+          "dataset_id": "tn-edc-ccd-dc",
+          "family": "TNReady",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "tennessee",
+              "name": "Statewide",
+              "url": "./?state=TN&region=tennessee&level=ES",
+              "model_scope": "Tennessee public grade schools with exact native rates and reported same-year school DC and membership"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TX",
+      "name": "Texas",
+      "fips": "48",
+      "status": "statewide_ready",
+      "guide": "docs/texas-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "tx-tapr-2025:2025:STAAR + Alternate 2 grades 3–8 including EOC · grade schools:ES",
+          "state": "TX",
+          "name": "STAAR + Alternate 2 grades 3–8 including EOC · grade schools",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8 including corresponding EOC",
+          "standard": "2025 native TAPR enrolled-grades 3–8 Reading Including EOC and Math Including EOC, All Students, At Meets Grade Level or Above. Accountability subset: same campus on fall snapshot and testing date, including STAAR with/without accommodations, Spanish STAAR and STAAR Alternate 2; subject totals include corresponding English I/II or Algebra I EOC for students enrolled in grades 3–8. Uses exact unsuppressed numerator/denominator only when the published rate is also unmasked. This is not the separate participation denominator or the percentage passing both subjects. Grade schools enroll no grades 9–12 in the same-year fall registry.",
+          "source_url": "https://rptsvr1.tea.texas.gov/cgi/sas/broker/?_service=marykay&_program=perfrept.perfmast.sas&_debug=0&ccyy=2025&tapr=all_c&sumlev=C&level=Campus&id=&prgopt=reports%2Ftapr%2Fdd%2Fdd_tapr_step_7.sas&datafmt=csv&dsname=STAAR_GR38&key=38AR0E2%7C38AR0E0&key=38AM0E2%7C38AM0E0&var_type=N&var_type=D&var_type=R",
+          "dataset_id": "tx-tapr-2025",
+          "family": "STAAR + Alternate 2",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "texas",
+              "name": "Statewide",
+              "url": "./?state=TX&region=texas&level=ES",
+              "model_scope": "Texas public grade schools; native TAPR accountability-subset subject totals for enrolled grades 3–8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "UT",
+      "name": "Utah",
+      "fips": "49",
+      "status": "audited_blocker",
+      "guide": "docs/utah-data.md",
+      "blocker_summary": "Native2024–25 school achievement fields have unresolved participation/FAY denominators; RISE published fractions fail actual-score count reconciliation, and Aspire school fractions lack verified actual-score scope. The adapter persists an audit hold.",
+      "assessments": []
+    },
+    {
+      "id": "VT",
+      "name": "Vermont",
+      "fips": "50",
+      "status": "audited_blocker",
+      "guide": "docs/vermont-data.md",
+      "blocker_summary": "Native 2025 VTCAP school-ID grade records recovered. Current individual Student Characteristics public income ends 2021; current nutrition CEP/Provision2 percentages are inappropriate and current ISP workbook lacks school IDs.",
+      "assessments": []
+    },
+    {
+      "id": "VA",
+      "name": "Virginia",
+      "fips": "51",
+      "status": "statewide_ready",
+      "guide": "docs/virginia-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "va-vdoe-2025:2025:SOL/VAAP 2025 standards · grade-school totals:ES",
+          "state": "VA",
+          "name": "SOL/VAAP 2025 standards · grade-school totals",
+          "year": 2025,
+          "level": "ES",
+          "grades": "Schoolwide grade-level and/or end-of-course tests applicable to the grade span",
+          "standard": "Native All Students subject-area Passed percentages, including proficient and advanced levels, for SOL plus VAAP. 2023 mathematics and 2024 English standards first assessed spring 2025. Exact valid-score denominators not supplied in the profile; sampling intervals unavailable. Separate ordinary and mixed grade spans.",
+          "source_url": "https://schoolquality.virginia.gov/",
+          "dataset_id": "va-vdoe-2025",
+          "family": "SOL/VAAP 2025 standards",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "virginia",
+              "name": "Statewide school totals",
+              "url": "./?state=VA&region=virginia&level=ES",
+              "model_scope": "Separate grade-school and high-school schoolwide SOL/VAAP totals"
+            }
+          ]
+        },
+        {
+          "id": "va-vdoe-2025:2025:SOL/VAAP 2025 standards · high-school totals:HS",
+          "state": "VA",
+          "name": "SOL/VAAP 2025 standards · high-school totals",
+          "year": 2025,
+          "level": "HS",
+          "grades": "Schoolwide grade-level and/or end-of-course tests applicable to the grade span",
+          "standard": "Native All Students subject-area Passed percentages, including proficient and advanced levels, for SOL plus VAAP. 2023 mathematics and 2024 English standards first assessed spring 2025. Exact valid-score denominators not supplied in the profile; sampling intervals unavailable. Separate ordinary and mixed grade spans.",
+          "source_url": "https://schoolquality.virginia.gov/",
+          "dataset_id": "va-vdoe-2025",
+          "family": "SOL/VAAP 2025 standards",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "virginia",
+              "name": "Statewide school totals",
+              "url": "./?state=VA&region=virginia&level=HS",
+              "model_scope": "Separate grade-school and high-school schoolwide SOL/VAAP totals"
+            }
+          ]
+        },
+        {
+          "id": "va-vdoe-2025:2025:SOL/VAAP 2025 standards · mixed-grade totals:HS",
+          "state": "VA",
+          "name": "SOL/VAAP 2025 standards · mixed-grade totals",
+          "year": 2025,
+          "level": "HS",
+          "grades": "Schoolwide grade-level and/or end-of-course tests applicable to the grade span",
+          "standard": "Native All Students subject-area Passed percentages, including proficient and advanced levels, for SOL plus VAAP. 2023 mathematics and 2024 English standards first assessed spring 2025. Exact valid-score denominators not supplied in the profile; sampling intervals unavailable. Separate ordinary and mixed grade spans.",
+          "source_url": "https://schoolquality.virginia.gov/",
+          "dataset_id": "va-vdoe-2025",
+          "family": "SOL/VAAP 2025 standards",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "virginia-mixed",
+              "name": "Mixed-grade school totals",
+              "url": "./?state=VA&region=virginia-mixed&level=HS",
+              "model_scope": "Separate mixed-grade schoolwide SOL/VAAP totals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WA",
+      "name": "Washington",
+      "fips": "53",
+      "status": "statewide_ready",
+      "guide": "docs/washington-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "wa-ospi-2025:2025:SBAC grades 3–8 tested only:ES",
+          "state": "WA",
+          "name": "SBAC grades 3–8 tested only",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Published Percent Consistent Tested Only: current-year SBAC levels 3 and 4 / valid scores levels 1–4. Untested and previously passed students excluded. Exact valid-score counts are unavailable; sampling intervals unavailable. Native All Grades totals restricted to schools without enrolled grades 9–12; mixed-grade totals excluded.",
+          "source_url": "https://data.wa.gov/education/Report-Card-Assessment-Data-2024-25-School-Year/h5d9-vgwi",
+          "dataset_id": "wa-ospi-2025",
+          "family": "Smarter Balanced",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "washington",
+              "name": "Statewide",
+              "url": "./?state=WA&region=washington&level=ES",
+              "model_scope": "SBAC grade-school native totals excluding mixed high-school grades, and separate grade-10 current-year tested-only results"
+            }
+          ]
+        },
+        {
+          "id": "wa-ospi-2025:2025:SBAC grade 10 tested only:HS",
+          "state": "WA",
+          "name": "SBAC grade 10 tested only",
+          "year": 2025,
+          "level": "HS",
+          "grades": "10",
+          "standard": "Published Percent Consistent Tested Only: current-year SBAC levels 3 and 4 / valid scores levels 1–4. Untested and previously passed students excluded. Exact valid-score counts are unavailable; sampling intervals unavailable. Separate grade-10 rows; All Grades totals excluded.",
+          "source_url": "https://data.wa.gov/education/Report-Card-Assessment-Data-2024-25-School-Year/h5d9-vgwi",
+          "dataset_id": "wa-ospi-2025",
+          "family": "Smarter Balanced",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "washington",
+              "name": "Statewide",
+              "url": "./?state=WA&region=washington&level=HS",
+              "model_scope": "SBAC grade-school native totals excluding mixed high-school grades, and separate grade-10 current-year tested-only results"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WV",
+      "name": "West Virginia",
+      "fips": "54",
+      "status": "audited_blocker",
+      "guide": "docs/west-virginia-data.md",
+      "blocker_summary": "Native income and school IDs are verified, but published all-grade achievement rates use adjusted participation denominators; actual scored-student numerators and denominators are not independently visible.",
+      "assessments": []
+    },
+    {
+      "id": "WI",
+      "name": "Wisconsin",
+      "fips": "55",
+      "status": "statewide_ready",
+      "guide": "docs/wisconsin-data.md",
+      "blocker_summary": null,
+      "assessments": [
+        {
+          "id": "wi-dpi:2025:Forward (2023-24 levels):ES",
+          "state": "WI",
+          "name": "Forward (2023-24 levels)",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Forward ELA and mathematics, grades 3–8, general assessment (DLM excluded), tested students only. Forward (2023-24 levels) at the 2023-24 performance levels; top two levels are Advanced + Meeting.",
+          "source_url": "https://dpi.wi.gov/sites/default/files/wise/downloads/forward_certified_2024-25.zip",
+          "dataset_id": "wi-dpi",
+          "family": "Forward",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "wisconsin",
+              "name": "Tested-count history",
+              "url": "./?state=WI&region=wisconsin&level=ES",
+              "model_scope": "Wisconsin DPI published Forward and ACT cohorts; separate standards eras"
+            }
+          ]
+        },
+        {
+          "id": "wi-reportcards:2025:WSAS school totals · grades 3–8:ES",
+          "state": "WI",
+          "name": "WSAS school totals · grades 3–8",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Published single-year WSAS Meeting + Advanced percentages for FAY students; Forward, PreACT Secure, ACT and DLM as applicable to the school grade span. No tested counts in the workbook; point estimates only. Separate grade-span populations; not the multi-year Achievement Score or overall accountability rating.",
+          "source_url": "https://dpi.wi.gov/sites/default/files/imce/accountability/xlsx/2024-25_school_reportcard_data.xlsx",
+          "dataset_id": "wi-reportcards",
+          "family": "WSAS school totals",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "wisconsin-totals",
+              "name": "School totals",
+              "url": "./?state=WI&region=wisconsin-totals&level=ES",
+              "model_scope": "Published WSAS school report-card rates; separate grade-span populations"
+            }
+          ]
+        },
+        {
+          "id": "wi-dpi:2025:ACT (2023-24 levels):HS",
+          "state": "WI",
+          "name": "ACT (2023-24 levels)",
+          "year": 2025,
+          "level": "HS",
+          "grades": "11",
+          "standard": "ACT Statewide ELA and mathematics, grade 11, general assessment (DLM excluded), tested students only. ACT Statewide at the 2023-24 performance levels; top two levels are Advanced + Meeting.",
+          "source_url": "https://dpi.wi.gov/sites/default/files/wise/downloads/act_statewide_certified_2024-25.zip",
+          "dataset_id": "wi-dpi",
+          "family": "ACT",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "wisconsin",
+              "name": "Tested-count history",
+              "url": "./?state=WI&region=wisconsin&level=HS",
+              "model_scope": "Wisconsin DPI published Forward and ACT cohorts; separate standards eras"
+            }
+          ]
+        },
+        {
+          "id": "wi-reportcards:2025:WSAS school totals · grades 9–11:HS",
+          "state": "WI",
+          "name": "WSAS school totals · grades 9–11",
+          "year": 2025,
+          "level": "HS",
+          "grades": "9–11",
+          "standard": "Published single-year WSAS Meeting + Advanced percentages for FAY students; Forward, PreACT Secure, ACT and DLM as applicable to the school grade span. No tested counts in the workbook; point estimates only. Separate grade-span populations; not the multi-year Achievement Score or overall accountability rating.",
+          "source_url": "https://dpi.wi.gov/sites/default/files/imce/accountability/xlsx/2024-25_school_reportcard_data.xlsx",
+          "dataset_id": "wi-reportcards",
+          "family": "WSAS school totals",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "wisconsin-totals",
+              "name": "School totals",
+              "url": "./?state=WI&region=wisconsin-totals&level=HS",
+              "model_scope": "Published WSAS school report-card rates; separate grade-span populations"
+            }
+          ]
+        },
+        {
+          "id": "wi-reportcards:2025:WSAS school totals · mixed grade spans:HS",
+          "state": "WI",
+          "name": "WSAS school totals · mixed grade spans",
+          "year": 2025,
+          "level": "HS",
+          "grades": "3–11",
+          "standard": "Published single-year WSAS Meeting + Advanced percentages for FAY students; Forward, PreACT Secure, ACT and DLM as applicable to the school grade span. No tested counts in the workbook; point estimates only. Separate grade-span populations; not the multi-year Achievement Score or overall accountability rating.",
+          "source_url": "https://dpi.wi.gov/sites/default/files/imce/accountability/xlsx/2024-25_school_reportcard_data.xlsx",
+          "dataset_id": "wi-reportcards",
+          "family": "WSAS school totals",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "wisconsin-mixed",
+              "name": "Mixed-grade school totals",
+              "url": "./?state=WI&region=wisconsin-mixed&level=HS",
+              "model_scope": "Published WSAS school report-card rates; separate grade-span populations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WY",
+      "name": "Wyoming",
+      "fips": "56",
+      "status": "audited_blocker",
+      "guide": "docs/wyoming-data.md",
+      "blocker_summary": "Native public2024–25 school workbook is accessible but lacks school IDs and schoolwide totals; every grade tested count is a protected range.",
+      "assessments": []
+    }
+  ]
+}

@@ -2,6 +2,8 @@
 
 Expansion is tracked for [all 50 states](docs/state-expansion.md) on `expansion/all-states`, with small state-specific integration units. Completed adapters, their source guides and pending work are listed in that ledger. Assessment populations and economic definitions remain separate. [Eight direct-certification snapshots](docs/ccd-state-data.md) use a distinct benefits-based predictor with no sampling intervals. Discovery is not approval: [audited obstacles](docs/expansion-blockers.md) explain access and methodological limits. The site lists only successfully imported, verified comparisons.
 
+The [tests and standards guide](assessments.html) maps the latest included assessment definitions across all 50 states, with state, test-family and population filters. It preserves separate regional years and published standards. Provider roles and relative target ambition remain unaudited unless explicit primary evidence is retained; matching test-family colors do not establish a common proficiency scale. See the [guide source notes](docs/assessment-guide.md).
+
 After the statewide basics, the [district comparison queue](docs/district-comparisons.md) identifies systems large enough for their own comparisons, like CPS. It uses dated official enrollment and potential school cohorts; each district still needs an audit of usable outcomes, same-year income and model stability before implementation.
 
 Michigan uses separate 2024–25 M-STEP grades 3–7 and PSAT grade 8 comparisons, with same-year MSDS individual economic disadvantage. Complete native grade counts support valid-score aggregation and sampling intervals; protected response percentages remain excluded even when counts are visible. Mixed/high schools and MI-Access are outside these comparisons. See the [Michigan data guide](docs/michigan-data.md) for definitions, coverage and reproducible bulk-file extraction.
@@ -41,6 +43,7 @@ python3 -m venv .venv
 .venv/bin/python scripts/prepare_wisconsin_reportcards.py
 .venv/bin/python scripts/prepare_states.py
 .venv/bin/python scripts/export_catalog.py
+.venv/bin/python scripts/export_assessment_guide.py
 .venv/bin/python -m unittest discover -s tests -v
 node --check app.js
 ```
@@ -70,6 +73,7 @@ curl -L --fail 'https://www.isbe.net/Documents/24-RC-Pub-Data-Set.xlsx' -o data/
 .venv/bin/python scripts/prepare_wisconsin_reportcards.py
 .venv/bin/python scripts/prepare_states.py
 .venv/bin/python scripts/export_catalog.py
+.venv/bin/python scripts/export_assessment_guide.py
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -118,6 +122,7 @@ Wisconsin → Tested-count history uses independent DPI models; results are not 
 .venv/bin/python scripts/prepare_wisconsin.py             # rebuild from the committed extract
 .venv/bin/python scripts/prepare_wisconsin_reportcards.py # broader published school totals
 .venv/bin/python scripts/export_catalog.py
+.venv/bin/python scripts/export_assessment_guide.py
 ```
 
 Raw archive URLs and checksums are in `scripts/prepare_wisconsin.py` and `data/source/wisconsin.json`. See [docs/wisconsin-data.md](docs/wisconsin-data.md) for definitions, the standards break, validation gates and coverage limits.
