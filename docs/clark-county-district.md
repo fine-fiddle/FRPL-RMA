@@ -1,10 +1,10 @@
-# Clark County: district source and cohort audit
+# Clark County: district source and numerical audits
 
-This audit reconciles Clark County School District's exact 2024–25 CCD roster (`LEAID=3200060`, `ST_LEAID=NV-02`) with same-year individual-school direct certification, enrollment and native Nevada SBAC grades 3–8 outcomes. It establishes reproducible source/cohort evidence only. District source and modeling approval remain **false**; no regression, canonical import or browser comparison is released by this unit. Planning's 306,038 district enrollment and potential 296 ES / 10 HS schools are discovery evidence, not approved model populations.
+The source phase reconciles Clark County School District's exact 2024–25 CCD roster (`LEAID=3200060`, `ST_LEAID=NV-02`) with same-year individual-school direct certification, enrollment and native Nevada SBAC grades 3–8 outcomes. Its immutable source/cohort artifact retains district source and modeling approval **false**. The separate numerical phase below independently verifies three district fits while retaining approval **false** pending canonical/browser integration. No canonical import or browser comparison is released by either audit. Planning's 306,038 district enrollment and potential 296 ES / 10 HS schools are discovery evidence, not approved model populations.
 
 ## Exact identity and retained sources
 
-The [committed audit](../data/source/clark-county-district-audit.json) retains all 380 directory records, including one Future school, and links the 379 operational schools (378 Open, one New). Membership, lunch and assessment join through authoritative 12-digit `NCESSCH` and the same year. EDC's native district/school codes are cross-checked against `NV-02-sssss` using fixed two-/five-digit padding after the NCES join. Names never establish identity: EDC retains older names for the renamed FuturEdge campuses while the IDs agree.
+The [committed source audit](../data/source/clark-county-district-audit.json) retains all 380 directory records, including one Future school, and links the 379 operational schools (378 Open, one New). Membership, lunch and assessment join through authoritative 12-digit `NCESSCH` and the same year. EDC's native district/school codes are cross-checked against `NV-02-sssss` using fixed two-/five-digit padding after the NCES join. Names never establish identity: EDC retains older names for the renamed FuturEdge campuses while the IDs agree.
 
 The [extractor/replay validator](../scripts/audit_clark_county.py) pins each raw file's URL, path, byte size and SHA-256; the complete retained inputs additionally have canonical JSON SHA-256 `1881df8584fa5a514217b7983e005dfd8777617b90e20b93f92a3aa052dcee86`. Source inputs include original CSV headers and record row references:
 
@@ -43,13 +43,13 @@ Published exact `ProficientOrAbove_percent` supplies point rates only for SBAC R
 
 The 289 historical source profiles include Blue Diamond (`320006000010`), Reid Harry (`320006000099`) and Miley Achievement (`320006000607`, special education), each with both published subject rates `*`. All remain profiles with explicit exclusions, yielding 286 usable points per subject. Combined requires both exact eligible subject rates and is their equally weighted mean, not the percentage proficient in both. No suppressed or ranged value is reconstructed from counts or individual-grade rates.
 
-The 286 usable schools are all CCD Regular: 283 noncharter and three attached-LEA charters (`320006000670`, `320006000717`, `320006000756`). Alternative, special-education and career/technical directory flags remain retained; absence of eligible points in those types follows source coverage, not a blanket type exclusion or a fit decision. The 289 source profiles retain Miley's unavailable special-education outcomes. Eligible income spans 9.758–86.774%, with 286 distinct values, mean 52.611% and sample standard deviation 16.175 percentage points; these describe the cohort, without assessing numerical model stability.
+The 286 usable schools are all CCD Regular: 283 noncharter and three attached-LEA charters (`320006000670`, `320006000717`, `320006000756`). Alternative, special-education and career/technical directory flags remain retained; absence of eligible points in those types follows source coverage, not a blanket type exclusion or a fit decision. The 289 source profiles retain Miley's unavailable special-education outcomes. Eligible income spans 9.758–86.774%, with 286 distinct values, mean 52.611% and sample standard deviation 16.175 percentage points; the source phase reports these as descriptive cohort evidence, with numerical checks documented below.
 
 EDC's G38 rows report 614 `SchVirtual=No`, four `Yes`, and two `Supplemental virtual` observations across subject rows. Odyssey K–5 (`320006000488`, supplemental virtual) and NV Learning Academy ES (`320006000949`, virtual) lack usable DC income. NV Learning Academy JSHS (`320006000845`, virtual) has mixed offerings. These source exclusions remain distinct from virtual metadata; virtual labels do not add a new exclusion policy, and CCD virtual status remains null.
 
 The retained Nevada Final 2a `CCD-0007` note says some districts classified directly certified students as reduced-price rather than free lunch. Its 18 listed schools are outside Clark County. This remains a Nevada definition/reporting caveat; the audit does not infer a Clark-specific allocation failure or substitute other meal categories.
 
-## Replay and next gates
+## Source replay
 
 Ordinary validation requires only this committed audit plus the pinned state snapshot, without raw downloads, membership caches or workbook access:
 
@@ -66,4 +66,32 @@ Explicit extraction reads pinned downloaded archives and the EDC CSV, streams th
 
 The validator rejects changed raw identities, years, native source fingerprints, headers/row references, grade counts, suppression, exclusions, cohort memberships or fabricated denominators/intervals. Tests also exercise the reported-zero-UG/reconciliation rule independently, primary/zero-income missingness, exact renamed-school identity, and offline replay. Repeated extraction must produce identical bytes.
 
-The next unit must review/freeze the district population and independently fit separate same-year Math, ELA and Combined models with externally studentized residuals, a 30-school floor and deletion/influence diagnostics. Canonical import, preservation/repeatability, separate district metadata, static exports and browser checks are later release gates. No source audit count or statewide residual approves or replaces those checks; results remain associations rather than causal school effectiveness or overall quality.
+## Numerical phase: independently verified, integration pending
+
+The [numerical audit](../data/source/clark-county-model-audit.json) and [offline replay script](../scripts/audit_clark_county_models.py) pin the immutable source audit SHA-256 `7cac2c5521f7a5995956b5b190df616e68f61ac756aed5ca09d2228449269823`. They freeze exact school IDs and policy for all 379 operational schools, 299 native lower-grade configurations, 298 applicable offerings, 296 positive-membership tested candidates and 289 historical source profiles. Each subject independently selects its 286 eligible source members; the three current sets agree. All 13 excluded native configurations, all 80 operational records outside the native configuration, raw source rows, charter/type/virtual metadata and exclusion reasons remain auditable. Neither influence flags nor fit quality remove schools.
+
+Three same-year district OLS models fit eligible native Math, ELA and Combined proficiency against the individual-school CCD DC percentage. They use externally studentized residuals and never reuse statewide predictions or residuals. Combined is fitted independently to its exact equally weighted subject mean; its residual scale and studentized result are not the average of subject studentized results.
+
+| Subject | N | Intercept | Slope per income percentage point | R² | Maximum Cook distance | Largest deleted-line prediction shift |
+|---|---:|---:|---:|---:|---:|---:|
+| Math | 286 | 79.075899 | −0.837813 | 0.654063 | 0.042083 | 0.463161 pp |
+| ELA | 286 | 89.220615 | −0.874864 | 0.777741 | 0.075513 | 0.492056 pp |
+| Combined | 286 | 84.148257 | −0.856338 | 0.736944 | 0.045568 | 0.404694 pp |
+
+The deleted-line shift is the largest absolute difference between the full-fit line and each deleted-school line over the observed income range, including its endpoints. Income design rank is two; the condition number is 187.630 with an uncentered intercept and 16.146 when income is centered. Maximum leverage is 0.028125 in all three models. Full and every deleted residual scale are finite and positive, and every deleted slope remains negative. Each model passes the 30-school floor, rank and residual/deletion-scale guards; there are no numerical hard holds. Finite precision guards reject unresolved scales rather than manufacturing a variance floor.
+
+Conventional review flags use leverage `h>2p/N=4/286`, Cook distance `D>4/N` and `|external t|>2`. There are 20 leverage flags in each model, 9/7/8 Cook flags and 13/12/9 external-residual flags for Math/ELA/Combined. These are descriptive review signals, not causal evidence, school-quality labels, automatic exclusions or newly invented release thresholds. Published-rate rounding, the benefits-based income proxy, differing enrollment/assessment populations, unverified SEA business rules and absent verified valid-score denominators remain limitations.
+
+The script independently verifies centered full-fit coefficients, every actual/predicted/residual value and R², plus closed-form centered leverage. It explicitly refits every deletion—858 fits across three subjects—using deleted-school SSE with `N−3=283` degrees of freedom and the held-out prediction factor `1+h_deleted`. This check agrees with the shared `fit_model` externally studentized results; the largest full-fit coefficient/prediction discrepancy is below `1.9e−13`, studentization below `2.9e−14`, and the deleted-SSE algebraic identity below `7.3e−12`.
+
+Every model input/result has null valid-score counts and null sampling variances; every low/high endpoint is null and interval availability is false for the entire model. The shared helper receives a zero vector solely as its point-estimate computational sentinel; zero sampling variance and generated interval endpoints are never exposed. Raw EDC tested/proficient counts remain retained unverified evidence. Numerical success does not verify denominators or remove source limitations.
+
+```sh
+.venv/bin/python scripts/audit_clark_county_models.py
+.venv/bin/python scripts/audit_clark_county_models.py --check
+.venv/bin/python -m unittest discover -s tests -p 'test_clark_county_models.py' -v
+```
+
+Rebuild and saved-audit replay are offline; two rebuilds produce identical bytes on this environment. Replay allows `2e−10` absolute **or** relative tolerance for computed floating-point metrics, while IDs, year, exact input/source values, policy, population, counts and interval absence compare exactly. Tests cover manual deleted-school studentization/Cook calculations, Combined's separate fit, point-only missingness, source/population/count/metric drift, the 30-school floor, rank/full/deleted-scale failures and incorrect shared-fit results.
+
+Both immutable audits remain source/numerical evidence with approval false and status pending integration. Canonical import, preservation and repeated imports, separate district metadata, static exports and browser checks are the remaining release gates. No audit count, conventional influence flag or statewide residual approves or replaces those checks; results describe associations rather than causal school effectiveness or overall quality.

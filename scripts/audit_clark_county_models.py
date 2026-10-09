@@ -1,0 +1,381 @@
+"""Audit independent Clark County point-only district fits; never import or publish."""
+import argparse
+from collections import Counter
+import hashlib
+import json
+import math
+from pathlib import Path
+import re
+
+import numpy as np
+
+import audit_clark_county as roster_audit
+from prepare_data import fit_model
+
+ROOT = Path(__file__).resolve().parents[1]
+OUTPUT = ROOT / 'data/source/clark-county-model-audit.json'
+ROSTER = roster_audit.OUTPUT
+ROSTER_SHA = '7cac2c5521f7a5995956b5b190df616e68f61ac756aed5ca09d2228449269823'
+MIN_SCHOOLS = 30
+ABS_TOLERANCE = 2e-10
+REL_TOLERANCE = 2e-10
+VERIFY_TOLERANCE = 2e-9
+SUBJECTS = ['math', 'reading', 'combined']
+ASSESSMENT = 'SBAC grades 3–8 · grade schools · CCD DC'
+STANDARD = 'Levels 3-4; Nevada 2025 regular assessment; separate district model'
+POLICY = {
+    'roster': 'Exact operational 2024–25 CCD LEA 3200060 / NV-02 attachments; preserve all 299 native lower-grade configurations, with 298 offered-applicable and 289 native source profiles.',
+    'populations': 'Preserve the approved Nevada grade-school exception: UG offered Yes requires reported-zero UG plus fully reconciled PK–8 enrollment; complete As reported Yes/No offers, highest grade 01–08 and no offered high/adult grades. The one primary-only configuration and two zero-member applicable sites remain explicit exclusions, not inferred assessments.',
+    'native_eligibility': 'Same-year individual-school CCD Direct Certification / membership percentages and exact eligible SBAC Regular school All Students G38 Levels 3-4 rates. Freeze 286 independently eligible schools per subject, retaining all source exclusions and mixed/high observations outside native grade-school scope.',
+    'school_types': 'Retain exact attached-LEA charter, alternative, special-education and career/technical flags; preserve CCD virtual null and available EDC SchVirtual metadata separately. Eligible points are 283 noncharter and three charter regular schools because of source coverage, not type- or fit-driven exclusions.',
+    'models': 'Separate 2024–25 native Nevada SBAC Math, ELA and Combined ES district OLS; never reuse statewide residuals or aggregate individual-grade rates.',
+    'minimum_usable_subject_schools': MIN_SCHOOLS,
+    'studentization': 'Externally studentized residuals use deleted-school residual scale with N−3 degrees of freedom.',
+    'intervals': 'Point estimates only: EDC valid-score denominator business rules are not verified. Counts, sampling variances and all interval endpoints remain null modelwide. An internal zero variance vector is a computational sentinel, never an uncertainty estimate.',
+    'combined': 'Equally weighted mean of eligible Math and ELA proficiency; not percent proficient in both. No counts or sampling variance are inferred.',
+    'release': 'Numerically verified audit only; source and modeling approval remain false pending independent review and separate canonical/browser integration.',
+}
+
+
+def load_roster(path=ROSTER):
+    content = Path(path).read_bytes()
+    if hashlib.sha256(content).hexdigest() != ROSTER_SHA:
+        raise ValueError('Clark County source audit fingerprint changed; re-audit the population')
+    document = json.loads(content)
+    roster_audit.validate(document)
+    return document
+
+
+def frozen_population(roster):
+    return {
+        'operational_roster_school_ids': sorted(r['school_id'] for r in roster['roster_links']),
+        'native_grade_school_configuration_ids': sorted(roster['cohorts']['native_grade_school_configurations']['school_ids']),
+        'offered_applicable_school_ids': sorted(roster['cohorts']['native_offered_tested_grade']['school_ids']),
+        'positive_membership_tested_candidate_ids': sorted(roster['cohorts']['native_positive_membership_tested_candidates']['school_ids']),
+        'native_source_profile_ids': sorted(roster['cohorts']['historical_native_source_profiles']['school_ids']),
+        'primary_only_school_ids': sorted(roster['cohorts']['native_primary_only']['school_ids']),
+        'mixed_offers_with_native_g38_ids': sorted(roster['cohorts']['mixed_offers_with_native_g38']['school_ids']),
+        'eligible_school_ids_by_subject': {s: sorted(roster['cohorts']['historical_native_source_profiles']['subjects'][s]['eligible_school_ids']) for s in SUBJECTS},
+    }
+
+
+def selected_inputs(roster, subject):
+    """Freeze native source eligibility; diagnostics never select model membership."""
+    if subject not in SUBJECTS:
+        raise ValueError('Unsupported district subject; high/mixed assessments are not approved')
+    configurations = sorted([r for r in roster['roster_links'] if r['enrolled']['native_grade_school_contract']], key=lambda r: r['school_id'])
+    raw = roster['raw_inputs']
+    directory = {r['raw']['NCESSCH']: r for r in raw['directory']['records']}
+    membership = {r['source_row']: r for r in raw['membership']['records']}
+    lunch = {r['source_row']: r for r in raw['lunch']['records']}
+    assessment = {r['source_row']: r for r in raw['assessment']['records']}
+    inputs, exclusions = [], []
+    for school in configurations:
+        values = school['subjects']; value = values[subject]
+        if any(v['valid_scores'] is not None or v['sampling_variance'] is not None or v['sampling_interval_available'] for v in values.values()):
+            raise ValueError('Nevada point-only native contract cannot contain inferred denominators, variances or intervals')
+        if not value['usable']:
+            exclusions.append({'school_id': school['school_id'], 'native_school_id': school['native_school_id'],
+                               'name': school['name'], 'offered_applicable': value['applicable'],
+                               'district_exclusion': value['exclusion'], 'native_source_profile': school['source_profile_eligible'],
+                               'income_exclusion': school['income']['income_exclusion'],
+                               'charter': school['ccd_flags']['charter'], 'ccd_school_type': school['ccd_flags']['school_type'],
+                               'ccd_source_row': school['ccd_source_row'], 'income': school['income'],
+                               'offered': school['offered'], 'enrolled': school['enrolled'],
+                               'edc_metadata': school['edc_metadata'], 'subjects': values})
+            continue
+        if not school['source_profile_eligible'] or not school['historical_state_source_profile']:
+            raise ValueError('Every usable school must have immutable native source-profile approval evidence')
+        outcome = value['native_rate']
+        if subject == 'combined' and outcome != (values['math']['native_rate'] + values['reading']['native_rate']) / 2:
+            raise ValueError('Combined must be the exact equally weighted subject mean')
+        inputs.append({
+            'school_id': school['school_id'], 'ncessch': school['school_id'], 'name': school['name'], 'level': 'ES',
+            'charter': school['ccd_flags']['charter'], 'ccd_school_type': school['ccd_flags']['school_type'],
+            'ccd_flags': school['ccd_flags'], 'edc_metadata': school['edc_metadata'],
+            'income_pct': school['income']['percentage'], 'income_year': school['income']['year'],
+            'outcome_pct': outcome, 'outcome_by_subject': {s: values[s]['native_rate'] for s in ['math', 'reading']},
+            'valid_scores_by_subject': {'math': None, 'reading': None},
+            'display_valid_scores': None, 'sampling_variance': None,
+            'sources': {'ccd_source_id': 'ccd_directory_2025', 'ccd_source_row': school['ccd_source_row'],
+                        'native_school_id': school['native_school_id'], 'directory_raw': directory[school['school_id']]['raw'],
+                        'income_source_id': 'ccd_lunch_2025', 'income_source_row': school['income']['direct_source_row'],
+                        'income_raw': lunch[school['income']['direct_source_row']]['raw'],
+                        'membership_source_id': 'ccd_membership_2025', 'membership_source_row': school['income']['membership_source_row'],
+                        'membership_raw': membership[school['income']['membership_source_row']]['raw'],
+                        'grade_rows': [membership[v['source_row']] for v in school['enrolled']['grade_values'].values()],
+                        'offered_evidence': school['offered'], 'enrolled_evidence': school['enrolled'],
+                        'assessment_source_id': 'edc_2025',
+                        'assessment_rows_by_subject': {s: assessment[values[s]['source_row']] for s in ['math', 'reading']},
+                        'native_subjects': values},
+        })
+    expected_ids = sorted(roster['cohorts']['historical_native_source_profiles']['subjects'][subject]['eligible_school_ids'])
+    if [r['school_id'] for r in inputs] != expected_ids:
+        raise ValueError('Model subject membership differs from immutable native source eligibility')
+    coverage = {
+        'native_grade_school_configuration_profiles': len(configurations),
+        'offered_applicable_profiles': sum(r['subjects'][subject]['applicable'] for r in configurations),
+        'native_source_profiles': sum(r['source_profile_eligible'] for r in configurations),
+        'usable_schools': len(inputs), 'excluded_configuration_profiles': len(exclusions),
+        'exclusions': dict(sorted(Counter(r['district_exclusion'] for r in exclusions).items())),
+        'excluded_configuration_records': exclusions,
+        'outside_native_configuration_records': [{'school_id': r['school_id'], 'native_school_id': r['native_school_id'],
+            'name': r['name'], 'ccd_flags': r['ccd_flags'], 'offered': r['offered'], 'enrolled': r['enrolled'],
+            'income': r['income'], 'subjects': r['subjects'], 'edc_metadata': r['edc_metadata']}
+            for r in roster['roster_links'] if not r['enrolled']['native_grade_school_contract']],
+        'mixed_g38_pairs_outside_population': roster['cohorts']['mixed_offers_with_native_g38']['profiles'],
+        'charter': dict(sorted(Counter(r['charter'] for r in inputs).items())),
+        'school_types': dict(sorted(Counter(r['ccd_school_type'] for r in inputs).items())),
+        'eligible_members_with_verified_denominators': 0,
+    }
+    return inputs, coverage
+
+def verify_independently(x, y, model, results):
+    """Centered full OLS, independent leverage and explicit held-out refits; no intervals."""
+    n = len(x)
+    centered = x - x.mean()
+    spread = centered @ centered
+    h = 1 / n + centered ** 2 / spread
+    design = np.column_stack([np.ones(n), centered])
+    beta = np.linalg.lstsq(design, y, rcond=None)[0]
+    predicted = design @ beta
+    residual = y - predicted
+    sse = float(residual @ residual)
+    r2 = 1 - sse / ((y - y.mean()) @ (y - y.mean()))
+    if model['n'] != n or len(results) != n:
+        raise ValueError('Returned model count differs from exact subject membership')
+    if [r['actual'] for r in results] != y.tolist():
+        raise ValueError('Independent verification requires exact native actual proficiency')
+    if any(r['low'] is not None or r['high'] is not None for r in results):
+        raise ValueError('Point-only audit cannot expose numerical interval endpoints')
+    errors = {
+        'coefficient': max(abs(float(beta[0] - beta[1] * x.mean()) - model['intercept']),
+                           abs(float(beta[1]) - model['slope'])),
+        'predicted': max(abs(float(v) - r['predicted']) for v, r in zip(predicted, results)),
+        'residual': max(abs(float(v) - r['residual']) for v, r in zip(residual, results)),
+        'r2': abs(float(r2) - model['r2']), 'leverage': 0., 'studentized': 0.,
+        'deleted_sse_identity': 0., 'held_out_prediction_identity': 0.,
+        'interval_endpoint': None,
+    }
+    deleted = []
+    for i in range(n):
+        keep = np.arange(n) != i
+        mean_x = x[keep].mean()
+        deleted_centered = x[keep] - mean_x
+        X = np.column_stack([np.ones(n - 1), deleted_centered])
+        if np.linalg.matrix_rank(X) != 2:
+            raise ValueError('Explicit deleted-school income design is rank deficient')
+        b = np.linalg.lstsq(X, y[keep], rcond=None)[0]
+        e = y[keep] - X @ b
+        deleted_sse = float(e @ e)
+        # Same floating-point precision rule as the shared full-fit guard, applied
+        # independently to each explicit deleted design; never manufacture scale.
+        residual_tolerance = 64 * np.finfo(float).eps * max(1., np.linalg.cond(X)) * max(
+            np.linalg.norm(y[keep]), np.linalg.norm(X @ b))
+        if not math.isfinite(deleted_sse) or np.linalg.norm(e) <= residual_tolerance:
+            raise ValueError('Explicit deleted-school residual scale is unavailable or numerically unresolved')
+        held_out = float(b[0] + b[1] * (x[i] - mean_x))
+        predictive_h = 1 / (n - 1) + (x[i] - mean_x) ** 2 / (deleted_centered @ deleted_centered)
+        scale = math.sqrt(deleted_sse / (n - 3))
+        external_t = (y[i] - held_out) / (scale * math.sqrt(1 + predictive_h))
+        errors['studentized'] = max(errors['studentized'], abs(external_t - results[i]['studentized']))
+        errors['leverage'] = max(errors['leverage'], abs(h[i] - results[i]['leverage']))
+        errors['deleted_sse_identity'] = max(errors['deleted_sse_identity'],
+                                             abs(deleted_sse - (sse - residual[i] ** 2 / (1 - h[i]))))
+        errors['held_out_prediction_identity'] = max(errors['held_out_prediction_identity'],
+                                                      abs(held_out - (predicted[i] - h[i] * residual[i] / (1 - h[i]))))
+        deleted.append({'intercept': float(b[0] - b[1] * mean_x), 'slope': float(b[1]),
+                        'sse': deleted_sse, 'held_out_prediction': held_out,
+                        'held_out_prediction_leverage': float(predictive_h),
+                        'residual_scale': scale, 'externally_studentized': float(external_t)})
+    if any(v is not None and (not math.isfinite(v) or v > VERIFY_TOLERANCE) for v in errors.values()):
+        raise ValueError('Independent full/deleted-fit verification exceeded tolerance')
+    return deleted, errors
+
+
+def fit_audited_model(inputs, coverage, subject):
+    if subject not in SUBJECTS:
+        raise ValueError('Only three approved grade-school subjects may be audited')
+    if len(inputs) < MIN_SCHOOLS:
+        raise ValueError('District subject model requires at least 30 usable schools')
+    if (len({r['school_id'] for r in inputs}) != len(inputs)
+            or any(r['level'] != 'ES' or r['income_year'] != 2025
+                   or r['school_id'] != r['ncessch']
+                   or not re.fullmatch(roster_audit.LEA + r'\d{5}', r['ncessch'])
+                   or not re.fullmatch(r'NV-02-\d{5}', r['sources']['native_school_id'])
+                   or not r['sources']['enrolled_evidence']['native_grade_school_contract']
+                   or r['sources']['enrolled_evidence']['ungraded_reported_count'] != 0
+                   or not r['sources']['enrolled_evidence']['lower_total_reconciled']
+                   or r['sources']['offered_evidence']['graded_scope'] != 'lower'
+                   or not r['sources']['offered_evidence']['offered_tested_grades'] for r in inputs)):
+        raise ValueError('District members require unique exact same-year native grade-school identities and reconciled zero-UG scope')
+    if any(r['sampling_variance'] is not None or r['display_valid_scores'] is not None
+           or r['valid_scores_by_subject'] != {'math': None, 'reading': None} for r in inputs):
+        raise ValueError('Point-only source contract prohibits fabricated counts or sampling variance')
+    x = np.array([r['income_pct'] for r in inputs], dtype=float)
+    y = np.array([r['outcome_pct'] for r in inputs], dtype=float)
+    if not np.isfinite(x).all() or not np.isfinite(y).all() or np.any((x < 0) | (x > 100) | (y < 0) | (y > 100)):
+        raise ValueError('District income and proficiency must be finite percentages')
+    design = np.column_stack([np.ones(len(x)), x])
+    rank = int(np.linalg.matrix_rank(design))
+    if rank != 2:
+        raise ValueError('District income design must have rank two')
+    # fit_model requires a variance vector. This zero vector is only its point-estimate
+    # computational sentinel; no zero sampling variances or generated endpoints survive.
+    model, fitted = fit_model(x, y, np.zeros(len(inputs), dtype=float))
+    for row in fitted:
+        row.update(low=None, high=None)
+    deleted, errors = verify_independently(x, y, model, fitted)
+    residual = np.array([r['residual'] for r in fitted])
+    sse = float(residual @ residual)
+    s2 = sse / (len(x) - 2)
+    results = []
+    thresholds = {'leverage_2p_over_n': 4 / len(x), 'cooks_4_over_n': 4 / len(x),
+                  'absolute_external_t': 2.}
+    for school, row, deletion in zip(inputs, fitted, deleted):
+        h = row['leverage']
+        cook = row['residual'] ** 2 * h / (2 * s2 * (1 - h) ** 2)
+        endpoints = np.array([x.min(), x.max()])
+        shift = (deletion['intercept'] - model['intercept']) + (deletion['slope'] - model['slope']) * endpoints
+        results.append({
+            'school_id': school['school_id'], **row, 'valid_scores': None, 'sampling_variance': None,
+            'cooks_distance': float(cook), 'deleted_intercept': deletion['intercept'],
+            'deleted_slope': deletion['slope'], 'deleted_sse': deletion['sse'],
+            'deleted_residual_scale': deletion['residual_scale'],
+            'deleted_held_out_prediction': deletion['held_out_prediction'],
+            'deleted_held_out_prediction_leverage': deletion['held_out_prediction_leverage'],
+            'maximum_prediction_change_on_observed_income_range': float(np.max(np.abs(shift))),
+            'review_flags': {'leverage_above_2p_over_n': h > thresholds['leverage_2p_over_n'],
+                             'cooks_above_4_over_n': cook > thresholds['cooks_4_over_n'],
+                             'absolute_external_t_above_2': abs(row['studentized']) > 2},
+        })
+    by_id = {r['school_id']: r for r in inputs}
+    influence = []
+    for row in sorted(results, key=lambda r: (-r['cooks_distance'], r['school_id']))[:10]:
+        school = by_id[row['school_id']]
+        influence.append({k: school[k] for k in ['school_id', 'name', 'charter', 'ccd_school_type', 'income_pct']} |
+                         {k: row[k] for k in ['cooks_distance', 'leverage', 'studentized']})
+    return {
+        'model_id': f'clark-county-2025-ES-{subject}', 'status': 'numerically_verified_pending_integration',
+        'approved_for_modeling': False, 'year': 2025, 'academic_year': '2024-2025',
+        'population': 'Exact attached-LEA native lower-grade configuration with reported-zero UG/reconciled enrollment, same-year income and eligible G38 achievement',
+        'level': 'ES', 'subject': subject, 'assessment': ASSESSMENT,
+        'assessment_standard': STANDARD,
+        'coverage': coverage, 'inputs': inputs,
+        'population_sha256': roster_audit.fingerprint({'policy': POLICY, 'source_audit_sha256': ROSTER_SHA,
+                                                      'level': 'ES', 'subject': subject, 'year': 2025,
+                                                      'school_ids': [r['school_id'] for r in inputs]}),
+        'coefficients': model, 'results': results,
+        'review_warnings': [
+            'Valid-score denominators remain unverified; no count, sampling variance or interval is available.',
+            'Conventional leverage, Cook distance and residual flags require descriptive review, never automatic exclusions.',
+            'Direct Certification is a benefits/status proxy; native assessment population and rounding limitations persist.',
+        ],
+        'intervals': {'available_for_entire_model': False, 'eligible_members': len(inputs),
+                      'eligible_members_with_verified_denominators': 0,
+                      'valid_score_counts': None, 'sampling_variances': None,
+                      'reason': 'EDC Nevada SBAC rates have no verified valid-score denominators.'},
+        'diagnostics': {
+            'income_design_rank': rank, 'income_design_condition_number': float(np.linalg.cond(design)),
+            'centered_income_design_condition_number': float(np.linalg.cond(np.column_stack([np.ones(len(x)), x - x.mean()]))),
+            'income': {'minimum': float(x.min()), 'maximum': float(x.max()), 'mean': float(x.mean()),
+                       'standard_deviation_population': float(x.std()), 'distinct': len(set(x.tolist())),
+                       'quantiles': {str(q): float(np.quantile(x, q)) for q in [.05, .25, .5, .75, .95]}},
+            'residual_sse': sse, 'residual_standard_error': float(math.sqrt(s2)),
+            'minimum_deleted_sse': min(r['sse'] for r in deleted),
+            'minimum_deleted_residual_scale': min(r['residual_scale'] for r in deleted),
+            'maximum_leverage': max(r['leverage'] for r in results),
+            'maximum_absolute_studentized_residual': max(abs(r['studentized']) for r in results),
+            'maximum_cooks_distance': max(r['cooks_distance'] for r in results),
+            'maximum_absolute_deleted_slope_change': max(abs(r['slope'] - model['slope']) for r in deleted),
+            'deleted_slope_range': {'minimum': min(r['slope'] for r in deleted), 'maximum': max(r['slope'] for r in deleted)},
+            'maximum_prediction_change_on_observed_income_range': max(r['maximum_prediction_change_on_observed_income_range'] for r in results),
+            'conventional_review_thresholds': thresholds,
+            'conventional_review_flag_counts': {key: sum(r['review_flags'][key] for r in results) for key in results[0]['review_flags']},
+            'top_ten_cooks_distance': influence,
+            'interpretation': 'Descriptive influence flags only; no school is excluded by leverage, residual or fit quality. Published-rate rounding, the Direct Certification benefits proxy, and unverified SEA assessment-population/denominator business rules remain limitations.',
+        },
+        'independent_verification': {'explicit_deleted_fits': len(inputs), 'tolerance_absolute': VERIFY_TOLERANCE,
+                                     'maximum_absolute_errors': errors,
+                                     'method': 'Centered full OLS; centered closed-form leverage; every explicit leave-one-out fit uses N−3 scale and held-out variance factor 1+h_deleted. Interval verification is inapplicable because all verified valid-score denominators are unavailable; raw unverified counts are retained but unused.'},
+    }
+
+
+def build(roster=None):
+    roster = load_roster() if roster is None else roster
+    roster_audit.validate(roster)
+    models, holds = [], []
+    for subject in SUBJECTS:
+        inputs, coverage = selected_inputs(roster, subject)
+        try:
+            model = fit_audited_model(inputs, coverage, subject)
+        except ValueError as error:
+            model = {'model_id': f'clark-county-2025-ES-{subject}', 'status': 'numerical_hold',
+                     'level': 'ES', 'subject': subject, 'inputs': inputs, 'coverage': coverage,
+                     'reason': str(error)}
+            holds.append({'model_id': model['model_id'], 'reason': str(error)})
+        models.append(model)
+    population = frozen_population(roster)
+    return {
+        'schema_version': 1, 'state': 'NV', 'year': 2025, 'nces_lea_id': roster_audit.LEA,
+        'native_lea_id': roster_audit.NATIVE_LEA,
+        'status': 'numerical_hold' if holds else 'numerically_verified_pending_integration',
+        'approved_for_source': False, 'approved_for_modeling': False, 'policy': POLICY,
+        'sources': {'roster_audit': {'path': 'data/source/clark-county-district-audit.json', 'sha256': ROSTER_SHA},
+                    'native_sources': roster['sources']},
+        'frozen_population': population,
+        'frozen_population_sha256': roster_audit.fingerprint({'policy': POLICY, 'population': population}),
+        'source_coverage': roster['coverage'],
+        'replay_tolerance': {'absolute': ABS_TOLERANCE, 'relative': REL_TOLERANCE,
+                             'scope': 'Computed numerical metrics only. Source evidence, identity, configuration, membership, counts and interval absence compare exactly.'},
+        'models': models, 'hard_holds': holds,
+    }
+
+
+def numeric_equal(actual, expected):
+    if isinstance(expected, float):
+        return isinstance(actual, (float, int)) and not isinstance(actual, bool) and math.isfinite(actual) and math.isclose(actual, expected, rel_tol=REL_TOLERANCE, abs_tol=ABS_TOLERANCE)
+    if isinstance(expected, dict):
+        return isinstance(actual, dict) and actual.keys() == expected.keys() and all(numeric_equal(actual[k], v) for k, v in expected.items())
+    if isinstance(expected, list):
+        return isinstance(actual, list) and len(actual) == len(expected) and all(numeric_equal(a, e) for a, e in zip(actual, expected))
+    return type(actual) is type(expected) and actual == expected
+
+
+def validate(document, expected=None):
+    expected = build() if expected is None else expected
+    # Canonical JSON preserves bool/int/float distinctions that Python's equality
+    # loses (False == 0). Evidence and approval metadata never use fit tolerances.
+    if roster_audit.fingerprint({k: v for k, v in document.items() if k != 'models'}) != roster_audit.fingerprint({k: v for k, v in expected.items() if k != 'models'}):
+        raise ValueError('District numerical audit metadata/source evidence changed')
+    if len(document['models']) != len(expected['models']):
+        raise ValueError('District numerical audit model set changed')
+    for actual, model in zip(document['models'], expected['models']):
+        for field in ['model_id', 'level', 'subject', 'status', 'coverage', 'inputs', 'population_sha256', 'intervals']:
+            if field in model and roster_audit.fingerprint(actual.get(field)) != roster_audit.fingerprint(model[field]):
+                raise ValueError('District numerical audit source identities/counts/population changed')
+        if 'results' in model:
+            exact = ['school_id', 'actual', 'valid_scores', 'sampling_variance', 'low', 'high']
+            if roster_audit.fingerprint([{k: r.get(k) for k in exact} for r in actual.get('results', [])]) != roster_audit.fingerprint([{k: r[k] for k in exact} for r in model['results']]):
+                raise ValueError('District numerical result identities/native outcomes/counts or interval absence changed')
+        if not numeric_equal(actual, model):
+            raise ValueError('District numerical results failed independent replay tolerance')
+    return {m['model_id']: m['coverage']['usable_schools'] for m in expected['models']}
+
+
+def prepare(output=OUTPUT, check=False):
+    expected = build()
+    if check:
+        validate(json.loads(Path(output).read_text()), expected)
+    else:
+        Path(output).write_text(json.dumps(expected, separators=(',', ':'), ensure_ascii=False, allow_nan=False) + '\n')
+    return {'models': {m['model_id']: m['coverage']['usable_schools'] for m in expected['models']},
+            'hard_holds': expected['hard_holds']}
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--check', action='store_true', help='Replay saved audit without rewriting it')
+    parser.add_argument('--output', type=Path, default=OUTPUT)
+    args = parser.parse_args()
+    print(json.dumps(prepare(args.output, args.check), sort_keys=True))
