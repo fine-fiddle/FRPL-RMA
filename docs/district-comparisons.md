@@ -309,9 +309,9 @@ These agencies meet the district-size/cohort screen, or have at least 50,000 stu
 Detroit Public Schools Community District (Michigan; NCES LEA `2601103`) warrants follow-up beyond the conservative CCD configuration screen. The [Michigan native audit](michigan-data.md#district-follow-up) resolves grade-school configuration, but current usable Math and Combined cohorts fall below the 30-school implementation floor. It remains a district source/cohort hold; it is not included in the CCD-only candidate totals above.
 
 
-## District source audits
+## District source and model audits
 
-The [Los Angeles Unified roster and cohort audit](los-angeles-district.md) uses exact official CCD school membership and same-year California records. It retains charter and alternative-school flags, separates mixed-grade schools, and documents subject exclusions. This source-only audit does not fit district models or add a browser comparison.
+The [Los Angeles Unified roster and model audits](los-angeles-district.md) use exact official CCD school membership and same-year California records. They retain charter and alternative-school flags, separate mixed-grade schools, and document subject exclusions. Separate district fits have numerical diagnostics; browser integration remains a follow-up.
 
 
 ## Provenance and rebuild

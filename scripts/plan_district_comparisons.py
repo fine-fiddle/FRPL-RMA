@@ -313,12 +313,12 @@ def render(payload):
             'configuration, but current usable Math and Combined cohorts fall below the '
             '30-school implementation floor. It remains a district source/cohort hold; '
             'it is not included in the CCD-only candidate totals above.', ''])
-    lines.extend(['', '## District source audits', '',
-        'The [Los Angeles Unified roster and cohort audit](los-angeles-district.md) '
-        'uses exact official CCD school membership and same-year California records. '
-        'It retains charter and alternative-school flags, separates mixed-grade schools, '
-        'and documents subject exclusions. This source-only audit does not fit district '
-        'models or add a browser comparison.', ''])
+    lines.extend(['', '## District source and model audits', '',
+        'The [Los Angeles Unified roster and model audits](los-angeles-district.md) '
+        'use exact official CCD school membership and same-year California records. '
+        'They retain charter and alternative-school flags, separate mixed-grade schools, '
+        'and document subject exclusions. Separate district fits have numerical '
+        'diagnostics; browser integration remains a follow-up.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '
