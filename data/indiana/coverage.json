@@ -1,0 +1,29 @@
+{
+  "year": 2025,
+  "bands": {
+    "grade": {
+      "schools": 1416,
+      "mapped": 1392,
+      "eligible": {
+        "math": 1328,
+        "reading": 1328,
+        "combined": 1328
+      }
+    },
+    "mixed": {
+      "schools": 187,
+      "mapped": 177,
+      "eligible": {
+        "math": 169,
+        "reading": 169,
+        "combined": 169
+      }
+    }
+  },
+  "public_enrollment_schools": 1891,
+  "out_of_scope_high_schools": 288,
+  "excluded_unmatched_assessment_rows": 688,
+  "excluded_numeric_public_ids": [
+    "6811"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "prepare_script": "scripts/prepare_indiana.py",
+  "state": {
+    "id": "IN",
+    "name": "Indiana"
+  },
+  "regions": [
+    {
+      "id": "indiana",
+      "name": "Grade schools",
+      "dataset": "in-ilearn",
+      "status": "ready",
+      "geography": "indiana",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/indiana/schools.json",
+      "boundaries": "data/indiana/boundary.geojson",
+      "comparison": "Indiana \u00b7 {year} \u00b7 ILEARN grades 3\u20138 \u00b7 {note}",
+      "model_scope": "Separate public grade-school ILEARN grades 3\u20138 cohort",
+      "map_source": "Exact IDOE 2025\u201326 directory NCES-ID crosswalk to NCES 2023\u201324 coordinates"
+    },
+    {
+      "id": "indiana-mixed",
+      "name": "Mixed-grade schools",
+      "dataset": "in-ilearn",
+      "status": "ready",
+      "geography": "indiana",
+      "levels": [
+        "HS"
+      ],
+      "schools": "data/indiana/mixed/schools.json",
+      "boundaries": "data/indiana/boundary.geojson",
+      "comparison": "Indiana \u00b7 {year} \u00b7 ILEARN grades 3\u20138 \u00b7 {note}",
+      "model_scope": "Separate public mixed-grade ILEARN grades 3\u20138 cohort",
+      "map_source": "Exact IDOE 2025\u201326 directory NCES-ID crosswalk to NCES 2023\u201324 coordinates"
+    }
+  ]
+}
