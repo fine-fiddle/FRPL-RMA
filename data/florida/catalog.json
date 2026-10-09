@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "FL",
+    "name": "Florida"
+  },
+  "prepare_script": "scripts/prepare_florida.py",
+  "regions": [
+    {
+      "id": "florida",
+      "name": "Statewide",
+      "dataset": "fl-schoolgrades-2025",
+      "status": "ready",
+      "geography": "florida",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/florida/schools.json",
+      "boundaries": null,
+      "comparison": "Florida \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Florida public grade schools; separate native full-year school-grade achievement components and raw individual lunch eligibility",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}

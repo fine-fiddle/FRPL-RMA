@@ -1,0 +1,48 @@
+{
+  "year": 2025,
+  "schools": 2885,
+  "cohorts": {
+    "grade-schools": {
+      "directory": 2885,
+      "eligible": {
+        "math": 2742,
+        "reading": 2742,
+        "combined": 2742
+      }
+    }
+  },
+  "exclusions": {
+    "Native School Grades achievement component not reported": 232,
+    "Math: Native School Grades achievement component not reported; ELA: Native School Grades achievement component not reported": 116,
+    "Native achievement component unavailable or fewer than 10 eligible students": 2,
+    "Math: Native achievement component unavailable or fewer than 10 eligible students; ELA: Native achievement component unavailable or fewer than 10 eligible students": 1,
+    "Provision 2 code 4 counts all students or is masked; individual income unavailable; Native School Grades achievement component not reported": 32,
+    "Math: Provision 2 code 4 counts all students or is masked; individual income unavailable; Native School Grades achievement component not reported; ELA: Provision 2 code 4 counts all students or is masked; individual income unavailable; Native School Grades achievement component not reported": 16,
+    "Combined collocated-school result does not match one school income record": 10,
+    "Math: Combined collocated-school result does not match one school income record; ELA: Combined collocated-school result does not match one school income record": 5,
+    "Same-year Survey 3 individual lunch eligibility not reported; Native School Grades achievement component not reported": 4,
+    "Math: Same-year Survey 3 individual lunch eligibility not reported; Native School Grades achievement component not reported; ELA: Same-year Survey 3 individual lunch eligibility not reported; Native School Grades achievement component not reported": 2,
+    "Provision 2 code 4 counts all students or is masked; individual income unavailable": 2,
+    "Math: Provision 2 code 4 counts all students or is masked; individual income unavailable; ELA: Provision 2 code 4 counts all students or is masked; individual income unavailable": 1,
+    "Provision 2 code 4 counts all students or is masked; individual income unavailable; Combined collocated-school result does not match one school income record": 4,
+    "Math: Provision 2 code 4 counts all students or is masked; individual income unavailable; Combined collocated-school result does not match one school income record; ELA: Provision 2 code 4 counts all students or is masked; individual income unavailable; Combined collocated-school result does not match one school income record": 2
+  },
+  "source_audit": {
+    "public_enrolled_profiles": 4009,
+    "grade_school_profiles": 2885,
+    "native_assessment_rows": 3465,
+    "excluded": {
+      "Provider-specific virtual assessment rows": 10,
+      "Enrolled grades 9\u201312 or protected high-school grade membership": 1124
+    },
+    "unmatched_native_assessment_ids": [
+      "26-0018"
+    ],
+    "income_without_fall_grade_registry": 12,
+    "income_exclusions": {
+      "Provision 2 code 4 counts all students or is masked; individual income unavailable": 19,
+      "Same-year Survey 3 individual lunch eligibility not reported": 2
+    },
+    "mapped": 0
+  }
+}
