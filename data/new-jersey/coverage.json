@@ -1,0 +1,1045 @@
+{
+  "year": 2025,
+  "schools": 2260,
+  "cohorts": {
+    "ES": {
+      "directory": 1754,
+      "eligible": {
+        "math": 1664,
+        "reading": 1717,
+        "combined": 1659
+      }
+    },
+    "HS": {
+      "directory": 506,
+      "eligible": {
+        "math": 430,
+        "reading": 431,
+        "combined": 429
+      }
+    }
+  },
+  "exclusions": {
+    "NJDOE did not publish an exact unsuppressed school proficiency rate": 108,
+    "Math: NJDOE did not publish an exact unsuppressed school proficiency rate": 60,
+    "Missing or suppressed proficiency": 170,
+    "Math: Missing or suppressed proficiency; ELA: Missing or suppressed proficiency": 85,
+    "Math: NJDOE did not publish an exact unsuppressed school proficiency rate; ELA: NJDOE did not publish an exact unsuppressed school proficiency rate": 21,
+    "ELA: NJDOE did not publish an exact unsuppressed school proficiency rate": 6
+  },
+  "source_audit": {
+    "excluded_grade_profiles": {
+      "No supported tested grade or unknown enrolled grade span": 248
+    },
+    "unmatched_assessments": [
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 5905,
+        "raw": {
+          "CountyCode": "03",
+          "CountyName": "Bergen",
+          "DistrictCode": "0300",
+          "DistrictName": "Bergenfield Borough School District",
+          "SchoolCode": "075",
+          "SchoolName": "Roy W. Brown Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "761",
+          "MetExceededExpectations_School": "45.9%",
+          "ParticipationRate_School": "99.5%",
+          "FederalProficiencyRate_School": "45.9%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 16385,
+        "raw": {
+          "CountyCode": "03",
+          "CountyName": "Bergen",
+          "DistrictCode": "3600",
+          "DistrictName": "North Arlington School District",
+          "SchoolCode": "090",
+          "SchoolName": "Veterans Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "432",
+          "MetExceededExpectations_School": "46.3%",
+          "ParticipationRate_School": "99.3%",
+          "FederalProficiencyRate_School": "46.3%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 33345,
+        "raw": {
+          "CountyCode": "07",
+          "CountyName": "Camden",
+          "DistrictCode": "0150",
+          "DistrictName": "Audubon Public School District",
+          "SchoolCode": "050",
+          "SchoolName": "Mansion Avenue School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "326",
+          "MetExceededExpectations_School": "59.8%",
+          "ParticipationRate_School": "99.1%",
+          "FederalProficiencyRate_School": "59.8%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 40705,
+        "raw": {
+          "CountyCode": "07",
+          "CountyName": "Camden",
+          "DistrictCode": "2670",
+          "DistrictName": "Lindenwold Public School District",
+          "SchoolCode": "040",
+          "SchoolName": "Lindenwold School Four",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "257",
+          "MetExceededExpectations_School": "10.9%",
+          "ParticipationRate_School": "99.6%",
+          "FederalProficiencyRate_School": "10.9%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 41425,
+        "raw": {
+          "CountyCode": "07",
+          "CountyName": "Camden",
+          "DistrictCode": "4060",
+          "DistrictName": "Pennsauken Township Board of Education School District",
+          "SchoolCode": "055",
+          "SchoolName": "Howard M. Phifer Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "974",
+          "MetExceededExpectations_School": "14.9%",
+          "ParticipationRate_School": "99.2%",
+          "FederalProficiencyRate_School": "14.9%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 51265,
+        "raw": {
+          "CountyCode": "13",
+          "CountyName": "Essex",
+          "DistrictCode": "0760",
+          "DistrictName": "Cedar Grove Township School District",
+          "SchoolCode": "058",
+          "SchoolName": "Memorial Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "466",
+          "MetExceededExpectations_School": "59.0%",
+          "ParticipationRate_School": "99.1%",
+          "FederalProficiencyRate_School": "59.0%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 65345,
+        "raw": {
+          "CountyCode": "15",
+          "CountyName": "Gloucester",
+          "DistrictCode": "0870",
+          "DistrictName": "Clearview Regional High School District",
+          "SchoolCode": "030",
+          "SchoolName": "Clearview Regional Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "702",
+          "MetExceededExpectations_School": "48.0%",
+          "ParticipationRate_School": "99.2%",
+          "FederalProficiencyRate_School": "48.0%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 66465,
+        "raw": {
+          "CountyCode": "15",
+          "CountyName": "Gloucester",
+          "DistrictCode": "1730",
+          "DistrictName": "Glassboro School District",
+          "SchoolCode": "090",
+          "SchoolName": "Thomas E. Bowe Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "392",
+          "MetExceededExpectations_School": "21.2%",
+          "ParticipationRate_School": "95.9%",
+          "FederalProficiencyRate_School": "21.2%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 75585,
+        "raw": {
+          "CountyCode": "17",
+          "CountyName": "Hudson",
+          "DistrictCode": "2390",
+          "DistrictName": "Jersey City Public Schools",
+          "SchoolCode": "360",
+          "SchoolName": "Joseph H. Brensinger School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "707",
+          "MetExceededExpectations_School": "26.4%",
+          "ParticipationRate_School": "100.0%",
+          "FederalProficiencyRate_School": "26.4%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 75985,
+        "raw": {
+          "CountyCode": "17",
+          "CountyName": "Hudson",
+          "DistrictCode": "2410",
+          "DistrictName": "Kearny",
+          "SchoolCode": "090",
+          "SchoolName": "Lincoln Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "747",
+          "MetExceededExpectations_School": "25.7%",
+          "ParticipationRate_School": "99.7%",
+          "FederalProficiencyRate_School": "25.7%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 76625,
+        "raw": {
+          "CountyCode": "17",
+          "CountyName": "Hudson",
+          "DistrictCode": "3610",
+          "DistrictName": "North Bergen School District",
+          "SchoolCode": "090",
+          "SchoolName": "Lincoln Elementary School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "394",
+          "MetExceededExpectations_School": "33.5%",
+          "ParticipationRate_School": "93.9%",
+          "FederalProficiencyRate_School": "33.2%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 88385,
+        "raw": {
+          "CountyCode": "21",
+          "CountyName": "Mercer",
+          "DistrictCode": "5210",
+          "DistrictName": "Trenton Public School District",
+          "SchoolCode": "302",
+          "SchoolName": "Trenton Central High School-9th Grade Academy",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "754",
+          "MetExceededExpectations_School": "<10%",
+          "ParticipationRate_School": "86.8%",
+          "FederalProficiencyRate_School": "<10%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 90945,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "1170",
+          "DistrictName": "East Brunswick Township School District",
+          "SchoolCode": "055",
+          "SchoolName": "Churchill Junior High School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "2,027",
+          "MetExceededExpectations_School": "56.3%",
+          "ParticipationRate_School": "99.0%",
+          "FederalProficiencyRate_School": "56.3%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 92145,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "1290",
+          "DistrictName": "Edison Township School District",
+          "SchoolCode": "063",
+          "SchoolName": "Woodrow Wilson Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "1,158",
+          "MetExceededExpectations_School": "69.4%",
+          "ParticipationRate_School": "99.8%",
+          "FederalProficiencyRate_School": "69.4%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 93905,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "3140",
+          "DistrictName": "Middlesex Borough School District",
+          "SchoolCode": "085",
+          "SchoolName": "Von E. Mauger Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "494",
+          "MetExceededExpectations_School": "31.6%",
+          "ParticipationRate_School": "100.0%",
+          "FederalProficiencyRate_School": "31.6%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 96705,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "3620",
+          "DistrictName": "North Brunswick Township School District",
+          "SchoolCode": "300",
+          "SchoolName": "North Brunswick Twp. Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "728",
+          "MetExceededExpectations_School": "27.1%",
+          "ParticipationRate_School": "99.2%",
+          "FederalProficiencyRate_School": "27.1%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 100545,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "4860",
+          "DistrictName": "South Brunswick School District",
+          "SchoolCode": "075",
+          "SchoolName": "Crossroads South Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "774",
+          "MetExceededExpectations_School": "66.9%",
+          "ParticipationRate_School": "99.3%",
+          "FederalProficiencyRate_School": "66.9%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 101105,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "4910",
+          "DistrictName": "South Plainfield School District",
+          "SchoolCode": "053",
+          "SchoolName": "South Plainfield Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "549",
+          "MetExceededExpectations_School": "40.6%",
+          "ParticipationRate_School": "98.6%",
+          "FederalProficiencyRate_School": "40.6%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 113265,
+        "raw": {
+          "CountyCode": "25",
+          "CountyName": "Monmouth",
+          "DistrictCode": "3510",
+          "DistrictName": "Neptune Township School District",
+          "SchoolCode": "055",
+          "SchoolName": "Neptune Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "581",
+          "MetExceededExpectations_School": "18.9%",
+          "ParticipationRate_School": "99.0%",
+          "FederalProficiencyRate_School": "18.9%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 120465,
+        "raw": {
+          "CountyCode": "27",
+          "CountyName": "Morris",
+          "DistrictCode": "3240",
+          "DistrictName": "Mine Hill Township School District",
+          "SchoolCode": "030",
+          "SchoolName": "Canfield Avenue School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "190",
+          "MetExceededExpectations_School": "43.7%",
+          "ParticipationRate_School": "99.5%",
+          "FederalProficiencyRate_School": "43.7%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 136705,
+        "raw": {
+          "CountyCode": "31",
+          "CountyName": "Passaic",
+          "DistrictCode": "3640",
+          "DistrictName": "North Haledon School District",
+          "SchoolCode": "050",
+          "SchoolName": "High Mountain School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "257",
+          "MetExceededExpectations_School": "46.7%",
+          "ParticipationRate_School": "99.6%",
+          "FederalProficiencyRate_School": "46.7%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 148945,
+        "raw": {
+          "CountyCode": "35",
+          "CountyName": "Somerset",
+          "DistrictCode": "1610",
+          "DistrictName": "Franklin Township Public School District",
+          "SchoolCode": "160",
+          "SchoolName": "Franklin Middle School at Hamilton Street Campus",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "620",
+          "MetExceededExpectations_School": "18.2%",
+          "ParticipationRate_School": "99.1%",
+          "FederalProficiencyRate_School": "18.2%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 150385,
+        "raw": {
+          "CountyCode": "35",
+          "CountyName": "Somerset",
+          "DistrictCode": "3320",
+          "DistrictName": "Montgomery Township School District",
+          "SchoolCode": "070",
+          "SchoolName": "Montgomery Upper Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "751",
+          "MetExceededExpectations_School": "79.9%",
+          "ParticipationRate_School": "98.7%",
+          "FederalProficiencyRate_School": "79.9%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 155105,
+        "raw": {
+          "CountyCode": "37",
+          "CountyName": "Sussex",
+          "DistrictCode": "5360",
+          "DistrictName": "Vernon Township School District",
+          "SchoolCode": "025",
+          "SchoolName": "Glen Meadow Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "601",
+          "MetExceededExpectations_School": "37.4%",
+          "ParticipationRate_School": "98.1%",
+          "FederalProficiencyRate_School": "37.4%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 156145,
+        "raw": {
+          "CountyCode": "39",
+          "CountyName": "Union",
+          "DistrictCode": "0980",
+          "DistrictName": "Cranford Public School District",
+          "SchoolCode": "033",
+          "SchoolName": "Hillside Avenue School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "589",
+          "MetExceededExpectations_School": "67.6%",
+          "ParticipationRate_School": "99.7%",
+          "FederalProficiencyRate_School": "67.6%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 163585,
+        "raw": {
+          "CountyCode": "39",
+          "CountyName": "Union",
+          "DistrictCode": "4550",
+          "DistrictName": "Roselle Park Public School District",
+          "SchoolCode": "085",
+          "SchoolName": "Roselle Park Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "433",
+          "MetExceededExpectations_School": "34.2%",
+          "ParticipationRate_School": "99.8%",
+          "FederalProficiencyRate_School": "34.2%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 172785,
+        "raw": {
+          "CountyCode": "80",
+          "CountyName": "Hudson",
+          "DistrictCode": "6103",
+          "DistrictName": "Empowerment Academy Charter School",
+          "SchoolCode": "994",
+          "SchoolName": "Empowerment Academy Charter School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "756",
+          "MetExceededExpectations_School": "33.9%",
+          "ParticipationRate_School": "100.0%",
+          "FederalProficiencyRate_School": "33.9%"
+        }
+      },
+      {
+        "sheet": "MathParticipationPerformance",
+        "source_row": 175985,
+        "raw": {
+          "CountyCode": "80",
+          "CountyName": "Ocean",
+          "DistrictCode": "7893",
+          "DistrictName": "Ocean Academy Charter School",
+          "SchoolCode": "918",
+          "SchoolName": "Ocean Academy Charter School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "364",
+          "MetExceededExpectations_School": "32.1%",
+          "ParticipationRate_School": "99.7%",
+          "FederalProficiencyRate_School": "32.1%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 5905,
+        "raw": {
+          "CountyCode": "03",
+          "CountyName": "Bergen",
+          "DistrictCode": "0300",
+          "DistrictName": "Bergenfield Borough School District",
+          "SchoolCode": "075",
+          "SchoolName": "Roy W. Brown Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "754",
+          "MetExceededExpectations_School": "65.4%",
+          "ParticipationRate_School": "99.5%",
+          "FederalProficiencyRate_School": "65.4%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 16385,
+        "raw": {
+          "CountyCode": "03",
+          "CountyName": "Bergen",
+          "DistrictCode": "3600",
+          "DistrictName": "North Arlington School District",
+          "SchoolCode": "090",
+          "SchoolName": "Veterans Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "432",
+          "MetExceededExpectations_School": "61.6%",
+          "ParticipationRate_School": "99.3%",
+          "FederalProficiencyRate_School": "61.6%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 33345,
+        "raw": {
+          "CountyCode": "07",
+          "CountyName": "Camden",
+          "DistrictCode": "0150",
+          "DistrictName": "Audubon Public School District",
+          "SchoolCode": "050",
+          "SchoolName": "Mansion Avenue School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "326",
+          "MetExceededExpectations_School": "67.8%",
+          "ParticipationRate_School": "99.1%",
+          "FederalProficiencyRate_School": "67.8%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 40705,
+        "raw": {
+          "CountyCode": "07",
+          "CountyName": "Camden",
+          "DistrictCode": "2670",
+          "DistrictName": "Lindenwold Public School District",
+          "SchoolCode": "040",
+          "SchoolName": "Lindenwold School Four",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "255",
+          "MetExceededExpectations_School": "14.5%",
+          "ParticipationRate_School": "98.9%",
+          "FederalProficiencyRate_School": "14.5%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 41425,
+        "raw": {
+          "CountyCode": "07",
+          "CountyName": "Camden",
+          "DistrictCode": "4060",
+          "DistrictName": "Pennsauken Township Board of Education School District",
+          "SchoolCode": "055",
+          "SchoolName": "Howard M. Phifer Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "968",
+          "MetExceededExpectations_School": "27.4%",
+          "ParticipationRate_School": "99.3%",
+          "FederalProficiencyRate_School": "27.4%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 51265,
+        "raw": {
+          "CountyCode": "13",
+          "CountyName": "Essex",
+          "DistrictCode": "0760",
+          "DistrictName": "Cedar Grove Township School District",
+          "SchoolCode": "058",
+          "SchoolName": "Memorial Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "467",
+          "MetExceededExpectations_School": "75.6%",
+          "ParticipationRate_School": "99.6%",
+          "FederalProficiencyRate_School": "75.6%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 65345,
+        "raw": {
+          "CountyCode": "15",
+          "CountyName": "Gloucester",
+          "DistrictCode": "0870",
+          "DistrictName": "Clearview Regional High School District",
+          "SchoolCode": "030",
+          "SchoolName": "Clearview Regional Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "701",
+          "MetExceededExpectations_School": "60.8%",
+          "ParticipationRate_School": "99.6%",
+          "FederalProficiencyRate_School": "60.8%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 66465,
+        "raw": {
+          "CountyCode": "15",
+          "CountyName": "Gloucester",
+          "DistrictCode": "1730",
+          "DistrictName": "Glassboro School District",
+          "SchoolCode": "090",
+          "SchoolName": "Thomas E. Bowe Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "396",
+          "MetExceededExpectations_School": "36.4%",
+          "ParticipationRate_School": "97.6%",
+          "FederalProficiencyRate_School": "36.4%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 75585,
+        "raw": {
+          "CountyCode": "17",
+          "CountyName": "Hudson",
+          "DistrictCode": "2390",
+          "DistrictName": "Jersey City Public Schools",
+          "SchoolCode": "360",
+          "SchoolName": "Joseph H. Brensinger School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "680",
+          "MetExceededExpectations_School": "42.4%",
+          "ParticipationRate_School": "100.0%",
+          "FederalProficiencyRate_School": "42.4%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 75985,
+        "raw": {
+          "CountyCode": "17",
+          "CountyName": "Hudson",
+          "DistrictCode": "2410",
+          "DistrictName": "Kearny",
+          "SchoolCode": "090",
+          "SchoolName": "Lincoln Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "726",
+          "MetExceededExpectations_School": "44.1%",
+          "ParticipationRate_School": "99.7%",
+          "FederalProficiencyRate_School": "44.1%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 76625,
+        "raw": {
+          "CountyCode": "17",
+          "CountyName": "Hudson",
+          "DistrictCode": "3610",
+          "DistrictName": "North Bergen School District",
+          "SchoolCode": "090",
+          "SchoolName": "Lincoln Elementary School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "387",
+          "MetExceededExpectations_School": "46.0%",
+          "ParticipationRate_School": "94.0%",
+          "FederalProficiencyRate_School": "45.7%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 88385,
+        "raw": {
+          "CountyCode": "21",
+          "CountyName": "Mercer",
+          "DistrictCode": "5210",
+          "DistrictName": "Trenton Public School District",
+          "SchoolCode": "302",
+          "SchoolName": "Trenton Central High School-9th Grade Academy",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "762",
+          "MetExceededExpectations_School": "10.4%",
+          "ParticipationRate_School": "91.0%",
+          "FederalProficiencyRate_School": "10.0%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 90945,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "1170",
+          "DistrictName": "East Brunswick Township School District",
+          "SchoolCode": "055",
+          "SchoolName": "Churchill Junior High School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "2,022",
+          "MetExceededExpectations_School": "66.7%",
+          "ParticipationRate_School": "98.9%",
+          "FederalProficiencyRate_School": "66.7%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 92145,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "1290",
+          "DistrictName": "Edison Township School District",
+          "SchoolCode": "063",
+          "SchoolName": "Woodrow Wilson Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "1,140",
+          "MetExceededExpectations_School": "81.6%",
+          "ParticipationRate_School": "99.8%",
+          "FederalProficiencyRate_School": "81.6%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 93905,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "3140",
+          "DistrictName": "Middlesex Borough School District",
+          "SchoolCode": "085",
+          "SchoolName": "Von E. Mauger Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "492",
+          "MetExceededExpectations_School": "47.0%",
+          "ParticipationRate_School": "100.0%",
+          "FederalProficiencyRate_School": "47.0%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 96705,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "3620",
+          "DistrictName": "North Brunswick Township School District",
+          "SchoolCode": "300",
+          "SchoolName": "North Brunswick Twp. Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "715",
+          "MetExceededExpectations_School": "48.1%",
+          "ParticipationRate_School": "99.2%",
+          "FederalProficiencyRate_School": "48.1%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 100545,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "4860",
+          "DistrictName": "South Brunswick School District",
+          "SchoolCode": "075",
+          "SchoolName": "Crossroads South Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "774",
+          "MetExceededExpectations_School": "83.3%",
+          "ParticipationRate_School": "99.3%",
+          "FederalProficiencyRate_School": "83.3%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 101105,
+        "raw": {
+          "CountyCode": "23",
+          "CountyName": "Middlesex",
+          "DistrictCode": "4910",
+          "DistrictName": "South Plainfield School District",
+          "SchoolCode": "053",
+          "SchoolName": "South Plainfield Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "547",
+          "MetExceededExpectations_School": "54.8%",
+          "ParticipationRate_School": "98.6%",
+          "FederalProficiencyRate_School": "54.8%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 113265,
+        "raw": {
+          "CountyCode": "25",
+          "CountyName": "Monmouth",
+          "DistrictCode": "3510",
+          "DistrictName": "Neptune Township School District",
+          "SchoolCode": "055",
+          "SchoolName": "Neptune Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "572",
+          "MetExceededExpectations_School": "37.4%",
+          "ParticipationRate_School": "99.0%",
+          "FederalProficiencyRate_School": "37.4%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 120465,
+        "raw": {
+          "CountyCode": "27",
+          "CountyName": "Morris",
+          "DistrictCode": "3240",
+          "DistrictName": "Mine Hill Township School District",
+          "SchoolCode": "030",
+          "SchoolName": "Canfield Avenue School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "189",
+          "MetExceededExpectations_School": "58.7%",
+          "ParticipationRate_School": "99.5%",
+          "FederalProficiencyRate_School": "58.7%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 136705,
+        "raw": {
+          "CountyCode": "31",
+          "CountyName": "Passaic",
+          "DistrictCode": "3640",
+          "DistrictName": "North Haledon School District",
+          "SchoolCode": "050",
+          "SchoolName": "High Mountain School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "256",
+          "MetExceededExpectations_School": "63.7%",
+          "ParticipationRate_School": "99.6%",
+          "FederalProficiencyRate_School": "63.7%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 148945,
+        "raw": {
+          "CountyCode": "35",
+          "CountyName": "Somerset",
+          "DistrictCode": "1610",
+          "DistrictName": "Franklin Township Public School District",
+          "SchoolCode": "160",
+          "SchoolName": "Franklin Middle School at Hamilton Street Campus",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "609",
+          "MetExceededExpectations_School": "38.6%",
+          "ParticipationRate_School": "99.2%",
+          "FederalProficiencyRate_School": "38.6%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 150385,
+        "raw": {
+          "CountyCode": "35",
+          "CountyName": "Somerset",
+          "DistrictCode": "3320",
+          "DistrictName": "Montgomery Township School District",
+          "SchoolCode": "070",
+          "SchoolName": "Montgomery Upper Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "748",
+          "MetExceededExpectations_School": "87.3%",
+          "ParticipationRate_School": "98.5%",
+          "FederalProficiencyRate_School": "87.3%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 155105,
+        "raw": {
+          "CountyCode": "37",
+          "CountyName": "Sussex",
+          "DistrictCode": "5360",
+          "DistrictName": "Vernon Township School District",
+          "SchoolCode": "025",
+          "SchoolName": "Glen Meadow Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "603",
+          "MetExceededExpectations_School": "55.1%",
+          "ParticipationRate_School": "98.7%",
+          "FederalProficiencyRate_School": "55.1%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 156145,
+        "raw": {
+          "CountyCode": "39",
+          "CountyName": "Union",
+          "DistrictCode": "0980",
+          "DistrictName": "Cranford Public School District",
+          "SchoolCode": "033",
+          "SchoolName": "Hillside Avenue School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "588",
+          "MetExceededExpectations_School": "71.4%",
+          "ParticipationRate_School": "99.7%",
+          "FederalProficiencyRate_School": "71.4%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 163585,
+        "raw": {
+          "CountyCode": "39",
+          "CountyName": "Union",
+          "DistrictCode": "4550",
+          "DistrictName": "Roselle Park Public School District",
+          "SchoolCode": "085",
+          "SchoolName": "Roselle Park Middle School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "431",
+          "MetExceededExpectations_School": "49.9%",
+          "ParticipationRate_School": "99.8%",
+          "FederalProficiencyRate_School": "49.9%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 172785,
+        "raw": {
+          "CountyCode": "80",
+          "CountyName": "Hudson",
+          "DistrictCode": "6103",
+          "DistrictName": "Empowerment Academy Charter School",
+          "SchoolCode": "994",
+          "SchoolName": "Empowerment Academy Charter School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "763",
+          "MetExceededExpectations_School": "51.1%",
+          "ParticipationRate_School": "99.9%",
+          "FederalProficiencyRate_School": "51.1%"
+        }
+      },
+      {
+        "sheet": "ELAParticipationPerformance",
+        "source_row": 175985,
+        "raw": {
+          "CountyCode": "80",
+          "CountyName": "Ocean",
+          "DistrictCode": "7893",
+          "DistrictName": "Ocean Academy Charter School",
+          "SchoolCode": "918",
+          "SchoolName": "Ocean Academy Charter School",
+          "SchoolYear": "2024-25",
+          "StudentGroup": "All Students",
+          "ValidScores_School": "364",
+          "MetExceededExpectations_School": "41.8%",
+          "ParticipationRate_School": "99.7%",
+          "FederalProficiencyRate_School": "41.8%"
+        }
+      }
+    ]
+  }
+}

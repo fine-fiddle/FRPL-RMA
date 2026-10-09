@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "NJ",
+    "name": "New Jersey"
+  },
+  "prepare_script": "scripts/prepare_new_jersey.py",
+  "regions": [
+    {
+      "id": "new-jersey",
+      "name": "Statewide",
+      "dataset": "nj-spr-2025",
+      "status": "ready",
+      "geography": "new-jersey",
+      "levels": [
+        "ES",
+        "HS"
+      ],
+      "schools": "data/new-jersey/schools.json",
+      "boundaries": null,
+      "comparison": "New Jersey \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Separate NJSLA/DLM grade-school and NJGPA grade11 public-school cohorts",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}
