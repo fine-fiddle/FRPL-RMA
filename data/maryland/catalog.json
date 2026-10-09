@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "MD",
+    "name": "Maryland"
+  },
+  "prepare_script": "scripts/prepare_maryland.py",
+  "regions": [
+    {
+      "id": "maryland",
+      "name": "Statewide",
+      "dataset": "md-mcap-2025",
+      "status": "ready",
+      "geography": "maryland",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/maryland/schools.json",
+      "boundaries": null,
+      "comparison": "Maryland \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Maryland regular MCAP native school totals at public grade schools with same-year individual direct certification",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}

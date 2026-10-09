@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "state": "NE",
+  "school_year": "2024-25",
+  "status": "audited_blocker",
+  "approved_for_modeling": false,
+  "audit_date": "2026-10-09",
+  "assessment_sources": [
+    {
+      "path": "data/raw/ne-NSCAS_ELA_Proficient_20242025.csv",
+      "sha256": "47b3c5527dfa6034d6fcc3074220b57edcf2fb2cbbe639b256cf864d239b0100",
+      "bytes": 79459381,
+      "native_school_total_rows": 863,
+      "numeric_level_and_tested_rows": 705,
+      "level_sum_equal_tested": 554,
+      "level_sum_greater_than_tested": 150,
+      "level_sum_less_than_tested": 1
+    },
+    {
+      "path": "data/raw/ne-NSCAS_Math_Proficient_20242025.csv",
+      "sha256": "bd3be61e505aa237e33e03f6ece4fde2b1310d5af298300acc967e7124b89be8",
+      "bytes": 73582255,
+      "native_school_total_rows": 863,
+      "numeric_level_and_tested_rows": 619,
+      "level_sum_equal_tested": 464,
+      "level_sum_greater_than_tested": 154,
+      "level_sum_less_than_tested": 1
+    },
+    {
+      "path": "data/raw/ne-ACT_AllSubjects_20242025.csv",
+      "sha256": "17b013608dac00f109d1d1656f31828eb77bb0b5168b76282b129eb97f6abd1d",
+      "bytes": 20266782,
+      "native_school_total_rows": 801,
+      "numeric_level_and_tested_rows": 427,
+      "level_sum_equal_tested": 258,
+      "level_sum_greater_than_tested": 169,
+      "level_sum_less_than_tested": 0
+    }
+  ],
+  "blocker_evidence": {
+    "summary": "Native performance levels can include unexcused nonparticipants assigned the lowest score; participation TestedCount can contain recently arrived EL students excluded from achievement. No published total or reconciled count has been approved as scored-student proficiency.",
+    "primary_url": "https://www.education.ne.gov/wp-content/uploads/2025/03/SPRING-2025-GUIDANCE-FOR-ASSESSMENT-PERFORMAN_March-2025.pdf",
+    "sections": [
+      "2.3",
+      "2.4",
+      "2.5",
+      "2.6",
+      "3.2.1",
+      "3.2.2"
+    ],
+    "pages": [
+      5,
+      6,
+      9
+    ],
+    "additional_unknown": "NotTestedCount NA is not approved as zero; no dated primary missing-code legend was found."
+  },
+  "income_audit": {
+    "primary_url": "https://www.education.ne.gov/wp-content/uploads/2024/11/2024-2025_Free_and_Reduced_Lunch_Counts_by_School.xlsx?download=1",
+    "path": "data/raw/ne-frpl-2025.xlsx",
+    "school_rows": 1213,
+    "non_cep_rows": 990,
+    "cep_rows": 223,
+    "warning": "Workbook Warning drawing states CEP uses Nutrition ISP times 1.6; exclude every CEP ALL row. Non-CEP public schools use individual ADVISER eligibility; native suppression remains missing.",
+    "definition_url": "https://education.ne.gov/wp-content/uploads/2025/01/ADVISER_Data_Elements_20242025_v9_1.pdf",
+    "definition_section": "8.6",
+    "definition_pages": [
+      69,
+      70
+    ],
+    "approval": "Potential restricted non-CEP income route only; no achievement cohort approved.",
+    "sha256": "c2aeb600e7474ad0e986237891ab86f11ff0038be007a724523caac6ec79ed64"
+  },
+  "next_steps": [
+    "Obtain native scored-student-only totals or a primary, complete row-selection rule resolving nonparticipant and recently-arrived-EL adjustments.",
+    "Verify official NA/missing/suppression legend before selecting apparently zero-nonparticipant rows.",
+    "Join by same-year native IDs to non-CEP individual ADVISER income; never use CEP ISP claiming percentages or inferred counts."
+  ]
+}

@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 from database import ROOT, DEFAULT_DB, connect
+from state_catalog import merge_state_exports, check_catalog_preservation
 
 COMPARABILITY = (
     'States set their own tests and proficiency thresholds. Proficiency percentages '
@@ -12,7 +13,7 @@ COMPARABILITY = (
 )
 
 
-def export(database=DEFAULT_DB, output=ROOT/'data'):
+def export(database=DEFAULT_DB, output=ROOT/'data', allow_reduced=False):
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
     with connect(database) as db:
@@ -104,6 +105,8 @@ def export(database=DEFAULT_DB, output=ROOT/'data'):
                     model_scope='Published WSAS school report-card rates; separate grade-span populations',
                     audit='data/wisconsin/coverage-comparison.json'))
             wisconsin['regions'] = published + wisconsin['regions']
+        merge_state_exports(db, catalog)
+        check_catalog_preservation(catalog, output/'manifest.json', allow_reduced)
         (output/'manifest.json').write_text(json.dumps(catalog, indent=2, allow_nan=False)+'\n')
         print(json.dumps(catalog.get('statewide_coverage', {}), indent=2))
 
@@ -112,5 +115,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--database', type=Path, default=DEFAULT_DB)
     parser.add_argument('--output', type=Path, default=ROOT/'data')
+    parser.add_argument('--allow-reduced-catalog', action='store_true',
+                        help='Explicitly allow removal of previously ready comparisons')
     args = parser.parse_args()
-    export(args.database, args.output)
+    export(args.database, args.output, args.allow_reduced_catalog)

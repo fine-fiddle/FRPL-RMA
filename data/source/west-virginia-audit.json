@@ -1,0 +1,324 @@
+{
+  "state": "WV",
+  "year": 2025,
+  "academic_year": "2024-25",
+  "retrieved": "2026-10-09",
+  "status": "audit_pending",
+  "blocker": "Native school proficiency fractions can use a participation-adjusted denominator; no audited actual valid-score school outcome is available.",
+  "sources": {
+    "assessment": {
+      "path": "data/raw/west-virginia/assessment.xlsx",
+      "url": "https://static.k12.wv.us/zoomwv/data/SY25_AssessmentResults_Public_All_Final.xlsx",
+      "sha256": "dd781a941b0ea80d0ff0fe554c2665be12cba8b12c7c3ae6db0ba4610db47482"
+    },
+    "enrollment": {
+      "path": "data/raw/west-virginia/enrollment.xlsx",
+      "url": "https://static.k12.wv.us/zoomwv/data/SY25_EnrollmentAndSchoolComposition_Final.xlsx",
+      "sha256": "bc24db1e7813f15c7a2821baa493b117495d1da6e05bc1d83fddfabeaefa2ea1"
+    },
+    "income": {
+      "path": "data/raw/west-virginia/income.xlsx",
+      "url": "https://static.k12.wv.us/zoomwv/data/WV_PercentNeedy_Report.xlsx",
+      "sha256": "af9f1e35ce289401dbf6bb3cb555cbc631a60eae252c41494778e0c921a02ddc"
+    },
+    "current_summary": {
+      "path": "data/raw/west-virginia/assessment-definition.pdf",
+      "url": "https://wvde.us/sites/default/files/2025-08/2025%20West%20Virginia%20Assessment%20Results.pdf",
+      "sha256": "76850d7a58d57e4614816f7054b562030cc51354c13c35cb07114793ffcbd1eb"
+    },
+    "accountability_methodology": {
+      "path": "data/raw/west-virginia/methodology.pdf",
+      "url": "https://wveis.k12.wv.us/essa/docs/methodology.pdf",
+      "sha256": "bf9f29f40cde77457bacb8fc7e54ae637459b0862569bb0178e254fb50dbce83"
+    },
+    "accountability_methodology_linked_revision": {
+      "path": "data/raw/west-virginia/methodology_revised2022.pdf",
+      "url": "https://wveis.k12.wv.us/essa/docs/methodology_revised2022.pdf",
+      "sha256": "bf9f29f40cde77457bacb8fc7e54ae637459b0862569bb0178e254fb50dbce83"
+    }
+  },
+  "assessment_sheets": {
+    "SY25 Schl & Dist Total Prof %": {
+      "rows": 669,
+      "columns": 14
+    },
+    "SY25 Schl & Dist Prof by Grade": {
+      "rows": 670,
+      "columns": 31
+    },
+    "SY25 Schl & Dist Comp. Results": {
+      "rows": 9208,
+      "columns": 107
+    },
+    "# Students Tested": {
+      "rows": 1477,
+      "columns": 9
+    }
+  },
+  "assessment_total_headers": [
+    "Dist",
+    "District",
+    "Schl",
+    "School",
+    "PopulationGroup",
+    "Subgroup",
+    "Overall Mathematics Proficiency",
+    "Overall English Language Arts Proficiency",
+    "Overall Science Proficiency"
+  ],
+  "tested_headers": [
+    "Dist",
+    "District",
+    "Schl",
+    "School",
+    "PopulationGroup",
+    "Subgroup",
+    "Mathematics",
+    "English Language Arts",
+    "Science"
+  ],
+  "income_headers": [
+    "District",
+    "School",
+    "School ID",
+    "District",
+    "School",
+    "School Type",
+    "Total Students Directly Certified",
+    "Total Enrolled Students",
+    "Percent Needy",
+    "What do these items mean?"
+  ],
+  "income_definition_rows": [
+    [
+      null,
+      "Beginning in the 2017-2018 school year, WVDE revised the ways in which socioeconomic status (SES) is reported for West Virginia public school students.",
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      "This introductory page explains the changes and provides definitions for the data found in the Percent Needy reports beginning with SY17-18. Definitions for items included in previous years' reports are provided in a separate page within this workbook. ",
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      "Beginning in the 2017-2018 school year, WVDE began reporting the “low SES” subgroup using only the students who are directly certified as eligible for free or reduced-price meals. In previous years (2014-15 through 2016-17), all students eligible for nutrition assistance and all students enrolled in Community Eligibility Provision (CEP) schools (schools that provide free meals to all students, regardless of economic circumstance or hardship) were counted in the low SES subgroup. This change was implemented primarily for the following reasons:",
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      "(1) to more accurately identify the low SES subgroup at the student level for accountability purposes, and",
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      "(2) to identify the low SES subgroup using a consistent method across all schools, regardless of CEP status, for ranking purposes when used by Title I, E-rate and Federal Loan Forgiveness programs. ",
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      "The source data for this report comes from the state’s National School Breakfast and Lunch Program. However, the different calculation methods used to determine the “Low SES” subgroup in this report are not the same as the calculations used to determine the percentage of students qualified for meal reimbursement under the National School Breakfast and Lunch Programs reported by the WVDE Office of Child Nutrition.  Therefore, the percentages in the two reports are not expected to match.",
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      "Following are definitions for the terms used in the Percent Needy reports beginning in SY17-18.",
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      "Item",
+      "Definition",
+      null,
+      null
+    ],
+    [
+      null,
+      "Total Enrolled Students",
+      "The total enrollment includes the headcount of all students in the school, as certified on October 1 of the school year. These are primarily students in Kindergarten through Grade 12, although pre-kindergarten students who have Individual Education Plan (IEP) on file may be included in the enrollment as well. This number is the denominator in the calculation of \"Percent Needy.\"",
+      null,
+      null
+    ],
+    [
+      null,
+      "Total Students Directly Certified",
+      "\"Total Students Directly Certified,\" presented for CEP schools only, includes the total number of students who are directly certified to be eligible for free or reduced-price meals (e.g., due to family eligibility for nutrition assistance programs).",
+      null,
+      null
+    ],
+    [
+      null,
+      "Percent Needy",
+      "The \"Percent Needy\" represents the percentage of students in a school who are economically disadvantages. The following calculation is used:    Total \"Needy\" Students for % Calculation / Total Enrolled Students = Percent Needy",
+      null,
+      null
+    ],
+    [
+      null,
+      "The West Virginia Percent Needy Report is the state’s official public reporting of the percent of economically needy children by public school and school district which is used to determine school level Elementary and Secondary Education Act, Title I, Part A funding allocations. It is based on certified data collections made on the first day of October for each school year and Title I eligiblity rules. Enrollment counts in this report may not match enrollment figures in other reports due to differences in rules.",
+      null,
+      null,
+      null
+    ]
+  ],
+  "identity": {
+    "native_key": "three-digit Dist + three-digit Schl; income School ID is the same exact six-digit identifier",
+    "assessment_school_records": 601,
+    "composition_school_records": 702,
+    "income_school_records": 629,
+    "assessment_school_missing_composition": 0,
+    "assessment_school_missing_income": 0
+  },
+  "composition_grade_profiles": {
+    "grade": 485,
+    "high": 93,
+    "mixed": 96,
+    "outside": 28
+  },
+  "assessment_population": {
+    "FAY": "At least 135 enrollment days in the school year and present in the end-of-year enrollment file, current 2025 summary page 1.",
+    "grade": "WVGSA + WVASA, grades 3–8",
+    "high": "SAT School Day + WVASA, grade 11",
+    "no_prior_year_pooling_established": true
+  },
+  "native_denominator_counterexamples": [
+    {
+      "id": "002501",
+      "name": "Philip Barbour High School Complex",
+      "native_math": {
+        "four_performance_fractions": [
+          0.5118,
+          0.2801,
+          0.1545,
+          0.028999999999999998
+        ],
+        "proficient_fraction": 0.18350000000000002,
+        "sum_fractions": 0.9754,
+        "published_students_tested": 101
+      },
+      "native_ela": {
+        "four_performance_fractions": [
+          0.309,
+          0.1642,
+          0.35729999999999995,
+          0.1449
+        ],
+        "proficient_fraction": 0.5022,
+        "sum_fractions": 0.9753999999999999,
+        "published_students_tested": 101
+      }
+    },
+    {
+      "id": "004502",
+      "name": "Martinsburg High School",
+      "native_math": {
+        "four_performance_fractions": [
+          0.6215999999999999,
+          0.2561,
+          0.0843,
+          0.0281
+        ],
+        "proficient_fraction": 0.1124,
+        "sum_fractions": 0.9901,
+        "published_students_tested": 317
+      },
+      "native_ela": {
+        "four_performance_fractions": [
+          0.2967,
+          0.2249,
+          0.34979999999999994,
+          0.11869999999999999
+        ],
+        "proficient_fraction": 0.4685,
+        "sum_fractions": 0.9901,
+        "published_students_tested": 317
+      }
+    },
+    {
+      "id": "016501",
+      "name": "Clay County High School",
+      "native_math": {
+        "four_performance_fractions": [
+          0.48009999999999997,
+          0.3693,
+          0.08310000000000001,
+          0.018500000000000003
+        ],
+        "proficient_fraction": 0.1016,
+        "sum_fractions": 0.951,
+        "published_students_tested": 103
+      },
+      "native_ela": {
+        "four_performance_fractions": [
+          0.2862,
+          0.26780000000000004,
+          0.26780000000000004,
+          0.1293
+        ],
+        "proficient_fraction": 0.397,
+        "sum_fractions": 0.9511000000000001,
+        "published_students_tested": 103
+      }
+    },
+    {
+      "id": "037404",
+      "name": "Wildwood Middle School",
+      "native_math": {
+        "four_performance_fractions": [
+          0.3207,
+          0.2803,
+          0.2096,
+          0.1894
+        ],
+        "proficient_fraction": 0.39899999999999997,
+        "sum_fractions": 1.0,
+        "published_students_tested": 396
+      },
+      "native_ela": {
+        "four_performance_fractions": [
+          0.2413,
+          0.33630000000000004,
+          0.2721,
+          0.1489
+        ],
+        "proficient_fraction": 0.4211,
+        "sum_fractions": 0.9986,
+        "published_students_tested": 389
+      }
+    }
+  ],
+  "illustrative_95pct_consistency": {
+    "id": "002501",
+    "published_tested": 101,
+    "hypothesized_fay_enrollment": 109,
+    "adjusted_denominator": 103.55,
+    "illustrative_integer_level_counts": [
+      53,
+      29,
+      16,
+      3
+    ],
+    "interpretation": "The published four-decimal bands match these integers divided by 0.95 * 109; these are arithmetic consistency evidence, not a source of publishable level counts, FAY counts or actual proficiency."
+  },
+  "release_requirements": [
+    "An official outcome definition or native scored-student aggregate establishing actual valid-score proficiency separately from the participation-adjusted measure.",
+    "Schoolwide native proficiency or verified valid-score grade weights with exact same-year IDs; do not renormalize rounded bands or reverse them into level counts.",
+    "Pure grade-school and pure high-school scopes from all14 exact same-year native grade-enrollment columns; mixed grades excluded from these models."
+  ],
+  "canonical_dataset_created": false,
+  "catalog_descriptor_created": false
+}

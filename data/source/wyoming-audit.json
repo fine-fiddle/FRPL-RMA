@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "state": "WY",
+  "year": 2025,
+  "academic_year": "2024-25",
+  "retrieved": "2026-10-09",
+  "browser_catalog": false,
+  "approved_for_modeling": false,
+  "status": "scientific_source_hold",
+  "sources": {
+    "assessment": {
+      "path": "data/raw/wy_assessment_2025.xlsx",
+      "url": "https://reporting.edu.wyo.gov/ibi_apps/run.bip?BIP_REQUEST_TYPE=BIP_RUN&BIP_folder=IBFS%253A%252FWFC%252FRepository%252FPublic%252FAssessment%252FAggregated%252F&BIP_item=SchoolLevelResultsHTML.htm",
+      "bytes": 157121,
+      "sha256": "8b958ce24928525f0efacdfd0125bb768be168210d257301533430f3899983ba"
+    },
+    "growth_legend": {
+      "path": "data/raw/wy_growth_legend_2025.pdf",
+      "url": "https://edu.wyoming.gov/wp-content/uploads/2025/08/Interpreting-and-Using-the-Growth-and-Achievement-Report-in-Fusion.pdf",
+      "bytes": 63119,
+      "sha256": "f6688914d0e26d37460636c4810f642c9321ee0a2a74c888961829f9934db0e9"
+    },
+    "long_term_goals_technical": {
+      "path": "data/raw/wy_goals_2025.html",
+      "url": "https://drive.google.com/uc?export=download&id=1XG6XOJlvwFoaqoF6Ac7yg4thyKxxDFxR",
+      "bytes": 1797060,
+      "sha256": "740ab898fcc6ad799ca4c280a29c8bc24eb0d447a77709933a5d3ed755edd80d"
+    },
+    "math_comparison_technical": {
+      "path": "data/raw/wy_math_compare_2025.html",
+      "url": "https://drive.google.com/uc?export=download&id=1jm4LbW1oyIX0yqpglZ6BNwwDy73xIRCD",
+      "bytes": 1270267,
+      "sha256": "bf25c6a5abc5988a1f04bb3d73093eb6a0e5ccaaeed0e1f3c9087898cbabc347"
+    },
+    "ela_comparison_technical": {
+      "path": "data/raw/wy_ela_compare_2025.html",
+      "url": "https://drive.google.com/uc?export=download&id=12SHf6MNp9EKBGnXAIPuQzJlQQhdALSpy",
+      "bytes": 1185898,
+      "sha256": "b7029d7203d25ba90c85a3025bd78db3cec49c4f4d186da6e8e4a9614f688226"
+    }
+  },
+  "assessment_download_flow": "Official Assessment Reports > WY-TOPP/WY-ALT School Level Aggregated > 2024\u201325, All district/school/subject/grade > XLSX > Run; ordinary public browser download successful",
+  "assessment_headers": [
+    "SCHOOL YEAR",
+    "DISTRICT NAME",
+    "SCHOOL NAME",
+    "GRADE",
+    "SUBJECT",
+    "NUMBER  OF STUDENTS TESTED",
+    "PARTICIPATION RATE",
+    "PERCENT BELOW",
+    "PERCENT BASIC",
+    "PERCENT PROFICIENT",
+    "PERCENT ADVANCED",
+    "PERCENT BASIC BELOW",
+    "PERCENT PROFICIENT ADVANCED"
+  ],
+  "assessment_rows": 2023,
+  "grades": {
+    "05": 284,
+    "08": 231,
+    "04": 441,
+    "03": 300,
+    "07": 152,
+    "06": 218,
+    "09": 148,
+    "10": 249
+  },
+  "native_schoolwide_totals": 0,
+  "authoritative_school_identity_in_export": false,
+  "tested_counts_are_ranges": true,
+  "count_examples": [
+    "10 - 19",
+    "40 - 49",
+    "50 - 59",
+    "30 - 39",
+    "20 - 29",
+    "6 - 9",
+    "60 - 69",
+    "70 - 79"
+  ],
+  "suppression_notice": [
+    "To protect individual student confidentiality, results are not reported for 5 or",
+    "fewer students and performance percentages are capped at 5% and 95%."
+  ],
+  "growth_report": {
+    "url": "https://reporting.edu.wyo.gov/ibi_apps/run.bip?BIP_REQUEST_TYPE=BIP_RUN&BIP_folder=IBFS%253A%252FWFC%252FRepository%252FPublic%252FNew_Public_Reports_2024%252FAccountability%252FBubble_Report%252F&BIP_item=achievement_and_growth_bubble_report",
+    "observed_year": "2024-25",
+    "observed_achievement_year": "Current Year",
+    "native_population": "Only students having a student growth percentile; not all tested students",
+    "native_cap": [
+      5,
+      95
+    ],
+    "minimum_group_and_complement": 10
+  },
+  "performance_report": {
+    "url": "https://reporting.edu.wyo.gov/ibi_apps/run.bip?BIP_REQUEST_TYPE=BIP_RUN&BIP_folder=IBFS%253A%252FWFC%252FRepository%252FPublic%252FNew_Public_Reports_2024%252FAccountability%252FPublic_School_Performance_Report%252FTraditional_School_Performance_Report%252F&BIP_item=public_traditional_school_performance_report",
+    "observed_example": {
+      "year": "2024-25",
+      "district": "Albany #1",
+      "school": "Snowy Range Academy",
+      "grades": "K-8",
+      "enrollment": 260,
+      "achievement_student_count": 163
+    },
+    "native_outputs": "Achievement category mixes subjects; separate subject goals show target value and Yes/No, not actual proficiency response",
+    "income_subgroup_count_usable_as_full_school_income": false
+  },
+  "national_route": {
+    "id": "WY",
+    "name": "Wyoming",
+    "fips": "56",
+    "edc": {
+      "path": "data/raw/edc-2025/wy.csv",
+      "url": "https://www.eddatacenter.org/api/data/3.1?state=WY&year=2025",
+      "bytes": 15591038,
+      "sha256": "5b7136516229c99183832364ba81474118af6194f7ea60c5e2c9ee04aba6d169",
+      "rows": 46173,
+      "all_student_math_ela_rows": 1604,
+      "grade_rows": {
+        "G04": 346,
+        "G03": 356,
+        "G05": 326,
+        "G06": 242,
+        "G07": 168,
+        "G08": 166
+      },
+      "g38_rows": 0,
+      "g38_exact_rate_rows": 0,
+      "g38_assessments": {}
+    },
+    "native_g38": {
+      "provenance": "EDC codebook GradeLevel G38 source column: SEA; aggregated grades 3\u20138.",
+      "source_id": "edc_codebook_v3_1",
+      "primary_total_crosscheck": "not_independently_verified",
+      "outcome_counts": "EDC may construct level counts; not approved for intervals.",
+      "approved_for_modeling": false
+    },
+    "ccd_directory_schools": 366,
+    "ccd_directory_grade_metadata_flags": {
+      "As reported": 365,
+      "Adjusted": 1
+    },
+    "ccd_membership_schools": 360,
+    "ccd_membership_flags": {
+      "Reported": 360
+    },
+    "ccd_direct_certification_schools": 300,
+    "ccd_direct_certification_flags": {
+      "Reported": 293,
+      "Suppressed": 7
+    },
+    "joined": {},
+    "exclusions": {},
+    "candidate_eligible_nces_ids": [],
+    "direct_certification_definition_note": null,
+    "blockers": [
+      "No EDC school G38 math/ELA totals; audit complete grade coverage and primary valid-score weights or obtain native totals.",
+      "Fewer than four complete exact-rate grade schools with reported same-year DC and enrollment in this source path."
+    ],
+    "approved_for_modeling": false
+  },
+  "blockers": [
+    "Public assessment file lacks authoritative school IDs and native schoolwide totals.",
+    "Protected tested-count ranges are not valid exact aggregation weights; rounded percentages may not reconstruct protected counts.",
+    "Growth-report proficiency describes only students having growth percentiles; it cannot fill all-tested school totals.",
+    "Public accountability outputs show performance categories/target attainment rather than actual subject rates."
+  ],
+  "resolution": "Obtain a public native actual schoolwide Math/ELA total with authoritative school IDs and verified population, or a complete exact-ID grade extract with independently visible valid-score counts; separately audit individual same-year income."
+}

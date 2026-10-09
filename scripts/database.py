@@ -11,6 +11,15 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB = ROOT / 'data/build/schools.sqlite'
 ISBE_URL = 'https://www.isbe.net/Documents/24-RC-Pub-Data-Set.xlsx'
 RULES_URL = 'https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf'
+IMPORT_INDEXES = {
+    'model_result_by_school': ('model_result', 'dataset_id, school_id'),
+    'school_by_source': ('school', 'source_id'),
+    'economic_by_source': ('economic_observation', 'source_id'),
+    'assessment_by_source': ('assessment_observation', 'source_id'),
+    'economic_by_definition': ('economic_observation', 'definition_id'),
+    'assessment_by_definition': ('assessment_observation', 'definition_id'),
+    'model_by_definition': ('model_run', 'definition_id'),
+}
 
 
 def numeric(value):
@@ -28,6 +37,12 @@ def connect(path=DEFAULT_DB):
     connection = sqlite3.connect(path)
     connection.row_factory = sqlite3.Row
     connection.execute('PRAGMA foreign_keys=ON')
+    # Add indexes to existing local stores as well as freshly created schemas.
+    # They change no observations or model results and retain schema version 1.
+    tables = {row[0] for row in connection.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    for name, (table, columns) in IMPORT_INDEXES.items():
+        if table in tables:
+            connection.execute(f'CREATE INDEX IF NOT EXISTS {name} ON {table}({columns})')
     return connection
 
 

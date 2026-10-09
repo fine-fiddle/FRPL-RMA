@@ -1,0 +1,21 @@
+# Vermont 2024–25 source audit
+
+Vermont remains outside the catalog because a same-year individual school income measure with authoritative school identifiers has not been recovered. Its native 2025 VTCAP assessment data are public. Older income data and nutrition claiming percentages cannot complete the join.
+
+## Current assessment data
+
+The [official assessment dashboard](https://education.vermont.gov/accountability-data/vermont-education-dashboard/ved-assessment) publishes 2025 general VTCAP and alternate assessment data through Vermont's public Socrata portal. The general dataset identifier is `c874-7tma`; the alternate dataset is `bcmk-98qw`. General VTCAP math and ELA cover grades 3–9, with separate grade-specific test names and native `schoolidentifier` values. The complete 2025 All Students general extract contains 30,438 rows. The initial unfiltered 50,000-row response was truncated and is not a complete source.
+
+There is no schoolwide All Grades record in the audited general extract. `Number of Students Tested` and proficiency percentages appear as separate indicators. A dated primary definition of the tested count's valid-score population is still required before grade weighting. District and state values do not replace suppressed school values. General VTCAP and the alternate assessment use different standards and must not be silently combined. The [2025 results fact sheet](https://education.vermont.gov/sites/aoe/files/documents/edu-press-release-VTCAP-results-2025-fact-sheet.pdf) distinguishes these populations and identifies VTCAP's replacement of Smarter Balanced in 2023.
+
+## Income sources and their limits
+
+The [Student Characteristics dashboard](https://education.vermont.gov/accountability-data/vermont-education-dashboard/ved-student-characteristics) describes individual school free/reduced lunch status. Its current public year menu stops at **2021**, verified in the browser on October 9, 2026. The linked full dataset is also a 2021 archive. The [official release notes](https://datacollection.education.vermont.gov/Governance/Public-Data-Dashboard/VED-Release-Notes/) confirm that later dashboard updates did not add Student Characteristics years. These data cannot be backfilled into a 2025 assessment model. The 2024–25 CCD lunch file does not report Vermont school direct certification.
+
+The [2024–25 nutrition eligibility report](https://education.vermont.gov/sites/aoe/files/documents/nutrition-2025-free-and-reduced-eligibility-report-revised.pdf), issued February 11, 2025, explains its calculations on pages 5–7. CEP school rates use the individual or group identified student percentage multiplied by **1.6**, from the start of the CEP cycle. Provision 2 school rates use the earlier base year, identified as October 2023 for this release. Reported free/reduced counts at these schools are calculated from those percentages and current lunch-program enrollment. They are not current individual eligibility headcounts. The report flags CEP and Provision 2 but supplies school names rather than school identifiers.
+
+The [2025–26 CEP notification workbook](https://education.vermont.gov/sites/aoe/files/documents/edu-sfa-and-school-cep-notification-report-sy25-26_0.xlsx) supplies current identified student percentages and distinguishes them from the multiplier. Its school worksheet contains **SFA ID and school name, but no school ID**. An SFA identifier identifies the food authority, not an individual school. A native school identifier or authoritative crosswalk is needed; matching assessment records by school name is prohibited.
+
+## What resolves the hold
+
+Obtain an official 2024–25 school income export containing native school IDs, individual eligibility counts or percentages, their enrollment population and measurement date. A school-ID crosswalk for a dated individual ISP source may provide a separate benefits-based measure if its scope and year are verified. Then establish valid-score weights for complete offered VTCAP grades, preserve suppression, and audit mixed and high schools separately. No canonical import, model or catalog descriptor is produced by this audit. Source URLs, checksums and observed schema are recorded in [vermont-audit.json](../data/source/vermont-audit.json).

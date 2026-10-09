@@ -1,0 +1,23 @@
+# New Hampshire 2024–25 source audit
+
+New Hampshire remains **source audit pending**, with no released regression dataset. Its same-year native income export is available, and its public assessment file reports regular tested-denominator proficiency, but a safe school identifier link has not been established. School names are not a replacement for authoritative IDs.
+
+## Verified income
+
+The [official iPlatform school eligibility report](https://my.doe.nh.gov/iPlatform/Report/Report?categoryId=18&categoryName=Free+and+Reduced+School+Lunch+Eligibility&name=Free+Reduced+K-12+School+Lunch+Eligibility+Rates+by+School&path=%2FBDMQ%2FiPlatform+Reports%2FDemographic+Data%2FFree+and+Reduced+School+Lunch+Eligibility%2FFree+Reduced+K-12+School+Lunch+Eligibility+Rates+by+School) accepts school year **2025**, **Run Report**, then **Export to Excel**. A browser exported the native XLSX on October 9, 2026. The report identifies itself as **2024–2025**, final December 2, 2024, as of October 1, 2024, collected through i4See and Direct Certification.
+
+It publishes SAU, district and school numbers, K–12 enrollment, individually eligible Free/Reduced count and an exact eligible fraction. Native school number is the needed economic identity. State/district summary rows have no school number and are excluded from any future school join. The report includes public academies, charter and interstate groups, and explains Rivendell's New Hampshire resident scope and free milk eligibility. The extract must preserve those limits. The downloaded income workbook is `data/raw/new-hampshire/income.xlsx`.
+
+## Assessment identity blocker
+
+The [official 2024–25 public assessment CSV](https://www.education.nh.gov/sites/g/files/ehbemt326/files/inline-documents/sonh/publicdatadisaggregated1_0.csv), downloaded through the official assessment page, contains **90,395** rows. Its fields include `DenominatorType`, `yearid`, level of data, subject, **district name**, **school name**, grade, subgroup, FAY count ranges, four achievement percentages and `Above prof% (lvl 3&4)`. It has **no school number, district number or NCES ID column**.
+
+The official page distinguishes the current **2024–25 Regular Denominator** file, whose denominator is the number tested, from historic 95% accountability denominator files. Current records explicitly have `DenominatorType=Regular` and `yearid=2025`. Unsuppressed schoolwide All Grades percentages could support point models only after authoritative identity and grade scope are established. The published student counts are ranges, such as `35 - 40`, and do not support exact grade aggregation weights or sampling intervals. Bounds and suppressed rates must remain unavailable. The downloaded file is `data/raw/new-hampshire/assessment.csv`.
+
+The public [iAchieve dashboard](https://jwt.nh.gov/?src_route=iAchieve/AssessmentParticipation&debug_session=false&toolbar=Hidden&Width=1300px&Height=1600px) anonymously displays 2025 proficiency and has an `entityID` tooltip and download pane. However, on October 9, 2026, browser actions against the embedded dashboard consistently failed with **“Click target no longer available”**, including fresh element, visual and keyboard attempts. A directly observed Tableau view redirects to login; it was left unfilled. No token was replayed or authorization bypassed. This is an unresolved export route, not proof that the public data are absent.
+
+Other observed official public routes are [iReport](https://jwt.nh.gov/?src_route=iReport/FrontPage&debug_session=false&toolbar=Hidden&Width=1300px&Height=1600px), [iGlossary](https://jwt.nh.gov/?src_route=iGlossary/Glossary&debug_session=false&toolbar=Hidden&Width=1300px&Height=1600px), and [iDefine](https://my.doe.nh.gov/DataDictionary/Default.aspx). A documented public school enrollment-by-grade report returned HTTP 500 through its browser link. A future same-year CCD grade crosswalk would still require a verified native school-ID mapping and would not itself repair the assessment CSV's missing identifiers.
+
+## What resolves the hold
+
+An official school-level assessment export containing native `School #`/`entityID` or another authoritative published identifier crosswalk must link current proficiency records to the exact same-year income identities. It must also distinguish grade schools from high and mixed schools. Names, third-party name-derived school identifiers, count-range midpoints and missing-grade extrapolation cannot resolve the hold. There is no catalog descriptor or canonical import until these requirements are met. Source paths, URLs, checksums and observed headers are recorded in `data/source/new-hampshire-audit.json` so the next audit can continue from verified files.

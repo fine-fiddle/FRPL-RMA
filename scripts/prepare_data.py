@@ -6,6 +6,9 @@ import polars as pl
 from database import DEFAULT_DB, connect, chicago_frames, save_models
 
 ROOT = Path(__file__).resolve().parents[1]
+# Preserve the numerical output of existing exports (largest cohort: 2,984).
+# Larger statewide cohorts must not allocate school-by-school matrices.
+DENSE_INTERVAL_MAX_SCHOOLS = 3000
 
 def fit_model(x, y, variance):
     """OLS + externally studentized residuals and conditional sampling intervals.
@@ -14,23 +17,65 @@ def fit_model(x, y, variance):
     Intervals propagate it through (I-H); regression scale is held fixed.
     """
     x, y, variance = map(lambda v: np.asarray(v, dtype=float), (x, y, variance))
+    if (any(v.ndim != 1 for v in [x, y, variance]) or
+            len(x) != len(y) or len(x) != len(variance)):
+        raise ValueError('Model inputs must be equal-length one-dimensional arrays')
+    if not all(np.isfinite(v).all() for v in [x, y, variance]) or np.any(variance < 0):
+        raise ValueError('Model inputs must be finite, with nonnegative sampling variance')
     X = np.column_stack([np.ones(len(x)), x])
     if len(x) < 4 or np.linalg.matrix_rank(X) != 2:
         raise ValueError('At least four schools and varying income percentages required')
+    centered_y = y-y.mean()
+    outcome_sse = np.sum(centered_y**2)
+    if not np.isfinite(outcome_sse) or outcome_sse == 0:
+        raise ValueError('Outcome variation is required for regression and studentization')
     inv = np.linalg.inv(X.T @ X)
     beta = inv @ X.T @ y
     predicted = X @ beta
     residual = y - predicted
     h = np.einsum('ij,jk,ik->i', X, inv, X)
     sse = residual @ residual
-    deleted_s2 = (sse - residual**2 / (1-h)) / (len(x)-3)
-    denom = np.sqrt(np.maximum(deleted_s2, 1e-12) * (1-h))
+    # An invertible full design can become singular after deleting one school.
+    # Likewise, a perfect fit has no residual scale to studentize. These are
+    # undefined statistics, not a reason to manufacture a small variance.
+    epsilon = np.finfo(float).eps
+    precision = 64 * epsilon
+    condition = np.linalg.cond(X)
+    leverage_tolerance = precision * max(1., condition)
+    if not np.isfinite(h).all() or np.any(1-h <= leverage_tolerance):
+        raise ValueError('Deleting a school leaves a singular or numerically unstable income design')
+    residual_tolerance = precision * max(1., condition) * max(
+        np.linalg.norm(y), np.linalg.norm(predicted))
+    if not np.isfinite(sse) or np.linalg.norm(residual) <= residual_tolerance:
+        raise ValueError('Perfect or numerically degenerate fit has no studentization scale')
+    removed_sse = residual**2 / (1-h)
+    deleted_sse = sse-removed_sse
+    # Subtracting two nearly equal sums loses precision. Reject an unresolved
+    # deleted scale rather than returning an arbitrary floor-based statistic.
+    deleted_tolerance = precision * np.maximum(sse, np.abs(removed_sse))
+    if not np.isfinite(deleted_sse).all() or np.any(deleted_sse <= deleted_tolerance):
+        raise ValueError('Deleted-school residual variance is zero or numerically unresolved')
+    deleted_s2 = deleted_sse / (len(x)-3)
+    denom = np.sqrt(deleted_s2 * (1-h))
     t = residual / denom
-    H = X @ inv @ X.T
-    sampling_variance = ((np.eye(len(x)) - H)**2) @ variance
+    if not np.any(variance):
+        sampling_variance = np.zeros(len(x))
+    elif len(x) <= DENSE_INTERVAL_MAX_SCHOOLS:
+        H = X @ inv @ X.T
+        sampling_variance = ((np.eye(len(x)) - H)**2) @ variance
+    else:
+        # diag((I-H) diag(variance) (I-H).T), with H = X inv X.T.
+        # The weighted 2-by-2 Gram matrix avoids all n-by-n allocations while
+        # propagating every model member's variance through the same formula.
+        weighted_gram = X.T @ (variance[:, None] * X)
+        fitted_covariance = inv @ weighted_gram @ inv
+        sampling_variance = variance * (1 - 2*h) + np.einsum(
+            'ij,jk,ik->i', X, fitted_covariance, X)
     se = np.sqrt(np.maximum(sampling_variance, 0)) / denom
+    if not np.isfinite(t).all() or not np.isfinite(se).all():
+        raise ValueError('Studentization or sampling interval calculation is non-finite')
     return dict(intercept=float(beta[0]), slope=float(beta[1]), n=len(x),
-                r2=float(1-sse/np.sum((y-y.mean())**2))), [
+                r2=float(1-sse/outcome_sse)), [
         dict(actual=float(y[i]), predicted=float(predicted[i]), residual=float(residual[i]),
              studentized=float(t[i]), low=float(t[i]-1.96*se[i]), high=float(t[i]+1.96*se[i]),
              leverage=float(h[i])) for i in range(len(x))]
@@ -104,10 +149,13 @@ def build_history(assessments, incomes, point_only_assessments=()):
                 model, results = fit_model([r['income'] for r in eligible],
                     [r['subjects'][subject]['actual'] for r in eligible],
                     [r['subjects'][subject]['variance'] for r in eligible])
-            except ValueError:
+            except ValueError as error:
+                reason = ('Insufficient schools or income variation for regression'
+                          if str(error) == 'At least four schools and varying income percentages required'
+                          else f'Regression unavailable: {error}')
                 for r in eligible:
                     del r['subjects'][subject]
-                    r['exclusions'][subject] = 'Insufficient schools or income variation for regression'
+                    r['exclusions'][subject] = reason
                 continue
             models.append(dict(year=year, level=level, assessment=assessment, subject=subject,
                                assessed_schools=len(cohort), excluded_schools=len(cohort)-len(eligible), **model))

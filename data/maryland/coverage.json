@@ -1,0 +1,31 @@
+{
+  "year": 2025,
+  "schools": 1086,
+  "cohorts": {
+    "grade": {
+      "directory": 1086,
+      "eligible": {
+        "math": 1026,
+        "reading": 1074,
+        "combined": 1026
+      }
+    }
+  },
+  "exclusions": {
+    "Missing or invalid same-year income": 12,
+    "Math: Missing or invalid same-year income; ELA: Missing or invalid same-year income": 6,
+    "Missing or suppressed proficiency": 2,
+    "Math: Missing or suppressed proficiency; ELA: Missing or suppressed proficiency": 1,
+    "Native school proficiency is suppressed or unavailable": 58,
+    "Math: Native school proficiency is suppressed or unavailable": 48,
+    "Math: Native school proficiency is suppressed or unavailable; ELA: Native school proficiency is suppressed or unavailable": 5
+  },
+  "source_audit": {
+    "excluded": {
+      "No exact historical grade-school scope": 335
+    },
+    "native_directory": 1421,
+    "point_only": true,
+    "economic_collection": "Native Early Attendance; denominator preserved"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "state": "NH",
+  "year": 2025,
+  "academic_year": "2024-25",
+  "retrieved": "2026-10-09",
+  "status": "audit_pending",
+  "blocker": "Native public assessment CSV lacks authoritative school IDs; public entityID dashboard export remains unresolved.",
+  "sources": {
+    "income": {
+      "path": "data/raw/new-hampshire/income.xlsx",
+      "url": "https://my.doe.nh.gov/iPlatform/Report/Report?categoryId=18&categoryName=Free+and+Reduced+School+Lunch+Eligibility&name=Free+Reduced+K-12+School+Lunch+Eligibility+Rates+by+School&path=%2FBDMQ%2FiPlatform+Reports%2FDemographic+Data%2FFree+and+Reduced+School+Lunch+Eligibility%2FFree+Reduced+K-12+School+Lunch+Eligibility+Rates+by+School",
+      "sha256": "90161004ef11e1a486301e1b2de183b2085827f2bc485d4f5eefa45e30c68296"
+    },
+    "assessment": {
+      "path": "data/raw/new-hampshire/assessment.csv",
+      "url": "https://www.education.nh.gov/sites/g/files/ehbemt326/files/inline-documents/sonh/publicdatadisaggregated1_0.csv",
+      "sha256": "b6c4bc9b8508e3ec2b20da2497ad1cfbb47a8c4e10ae98028c49c3472bdbdb21"
+    }
+  },
+  "assessment_headers": [
+    "DenominatorType",
+    "yearid",
+    "Level of Data",
+    "Subject",
+    "District",
+    "School",
+    "Grade",
+    "Subgroup",
+    "Total FAY Students",
+    "level1%",
+    "level2%",
+    "level3%",
+    "level4%",
+    "Above prof% (lvl 3&4)",
+    "Participate%",
+    "Mean SGP",
+    "Avg Score",
+    "Report Date"
+  ],
+  "assessment_rows": 90395,
+  "denominator_types": {
+    "Regular": 90395
+  },
+  "assessment_years": {
+    "2025": 90395
+  },
+  "income_headers": [
+    "SAU #",
+    "SAU Name",
+    "District #",
+    "District Name",
+    "School #",
+    "School Name",
+    "Enroll (1)",
+    "Free and Reduced\nEligible (1)",
+    "% Eligible"
+  ],
+  "income_school_records": 485,
+  "income_report_metadata": [
+    [
+      "Report ID : 26"
+    ],
+    [
+      "Type of Data: Final"
+    ],
+    [
+      "Report Date: 12/2/2024"
+    ],
+    [
+      "Run Date: 10/9/2026"
+    ],
+    [],
+    [
+      "New Hampshire Department of Education\nDivision of Education Analytics and Resources\nBureau of Educational Statistics\n25 Hall Street, Concord, NH 03301"
+    ],
+    [
+      "2024 - 2025 Free Reduced School Lunch Eligibility Rates by School (K-12)"
+    ],
+    [
+      "As of October 1, 2024 data collection through i4See and Direct Certification"
+    ]
+  ],
+  "published_count_ranges": true,
+  "official_school_identity_available_in_income_only": true
+}

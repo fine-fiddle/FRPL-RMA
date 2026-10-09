@@ -100,3 +100,11 @@ CREATE TABLE model_result (
     FOREIGN KEY(dataset_id, school_id) REFERENCES school(dataset_id, school_id)
 );
 CREATE INDEX assessment_by_dataset ON assessment_observation(dataset_id, definition_id);
+-- Child-key lookups keep repeat imports proportional to the affected release.
+CREATE INDEX model_result_by_school ON model_result(dataset_id, school_id);
+CREATE INDEX school_by_source ON school(source_id);
+CREATE INDEX economic_by_source ON economic_observation(source_id);
+CREATE INDEX assessment_by_source ON assessment_observation(source_id);
+CREATE INDEX economic_by_definition ON economic_observation(definition_id);
+CREATE INDEX assessment_by_definition ON assessment_observation(definition_id);
+CREATE INDEX model_by_definition ON model_run(definition_id);

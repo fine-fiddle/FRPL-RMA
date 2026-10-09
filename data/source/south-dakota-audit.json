@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "state": "SD",
+  "academic_year": "2024-25",
+  "audit_date": "2026-10-09",
+  "approved_for_modeling": false,
+  "sources": {
+    "technical_manual": {
+      "path": "data/raw/sd-25-Accountability-TM.pdf",
+      "url": "https://doe.sd.gov/reportcard/documents/25-Accountability-TM.pdf",
+      "bytes": 3845108,
+      "sha256": "6b80e639cb489a852db0bc5f73a62f7bcccf8510383ea4a7c071623dfa05b334"
+    },
+    "calculation_guide": {
+      "path": "data/raw/sd-25-CalculationGuide.pdf",
+      "url": "https://doe.sd.gov/reportcard/documents/25-CalculationGuide.pdf",
+      "bytes": 511931,
+      "sha256": "34dacf16593789e355e8821f4f4d5524feaa4a02a5d32a83f621021b12ec32bf"
+    },
+    "public_config": {
+      "path": "data/raw/sd-config.json",
+      "url": "https://sdschools.sd.gov/assets/config/config.json",
+      "bytes": 4886,
+      "sha256": "61e1832c4e721df428ad21cafe2fb24851fec13f8023608f587a1a48de10b4de"
+    },
+    "school_directory": {
+      "path": "data/raw/sd-schools-2025.json",
+      "url": "https://sdschools.sd.gov/assets/SDAssets/202425.json",
+      "bytes": 610264,
+      "sha256": "30fa9d6fbcdc01606e7304379d9bfaa663aca3e38381d48cd6ce2d9bcaea69d5"
+    },
+    "ccd_state_notes": {
+      "path": "data/raw/SY_2024-25_CCD_Final_2a_Data_Notes.xlsx",
+      "url": "https://nces.ed.gov/ccd/xls/SY_2024-25_CCD_Final_2a_Data_Notes.xlsx",
+      "bytes": 210984,
+      "sha256": "6476b6b28b700389e261b87377d9cd249935503d53b5919fe1b7ef8b1052d1a7"
+    }
+  },
+  "income_findings": [
+    {
+      "source": "technical_manual",
+      "page": 16,
+      "finding": "Economic disadvantage includes individual FRL history ending in the current year OR attendance at any CEP/provisional school during the year; all such schools are marked100% FRL. This subgroup cannot supply individual enrolled economic eligibility without additional authoritative exclusions."
+    },
+    {
+      "source": "ccd_state_notes",
+      "finding": "SEA notes identify changed and unresolved direct-certification submission definitions, including LEA-level shifts from free counts in2023–24 to direct certification in2024–25. Affected school/LEA IDs are not supplied, so the same-year CCD DC measure does not establish a safe restriction."
+    }
+  ],
+  "assessment_findings": [
+    {
+      "source": "calculation_guide",
+      "pages": [
+        2,
+        3
+      ],
+      "finding": "Current-year FAY proficiency denominator says invalidated scores count."
+    },
+    {
+      "source": "technical_manual",
+      "page": 41,
+      "finding": "Current and multiyear proficiency denominator says invalidated scores do not count;95% participation changes SPI points separately. The primary manuals conflict, so invalidated-score treatment is not asserted universally."
+    },
+    {
+      "source": "technical_manual",
+      "page": 25,
+      "finding": "All-Assessed Proficiency is a separate population without FAY restriction, with Not Tested/Not Scoreable classifications. A native source field/population mapping is needed before approving published totals."
+    }
+  ],
+  "access_findings": [
+    "Public school site/config/directory are accessible; the earlier data-request note is not evidence that public reports are inaccessible.",
+    "Native2024–25 public reports have authoritative school IDs; this audit has not approved a complete proficiency export."
+  ],
+  "resolution": [
+    "Obtain same-year individual eligibility source or documented affected-ID corrections/exclusions for the CCD definition changes.",
+    "Map native actual All-Assessed scored outcomes to primary valid-score definitions, resolving the conflicting invalidation instructions."
+  ],
+  "canonical_observations_created": false,
+  "browser_release_created": false
+}

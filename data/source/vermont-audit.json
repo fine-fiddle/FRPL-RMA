@@ -1,0 +1,70 @@
+{
+  "state": "VT",
+  "year": 2025,
+  "school_year": "2024-25",
+  "retrieved": "2026-10-09",
+  "status": "audit_pending",
+  "sources": {
+    "native_general": {
+      "path": "data/raw/vt-general-all-2025.json",
+      "url": "https://data.vermont.gov/resource/c874-7tma.json",
+      "sha256": "c617ddffb39687ecaddd891af8f8cdf7dbcc65ffe0b848e5fcfc489a5465798b"
+    },
+    "native_general_metadata": {
+      "path": "data/raw/vt-assessment-metadata.json",
+      "url": "https://data.vermont.gov/api/views/c874-7tma.json",
+      "sha256": "a87a9efd515c3b00e1f62eb3fb3d2e1af477fbd39d920a5450f2235ec6b6aa12"
+    },
+    "current_income_report": {
+      "path": "data/raw/vt-frpl-2025.pdf",
+      "url": "https://education.vermont.gov/sites/aoe/files/documents/nutrition-2025-free-and-reduced-eligibility-report-revised.pdf",
+      "sha256": "169111edb0925d93cf013ab456e4c24638fb191add39f94f796169708b16c84e"
+    },
+    "current_cep_workbook": {
+      "path": "data/raw/vt-cep-2025.xlsx",
+      "url": "https://education.vermont.gov/sites/aoe/files/documents/edu-sfa-and-school-cep-notification-report-sy25-26_0.xlsx",
+      "sha256": "fa8deee4c6ce2fe06e545bd59811870bc0f6f105752fe56d5f501300962574ad"
+    },
+    "historical_characteristics": {
+      "path": "data/raw/vt-characteristics.html",
+      "url": "https://education.vermont.gov/accountability-data/vermont-education-dashboard/ved-student-characteristics",
+      "sha256": "27f6b51221335cadd31dcbb6fce6190f6bead5769a40245fb334ae7fff3f3453"
+    },
+    "native_fact_sheet": {
+      "path": "data/raw/vt-2025-fact.pdf",
+      "url": "https://education.vermont.gov/sites/aoe/files/documents/edu-press-release-VTCAP-results-2025-fact-sheet.pdf",
+      "sha256": "a9603ff02f2eec5cfac379d827147a9ecd085be98becbf196cf1d7f45ebe767d"
+    }
+  },
+  "general_all_student_rows": 30438,
+  "general_grades": [
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09"
+  ],
+  "native_school_id_field": "schoolidentifier",
+  "schoolwide_general_total_available": false,
+  "valid_score_count_definition": "unverified",
+  "income_characteristics_latest_public_year": 2021,
+  "ccd_direct_certification": "not_reported",
+  "cep_school_columns": [
+    "SFA ID",
+    "SFA Name",
+    "School Name",
+    "Identified Student Percentage (ISP)",
+    "Eligible to Participate",
+    "Near Eligible to Participate",
+    "Currently Participating",
+    "Eligible for a Grace Year"
+  ],
+  "blockers": [
+    "Individual income dashboard ends2021; cannot backfill",
+    "Current nutrition CEP multiplier/Provision2 base-year counts cannot substitute individual eligibility",
+    "Current ISP workbook has SFA ID and school names but no school identifier",
+    "Native tested count valid-score scope unverified; no schoolwide total"
+  ]
+}
