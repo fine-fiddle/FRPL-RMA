@@ -209,8 +209,9 @@ function renderHistory() {
   const x = d3.scaleLinear().domain(firstYear === lastYear ? [firstYear-.5,lastYear+.5] : [firstYear,lastYear]).range([margin.left, width - margin.right]);
   const extent = Math.max(2, ...values.flatMap(d=>[Math.abs(d.value),Math.abs(d.low || 0),Math.abs(d.high || 0)]));
   const y = d3.scaleLinear().domain([-extent, extent]).nice().range([height - margin.bottom, margin.top]);
+  const intervalDescription = values.some(hasInterval) ? 'Bars, where available, show approximate 95% sampling intervals.' : 'Sampling intervals are unavailable for every displayed point.';
   const svg = d3.select(host).append('svg').attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'img')
-    .attr('aria-label', `${displayName(school)} ${label} externally studentized residuals from ${values[0].year} to ${values[values.length - 1].year}. Zero is predicted performance. Bars show approximate 95% sampling intervals. Values are in the table below.`);
+    .attr('aria-label', `${displayName(school)} ${label} externally studentized residuals from ${values[0].year} to ${values[values.length - 1].year}. Zero is predicted performance. ${intervalDescription} Values are in the table below.`);
   svg.append('g').attr('class','axis').attr('transform',`translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d=>signed(d,1)).tickSize(-(width-margin.left-margin.right))).call(g=>g.select('.domain').remove());
   svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).tickValues(d3.range(firstYear,lastYear+1)).tickFormat(d=>d).tickSize(0)).call(g=>g.selectAll('text').attr('dy',16).attr('transform','rotate(-35)').style('text-anchor','end'));
   svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',11).attr('fill','#667386').text('Studentized residual · above / below prediction');
@@ -250,6 +251,7 @@ function renderComparison() {
   let rows=(state.scope==='selected'?cohort().filter(s=>state.selected.has(s.id)):filtered()).filter(s=>metric(s));
   $('#combined-count-note').hidden=state.subject!=='combined' || !rows.some(s=>metric(s).tested != null);
   $('.chart-footnote span').textContent = rows.some(s=>!hasInterval(metric(s))) ? 'Sampling intervals unavailable where tested counts are missing' : 'Approximate 95% sampling interval';
+  $('.chart-footnote').hidden = !rows.length;
   rows.sort((a,b)=>metric(b).studentized-metric(a).studentized);
   const host=$('#residuals'), axisHost=$('#residual-axis');host.replaceChildren();axisHost.replaceChildren();
   if(!rows.length){host.innerHTML='<p class="empty">Select schools from the list or map to compare their residuals.</p>';return;}
@@ -258,7 +260,8 @@ function renderComparison() {
   const x=d3.scaleLinear().domain([-extent,extent]).range([left,width-right]);
   const axis=d3.select(axisHost).append('svg').attr('viewBox',`0 0 ${width} 27`);
   axis.append('g').attr('class','axis').attr('transform','translate(0,22)').call(d3.axisTop(x).ticks(width<500?3:5).tickSize(0).tickFormat(d=>d===0?'0':signed(d,1))).call(g=>g.select('.domain').remove());
-  const svg=d3.select(host).append('svg').attr('viewBox',`0 0 ${width} ${rows.length*rowHeight}`).attr('height',rows.length*rowHeight).attr('role','group').attr('aria-label','Schools sorted by externally studentized residual. Intervals are approximate conditional sampling intervals.');
+  const intervalDescription = rows.some(s=>hasInterval(metric(s))) ? 'Intervals, where available, are approximate conditional sampling intervals.' : 'Sampling intervals are unavailable for every displayed point.';
+  const svg=d3.select(host).append('svg').attr('viewBox',`0 0 ${width} ${rows.length*rowHeight}`).attr('height',rows.length*rowHeight).attr('role','group').attr('aria-label',`Schools sorted by externally studentized residual. ${intervalDescription}`);
   const groups=svg.selectAll('g.residual-row').data(rows).join('g').attr('class','residual-row').attr('transform',(s,i)=>`translate(0,${i*rowHeight})`).attr('tabindex',0).attr('role','button').attr('aria-label',s=>`${s.name}, residual ${signed(metric(s).studentized)}, ${intervalLabel(metric(s))}. Inspect school.`).on('click',(e,s)=>inspect(s.id)).on('keydown',(e,s)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect(s.id);}}).on('mouseenter',tooltip).on('mouseleave',hideTooltip).on('focus',tooltip).on('blur',hideTooltip);
   groups.append('rect').attr('class','row-bg').attr('width',width).attr('height',rowHeight).attr('fill',(s,i)=>s.id===state.focus?'#f3f6ff':i%2?'#fafbfd':'white').attr('rx',3);
   groups.append('line').attr('x1',x(0)).attr('x2',x(0)).attr('y1',0).attr('y2',rowHeight).attr('stroke','#bbc6d5').attr('stroke-dasharray','3 3');

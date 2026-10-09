@@ -110,12 +110,17 @@ overlap. All 143 profiles without Combined retain explanations. Coordinates are
 unavailable because no authoritative coordinate crosswalk has been imported;
 location missingness does not affect list/chart coverage or model membership.
 
-The [Miami-Dade district audit](miami-dade-district.md) retains exact 2024–25 CCD
+The [Miami-Dade district comparison](miami-dade-district.md) retains exact 2024–25 CCD
 LEA `1200390` / native `FL-13` school membership. It separates this statewide
-enrolled-grade contract from proposed pure offered-grade district membership,
+enrolled-grade contract from pure offered-grade district membership,
 including schools with no enrolled high grades but high-grade offerings in CCD.
-The source-only audit preserves exclusions and unavailable score counts; it does
-not change Florida's statewide results or approve an independent district fit.
+The separate district directory retains 370 pure lower profiles, with 357 usable
+schools in each independently audited Math, ELA and Combined model. Missing
+outcomes and primary-only profiles retain their exclusions; valid-score counts
+and sampling intervals remain unavailable. Historical source and numerical audits
+stay immutable and unapproved; the separate normalized district release supplies
+integration evidence. Florida's statewide results remain unchanged. High-school
+and mixed district assessment scope require further audit.
 
 Separate Math, ELA and Combined models use externally studentized residuals.
 Combined is the equally weighted mean of subject proficiency, not proficiency in

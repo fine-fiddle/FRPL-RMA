@@ -1297,7 +1297,7 @@
         ]
       },
       "tier": "main",
-      "scope": "new_district_candidate",
+      "scope": "existing_miami_dade",
       "directory_raw": {
         "SCHOOL_YEAR": "2024-2025",
         "LEAID": "1200390",

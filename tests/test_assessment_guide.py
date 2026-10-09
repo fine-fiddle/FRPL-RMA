@@ -171,6 +171,22 @@ class AssessmentGuideTests(unittest.TestCase):
                 params = parse_qs(urlsplit(row['regions'][0]['url']).query)
                 self.assertEqual(params, dict(state=['CA'], region=['los-angeles'], level=[row['level']]))
 
+    def test_miami_dade_definition_has_its_own_native_florida_link_and_population(self):
+        rows = self.by_state['FL']['assessments']
+        district = [a for a in rows if a['dataset_id'] == 'fl-miami-dade-2025']
+        self.assertEqual(len(district), 1)
+        row = district[0]
+        statewide = next(a for a in rows if a['dataset_id'] == 'fl-schoolgrades-2025')
+        for field in ['name', 'year', 'level', 'grades', 'standard', 'source_url']:
+            self.assertEqual(row[field], statewide[field])
+        self.assertEqual([r['id'] for r in row['regions']], ['miami-dade'])
+        self.assertEqual([r['id'] for r in statewide['regions']], ['florida'])
+        self.assertEqual(row['level'], 'ES')
+        self.assertIsNone(row['provider'])
+        self.assertIsNone(row['ambition_comparison'])
+        self.assertEqual(parse_qs(urlsplit(row['regions'][0]['url']).query),
+                         dict(state=['FL'], region=['miami-dade'], level=['ES']))
+
     def test_provider_roles_do_not_propagate_from_titles_membership_or_new_years(self):
         evidence = load_provider_evidence()
         definition = copy.deepcopy(next(b['definition'] for b in evidence['bindings']

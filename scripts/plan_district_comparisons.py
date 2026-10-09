@@ -120,6 +120,8 @@ def size_tier(enrollment, cohort_counts):
 def scope(row):
     if row['LEAID'] == '0622710':
         return 'existing_los_angeles'
+    if row['LEAID'] == '1200390':
+        return 'existing_miami_dade'
     if row['LEAID'] == '1709930':
         return 'existing_chicago'
     if row['LEAID'] == '1500030':
@@ -278,6 +280,8 @@ def render(payload):
                 status = 'Existing CPS comparison; size reference'
             elif row['scope'] == 'existing_los_angeles':
                 status = 'Existing Los Angeles Unified comparison; pure cohorts'
+            elif row['scope'] == 'existing_miami_dade':
+                status = 'Existing Miami-Dade comparison; pure grade schools only'
             elif row['scope'] == 'existing_hawaii_statewide':
                 status = 'Existing statewide comparison'
             elif row['scope'] == 'existing_nyc_component':
@@ -289,7 +293,7 @@ def render(payload):
     table('First tier · largest new district comparisons', main)
     table('Second tier · substantial regional comparisons', secondary)
     lines.extend(['## Existing comparisons and components', '',
-        'CPS and Los Angeles Unified are implemented. Hawaii’s single state LEA already has its statewide '
+        'CPS, Los Angeles Unified and Miami-Dade grade schools are implemented. Hawaii’s single state LEA already has its statewide '
         'comparison. The NYC geographic LEAs below are components of the existing NYC system; '
         'they would be optional subdistrict work, not additional whole-city systems. Do not '
         'add their counts to the Chancellor’s Office supervisory total or include District 75 '
@@ -327,8 +331,9 @@ def render(payload):
         'CCD district membership separate from Florida\'s native enrolled-grade school '
         'population. They document offered-versus-enrolled grade differences, raw '
         'individual lunch eligibility, collocated/virtual exclusions and missing '
-        'score counts. Separate pure grade-school fits are independently checked; '
-        'canonical import, browser integration and release review remain pending.', ''])
+        'score counts. The district region uses independently checked pure grade-school '
+        'fits with no sampling intervals; high-school and mixed assessment scope remain '
+        'unaudited. Statewide Florida remains its own comparison.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

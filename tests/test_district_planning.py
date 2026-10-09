@@ -22,6 +22,7 @@ class DistrictPlanningTests(unittest.TestCase):
         # planning screen must use the independently published LEA population.
         self.assertEqual(self.rows['0622710']['enrollment'], 408026)
         self.assertEqual(self.rows['0622710']['scope'], 'existing_los_angeles')
+        self.assertEqual(self.rows['1200390']['scope'], 'existing_miami_dade')
         self.assertNotEqual(self.rows['0622710']['enrollment'], 406717)
         self.assertEqual(self.rows['1709930']['enrollment'], 324130)
         self.assertEqual(self.rows['1709930']['scope'], 'existing_chicago')

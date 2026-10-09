@@ -472,6 +472,76 @@
       "sha256": "7d5f1e1445e75a65f4270aabe1109271aeeed67ec0f3b3eb293df74e6ccd3452"
     },
     {
+      "id": "fl-miami-dade-2025:assessment",
+      "dataset_id": "fl-miami-dade-2025",
+      "path": "data/raw/fl_assessment_2025.xlsx",
+      "url": "https://cdn.fldoe.org/file/18534/SchoolGrades25.xlsx",
+      "sha256": "52d3d3d7c2187eb9cbe22477bd088c0c13570f6f2b9f45f74a4b9f771be70a5b"
+    },
+    {
+      "id": "fl-miami-dade-2025:ccd_school_directory",
+      "dataset_id": "fl-miami-dade-2025",
+      "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_029_2425_w_1a_073025.zip",
+      "sha256": "39326da788aa322353d20ceaf8ad4baed26272502cd05b066cf6c594988b21ab"
+    },
+    {
+      "id": "fl-miami-dade-2025:extract",
+      "dataset_id": "fl-miami-dade-2025",
+      "path": "data/source/miami-dade.json",
+      "url": "https://www.fldoe.org/accountability/accountability-reporting/school-grades/archives.stml",
+      "sha256": "d0de1a801c4b221928e85e58a7d8e1a767463c49aa392cc84a2b89850ea8d6ac"
+    },
+    {
+      "id": "fl-miami-dade-2025:florida_extract",
+      "dataset_id": "fl-miami-dade-2025",
+      "path": "data/source/florida.json",
+      "url": "https://www.fldoe.org/accountability/accountability-reporting/school-grades/archives.stml",
+      "sha256": "523afad888444e875fc8d06486b20240896341d55b14d9484e8b935888f66daf"
+    },
+    {
+      "id": "fl-miami-dade-2025:grade-guide",
+      "dataset_id": "fl-miami-dade-2025",
+      "path": "data/raw/fl_guide_2025.pdf",
+      "url": "https://cdn.fldoe.org/file/18534/SchoolGradesCalcGuide25.pdf",
+      "sha256": "7dd60cd7c45d03f6324d16d9dcdeb244a5da79f5bccb25859badb32cc2932309"
+    },
+    {
+      "id": "fl-miami-dade-2025:grades",
+      "dataset_id": "fl-miami-dade-2025",
+      "path": "data/raw/fl_grades_2025.xlsx",
+      "url": "https://cdn.fldoe.org/file/7584/2425MembBySchoolByGrade.xlsx",
+      "sha256": "930a81159fac3db4b38c6428aebc2e5000e9199ce88bb80ecc7431838ae3c93a"
+    },
+    {
+      "id": "fl-miami-dade-2025:income",
+      "dataset_id": "fl-miami-dade-2025",
+      "path": "data/raw/fl_income_2025.xlsx",
+      "url": "https://cdn.fldoe.org/file/7584/2425LunchStatusFS2-3.xlsx",
+      "sha256": "48cd9428ea32decf723cc03c2ee7d25528ed8df3db36b20d97e948805344086d"
+    },
+    {
+      "id": "fl-miami-dade-2025:lunch-guide",
+      "dataset_id": "fl-miami-dade-2025",
+      "path": "data/raw/fl_lunch_definition_2025.pdf",
+      "url": "https://cdn.fldoe.org/core/fileparse.php/20744/urlt/2425-146025.pdf",
+      "sha256": "1c8617d492e845e8bdf584c4780de6ac1cf7e7d35e7f2faaa96cec30cf322216"
+    },
+    {
+      "id": "fl-miami-dade-2025:numerical_audit",
+      "dataset_id": "fl-miami-dade-2025",
+      "path": "data/source/miami-dade-model-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/miami-dade-model-audit.json",
+      "sha256": "b327ccd70365bbf91ab14c8bfd5828ead73d807db453efc2fd66e79bdc50f9e1"
+    },
+    {
+      "id": "fl-miami-dade-2025:roster_audit",
+      "dataset_id": "fl-miami-dade-2025",
+      "path": "data/source/miami-dade-district-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/miami-dade-district-audit.json",
+      "sha256": "6faee4cbed0c37bade8bf8eb04ffa65b32c772141028b898080d9c86e5fb2b78"
+    },
+    {
       "id": "fl-schoolgrades-2025:assessment",
       "dataset_id": "fl-schoolgrades-2025",
       "path": "data/raw/fl_assessment_2025.xlsx",
@@ -15782,6 +15852,16 @@
       "source_url": "https://data.delaware.gov/resource/ms6b-mt82.json?%24where=schoolyear%3D%272025%27+and+race%3D%27All+Students%27+and+gender%3D%27All+Students%27+and+geography%3D%27All+Students%27+and+grade%3D%27All+Students%27+and+specialdemo%3D%27All+Students%27&%24limit=50000&%24order=districtcode%2Cschoolcode"
     },
     {
+      "id": "fl-miami-dade-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "state": "FL",
+      "name": "Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools",
+      "year": 2025,
+      "level": "ES",
+      "grades": "Grade schools: FAST3\u20138, FAA, Math EOC and source-attributed students",
+      "standard": "2024\u201325 native School Grades English Language Arts Achievement and Mathematics Achievement components: Level 3 or above / valid assessed students under Florida full-year-enrollment and home-zoned attribution rules, including eligible FAA Performance Task but excluding FAA Datafolio. ELA FAST PM3 grades 3\u201310 and Math FAST PM3 grades 3\u20138 plus B.E.S.T./Access Algebra 1/Geometry EOCs; this cohort enrolls no grades 9\u201312 in the same-year Survey 2 registry. ELL included after two US-school years; medical/extraordinary exemptions excluded. Components require at least 10 eligible students. Native whole-percent rates only; score denominators absent, so all model sampling intervals unavailable. Collocated combined results and provider-specific virtual rates are excluded from individual-school matches.",
+      "source_url": "https://www.fldoe.org/file/18534/SchoolGradesCalcGuide25.pdf"
+    },
+    {
       "id": "fl-schoolgrades-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
       "state": "FL",
       "name": "Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools",
@@ -16676,6 +16756,12 @@
       "name": "Individual SNAP/TANF direct certification",
       "definition": "Same-year individual SNAP/TANF direct-certification Low-Income count over its native end-of-year enrollment denominator. DDOE defines its general Low-Income measure through TANF/SNAP; Medicaid is separately added for Consolidated Grant Application purposes and is not substituted here. This is not meal access, a CEP claiming rate, fall enrollment or a tested subgroup. Suppression remains missing. No prior-year income backfill.",
       "source_url": "https://education.delaware.gov/community/funding-contracts/federal-and-state-programs/title-programs/low-income-measure-and-title-i-schools/"
+    },
+    {
+      "id": "fl-miami-dade-2025:income",
+      "name": "Individual reported FRPL/direct-certification eligibility",
+      "definition": "Florida 2024\u201325 Final Survey 3 (February) raw individual Lunch Status counts: D/F free eligibility + 3/E reduced eligibility + C/R CEP direct certification, divided by same-survey enrolled students (PK\u201312). Never uses the USDA 1.6-adjusted federal funding numerator or published school-grade economic percentage. CEP N means not individually identified eligible and is excluded from the numerator. Provision 2 code 4 reports all enrolled students, so schools with nonzero or masked code 4 have unavailable income. At CEP schools this proxy counts direct certification/household extension rather than a complete income survey of all families; undercount and reporting coverage are unknown. No other-year backfill.",
+      "source_url": "https://www.fldoe.org/core/fileparse.php/20744/urlt/2425-146025.pdf"
     },
     {
       "id": "fl-schoolgrades-2025:income",
@@ -17740,6 +17826,30 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "a7026d78b1ca16a5d9d84fabb3465ca70a802fc64c36e8cb4382f7591998b9bd"
+    },
+    {
+      "id": "fl-miami-dade-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:combined:ols-v1:8e957e1903c0",
+      "dataset_id": "fl-miami-dade-2025",
+      "definition_id": "fl-miami-dade-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "8e957e1903c07d6105dd04401369e737fef32dd76a6aa0f49985ec318ce0ee0f"
+    },
+    {
+      "id": "fl-miami-dade-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:math:ols-v1:8e957e1903c0",
+      "dataset_id": "fl-miami-dade-2025",
+      "definition_id": "fl-miami-dade-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "8e957e1903c07d6105dd04401369e737fef32dd76a6aa0f49985ec318ce0ee0f"
+    },
+    {
+      "id": "fl-miami-dade-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:reading:ols-v1:8e957e1903c0",
+      "dataset_id": "fl-miami-dade-2025",
+      "definition_id": "fl-miami-dade-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "8e957e1903c07d6105dd04401369e737fef32dd76a6aa0f49985ec318ce0ee0f"
     },
     {
       "id": "fl-schoolgrades-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:combined:ols-v1:c26ddf8bb700",
@@ -19992,6 +20102,23 @@
           "model_scope": "Florida public grade schools; separate native full-year school-grade achievement components and raw individual lunch eligibility",
           "map_source": "School coordinates are unavailable in the audited source extract.",
           "statewide": true
+        },
+        {
+          "id": "miami-dade",
+          "name": "Miami-Dade County",
+          "dataset": "fl-miami-dade-2025",
+          "status": "ready",
+          "geography": "miami-dade",
+          "levels": [
+            "ES"
+          ],
+          "schools": "data/miami-dade/schools.json",
+          "boundaries": null,
+          "comparison": "Miami-Dade County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Miami-Dade County independent 2024\u201325 grade-school district models: exact operational CCD LEA 1200390 / native FL-13 attachments, complete reported pure lower offerings including grade 3\u20138, and explicit-zero native enrolled grades 9\u201312. Exact attached charters, alternatives and special-education profiles are retained; native missing outcomes determine eligibility. Separate same-year native Florida School Grades Math, ELA and Combined point-only OLS models. High and mixed offerings are excluded.",
+          "map_source": "School coordinates and district boundaries are unavailable in the audited Miami-Dade sources.",
+          "statewide": false,
+          "audit": "data/miami-dade/coverage.json"
         }
       ]
     },
