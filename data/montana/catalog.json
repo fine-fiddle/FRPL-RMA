@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "MT",
+    "name": "Montana"
+  },
+  "prepare_script": "scripts/prepare_montana.py",
+  "regions": [
+    {
+      "id": "montana",
+      "name": "Statewide",
+      "dataset": "mt-mast-nslp",
+      "status": "ready",
+      "geography": "montana",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/montana/schools.json",
+      "boundaries": null,
+      "comparison": "Montana \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Montana public pure grade schools in regular non-CEP NSLP with exact same-year native school identities; native MAST G38 totals",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}

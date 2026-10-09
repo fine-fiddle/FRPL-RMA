@@ -1,0 +1,46 @@
+{
+  "year": 2025,
+  "schools": 280,
+  "cohorts": {
+    "grade": {
+      "directory": 280,
+      "eligible": {
+        "math": 240,
+        "reading": 228,
+        "combined": 220
+      }
+    }
+  },
+  "exclusions": {
+    "Native G38 proficient rate is suppressed, ranged or unavailable": 92,
+    "Math: Native G38 proficient rate is suppressed, ranged or unavailable; ELA: Native G38 proficient rate is suppressed, ranged or unavailable": 32,
+    "Math: Native G38 proficient rate is suppressed, ranged or unavailable": 8,
+    "ELA: Native G38 proficient rate is suppressed, ranged or unavailable": 20
+  },
+  "source_audit": {
+    "approved_point_only": true,
+    "restricted_income_population": true,
+    "native_nutrition_rows": 791,
+    "native_october_claim_rows": 791,
+    "program_year_crosscheck": {
+      "numeric_non_cep_rows": 492,
+      "mismatches": 0,
+      "claim_period": "2024-10-01T00:00:00"
+    },
+    "native_population": "EDC3.1 school AllStudents Regular MAST G38 math/ELA; G38 is the SEA-native grades3\u20138 total according to EDC codebook. No local grade aggregation.",
+    "assessment_provenance": "EDC3.1 technical documentation AppendixB cites OPI GEMS student achievement dashboard and OPI data requests. G38 provenance follows the EDC codebook; no independent2025 school-total recapture is claimed. Retain exact ProficientOrAbove_percent only, never reconstruct a range or masked value.",
+    "denominator": "EDC tested/level counts and participation cells are retained only as raw audit values. Valid-score business rules are not independently approved. All model tested counts and sampling intervals are null.",
+    "income": "Individual free/reduced-price NSLP eligibility divided by native lunch enrollment in the October 2024 claim, within school year 2024\u201325. Retain only public schools participating in the regular program and without any GEMS CEP base-year flag. The exact GEMS Program Year 2025 eligible count and enrolled count must both equal the October 2024 school claim. OPI defines free/reduced eligibility through household income applications and qualifying direct certification. This is individual eligibility, not meals served or a CEP claiming multiplier. Native NSLP enrollment can differ from fall school membership; displayed enrollment is separate same-year CCD membership. This restricted cohort excludes all CEP, nonregular, nonpublic and ambiguous school identities.",
+    "identity": "Require exact native sponsor-school strings equal the CCD MT-district-school namespace, full GEMS NCES ID equal CCD and EDC, and claim five-digitNCES suffix equal GEMS. Native high-school CNP sponsors sometimes differ from CCD separate high-school LEAs: no repair or name crosswalk.",
+    "grades": "Only unadjusted same-year CCD pure grade schools with reconciled grade membership; no mixed/high/unknown configurations.",
+    "standards": "MAST is new in2024\u201325; EDC flags new assessment and new Math/ELA cut scores. The current snapshot does not extend SBAC history or include alternate standards.",
+    "excluded": {
+      "Missing or disagreeing exact state and NCES school identity": 115,
+      "Mixed, high, untested or unknown grade configuration": 61,
+      "Individual eligible count or native NSLP enrollment is suppressed or unavailable": 19,
+      "CEP or nonregular nutrition program": 289,
+      "Missing native G38 math/ELA subject pair": 10,
+      "Nonpublic nutrition school": 17
+    }
+  }
+}
