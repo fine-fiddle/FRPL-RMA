@@ -4,7 +4,7 @@
   "academic_year": "2024-25",
   "retrieved": "2026-10-09",
   "status": "audit_pending",
-  "blocker": "Native public assessment CSV lacks authoritative school IDs; public entityID dashboard export remains unresolved.",
+  "blocker": "Native income-to-NCES offered-grade crosswalk is verified for 483 schools; native public assessment CSV still lacks authoritative school IDs and its public entityID export is unresolved.",
   "sources": {
     "income": {
       "path": "data/raw/new-hampshire/income.xlsx",
@@ -15,6 +15,12 @@
       "path": "data/raw/new-hampshire/assessment.csv",
       "url": "https://www.education.nh.gov/sites/g/files/ehbemt326/files/inline-documents/sonh/publicdatadisaggregated1_0.csv",
       "sha256": "b6c4bc9b8508e3ec2b20da2497ad1cfbb47a8c4e10ae98028c49c3472bdbdb21"
+    },
+    "directory": {
+      "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_029_2425_w_1a_073025.zip",
+      "member": "ccd_sch_029_2425_w_1a_073025.csv",
+      "sha256": "39326da788aa322353d20ceaf8ad4baed26272502cd05b066cf6c594988b21ab"
     }
   },
   "assessment_headers": [
@@ -81,5 +87,62 @@
     ]
   ],
   "published_count_ranges": true,
-  "official_school_identity_available_in_income_only": true
+  "official_school_identity_available_in_income_only": false,
+  "directory_crosswalk": {
+    "path": "data/source/new-hampshire-directory-crosswalk.json",
+    "sha256": "6b2a5c2ec8c69f41f09580674198728ab0540273b42c9a1de184bf32a3daf7d4",
+    "script": "scripts/audit_new_hampshire_directory.py",
+    "status": "assessment_identity_pending",
+    "approved_for_modeling": false,
+    "identity_rule": "Exact native District # and School # from the 2024-25 income workbook; CCD ST_SCHID=NH-{District #}-{School #}, ST_LEAID=NH-{District #}, ST=NH, SCHOOL_YEAR=2024-2025. No name joins.",
+    "coverage": {
+      "income_schools": 485,
+      "NH_directory_records": 518,
+      "exact_native_id_matches": 483,
+      "income_unmatched": 2,
+      "directory_unmatched": 35,
+      "matched_offered_grade_scope": {
+        "grade_school": 382,
+        "high_school": 77,
+        "other_grade_population": 24
+      }
+    },
+    "unmatched_income": [
+      {
+        "income_row": 598,
+        "district_id": 457,
+        "school_id": 29196,
+        "reason": "native_pair_absent_from_NH_CCD_directory"
+      },
+      {
+        "income_row": 599,
+        "district_id": 457,
+        "school_id": 29197,
+        "reason": "native_pair_absent_from_NH_CCD_directory"
+      }
+    ],
+    "scope_limit": "Directory flags describe reported offered grades, not exact enrollment, tested population, assessment identity, aggregation weights or model approval."
+  },
+  "assessment_schoolwide_diagnostic": {
+    "school_level_rows": 53386,
+    "district_school_label_pairs": 462,
+    "all_students_all_grades": {
+      "math_rows": 461,
+      "ela_rows": 461,
+      "math_exact_unbounded_rates": 432,
+      "ela_exact_unbounded_rates": 441,
+      "both_exact_label_pairs": 430
+    },
+    "joined_to_income_or_directory": false,
+    "approved_for_modeling": false
+  },
+  "official_school_identity_available_in_income_and_directory": true,
+  "official_school_identity_available_in_assessment": false,
+  "enrollment_by_grade_report": {
+    "url": "https://my.doe.nh.gov/iplatform/Report/Report?categoryId=10&categoryName=Enrollments+by+Grade&name=Public+School+Enrollments+by+Grade&path=%2FBDMQ%2FiPlatform+Reports%2FEnrollment+Data%2FEnrollments+by+Grade%2FSchool+Enrollments+by+Grade+Public",
+    "report_id": 11,
+    "observed": "2026-10-09",
+    "browser_result": "Internal Server Error",
+    "same_year_export_acquired": false
+  }
 }

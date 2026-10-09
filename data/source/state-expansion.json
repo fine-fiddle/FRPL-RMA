@@ -4310,16 +4310,17 @@
         "id_audit": {
           "edc_hyphenates_district_school_id": false,
           "edc_fills_missing_school_id_from_nces": true,
-          "nces_join_status": "verify_unique_exact_crosswalk"
+          "nces_join_status": "verify_unique_exact_crosswalk",
+          "native_directory_crosswalk": "data/source/new-hampshire-directory-crosswalk.json"
         },
         "high_school_status": "not_covered_by_edc_grades_3_8",
         "history_status": "requires_same_year_income_and_assessment_era_audit"
       },
       "method_notes": [
-        "Same-year native income has exact school numbers. Native regular-denominator 2025 assessment CSV has no school or district IDs; public dashboard export route remains unresolved."
+        "Same-year native income now links to the 2024–25 CCD directory through exact native district/school IDs. Offered grades describe directory configurations, not tested populations. The regular-denominator 2025 assessment CSV still has no school or district IDs; its public entityID export route remains unresolved."
       ],
       "next_steps": [
-        "Obtain native school-ID assessment export or authoritative exact identifier crosswalk; preserve range counts and use only unsuppressed correctly scoped native school totals."
+        "Obtain a native school-ID assessment export or authoritative exact assessment identifier crosswalk, then verify the tested schoolwide grade population against the recovered income/directory identities. Preserve range counts; use only unsuppressed correctly scoped native school totals."
       ],
       "ccd_lunch_audit": {
         "schools": 498,
@@ -4398,7 +4399,7 @@
       "audit_guide": "docs/new-hampshire-data.md",
       "blocker_evidence": {
         "guide": "docs/new-hampshire-data.md",
-        "summary": "Native2024–25 income has exact school numbers, but assessment CSV has names without IDs; public dashboard export could not supply an authoritative current school-ID link."
+        "summary": "Native 2024–25 income now has an exact authoritative directory crosswalk; assessment CSV still has names without IDs, and the public dashboard export has not supplied a current assessment-ID link."
       }
     },
     {
