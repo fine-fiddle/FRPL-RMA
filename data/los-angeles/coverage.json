@@ -1,0 +1,2436 @@
+{
+  "year": 2025,
+  "schools": 736,
+  "cohorts": {
+    "grade": {
+      "directory": 589,
+      "eligible": {
+        "math": 561,
+        "reading": 561,
+        "combined": 561
+      }
+    },
+    "high": {
+      "directory": 147,
+      "eligible": {
+        "math": 137,
+        "reading": 137,
+        "combined": 136
+      }
+    }
+  },
+  "exclusions": {
+    "Missing or suppressed grade valid-score counts or proficiency": 18,
+    "Math: Missing or suppressed grade valid-score counts or proficiency; ELA: Missing or suppressed grade valid-score counts or proficiency": 8,
+    "No applicable tested grade in native school configuration": 40,
+    "Math: No applicable tested grade in native school configuration; ELA: No applicable tested grade in native school configuration": 20,
+    "Math: Missing or suppressed grade valid-score counts or proficiency": 1,
+    "ELA: Missing or suppressed grade valid-score counts or proficiency": 1,
+    "Missing an expected tested grade in the same-year school grade span": 18,
+    "Math: Missing an expected tested grade in the same-year school grade span; ELA: Missing an expected tested grade in the same-year school grade span": 9
+  },
+  "source_audit": {
+    "operational_roster": {
+      "directory_records": 785,
+      "operational_schools": 784,
+      "exact_supported_profile_matches": 783,
+      "operational_without_supported_profile": 1,
+      "outside_roster_supported_prefix_profiles": 218,
+      "unsupported_prefix_profiles": 1,
+      "native_ccd_grade_bounds_and_scope_agreement": 783,
+      "native_ccd_charter_agreement": 783,
+      "matched_scope": {
+        "ES": 589,
+        "HS": 147,
+        "mixed": 47
+      },
+      "matched_charter": {
+        "No": 732,
+        "Yes": 51
+      }
+    },
+    "cohorts": {
+      "pure_grade_schools": {
+        "profiles": 589,
+        "applicable_profiles": 572,
+        "subjects": {
+          "math": {
+            "applicable": 572,
+            "usable": 561,
+            "exclusions": {
+              "Missing an expected tested grade in the same-year school grade span": 6,
+              "Missing or suppressed grade valid-score counts or proficiency": 5,
+              "No applicable tested grade in native school configuration": 17
+            }
+          },
+          "reading": {
+            "applicable": 572,
+            "usable": 561,
+            "exclusions": {
+              "Missing an expected tested grade in the same-year school grade span": 6,
+              "Missing or suppressed grade valid-score counts or proficiency": 5,
+              "No applicable tested grade in native school configuration": 17
+            }
+          },
+          "combined": {
+            "applicable": 572,
+            "usable": 561,
+            "exclusions": {
+              "Requires eligible Math and ELA: math: Missing an expected tested grade in the same-year school grade span; reading: Missing an expected tested grade in the same-year school grade span": 6,
+              "Requires eligible Math and ELA: math: Missing or suppressed grade valid-score counts or proficiency; reading: Missing or suppressed grade valid-score counts or proficiency": 5,
+              "Requires eligible Math and ELA: math: No applicable tested grade in native school configuration; reading: No applicable tested grade in native school configuration": 17
+            }
+          }
+        },
+        "combined_income": {
+          "minimum": 10.424028268551238,
+          "maximum": 100.0,
+          "distinct": 551
+        },
+        "combined_charter": {
+          "No": 516,
+          "Yes": 45
+        },
+        "combined_school_type": {
+          "Alternative School": 20,
+          "Regular School": 541
+        }
+      },
+      "pure_high_schools": {
+        "profiles": 147,
+        "applicable_profiles": 144,
+        "subjects": {
+          "math": {
+            "applicable": 144,
+            "usable": 137,
+            "exclusions": {
+              "Missing an expected tested grade in the same-year school grade span": 3,
+              "Missing or suppressed grade valid-score counts or proficiency": 4,
+              "No applicable tested grade in native school configuration": 3
+            }
+          },
+          "reading": {
+            "applicable": 144,
+            "usable": 137,
+            "exclusions": {
+              "Missing an expected tested grade in the same-year school grade span": 3,
+              "Missing or suppressed grade valid-score counts or proficiency": 4,
+              "No applicable tested grade in native school configuration": 3
+            }
+          },
+          "combined": {
+            "applicable": 144,
+            "usable": 136,
+            "exclusions": {
+              "Requires eligible Math and ELA: math: Missing an expected tested grade in the same-year school grade span; reading: Missing an expected tested grade in the same-year school grade span": 3,
+              "Requires eligible Math and ELA: math: Missing or suppressed grade valid-score counts or proficiency": 1,
+              "Requires eligible Math and ELA: math: Missing or suppressed grade valid-score counts or proficiency; reading: Missing or suppressed grade valid-score counts or proficiency": 3,
+              "Requires eligible Math and ELA: math: No applicable tested grade in native school configuration; reading: No applicable tested grade in native school configuration": 3,
+              "Requires eligible Math and ELA: reading: Missing or suppressed grade valid-score counts or proficiency": 1
+            }
+          }
+        },
+        "combined_income": {
+          "minimum": 56.59612787032869,
+          "maximum": 100.0,
+          "distinct": 125
+        },
+        "combined_charter": {
+          "No": 131,
+          "Yes": 5
+        },
+        "combined_school_type": {
+          "Alternative School": 51,
+          "Regular School": 85
+        }
+      },
+      "mixed_grades_3_8": {
+        "profiles": 47,
+        "applicable_profiles": 47,
+        "subjects": {
+          "math": {
+            "applicable": 47,
+            "usable": 30,
+            "exclusions": {
+              "Missing an expected tested grade in the same-year school grade span": 11,
+              "Missing or suppressed grade valid-score counts or proficiency": 6
+            }
+          },
+          "reading": {
+            "applicable": 47,
+            "usable": 30,
+            "exclusions": {
+              "Missing an expected tested grade in the same-year school grade span": 11,
+              "Missing or suppressed grade valid-score counts or proficiency": 6
+            }
+          },
+          "combined": {
+            "applicable": 47,
+            "usable": 30,
+            "exclusions": {
+              "Requires eligible Math and ELA: math: Missing an expected tested grade in the same-year school grade span; reading: Missing an expected tested grade in the same-year school grade span": 11,
+              "Requires eligible Math and ELA: math: Missing or suppressed grade valid-score counts or proficiency; reading: Missing or suppressed grade valid-score counts or proficiency": 6
+            }
+          }
+        },
+        "combined_income": {
+          "minimum": 36.19402985074627,
+          "maximum": 97.66949152542372,
+          "distinct": 30
+        },
+        "combined_charter": {
+          "No": 29,
+          "Yes": 1
+        },
+        "combined_school_type": {
+          "Alternative School": 15,
+          "Regular School": 15
+        }
+      },
+      "mixed_grade_11": {
+        "profiles": 47,
+        "applicable_profiles": 46,
+        "subjects": {
+          "math": {
+            "applicable": 46,
+            "usable": 32,
+            "exclusions": {
+              "Missing an expected tested grade in the same-year school grade span": 5,
+              "Missing or suppressed grade valid-score counts or proficiency": 9,
+              "No applicable tested grade in native school configuration": 1
+            }
+          },
+          "reading": {
+            "applicable": 46,
+            "usable": 32,
+            "exclusions": {
+              "Missing an expected tested grade in the same-year school grade span": 5,
+              "Missing or suppressed grade valid-score counts or proficiency": 9,
+              "No applicable tested grade in native school configuration": 1
+            }
+          },
+          "combined": {
+            "applicable": 46,
+            "usable": 32,
+            "exclusions": {
+              "Requires eligible Math and ELA: math: Missing an expected tested grade in the same-year school grade span; reading: Missing an expected tested grade in the same-year school grade span": 5,
+              "Requires eligible Math and ELA: math: Missing or suppressed grade valid-score counts or proficiency; reading: Missing or suppressed grade valid-score counts or proficiency": 9,
+              "Requires eligible Math and ELA: math: No applicable tested grade in native school configuration; reading: No applicable tested grade in native school configuration": 1
+            }
+          }
+        },
+        "combined_income": {
+          "minimum": 36.19402985074627,
+          "maximum": 97.66949152542372,
+          "distinct": 32
+        },
+        "combined_charter": {
+          "No": 31,
+          "Yes": 1
+        },
+        "combined_school_type": {
+          "Alternative School": 19,
+          "Regular School": 13
+        }
+      }
+    },
+    "excluded_roster_records": [
+      {
+        "id": "19647330101329",
+        "ncessch": "062271011307",
+        "ccd_source_row": 11614,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2538,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330102137",
+        "ncessch": "062271011315",
+        "ccd_source_row": 11616,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2544,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330102764",
+        "ncessch": "062271010842",
+        "ccd_source_row": 11583,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2552,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330107011",
+        "ncessch": "062271010863",
+        "ccd_source_row": 11595,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2570,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330116954",
+        "ncessch": "062271012188",
+        "ccd_source_row": 11643,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2647,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330117226",
+        "ncessch": "062271012837",
+        "ccd_source_row": 11685,
+        "reason": "No supported same-year native FRPM school profile",
+        "profile_source_row": null,
+        "scope": null,
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330119685",
+        "ncessch": "062271012493",
+        "ccd_source_row": 11657,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2670,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330119693",
+        "ncessch": "062271012524",
+        "ccd_source_row": 11658,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2671,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330121095",
+        "ncessch": "062271012559",
+        "ccd_source_row": 11660,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2687,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330122416",
+        "ncessch": "062271012771",
+        "ccd_source_row": 11677,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2718,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330124412",
+        "ncessch": "062271012916",
+        "ccd_source_row": 11692,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2747,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330124529",
+        "ncessch": "062271012898",
+        "ccd_source_row": 11691,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2754,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330133603",
+        "ncessch": "062271013968",
+        "ccd_source_row": 11732,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2840,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330133736",
+        "ncessch": "062271013971",
+        "ccd_source_row": 11734,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2845,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330135681",
+        "ncessch": "062271014112",
+        "ccd_source_row": 11737,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2854,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330135855",
+        "ncessch": "062271014102",
+        "ccd_source_row": 11735,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2858,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330135996",
+        "ncessch": "062271014106",
+        "ccd_source_row": 11736,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2861,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330140046",
+        "ncessch": "062271014456",
+        "ccd_source_row": 11741,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2880,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330141523",
+        "ncessch": "062271014630",
+        "ccd_source_row": 11742,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2884,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330141531",
+        "ncessch": "062271014631",
+        "ccd_source_row": 11743,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2885,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330141549",
+        "ncessch": "062271014632",
+        "ccd_source_row": 11744,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2886,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330141556",
+        "ncessch": "062271014633",
+        "ccd_source_row": 11745,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2887,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330141564",
+        "ncessch": "062271014634",
+        "ccd_source_row": 11746,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2888,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647330141572",
+        "ncessch": "062271014635",
+        "ccd_source_row": 11747,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2889,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331930064",
+        "ncessch": "062271002802",
+        "ccd_source_row": 10971,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2892,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331930619",
+        "ncessch": "062271003070",
+        "ccd_source_row": 11194,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2900,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331930692",
+        "ncessch": "062271003397",
+        "ccd_source_row": 11463,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2902,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331931716",
+        "ncessch": "062271003416",
+        "ccd_source_row": 11481,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2931,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331932540",
+        "ncessch": "062271002970",
+        "ccd_source_row": 11110,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2945,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331932847",
+        "ncessch": "062271008887",
+        "ccd_source_row": 11565,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2948,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331933043",
+        "ncessch": "062271003021",
+        "ccd_source_row": 11152,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2954,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331933233",
+        "ncessch": "062271009151",
+        "ccd_source_row": 11568,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2956,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331937085",
+        "ncessch": "062271003296",
+        "ccd_source_row": 11380,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2974,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331937226",
+        "ncessch": "062271003301",
+        "ccd_source_row": 11385,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2975,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331996073",
+        "ncessch": "062271007115",
+        "ccd_source_row": 11537,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2994,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331996115",
+        "ncessch": "062271007118",
+        "ccd_source_row": 11538,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2995,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647331996651",
+        "ncessch": "062271010519",
+        "ccd_source_row": 11578,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 2997,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336016885",
+        "ncessch": "062271002983",
+        "ccd_source_row": 11120,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3108,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336019475",
+        "ncessch": "062271003395",
+        "ccd_source_row": 11461,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3352,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336058002",
+        "ncessch": "062271003029",
+        "ccd_source_row": 11158,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3424,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336060461",
+        "ncessch": "062271007758",
+        "ccd_source_row": 11549,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3459,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336060511",
+        "ncessch": "062271007760",
+        "ccd_source_row": 11551,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3462,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336060529",
+        "ncessch": "062271007759",
+        "ccd_source_row": 11550,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3463,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336060578",
+        "ncessch": "062271007756",
+        "ccd_source_row": 11547,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3465,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336060586",
+        "ncessch": "062271007764",
+        "ccd_source_row": 11554,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3466,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336061451",
+        "ncessch": "062271003017",
+        "ccd_source_row": 11149,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3472,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336061600",
+        "ncessch": "062271003378",
+        "ccd_source_row": 11447,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3485,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      },
+      {
+        "id": "19647336069157",
+        "ncessch": "062271007753",
+        "ccd_source_row": 11545,
+        "reason": "Mixed native grade configuration",
+        "profile_source_row": 3491,
+        "scope": "mixed",
+        "audit_source": "roster_audit"
+      }
+    ],
+    "outside_roster_prefix_profiles": [
+      {
+        "id": "19647330100289",
+        "profile_source_row": 2530,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330100669",
+        "profile_source_row": 2531,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330100677",
+        "profile_source_row": 2532,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330100743",
+        "profile_source_row": 2533,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330100750",
+        "profile_source_row": 2534,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330100800",
+        "profile_source_row": 2535,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330100867",
+        "profile_source_row": 2536,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330101196",
+        "profile_source_row": 2537,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330101444",
+        "profile_source_row": 2539,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330101659",
+        "profile_source_row": 2541,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330101675",
+        "profile_source_row": 2542,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330101683",
+        "profile_source_row": 2543,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330102335",
+        "profile_source_row": 2545,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330102426",
+        "profile_source_row": 2546,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330102434",
+        "profile_source_row": 2547,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330102442",
+        "profile_source_row": 2548,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330102483",
+        "profile_source_row": 2549,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330102541",
+        "profile_source_row": 2551,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330106351",
+        "profile_source_row": 2555,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330106427",
+        "profile_source_row": 2556,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330106831",
+        "profile_source_row": 2557,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330106849",
+        "profile_source_row": 2558,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330106864",
+        "profile_source_row": 2559,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330106872",
+        "profile_source_row": 2560,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330107755",
+        "profile_source_row": 2571,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330108878",
+        "profile_source_row": 2572,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330108886",
+        "profile_source_row": 2573,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330108894",
+        "profile_source_row": 2574,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330108910",
+        "profile_source_row": 2575,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330108928",
+        "profile_source_row": 2576,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330108936",
+        "profile_source_row": 2577,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330109884",
+        "profile_source_row": 2607,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330109934",
+        "profile_source_row": 2608,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330110304",
+        "profile_source_row": 2609,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330111211",
+        "profile_source_row": 2611,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330111484",
+        "profile_source_row": 2612,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330111492",
+        "profile_source_row": 2613,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330111500",
+        "profile_source_row": 2614,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330111518",
+        "profile_source_row": 2615,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330111575",
+        "profile_source_row": 2616,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330111583",
+        "profile_source_row": 2617,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330111625",
+        "profile_source_row": 2618,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330111641",
+        "profile_source_row": 2619,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330111658",
+        "profile_source_row": 2620,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330112201",
+        "profile_source_row": 2632,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330112235",
+        "profile_source_row": 2633,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330112508",
+        "profile_source_row": 2634,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330114884",
+        "profile_source_row": 2638,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330114959",
+        "profile_source_row": 2639,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330114967",
+        "profile_source_row": 2640,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330115048",
+        "profile_source_row": 2641,
+        "assessment_type_ids": [],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330115113",
+        "profile_source_row": 2642,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330115139",
+        "profile_source_row": 2643,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330115253",
+        "profile_source_row": 2644,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330115287",
+        "profile_source_row": 2645,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330116509",
+        "profile_source_row": 2646,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117598",
+        "profile_source_row": 2653,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117606",
+        "profile_source_row": 2654,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117614",
+        "profile_source_row": 2655,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117622",
+        "profile_source_row": 2656,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117648",
+        "profile_source_row": 2657,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117655",
+        "profile_source_row": 2658,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117846",
+        "profile_source_row": 2662,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117895",
+        "profile_source_row": 2663,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117903",
+        "profile_source_row": 2664,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117911",
+        "profile_source_row": 2665,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117937",
+        "profile_source_row": 2666,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117952",
+        "profile_source_row": 2667,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330117978",
+        "profile_source_row": 2668,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330118588",
+        "profile_source_row": 2669,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330119982",
+        "profile_source_row": 2676,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330120014",
+        "profile_source_row": 2677,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330120022",
+        "profile_source_row": 2678,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330120030",
+        "profile_source_row": 2679,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330120071",
+        "profile_source_row": 2680,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330120097",
+        "profile_source_row": 2681,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330120477",
+        "profile_source_row": 2683,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330120527",
+        "profile_source_row": 2684,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330121079",
+        "profile_source_row": 2686,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330121137",
+        "profile_source_row": 2689,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330121285",
+        "profile_source_row": 2690,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330121293",
+        "profile_source_row": 2691,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330121699",
+        "profile_source_row": 2692,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330121707",
+        "profile_source_row": 2693,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330121848",
+        "profile_source_row": 2694,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122242",
+        "profile_source_row": 2709,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122481",
+        "profile_source_row": 2719,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122556",
+        "profile_source_row": 2720,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122564",
+        "profile_source_row": 2721,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122606",
+        "profile_source_row": 2722,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122614",
+        "profile_source_row": 2723,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122622",
+        "profile_source_row": 2724,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122655",
+        "profile_source_row": 2725,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122721",
+        "profile_source_row": 2726,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122739",
+        "profile_source_row": 2727,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122747",
+        "profile_source_row": 2728,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122754",
+        "profile_source_row": 2729,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122838",
+        "profile_source_row": 2730,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330122861",
+        "profile_source_row": 2731,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330123133",
+        "profile_source_row": 2732,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330123141",
+        "profile_source_row": 2733,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330123158",
+        "profile_source_row": 2734,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330123166",
+        "profile_source_row": 2735,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330123984",
+        "profile_source_row": 2736,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330123992",
+        "profile_source_row": 2737,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124008",
+        "profile_source_row": 2738,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124016",
+        "profile_source_row": 2739,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124198",
+        "profile_source_row": 2740,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124222",
+        "profile_source_row": 2741,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124560",
+        "profile_source_row": 2755,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124784",
+        "profile_source_row": 2756,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124792",
+        "profile_source_row": 2757,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124800",
+        "profile_source_row": 2758,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124818",
+        "profile_source_row": 2759,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124826",
+        "profile_source_row": 2760,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124891",
+        "profile_source_row": 2761,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124933",
+        "profile_source_row": 2762,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330124941",
+        "profile_source_row": 2763,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330125609",
+        "profile_source_row": 2765,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330125625",
+        "profile_source_row": 2766,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330125641",
+        "profile_source_row": 2767,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330125864",
+        "profile_source_row": 2768,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330126136",
+        "profile_source_row": 2771,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330126169",
+        "profile_source_row": 2772,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330126177",
+        "profile_source_row": 2773,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330126193",
+        "profile_source_row": 2774,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330126797",
+        "profile_source_row": 2797,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330127670",
+        "profile_source_row": 2798,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330127886",
+        "profile_source_row": 2802,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330127894",
+        "profile_source_row": 2803,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330127910",
+        "profile_source_row": 2804,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330127936",
+        "profile_source_row": 2805,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330127985",
+        "profile_source_row": 2806,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330128009",
+        "profile_source_row": 2807,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330128033",
+        "profile_source_row": 2808,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330128041",
+        "profile_source_row": 2809,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330128058",
+        "profile_source_row": 2810,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330128132",
+        "profile_source_row": 2811,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330128371",
+        "profile_source_row": 2812,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330128512",
+        "profile_source_row": 2813,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330129270",
+        "profile_source_row": 2815,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330129460",
+        "profile_source_row": 2816,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330129593",
+        "profile_source_row": 2819,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330129619",
+        "profile_source_row": 2820,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330129627",
+        "profile_source_row": 2821,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330129650",
+        "profile_source_row": 2822,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330129858",
+        "profile_source_row": 2823,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330129866",
+        "profile_source_row": 2824,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330131466",
+        "profile_source_row": 2826,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330131722",
+        "profile_source_row": 2827,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330131771",
+        "profile_source_row": 2828,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330131797",
+        "profile_source_row": 2829,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330131821",
+        "profile_source_row": 2830,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330131904",
+        "profile_source_row": 2831,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330132027",
+        "profile_source_row": 2832,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330132084",
+        "profile_source_row": 2833,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330132126",
+        "profile_source_row": 2834,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330132282",
+        "profile_source_row": 2835,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330132928",
+        "profile_source_row": 2836,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330133272",
+        "profile_source_row": 2837,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330133280",
+        "profile_source_row": 2838,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330133298",
+        "profile_source_row": 2839,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330133686",
+        "profile_source_row": 2841,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330133694",
+        "profile_source_row": 2842,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330133702",
+        "profile_source_row": 2843,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330133710",
+        "profile_source_row": 2844,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330133868",
+        "profile_source_row": 2847,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330134023",
+        "profile_source_row": 2848,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330134205",
+        "profile_source_row": 2849,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330135509",
+        "profile_source_row": 2850,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330135517",
+        "profile_source_row": 2851,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330135616",
+        "profile_source_row": 2852,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330135632",
+        "profile_source_row": 2853,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330135715",
+        "profile_source_row": 2856,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330135723",
+        "profile_source_row": 2857,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330135921",
+        "profile_source_row": 2859,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330135954",
+        "profile_source_row": 2860,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330136986",
+        "profile_source_row": 2862,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330136994",
+        "profile_source_row": 2863,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330137463",
+        "profile_source_row": 2866,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330137471",
+        "profile_source_row": 2867,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330137513",
+        "profile_source_row": 2868,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330137521",
+        "profile_source_row": 2869,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330137562",
+        "profile_source_row": 2870,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330137604",
+        "profile_source_row": 2871,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330137612",
+        "profile_source_row": 2872,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330138305",
+        "profile_source_row": 2873,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330138883",
+        "profile_source_row": 2874,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330139089",
+        "profile_source_row": 2875,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330139097",
+        "profile_source_row": 2876,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330139121",
+        "profile_source_row": 2877,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330139832",
+        "profile_source_row": 2878,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330140004",
+        "profile_source_row": 2879,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330140111",
+        "profile_source_row": 2881,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330140129",
+        "profile_source_row": 2882,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330140749",
+        "profile_source_row": 2883,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647330164780",
+        "profile_source_row": 2891,
+        "assessment_type_ids": [],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647331931047",
+        "profile_source_row": 2910,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647331932623",
+        "profile_source_row": 2946,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647331933746",
+        "profile_source_row": 2959,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647331995836",
+        "profile_source_row": 2993,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647331996610",
+        "profile_source_row": 2996,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336017016",
+        "profile_source_row": 3119,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336018204",
+        "profile_source_row": 3234,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336018642",
+        "profile_source_row": 3274,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336019079",
+        "profile_source_row": 3313,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336019715",
+        "profile_source_row": 3376,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336112536",
+        "profile_source_row": 3511,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336114912",
+        "profile_source_row": 3514,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336116750",
+        "profile_source_row": 3516,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336117048",
+        "profile_source_row": 3518,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336117667",
+        "profile_source_row": 3519,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336119044",
+        "profile_source_row": 3521,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336119531",
+        "profile_source_row": 3523,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336119903",
+        "profile_source_row": 3524,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336120471",
+        "profile_source_row": 3525,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336120489",
+        "profile_source_row": 3526,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      },
+      {
+        "id": "19647336121081",
+        "profile_source_row": 3530,
+        "assessment_type_ids": [
+          "9"
+        ],
+        "reason": "Native reporting district prefix without exact operational CCD LEA roster membership"
+      }
+    ],
+    "nonoperational_directory": [
+      {
+        "school_id": "19647330126474",
+        "ncessch": "062271013101",
+        "source_row": 11708,
+        "status": "Closed"
+      }
+    ],
+    "unsupported_native_profiles": [
+      {
+        "id": "19647330000001",
+        "profile_source_row": 2529,
+        "reason": "Unsupported or non-school native FRPM grade configuration"
+      }
+    ],
+    "release_basis": {
+      "exact_source_roster_replayed": true,
+      "numerical_audit_without_holds": true,
+      "minimum_subject_schools": 30,
+      "historical_audits_approved_for_modeling": false,
+      "note": "Historical source and numerical audits remain approved_for_modeling:false; this separate adapter verifies source, model and export integration before release."
+    }
+  }
+}

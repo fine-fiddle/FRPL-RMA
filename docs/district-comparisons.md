@@ -2,7 +2,7 @@
 
 Implement these after the statewide basics. A district comparison would fit its own same-year, assessment, level and subject models, as CPS does. A filter using statewide predictions remains a district view of the statewide model; it is not a district comparison.
 
-Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 78 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
+Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 77 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
 ## Selection and implementation gates
 
@@ -17,7 +17,6 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 78 fir
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
-| Los Angeles Unified | CA | 0622710 | 408,026 | 572 / 147 | Available; district audit pending |
 | MIAMI-DADE | FL | 1200390 | 333,233 | 365 / 81 | Available; district audit pending |
 | Clark County | NV | 3200060 | 306,038 | 296 / 10 | Available; district audit pending |
 | BROWARD | FL | 1200180 | 243,553 | 243 / 45 | Available; district audit pending |
@@ -275,12 +274,13 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 78 fir
 
 ## Existing comparisons and components
 
-CPS is already implemented. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
+CPS and Los Angeles Unified are implemented. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
 
 ## Existing scope · size references
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
+| Los Angeles Unified | CA | 0622710 | 408,026 | 572 / 147 | Existing Los Angeles Unified comparison; pure cohorts |
 | Chicago Public Schools Dist 299 | IL | 1709930 | 324,130 | 303 / 125 | Existing CPS comparison; size reference |
 | Hawaii Department of Education | HI | 1500030 | 167,071 | 224 / 2 | Existing statewide comparison |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #31 | NY | 3600103 | 60,164 | 35 / 3 | Optional NYC subdistrict audit |
@@ -311,7 +311,7 @@ Detroit Public Schools Community District (Michigan; NCES LEA `2601103`) warrant
 
 ## District source and model audits
 
-The [Los Angeles Unified roster and model audits](los-angeles-district.md) use exact official CCD school membership and same-year California records. They retain charter and alternative-school flags, separate mixed-grade schools, and document subject exclusions. Separate district fits have numerical diagnostics; browser integration remains a follow-up.
+The [Los Angeles Unified roster and model audits](los-angeles-district.md) use exact official CCD school membership and same-year California records. They retain charter and alternative-school flags, separate mixed-grade schools, and document subject exclusions. The district region uses separate audited fits; statewide California remains its own comparison.
 
 
 ## Provenance and rebuild

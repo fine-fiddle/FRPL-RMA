@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "audited_date": "2026-10-09",
-  "scope": "Existing released 2024–25 Smarter Balanced/SBAC definitions in California, Delaware, Nevada and Washington only.",
+  "scope": "Exact 2024–25 Smarter Balanced/SBAC definitions in California statewide and Los Angeles Unified, Delaware, Nevada and Washington. District bindings use the same verified California assessment system, tested grades and year; population models remain separate.",
   "limitations": "A consortium developer is distinct from a legal assessment owner or a state delivery contractor. Those roles remain unaudited. Interim reliability or validity findings are not transferred to summative models. No additional state or assessment family is approved by membership, and no threshold ambition comparison is established.",
   "sources": [
     {
@@ -151,6 +151,46 @@
         "id": "wa-ospi-2025:2025:SBAC grades 3–8 tested only:ES",
         "state": "WA",
         "name": "SBAC grades 3–8 tested only",
+        "year": 2025,
+        "level": "ES",
+        "grades": "3–8"
+      },
+      "provider": "Smarter Balanced Assessment Consortium",
+      "provider_role": "Assessment developer (member-led consortium)",
+      "primary_source": "sb-2024-25-system",
+      "evidence_sources": [
+        "sb-2024-25-system",
+        "sb-2024-25-administration",
+        "sb-2024-25-members"
+      ],
+      "legal_owner": null,
+      "delivery_provider": null
+    },
+    {
+      "definition": {
+        "id": "ca-lausd-2025:2025:Smarter Balanced grade 11:HS",
+        "state": "CA",
+        "name": "Smarter Balanced grade 11",
+        "year": 2025,
+        "level": "HS",
+        "grades": "11"
+      },
+      "provider": "Smarter Balanced Assessment Consortium",
+      "provider_role": "Assessment developer (member-led consortium)",
+      "primary_source": "sb-2024-25-system",
+      "evidence_sources": [
+        "sb-2024-25-system",
+        "sb-2024-25-administration",
+        "sb-2024-25-members"
+      ],
+      "legal_owner": null,
+      "delivery_provider": null
+    },
+    {
+      "definition": {
+        "id": "ca-lausd-2025:2025:Smarter Balanced grades 3–8:ES",
+        "state": "CA",
+        "name": "Smarter Balanced grades 3–8",
         "year": 2025,
         "level": "ES",
         "grades": "3–8"

@@ -157,3 +157,48 @@ test('new state share links preserve school IDs and restrict available levels',(
   a.run(`restoreURL(new URL(window.location.href).searchParams,false);syncURL();`);
   assert.equal(a.window.location.href,first);
 });
+
+test('Los Angeles links select the district population and retain exact CDS identities',()=>{
+  const a=app();
+  a.run(`catalogForTest={states:[{id:'IL',regions:[{id:'chicago',status:'ready'}]},
+    {id:'CA',regions:[{id:'california',status:'ready'},{id:'los-angeles',status:'ready',statewide:false}]}]};`);
+  assert.equal(a.run(`resolveGeography(catalogForTest,new URLSearchParams('state=CA&region=los-angeles')).region.id`),'los-angeles');
+  assert.equal(a.run(`resolveGeography(catalogForTest,new URLSearchParams('state=CA&region=chicago')).region.id`),'california');
+  assert.equal(a.run(`resolveGeography(catalogForTest,new URLSearchParams('state=IL&region=los-angeles')).region.id`),'chicago');
+  a.run(`activeRegion={id:'los-angeles',levels:['ES','HS'],statewide:false};
+    document.querySelector('#state-select').value='CA';
+    document.querySelector('#region-select').value='los-angeles';
+    document.querySelector('#program').options=['all','Unclassified'].map(value=>({value}));
+    data.schools[0].id='19647336110951';data.schools[1].id='19647336110969';
+    data.schools[2].id='19647331995794';
+    restoreURL(new URLSearchParams('level=HS&subject=ela&schools=19647336110951,19647331995794,001&focus=19647336110951'),false);syncURL();`);
+  const first=a.window.location.href;
+  const p=new URL(first).searchParams;
+  assert.equal(p.get('state'),'CA');assert.equal(p.get('region'),'los-angeles');
+  assert.equal(p.get('level'),'HS');assert.equal(p.get('subject'),'ela');
+  assert.equal(p.get('schools'),'19647331995794');assert.equal(p.get('focus'),'19647331995794');
+  a.run(`restoreURL(new URL(window.location.href).searchParams,false);syncURL();`);
+  assert.equal(a.window.location.href,first);
+});
+
+test('Los Angeles invalid filters and explicit empty selections remain safe across reloads',()=>{
+  const a=app();
+  a.run(`activeRegion={id:'los-angeles',levels:['ES','HS'],statewide:false};
+    document.querySelector('#state-select').value='CA';
+    document.querySelector('#region-select').value='los-angeles';
+    document.querySelector('#program').options=['all','Unclassified'].map(value=>({value}));
+    data.schools[0].id='19647336110951';data.schools[1].id='19647336110969';
+    data.schools[2].id='19647331995794';
+    restoreURL(new URLSearchParams('level=mixed&subject=bogus&program=Selective&scope=bogus&schools=19647331995794,001&focus=001'),false);syncURL();`);
+  let p=new URL(a.window.location.href).searchParams;
+  assert.equal(p.get('level'),'ES');assert.equal(p.get('subject'),'combined');
+  assert.equal(p.get('program'),'all');assert.equal(p.get('scope'),'selected');
+  assert.equal(p.get('schools'),'');
+  a.run(`restoreURL(new URLSearchParams('level=HS&schools=&scope=filtered'),false);syncURL();`);
+  const empty=a.window.location.href;
+  a.run(`restoreURL(new URL(window.location.href).searchParams,false);syncURL();`);
+  assert.equal(a.window.location.href,empty);
+  p=new URL(empty).searchParams;
+  assert.equal(p.get('region'),'los-angeles');assert.equal(p.get('level'),'HS');
+  assert.equal(p.get('scope'),'filtered');assert.equal(p.get('schools'),'');
+});

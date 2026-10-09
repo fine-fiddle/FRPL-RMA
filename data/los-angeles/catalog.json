@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "CA",
+    "name": "California"
+  },
+  "prepare_script": "scripts/prepare_los_angeles.py",
+  "regions": [
+    {
+      "id": "los-angeles",
+      "name": "Los Angeles Unified",
+      "dataset": "ca-lausd-2025",
+      "status": "ready",
+      "geography": "los-angeles",
+      "levels": [
+        "ES",
+        "HS"
+      ],
+      "schools": "data/los-angeles/schools.json",
+      "boundaries": null,
+      "comparison": "Los Angeles Unified \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Los Angeles Unified district models: exact operational 2024\u201325 CCD LEA 0622710 attachments, including locally funded charters and alternatives; pure grade schools and pure high schools separately; mixed schools excluded. Separate same-year Smarter Balanced grades 3\u20138 and grade 11 Math, ELA and Combined models.",
+      "map_source": "School coordinates and district boundaries are unavailable in the audited LAUSD sources.",
+      "statewide": false,
+      "audit": "data/los-angeles/coverage.json"
+    }
+  ]
+}

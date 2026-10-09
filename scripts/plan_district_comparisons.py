@@ -118,6 +118,8 @@ def size_tier(enrollment, cohort_counts):
 
 
 def scope(row):
+    if row['LEAID'] == '0622710':
+        return 'existing_los_angeles'
     if row['LEAID'] == '1709930':
         return 'existing_chicago'
     if row['LEAID'] == '1500030':
@@ -274,6 +276,8 @@ def render(payload):
                 'State audit pending' if state['status'] == 'implementation' else 'State source hold')
             if row['scope'] == 'existing_chicago':
                 status = 'Existing CPS comparison; size reference'
+            elif row['scope'] == 'existing_los_angeles':
+                status = 'Existing Los Angeles Unified comparison; pure cohorts'
             elif row['scope'] == 'existing_hawaii_statewide':
                 status = 'Existing statewide comparison'
             elif row['scope'] == 'existing_nyc_component':
@@ -285,7 +289,7 @@ def render(payload):
     table('First tier · largest new district comparisons', main)
     table('Second tier · substantial regional comparisons', secondary)
     lines.extend(['## Existing comparisons and components', '',
-        'CPS is already implemented. Hawaii’s single state LEA already has its statewide '
+        'CPS and Los Angeles Unified are implemented. Hawaii’s single state LEA already has its statewide '
         'comparison. The NYC geographic LEAs below are components of the existing NYC system; '
         'they would be optional subdistrict work, not additional whole-city systems. Do not '
         'add their counts to the Chancellor’s Office supervisory total or include District 75 '
@@ -317,8 +321,8 @@ def render(payload):
         'The [Los Angeles Unified roster and model audits](los-angeles-district.md) '
         'use exact official CCD school membership and same-year California records. '
         'They retain charter and alternative-school flags, separate mixed-grade schools, '
-        'and document subject exclusions. Separate district fits have numerical '
-        'diagnostics; browser integration remains a follow-up.', ''])
+        'and document subject exclusions. The district region uses separate audited '
+        'fits; statewide California remains its own comparison.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

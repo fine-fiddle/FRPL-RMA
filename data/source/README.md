@@ -10,7 +10,9 @@ New state extracts retain raw source values, authoritative IDs, same-year income
 
 `los-angeles-district-audit.json` retains the official CCD district roster and exact same-year California school joins, with native grade/charter/type flags, source-row references and subject-specific coverage/exclusions. Its [district guide](../../docs/los-angeles-district.md) documents the reproducible audit and remaining model-validation gates. This source-only record grants no district modeling approval and does not alter the statewide California comparison.
 
-`los-angeles-model-audit.json` retains separately fitted pure Los Angeles district models and per-school numerical diagnostics, with the pinned roster audit, population policy, verified subject counts and interval propagation. The district guide documents the fit checks and remaining browser integration; this audit does not change the published statewide model.
+`los-angeles-model-audit.json` retains separately fitted pure Los Angeles district models and per-school numerical diagnostics, with the pinned roster audit, population policy, verified subject counts and interval propagation. The district guide documents the fit and integration checks; this audit does not change the published statewide model.
+
+`los-angeles.json` freezes the reviewed district population and normalized same-year inputs for the canonical `ca-lausd-2025` dataset. It links both immutable audits, native source records and the chosen charter/alternative and pure-grade policies. Rebuild with `scripts/prepare_los_angeles.py` against the existing populated database before exporting the catalog; the district guide documents repeatability and release verification.
 
 `wisconsin-reportcards.json` retains selected raw cells, row numbers, field definitions, workbook notes and SHA-256 source hashes for the separate 2024–25 Wisconsin school-total comparisons. It uses same-year income and directory coordinates from `wisconsin.json`. See the [Wisconsin data guide](../../docs/wisconsin-data.md) for population differences, point-only models, coverage and rebuild instructions.
 

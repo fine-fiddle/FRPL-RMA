@@ -274,6 +274,35 @@
           ]
         },
         {
+          "id": "ca-lausd-2025:2025:Smarter Balanced grades 3–8:ES",
+          "state": "CA",
+          "name": "Smarter Balanced grades 3–8",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "2024–25 CAASPP Smarter Balanced Standard Met or Exceeded (Levels 3+4); all students, valid scores only. California alternate assessments are excluded. Exact proficient and valid-score counts are summed across complete tested grades.",
+          "source_url": "https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx",
+          "dataset_id": "ca-lausd-2025",
+          "family": "Smarter Balanced",
+          "provider": "Smarter Balanced Assessment Consortium",
+          "provider_source_url": "https://technicalreports.smarterbalanced.org/2024-25_interim-report/_book/index.html",
+          "provider_role": "Assessment developer (member-led consortium)",
+          "provider_evidence_ids": [
+            "sb-2024-25-system",
+            "sb-2024-25-administration",
+            "sb-2024-25-members"
+          ],
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "los-angeles",
+              "name": "Los Angeles Unified",
+              "url": "./?state=CA&region=los-angeles&level=ES",
+              "model_scope": "Los Angeles Unified district models: exact operational 2024–25 CCD LEA 0622710 attachments, including locally funded charters and alternatives; pure grade schools and pure high schools separately; mixed schools excluded. Separate same-year Smarter Balanced grades 3–8 and grade 11 Math, ELA and Combined models."
+            }
+          ]
+        },
+        {
           "id": "ca-cde-2025:2025:Smarter Balanced grade 11:HS",
           "state": "CA",
           "name": "Smarter Balanced grade 11",
@@ -299,6 +328,35 @@
               "name": "Statewide",
               "url": "./?state=CA&region=california&level=HS",
               "model_scope": "California all-students Smarter Balanced valid-score cohorts; separate tested grades"
+            }
+          ]
+        },
+        {
+          "id": "ca-lausd-2025:2025:Smarter Balanced grade 11:HS",
+          "state": "CA",
+          "name": "Smarter Balanced grade 11",
+          "year": 2025,
+          "level": "HS",
+          "grades": "11",
+          "standard": "2024–25 CAASPP Smarter Balanced Standard Met or Exceeded (Levels 3+4); all students, valid scores only. California alternate assessments are excluded. Exact proficient and valid-score counts are summed across complete tested grades.",
+          "source_url": "https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx",
+          "dataset_id": "ca-lausd-2025",
+          "family": "Smarter Balanced",
+          "provider": "Smarter Balanced Assessment Consortium",
+          "provider_source_url": "https://technicalreports.smarterbalanced.org/2024-25_interim-report/_book/index.html",
+          "provider_role": "Assessment developer (member-led consortium)",
+          "provider_evidence_ids": [
+            "sb-2024-25-system",
+            "sb-2024-25-administration",
+            "sb-2024-25-members"
+          ],
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "los-angeles",
+              "name": "Los Angeles Unified",
+              "url": "./?state=CA&region=los-angeles&level=HS",
+              "model_scope": "Los Angeles Unified district models: exact operational 2024–25 CCD LEA 0622710 attachments, including locally funded charters and alternatives; pure grade schools and pure high schools separately; mixed schools excluded. Separate same-year Smarter Balanced grades 3–8 and grade 11 Math, ELA and Combined models."
             }
           ]
         }

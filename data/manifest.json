@@ -269,6 +269,62 @@
       "sha256": "86fb8bc64ce0e433468f4a4b9038115a82031fee56125f76bacd56037a654a40"
     },
     {
+      "id": "ca-lausd-2025:ca-frpm-2025",
+      "dataset_id": "ca-lausd-2025",
+      "path": "data/raw/california/frpm2425.xlsx",
+      "url": "https://www.cde.ca.gov/Ds/ad/documents/frpm2425.xlsx",
+      "sha256": "86fb8bc64ce0e433468f4a4b9038115a82031fee56125f76bacd56037a654a40"
+    },
+    {
+      "id": "ca-lausd-2025:ca-sb-2025",
+      "dataset_id": "ca-lausd-2025",
+      "path": "data/raw/california/sb_ca2025_1_csv_v1.zip",
+      "url": "https://caaspp-elpac.ets.org/caaspp/researchfiles/sb_ca2025_1_csv_v1.zip",
+      "sha256": "b1fea7cc714141ffe9c67ac91bad3eaa24282c49d37a18bd0f9ad6e2dc3b6e6b"
+    },
+    {
+      "id": "ca-lausd-2025:ca-sb-layout-2025",
+      "dataset_id": "ca-lausd-2025",
+      "path": "data/raw/california/2025_SBAC_Research_File_Layout.xlsx",
+      "url": "https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx",
+      "sha256": "a1c6bfb0c88333413ad612b0aa47a7ad08a85c6d7cb1c27f7ff9facecbf6ab2e"
+    },
+    {
+      "id": "ca-lausd-2025:california_extract",
+      "dataset_id": "ca-lausd-2025",
+      "path": "data/source/california.json",
+      "url": "https://caaspp-elpac.ets.org/caaspp/ResearchFileListSB?lstCounty=00&lstDistrict=00000&lstTestType=B&lstTestYear=2025&ps=true",
+      "sha256": "5a66934a98646df3a7c09954753630634a6a9232a311accda724527124ec2e2d"
+    },
+    {
+      "id": "ca-lausd-2025:ccd_school_directory",
+      "dataset_id": "ca-lausd-2025",
+      "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_029_2425_w_1a_073025.zip",
+      "sha256": "39326da788aa322353d20ceaf8ad4baed26272502cd05b066cf6c594988b21ab"
+    },
+    {
+      "id": "ca-lausd-2025:extract",
+      "dataset_id": "ca-lausd-2025",
+      "path": "data/source/los-angeles.json",
+      "url": "https://caaspp-elpac.ets.org/caaspp/ResearchFileListSB?lstCounty=00&lstDistrict=00000&lstTestType=B&lstTestYear=2025&ps=true",
+      "sha256": "876f82da9b2ceb5db3678a6f3755491107639534c5a48a3481c0fedfbef1cae9"
+    },
+    {
+      "id": "ca-lausd-2025:numerical_audit",
+      "dataset_id": "ca-lausd-2025",
+      "path": "data/source/los-angeles-model-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/los-angeles-model-audit.json",
+      "sha256": "0e2b1911ac5306f9e5591a904db35c05c6ff1960065f52f20919de11c993f48d"
+    },
+    {
+      "id": "ca-lausd-2025:roster_audit",
+      "dataset_id": "ca-lausd-2025",
+      "path": "data/source/los-angeles-district-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/los-angeles-district-audit.json",
+      "sha256": "72633e06df2e9d84e23a3c204c241d4f97c9f0aef2fb454378f6298e0f7877d2"
+    },
+    {
       "id": "ca-sb-2025",
       "dataset_id": "ca-cde-2025",
       "path": "data/raw/california/sb_ca2025_1_csv_v1.zip",
@@ -15496,6 +15552,26 @@
       "source_url": "https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx"
     },
     {
+      "id": "ca-lausd-2025:2025:Smarter Balanced grade 11:HS",
+      "state": "CA",
+      "name": "Smarter Balanced grade 11",
+      "year": 2025,
+      "level": "HS",
+      "grades": "11",
+      "standard": "2024\u201325 CAASPP Smarter Balanced Standard Met or Exceeded (Levels 3+4); all students, valid scores only. California alternate assessments are excluded. Exact proficient and valid-score counts are summed across complete tested grades.",
+      "source_url": "https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx"
+    },
+    {
+      "id": "ca-lausd-2025:2025:Smarter Balanced grades 3\u20138:ES",
+      "state": "CA",
+      "name": "Smarter Balanced grades 3\u20138",
+      "year": 2025,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "2024\u201325 CAASPP Smarter Balanced Standard Met or Exceeded (Levels 3+4); all students, valid scores only. California alternate assessments are excluded. Exact proficient and valid-score counts are summed across complete tested grades.",
+      "source_url": "https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx"
+    },
+    {
       "id": "co-cde-2025:2025:CMAS 2020 standards:ES",
       "state": "CO",
       "name": "CMAS 2020 standards",
@@ -16578,6 +16654,12 @@
       "source_url": "https://www.cde.ca.gov/ds/ad/filesspfrpm.asp"
     },
     {
+      "id": "ca-lausd-2025:income",
+      "name": "K\u201312 FRPM eligibility",
+      "definition": "Same-year CALPADS Census Day K\u201312 FRPM eligibility divided by K\u201312 enrollment. Eligibility includes household applications or alternate income forms, direct certification, and categorical eligibility. This is eligibility, not the share receiving universally available meals, and is not the LCFF unduplicated pupil count.",
+      "source_url": "https://www.cde.ca.gov/ds/ad/filesspfrpm.asp"
+    },
+    {
       "id": "co-frl-2025",
       "name": "Colorado K\u201312 FRL eligibility 2024\u201325",
       "definition": "Same-year Student October Count K\u201312 free or reduced-price lunch eligibility. Household income applications, alternate forms, direct certification and categorical eligibility support eligibility. No-cost meals through Healthy School Meals for All are available regardless of eligibility and do not establish universal economic disadvantage.",
@@ -17106,6 +17188,54 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "34c4811cff9c58bf541ad3a59f8c11e287011597246783d8d15551ff53f954bb"
+    },
+    {
+      "id": "ca-lausd-2025:2025:Smarter Balanced grade 11:HS:combined:ols-v1:caa975c25d74",
+      "dataset_id": "ca-lausd-2025",
+      "definition_id": "ca-lausd-2025:2025:Smarter Balanced grade 11:HS",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "caa975c25d74b81bd0c4c50edfbdbb14805a05bc9b5037dc24b1312655108245"
+    },
+    {
+      "id": "ca-lausd-2025:2025:Smarter Balanced grade 11:HS:math:ols-v1:caa975c25d74",
+      "dataset_id": "ca-lausd-2025",
+      "definition_id": "ca-lausd-2025:2025:Smarter Balanced grade 11:HS",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "caa975c25d74b81bd0c4c50edfbdbb14805a05bc9b5037dc24b1312655108245"
+    },
+    {
+      "id": "ca-lausd-2025:2025:Smarter Balanced grade 11:HS:reading:ols-v1:caa975c25d74",
+      "dataset_id": "ca-lausd-2025",
+      "definition_id": "ca-lausd-2025:2025:Smarter Balanced grade 11:HS",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "caa975c25d74b81bd0c4c50edfbdbb14805a05bc9b5037dc24b1312655108245"
+    },
+    {
+      "id": "ca-lausd-2025:2025:Smarter Balanced grades 3\u20138:ES:combined:ols-v1:caa975c25d74",
+      "dataset_id": "ca-lausd-2025",
+      "definition_id": "ca-lausd-2025:2025:Smarter Balanced grades 3\u20138:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "caa975c25d74b81bd0c4c50edfbdbb14805a05bc9b5037dc24b1312655108245"
+    },
+    {
+      "id": "ca-lausd-2025:2025:Smarter Balanced grades 3\u20138:ES:math:ols-v1:caa975c25d74",
+      "dataset_id": "ca-lausd-2025",
+      "definition_id": "ca-lausd-2025:2025:Smarter Balanced grades 3\u20138:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "caa975c25d74b81bd0c4c50edfbdbb14805a05bc9b5037dc24b1312655108245"
+    },
+    {
+      "id": "ca-lausd-2025:2025:Smarter Balanced grades 3\u20138:ES:reading:ols-v1:caa975c25d74",
+      "dataset_id": "ca-lausd-2025",
+      "definition_id": "ca-lausd-2025:2025:Smarter Balanced grades 3\u20138:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "caa975c25d74b81bd0c4c50edfbdbb14805a05bc9b5037dc24b1312655108245"
     },
     {
       "id": "co-cde-2025:2025:CMAS 2020 standards:ES:combined:ols-v1:1937bec13763",
@@ -19775,6 +19905,24 @@
           "map_source": "School coordinates are unavailable in the audited California sources.",
           "audit": "data/california/audit.json",
           "statewide": true
+        },
+        {
+          "id": "los-angeles",
+          "name": "Los Angeles Unified",
+          "dataset": "ca-lausd-2025",
+          "status": "ready",
+          "geography": "los-angeles",
+          "levels": [
+            "ES",
+            "HS"
+          ],
+          "schools": "data/los-angeles/schools.json",
+          "boundaries": null,
+          "comparison": "Los Angeles Unified \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Los Angeles Unified district models: exact operational 2024\u201325 CCD LEA 0622710 attachments, including locally funded charters and alternatives; pure grade schools and pure high schools separately; mixed schools excluded. Separate same-year Smarter Balanced grades 3\u20138 and grade 11 Math, ELA and Combined models.",
+          "map_source": "School coordinates and district boundaries are unavailable in the audited LAUSD sources.",
+          "statewide": false,
+          "audit": "data/los-angeles/coverage.json"
         }
       ]
     },

@@ -1,6 +1,6 @@
 # Los Angeles Unified district audit
 
-This guide records source, cohort and independent numerical audits for a possible 2024–25 Los Angeles Unified comparison under [issue #3](https://github.com/robot-assisted-projects/FRPL-RMA/issues/3). Separate district fits have been checked, but they have not been imported or added to the browser, and the source audit's modeling approval remains false. Existing California results retain their statewide comparison populations.
+This guide records the source, cohort, numerical and data integration checks for the 2024–25 Los Angeles Unified comparison under [issue #3](https://github.com/robot-assisted-projects/FRPL-RMA/issues/3). A separate adapter imports and exports the independently checked district fits as **Los Angeles Unified** under California. Existing California results retain their statewide comparison populations. Historical source and numerical audit files remain immutable with their original modeling approval false; the district adapter uses a separate normalized release and verifies its complete source, model and export evidence.
 
 ## Exact roster and reporting scope
 
@@ -29,7 +29,7 @@ Income is same-year Census Day K–12 FRPM eligibility, including income applica
 
 ## Independent district model audit
 
-The [numerical audit](../data/source/los-angeles-model-audit.json) fits six new district models directly from this exact roster and the audited proficiency/income inputs. It never copies statewide residuals. The predeclared baseline retains locally funded charters and alternative schools attached to the exact CCD LEA, excludes outside-roster reporting associations and mixed schools, and fits pure grade-school and pure high-school populations separately. Each subject has its own membership and fit; the practical minimum is 30 usable schools.
+The [numerical audit](../data/source/los-angeles-model-audit.json) fits six new district models directly from this exact roster and the audited proficiency/income inputs. It never copies statewide residuals. The predeclared baseline retains locally funded charters and alternative schools attached to the exact CCD LEA, excludes outside-roster reporting associations and mixed schools, and fits pure grade-school and pure high-school populations separately. Each subject has its own membership and fit; the practical minimum is 30 usable schools. The adapter checks every exported school metric and all six current/historical model summaries against this independent audit.
 
 | Pure population | Subject | Schools | Income slope | R² | Maximum leverage | Maximum Cook's distance |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -46,12 +46,19 @@ All six income designs have rank two, nonzero outcome/residual variation and fin
 
 An independent centered full fit checks coefficients, predictions, residuals and R². Every fitted school is also checked against an explicit leave-one-out least-squares fit with income recentered for that training set. A separately constructed centered hat matrix propagates every member's sampling variance through `I−H` and checks both interval endpoints. Maximum discrepancies are below **3.2 × 10⁻¹²** across all checks in this run, and below **9.5 × 10⁻¹⁴** for deletion/studentization/interval checks, within the fixed **2 × 10⁻⁹** independent-verification tolerance. No numerical hard holds were found. Numerical consistency does not itself approve source scope, import or publication.
 
-## Remaining integration and release gates
+## Canonical and browser data integration
 
-- Preserve and label the chosen exact attached-LEA baseline, including locally funded charters and alternatives, in the eventual dataset's source snapshot. The usable pure Combined cohorts include 541 regular plus 20 alternative grade schools, and 85 regular plus 51 alternative high schools. Changing a type policy requires new membership, source review and fits.
-- Import the independently checked district models as a distinct canonical dataset and browser comparison. Retain the selected population policy, identities and source fingerprints in provenance. Verify repeatable import, complete catalog preservation and district-versus-state labeling before release.
-- Review the high-school income clustering, leverage, alternative-heavy composition and deleted-fit influence during integration. Numerical success and the 30-school floor alone are not approval. No shrinkage or enrollment adjustment is provided by studentization.
-- Keep California thresholds, FRPM meaning, whole-school versus assessed-grade limitations and the one-year history explicit. Preserve statewide California, Chicago and NYC results. District residuals describe associations within the district population, not causal effectiveness or an interchangeable national scale.
+The [normalized release extract](../data/source/los-angeles.json) freezes the exact chosen population policy, all **736 pure directory IDs**, each subject's membership, population fingerprints and linked native source records. It retains all 589 grade-school and 147 high-school profiles, including the 20 profiles with no applicable tested grade. All 784 operational roster records reconcile separately: 736 pure profiles, 47 mixed profiles outside the comparison, and one operational infant/preschool record without a matching income profile. Outside-roster and closed records remain explicitly documented.
+
+[`prepare_los_angeles.py`](../scripts/prepare_los_angeles.py) uses the canonical snapshot helper with distinct dataset **`ca-lausd-2025`**. Source, economic and assessment definitions have dataset namespaces, so overlapping CDS school IDs do not replace California's statewide observations or results. The new comparison's region and geography are **`los-angeles`**, its name is **Los Angeles Unified**, and its descriptor explicitly records **`statewide:false`**. It has separate pure ES grades 3–8 and HS grade-11 assessment models. No admissions classification, school coordinates or boundaries are claimed.
+
+The adapter validates the pinned source and numerical audits before import, preserves missing/suppressed/applicability exclusions and exact native counts, and checks the resulting six fits and every school metric against the independent numerical audit. Historical model summaries must match the current models. Reimporting twice produces identical static exports and preserves other canonical datasets; tested source/policy/count drift fails before import.
+
+The usable pure Combined cohorts include 541 regular plus 20 alternative grade schools, and 85 regular plus 51 alternative high schools. High-school income clustering, leverage, alternative-heavy composition and deleted-fit influence remain interpretation limits in the exported methodology. Changing a school-type policy requires new membership, source review and fits. No shrinkage or enrollment adjustment is provided by studentization.
+
+The canonical adapter was run twice against the existing full database. Both runs produced identical rows and four district exports, preserved every prior row across all nine canonical tables and passed foreign-key checks. Global catalog and assessment-guide generation preserved all 187 other existing served data files; only the manifest and assessment guide changed. The site still has 39 released states and 11 source holds, with separate LAUSD and statewide California regions.
+
+All 304 Python tests and 20 JavaScript tests passed. Browser verification confirmed both levels and subject-specific model sizes, paginated lists, the first search after loading for a school beyond page one, annual actual/predicted/residual tables, selected and explicitly empty shared URLs, the unavailable-coordinate message, and separate assessment-guide links with explicit developer evidence. No browser warnings or errors were reported. District residuals describe associations within this district population, not causal effectiveness or an interchangeable national scale. A branch push does not establish deployment to GitHub Pages.
 
 ## Sources and replay
 
@@ -62,7 +69,7 @@ The [committed audit](../data/source/los-angeles-district-audit.json) retains al
 - [2025 CAASPP Smarter Balanced research archive](https://caaspp-elpac.ets.org/caaspp/researchfiles/sb_ca2025_1_csv_v1.zip) and [official research-file layout](https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx): native school scope, funding types, subjects, tested grades, suppression and scored denominator.
 - [California data guide](california-data.md) and [compact California extract](../data/source/california.json): the audited existing source and aggregation contract.
 
-Normal offline validation reads the committed audit's retained directory inputs and the pinned California extract. It does not need raw downloads, alter SQLite, fit models or change the browser catalog:
+Normal source-audit validation reads the committed audit's retained directory inputs and the pinned California extract. It does not need raw downloads, alter SQLite, fit models or change the browser catalog:
 
 ```sh
 .venv/bin/python scripts/audit_los_angeles.py
@@ -86,3 +93,13 @@ The numerical audit also runs entirely offline from the pinned committed roster 
 ```
 
 Its selected policy and per-model school IDs have their own fingerprint. Repeated builds on the same environment should produce identical bytes. Replay permits an absolute tolerance of **2 × 10⁻¹⁰** or a relative tolerance of **2 × 10⁻¹⁰**, whichever is larger, for computed floating-point metrics across NumPy/BLAS platforms. Source identities, hashes, configuration, membership, valid counts and numerical inputs still compare exactly; numerical tolerance cannot authorize changed evidence.
+
+Rebuild the ready district dataset from its committed normalized extract with the existing canonical database schema. Only this district dataset is replaced; do not reset the database to a Chicago-only store:
+
+```sh
+.venv/bin/python scripts/prepare_los_angeles.py
+.venv/bin/python scripts/export_catalog.py
+.venv/bin/python -m unittest discover -s tests -p 'test_los_angeles.py' -v
+```
+
+The adapter's `--extract` option regenerates its normalized release from the two pinned committed audits, then prepares the dataset. It requires no raw downloads. Use `--database PATH` for an isolated existing-schema test database. The four browser-data outputs are [`schools.json`](../data/los-angeles/schools.json), [`history.json`](../data/los-angeles/history.json), [`coverage.json`](../data/los-angeles/coverage.json) and [`catalog.json`](../data/los-angeles/catalog.json). Full site rebuild ordering and global exporter checks are in the main README.
