@@ -1,0 +1,64 @@
+{
+  "year": 2025,
+  "schools": 1511,
+  "cohorts": {
+    "grade": {
+      "directory": 1511,
+      "eligible": {
+        "math": 620,
+        "reading": 580,
+        "combined": 469
+      }
+    }
+  },
+  "exclusions": {
+    "CEP building reports schoolwide free meals, not individual eligibility": 724,
+    "Math: CEP building reports schoolwide free meals, not individual eligibility; ELA: CEP building reports schoolwide free meals, not individual eligibility": 362,
+    "Native proficiency component or valid-score count suppressed": 1027,
+    "Math: Native proficiency component or valid-score count suppressed": 111,
+    "Math: Native proficiency component or valid-score count suppressed; ELA: Native proficiency component or valid-score count suppressed": 382,
+    "ELA: Native proficiency component or valid-score count suppressed": 151,
+    "Incomplete native offered tested-grade coverage": 67,
+    "Math: Incomplete native offered tested-grade coverage; ELA: Incomplete native offered tested-grade coverage": 33,
+    "Missing same-year native individual eligibility": 2,
+    "Math: Missing same-year native individual eligibility; ELA: Missing same-year native individual eligibility": 1,
+    "Native January FTE and membership outside valid range": 2,
+    "Math: Native January FTE and membership outside valid range; ELA: Native January FTE and membership outside valid range": 1,
+    "Math: Incomplete native offered tested-grade coverage; ELA: Native proficiency component or valid-score count suppressed": 1
+  },
+  "source_audit": {
+    "native_directory": 2139,
+    "grade_profiles": 1511,
+    "excluded": {
+      "Outside verified grade-school MAP scope or missing grade enrollment": 628
+    },
+    "native_income_records": 2224,
+    "native_cep_records": 513,
+    "native_count_comparisons": 130,
+    "unmatched_assessment_ids": [
+      "014400-3000",
+      "014400-4020",
+      "048071-1030",
+      "048074-1020",
+      "048078-6030",
+      "090078-1030",
+      "096119-4029",
+      "096119-4069",
+      "096119-4269",
+      "096119-9990",
+      "115115-1015",
+      "115115-1024",
+      "115115-4970",
+      "201201-9001",
+      "201201-9003",
+      "201201-9004",
+      "201201-9011",
+      "201201-9032",
+      "201201-9036",
+      "201201-9040",
+      "201201-9075"
+    ],
+    "income_unavailable": 364,
+    "mapped": 0
+  }
+}

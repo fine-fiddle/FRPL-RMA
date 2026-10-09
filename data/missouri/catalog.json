@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "MO",
+    "name": "Missouri"
+  },
+  "prepare_script": "scripts/prepare_missouri.py",
+  "regions": [
+    {
+      "id": "missouri",
+      "name": "Statewide",
+      "dataset": "mo-map-2025",
+      "status": "ready",
+      "geography": "missouri",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/missouri/schools.json",
+      "boundaries": null,
+      "comparison": "Missouri \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Missouri regular MAP grade schools with complete unsuppressed proficiency counts and native non-CEP individual January FRL",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}
