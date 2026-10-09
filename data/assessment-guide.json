@@ -13,6 +13,49 @@
       "role": "State identifiers, publication status and audit guides"
     },
     {
+      "id": "sb-2024-25-system",
+      "url": "https://technicalreports.smarterbalanced.org/2024-25_interim-report/_book/index.html",
+      "path": "data/raw/assessment-provider/system-overview.html",
+      "publisher": "Smarter Balanced Assessment Consortium",
+      "title": "2024–25 Interim Assessment Technical Report: Introduction and Overview",
+      "published_date": "2025-02-10",
+      "scope": "System overview, including summative assessments; interim validity results are not used as summative evidence.",
+      "locator": "Overview of the Smarter Balanced Assessment System",
+      "claim": "The consortium created the assessment system, which includes end-of-year summative assessments. Smarter Balanced staff guide its maintenance with member-driven decisions. This establishes a consortium developer role, not a state delivery contract.",
+      "excerpt": "The Consortium expanded on these proven successes to create a high-quality, balanced assessment system",
+      "sha256": "b2cf986f1d6512bfe54fa6331c2b995774b7f158f7d3ef565884d4e0122100c1",
+      "retrieved_date": "2026-10-09",
+      "role": "Audited consortium developer and 2024–25 role-scope evidence"
+    },
+    {
+      "id": "sb-2024-25-administration",
+      "url": "https://technicalreports.smarterbalanced.org/2024-25_interim-report/_book/test-admin.html",
+      "path": "data/raw/assessment-provider/test-administration.html",
+      "publisher": "Smarter Balanced Assessment Consortium",
+      "title": "2024–25 Interim Assessment Technical Report: Chapter 5 Test Administration",
+      "school_year": "2024-25",
+      "locator": "Sections 5.1, 5.3 and 5.4",
+      "claim": "The resources are updated for 2024–25. The Member Procedures Manual covers summative as well as interim assessments and distinguishes consortium services from services members must secure. State administration manuals require customization. It does not identify each state delivery vendor.",
+      "excerpt": "examples of services that members are responsible for securing",
+      "sha256": "3fb4e9d15c49058e1572bdaf10b691d05d87d7585ab491f2b81a0eabbcd316f1",
+      "retrieved_date": "2026-10-09",
+      "role": "Audited consortium developer and 2024–25 role-scope evidence"
+    },
+    {
+      "id": "sb-2024-25-members",
+      "url": "https://smarterbalanced.org/teaching-and-learning-innovation-awards/",
+      "path": "data/raw/assessment-provider/2024-25-members.html",
+      "publisher": "Smarter Balanced Assessment Consortium",
+      "title": "Teaching and Learning Innovation Awards",
+      "school_year": "2024-25",
+      "locator": "Opening member jurisdictions, Requirements and Eligibility, and Timeline",
+      "claim": "The official program lists California, Delaware, Nevada and Washington among member jurisdictions and dates its application period to November 2024–February 2025. Membership does not establish a state delivery vendor or justify changing any other assessment family.",
+      "excerpt": "California, Connecticut, Delaware, Hawaii, Idaho, Indiana, Michigan, Nevada, Oregon, South Dakota, U.S. Virgin Islands, Washington",
+      "sha256": "57426bdac7f93b7af45ff662c2b821a776a4e55e06563d7329c23e8d0909fa6a",
+      "retrieved_date": "2026-10-09",
+      "role": "Audited consortium developer and 2024–25 role-scope evidence"
+    },
+    {
       "id": "mi-psat8-2025:psat8_levels",
       "dataset_id": "mi-psat8-2025",
       "path": "data/raw/michigan/psat8-performance-levels.pdf",
@@ -50,6 +93,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -84,6 +128,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -118,6 +163,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -142,6 +188,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -176,6 +223,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -207,9 +255,14 @@
           "source_url": "https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx",
           "dataset_id": "ca-cde-2025",
           "family": "Smarter Balanced",
-          "provider": null,
-          "provider_source_url": null,
-          "provider_role": null,
+          "provider": "Smarter Balanced Assessment Consortium",
+          "provider_source_url": "https://technicalreports.smarterbalanced.org/2024-25_interim-report/_book/index.html",
+          "provider_role": "Assessment developer (member-led consortium)",
+          "provider_evidence_ids": [
+            "sb-2024-25-system",
+            "sb-2024-25-administration",
+            "sb-2024-25-members"
+          ],
           "ambition_comparison": null,
           "regions": [
             {
@@ -231,9 +284,14 @@
           "source_url": "https://caaspp-elpac.ets.org/caaspp/docs/2025_SBAC_Research%20File%20Layout.xlsx",
           "dataset_id": "ca-cde-2025",
           "family": "Smarter Balanced",
-          "provider": null,
-          "provider_source_url": null,
-          "provider_role": null,
+          "provider": "Smarter Balanced Assessment Consortium",
+          "provider_source_url": "https://technicalreports.smarterbalanced.org/2024-25_interim-report/_book/index.html",
+          "provider_role": "Assessment developer (member-led consortium)",
+          "provider_evidence_ids": [
+            "sb-2024-25-system",
+            "sb-2024-25-administration",
+            "sb-2024-25-members"
+          ],
           "ambition_comparison": null,
           "regions": [
             {
@@ -268,6 +326,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -292,6 +351,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -332,9 +392,14 @@
           "source_url": "https://data.delaware.gov/resource/ms6b-mt82.json?%24where=schoolyear%3D%272025%27+and+race%3D%27All+Students%27+and+gender%3D%27All+Students%27+and+geography%3D%27All+Students%27+and+grade%3D%27All+Students%27+and+specialdemo%3D%27All+Students%27&%24limit=50000&%24order=districtcode%2Cschoolcode",
           "dataset_id": "de-native-2025",
           "family": "Smarter Balanced",
-          "provider": null,
-          "provider_source_url": null,
-          "provider_role": null,
+          "provider": "Smarter Balanced Assessment Consortium",
+          "provider_source_url": "https://technicalreports.smarterbalanced.org/2024-25_interim-report/_book/index.html",
+          "provider_role": "Assessment developer (member-led consortium)",
+          "provider_evidence_ids": [
+            "sb-2024-25-system",
+            "sb-2024-25-administration",
+            "sb-2024-25-members"
+          ],
           "ambition_comparison": null,
           "regions": [
             {
@@ -359,6 +424,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -393,6 +459,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -427,6 +494,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -461,6 +529,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -495,6 +564,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -529,6 +599,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -553,6 +624,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -577,6 +649,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -601,6 +674,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -635,6 +709,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -659,6 +734,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -693,6 +769,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -727,6 +804,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -751,6 +829,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -794,6 +873,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -828,6 +908,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -862,6 +943,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -896,6 +978,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -920,6 +1003,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -944,6 +1028,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -978,6 +1063,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1002,6 +1088,9 @@
           "provider": "College Board",
           "provider_source_url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/OEAA/PSAT/PSAT-8_9-for-Grade-8-Performance-Level-Information.pdf?hash=5262B1C6A190B3DEE23168F8015F123B&rev=ae6c6e11dc744013bd37b586f30c2b16",
           "provider_role": "Assessment owner and publisher",
+          "provider_evidence_ids": [
+            "mi-psat8-2025:psat8_levels"
+          ],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1036,6 +1125,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1060,6 +1150,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1094,6 +1185,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1128,6 +1220,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1162,6 +1255,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1202,9 +1296,14 @@
           "source_url": "https://nevadareportcard.nv.gov/di/main/assessment",
           "dataset_id": "nv-edc-ccd-dc",
           "family": "Smarter Balanced",
-          "provider": null,
-          "provider_source_url": null,
-          "provider_role": null,
+          "provider": "Smarter Balanced Assessment Consortium",
+          "provider_source_url": "https://technicalreports.smarterbalanced.org/2024-25_interim-report/_book/index.html",
+          "provider_role": "Assessment developer (member-led consortium)",
+          "provider_evidence_ids": [
+            "sb-2024-25-system",
+            "sb-2024-25-administration",
+            "sb-2024-25-members"
+          ],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1248,6 +1347,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1272,6 +1372,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1306,6 +1407,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1340,6 +1442,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1364,6 +1467,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1388,6 +1492,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1412,6 +1517,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1446,6 +1552,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1498,6 +1605,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1532,6 +1640,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1556,6 +1665,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1590,6 +1700,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1624,6 +1735,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1658,6 +1770,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1701,6 +1814,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1735,6 +1849,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1787,6 +1902,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1811,6 +1927,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1835,6 +1952,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1866,9 +1984,14 @@
           "source_url": "https://data.wa.gov/education/Report-Card-Assessment-Data-2024-25-School-Year/h5d9-vgwi",
           "dataset_id": "wa-ospi-2025",
           "family": "Smarter Balanced",
-          "provider": null,
-          "provider_source_url": null,
-          "provider_role": null,
+          "provider": "Smarter Balanced Assessment Consortium",
+          "provider_source_url": "https://technicalreports.smarterbalanced.org/2024-25_interim-report/_book/index.html",
+          "provider_role": "Assessment developer (member-led consortium)",
+          "provider_evidence_ids": [
+            "sb-2024-25-system",
+            "sb-2024-25-administration",
+            "sb-2024-25-members"
+          ],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1890,9 +2013,14 @@
           "source_url": "https://data.wa.gov/education/Report-Card-Assessment-Data-2024-25-School-Year/h5d9-vgwi",
           "dataset_id": "wa-ospi-2025",
           "family": "Smarter Balanced",
-          "provider": null,
-          "provider_source_url": null,
-          "provider_role": null,
+          "provider": "Smarter Balanced Assessment Consortium",
+          "provider_source_url": "https://technicalreports.smarterbalanced.org/2024-25_interim-report/_book/index.html",
+          "provider_role": "Assessment developer (member-led consortium)",
+          "provider_evidence_ids": [
+            "sb-2024-25-system",
+            "sb-2024-25-administration",
+            "sb-2024-25-members"
+          ],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1936,6 +2064,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1960,6 +2089,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -1984,6 +2114,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -2008,6 +2139,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {
@@ -2032,6 +2164,7 @@
           "provider": null,
           "provider_source_url": null,
           "provider_role": null,
+          "provider_evidence_ids": [],
           "ambition_comparison": null,
           "regions": [
             {

@@ -26,6 +26,8 @@ PSAT_SOURCE_SHA256 = 'e0636c07a99d476e1a8a96b636494514e712bd4f8e67fb8a4cab5b20c2
 PSAT_SOURCE_URL = ('https://www.michigan.gov/mde/-/media/Project/Websites/mde/OEAA/PSAT/'
                    'PSAT-8_9-for-Grade-8-Performance-Level-Information.pdf?'
                    'hash=5262B1C6A190B3DEE23168F8015F123B&rev=ae6c6e11dc744013bd37b586f30c2b16')
+PROVIDER_EVIDENCE_PATH = 'data/source/assessment-provider-evidence.json'
+PROVIDER_EVIDENCE_SHA256 = '603da48eb6d772507cbdc4125db6a31b22af240541b3724c87a5667bfa279b4d'
 DESCRIPTION = (
     'Latest assessments included in this project, separately by released dataset '
     'and model population. A year is the ending year of the school year. Test '
@@ -81,10 +83,32 @@ def assessment_family(name):
     return family
 
 
+def load_provider_evidence(path=ROOT / PROVIDER_EVIDENCE_PATH):
+    """Use the reviewed extract offline; changed evidence needs a new audit."""
+    if digest(path) != PROVIDER_EVIDENCE_SHA256:
+        raise ValueError('Assessment provider evidence changed; a new source audit is required')
+    evidence = json.loads(Path(path).read_text())
+    if evidence.get('schema_version') != 1:
+        raise ValueError('Unsupported assessment provider evidence schema')
+    return evidence
+
+
+def provider_binding(definition, evidence):
+    """Bind a role to an exact audited definition, never inherit it by name."""
+    binding = next((b for b in evidence['bindings']
+                    if b['definition']['id'] == definition['id']), None)
+    if binding and any(definition.get(key) != value
+                       for key, value in binding['definition'].items()):
+        raise ValueError('Audited assessment provider definition changed')
+    return binding
+
+
 def build_guide(manifest, registry, root=ROOT):
     states = registry_states(registry)
     known = {s['id'] for s in states}
     source_by_id = {s['id']: s for s in manifest.get('sources', [])}
+    provider_evidence = load_provider_evidence(local_path(root, PROVIDER_EVIDENCE_PATH))
+    provider_evidence_sources = {s['id']: s for s in provider_evidence['sources']}
     ready_regions = {}
     model_keys = {}
     for state in manifest['states']:
@@ -116,7 +140,7 @@ def build_guide(manifest, registry, root=ROOT):
         latest[key] = max(latest.get(key, 0), definition['year'])
 
     rows_by_state = {s['id']: [] for s in states}
-    provider_sources = []
+    provider_sources = {}
     for dataset, definition in ready_definitions:
         if definition['year'] != latest[(dataset, definition['level'])]:
             continue
@@ -133,7 +157,16 @@ def build_guide(manifest, registry, root=ROOT):
         row = dict(definition, dataset_id=dataset,
                    family=assessment_family(definition['name']), provider=None,
                    provider_source_url=None, provider_role=None,
+                   provider_evidence_ids=[],
                    ambition_comparison=None, regions=regions)
+        binding = provider_binding(definition, provider_evidence)
+        if binding:
+            row.update(provider=binding['provider'], provider_role=binding['provider_role'],
+                       provider_source_url=provider_evidence_sources[binding['primary_source']]['url'],
+                       provider_evidence_ids=binding['evidence_sources'])
+            for source_id in binding['evidence_sources']:
+                provider_sources[source_id] = dict(provider_evidence_sources[source_id],
+                    role='Audited consortium developer and 2024–25 role-scope evidence')
         if dataset == 'mi-psat8-2025' and definition['year'] == 2025:
             if definition['state'] != 'MI' or definition['name'] != 'Michigan PSAT 8/9 · grade 8 · 2025':
                 raise ValueError('Michigan PSAT owner evidence is bound to its audited definition')
@@ -141,9 +174,9 @@ def build_guide(manifest, registry, root=ROOT):
             if not evidence or evidence.get('sha256') != PSAT_SOURCE_SHA256 or evidence.get('url') != PSAT_SOURCE_URL:
                 raise ValueError('Missing or changed audited Michigan PSAT provider evidence')
             row.update(provider='College Board', provider_source_url=evidence['url'],
-                       provider_role='Assessment owner and publisher')
-            if not provider_sources:
-                provider_sources.append(dict(evidence, role='Audited PSAT owner and grade-8 benchmark evidence'))
+                       provider_role='Assessment owner and publisher',
+                       provider_evidence_ids=[PSAT_SOURCE_ID])
+            provider_sources[PSAT_SOURCE_ID] = dict(evidence, role='Audited PSAT owner and grade-8 benchmark evidence')
         rows_by_state[definition['state']].append(row)
 
     output_states = []
@@ -164,7 +197,7 @@ def build_guide(manifest, registry, root=ROOT):
                               role='Exact stored proficiency definitions and source URLs'),
                          dict(id='50-state-expansion-registry', path='data/source/state-expansion.json',
                               role='State identifiers, publication status and audit guides'),
-                         *provider_sources], states=output_states)
+                         *provider_sources.values()], states=output_states)
 
 
 def signed_area(ring):

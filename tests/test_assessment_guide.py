@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -10,8 +11,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from database import ROOT
 from export_assessment_guide import (
     BOUNDARY_SHA256, PSAT_SOURCE_ID, PSAT_SOURCE_SHA256,
+    PROVIDER_EVIDENCE_PATH, PROVIDER_EVIDENCE_SHA256,
     assessment_family, build_guide, extract_boundaries, local_path,
-    registry_states, signed_area, simplify_line, simplify_ring,
+    load_provider_evidence, provider_binding, registry_states, signed_area, simplify_line, simplify_ring,
     validate_boundaries,
 )
 
@@ -102,26 +104,86 @@ class AssessmentGuideTests(unittest.TestCase):
     def test_provider_is_explicitly_bound_to_audited_owner_evidence(self):
         rows = [a for state in self.guide['states'] for a in state['assessments']]
         published = [a for a in rows if a['provider'] is not None]
-        self.assertEqual(len(published), 1)
-        psat = published[0]
+        self.assertEqual(len(published), 7)
+        psat = next(a for a in published if a['provider'] == 'College Board')
         self.assertEqual((psat['state'], psat['dataset_id'], psat['year']), ('MI', 'mi-psat8-2025', 2025))
         self.assertEqual(psat['provider'], 'College Board')
         source = next(s for s in self.guide['sources'] if s['id'] == PSAT_SOURCE_ID)
         self.assertEqual(source['sha256'], PSAT_SOURCE_SHA256)
         self.assertEqual(psat['provider_source_url'], source['url'])
         self.assertEqual(psat['provider_role'], 'Assessment owner and publisher')
+        self.assertEqual(psat['provider_evidence_ids'], [PSAT_SOURCE_ID])
         self.assertIn('390', psat['standard'])
         self.assertIn('430', psat['standard'])
         for row in rows:
-            if row is not psat:
+            if row['provider'] is None:
                 self.assertIsNone(row['provider_source_url'])
                 self.assertIsNone(row['provider_role'])
+                self.assertEqual(row['provider_evidence_ids'], [])
         for value in ['0' * 64, None]:
             mutated = copy.deepcopy(self.manifest)
             source = next(s for s in mutated['sources'] if s['id'] == PSAT_SOURCE_ID)
             source['sha256'] = value
             with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'provider evidence'):
                 build_guide(mutated, self.registry)
+
+    def test_consortium_developer_role_retains_all_sources_and_exact_scopes(self):
+        evidence = load_provider_evidence()
+        self.assertEqual(evidence['schema_version'], 1)
+        expected = {b['definition']['id'] for b in evidence['bindings']}
+        rows = [a for s in self.guide['states'] for a in s['assessments']
+                if a['provider'] == 'Smarter Balanced Assessment Consortium']
+        self.assertEqual({a['id'] for a in rows}, expected)
+        self.assertEqual(len(rows), 6)
+        self.assertEqual({a['state'] for a in rows}, {'CA', 'DE', 'NV', 'WA'})
+        source_ids = {s['id'] for s in evidence['sources']}
+        guide_sources = {s['id']: s for s in self.guide['sources']}
+        self.assertEqual(len(guide_sources), len(self.guide['sources']))
+        # California is encountered before Michigan. Earlier developer evidence
+        # must never displace the independently audited College Board source.
+        self.assertEqual(set(guide_sources), source_ids | {PSAT_SOURCE_ID,
+            'released-assessment-definitions', '50-state-expansion-registry'})
+        for row in rows:
+            binding = provider_binding(row, evidence)
+            self.assertEqual(row['provider_role'], 'Assessment developer (member-led consortium)')
+            self.assertEqual(set(row['provider_evidence_ids']), source_ids)
+            self.assertEqual(row['provider_source_url'], guide_sources[binding['primary_source']]['url'])
+            self.assertEqual(row['year'], 2025)
+            self.assertIsNone(binding['legal_owner'])
+            self.assertIsNone(binding['delivery_provider'])
+            for source_id in row['provider_evidence_ids']:
+                self.assertEqual(guide_sources[source_id]['sha256'],
+                                 next(s['sha256'] for s in evidence['sources'] if s['id'] == source_id))
+
+    def test_provider_roles_do_not_propagate_from_titles_membership_or_new_years(self):
+        evidence = load_provider_evidence()
+        definition = copy.deepcopy(next(b['definition'] for b in evidence['bindings']
+                                        if b['definition']['level'] == 'ES'))
+        for field, value in [('state', 'HI'), ('year', 2026), ('grades', '10'), ('level', 'HS')]:
+            changed = dict(definition, **{field: value})
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, 'provider definition changed'):
+                provider_binding(changed, evidence)
+        # An equally named future definition is not approved by this year audit.
+        future = dict(definition, id='ca-cde-2026:2026:Smarter Balanced grades 3–8:ES', year=2026)
+        self.assertIsNone(provider_binding(future, evidence))
+        for state in ['HI', 'ID', 'OR', 'MI']:
+            for row in self.by_state[state]['assessments']:
+                if row['dataset_id'] != 'mi-psat8-2025':
+                    self.assertIsNone(row['provider'])
+        # Delaware's separate SAT row does not inherit the SBAC developer.
+        sat = next(a for a in self.by_state['DE']['assessments'] if a['level'] == 'HS')
+        self.assertIsNone(sat['provider'])
+
+    def test_changed_provider_extract_requires_a_new_source_audit(self):
+        path = ROOT / PROVIDER_EVIDENCE_PATH
+        self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), PROVIDER_EVIDENCE_SHA256)
+        with tempfile.TemporaryDirectory() as folder:
+            changed = Path(folder) / 'changed.json'
+            evidence = json.loads(path.read_text())
+            evidence['bindings'][0]['provider_role'] = 'Delivery contractor'
+            changed.write_text(json.dumps(evidence))
+            with self.assertRaisesRegex(ValueError, 'provider evidence changed'):
+                load_provider_evidence(changed)
 
     def test_only_explicit_test_names_share_smarter_balanced_family(self):
         for state in ['CA', 'DE', 'NV', 'WA']:
