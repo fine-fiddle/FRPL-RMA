@@ -313,6 +313,8 @@ Detroit Public Schools Community District (Michigan; NCES LEA `2601103`) warrant
 
 The [Los Angeles Unified roster and model audits](los-angeles-district.md) use exact official CCD school membership and same-year California records. They retain charter and alternative-school flags, separate mixed-grade schools, and document subject exclusions. The district region uses separate audited fits; statewide California remains its own comparison.
 
+The [Miami-Dade roster and cohort audit](miami-dade-district.md) keeps exact CCD district membership separate from Florida's native enrolled-grade school population. It documents offered-versus-enrolled grade differences, raw individual lunch eligibility, collocated/virtual exclusions and missing score counts. This source-only audit does not approve a district model.
+
 
 ## Provenance and rebuild
 

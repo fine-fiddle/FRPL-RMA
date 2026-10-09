@@ -322,7 +322,12 @@ def render(payload):
         'use exact official CCD school membership and same-year California records. '
         'They retain charter and alternative-school flags, separate mixed-grade schools, '
         'and document subject exclusions. The district region uses separate audited '
-        'fits; statewide California remains its own comparison.', ''])
+        'fits; statewide California remains its own comparison.', '',
+        'The [Miami-Dade roster and cohort audit](miami-dade-district.md) keeps exact '
+        'CCD district membership separate from Florida\'s native enrolled-grade school '
+        'population. It documents offered-versus-enrolled grade differences, raw '
+        'individual lunch eligibility, collocated/virtual exclusions and missing '
+        'score counts. This source-only audit does not approve a district model.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '
