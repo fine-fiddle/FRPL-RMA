@@ -1,0 +1,41 @@
+{
+  "year": 2025,
+  "schools": 166,
+  "cohorts": {
+    "grade": {
+      "directory": 141,
+      "eligible": {
+        "math": 134,
+        "reading": 134,
+        "combined": 134
+      }
+    },
+    "high": {
+      "directory": 25,
+      "eligible": {
+        "math": 20,
+        "reading": 22,
+        "combined": 20
+      }
+    }
+  },
+  "exclusions": {
+    "Native regular proficiency is redacted or unavailable": 5,
+    "Math: Native regular proficiency is redacted or unavailable; ELA: Native regular proficiency is redacted or unavailable": 1,
+    "Missing or suppressed proficiency": 16,
+    "Math: Missing or suppressed proficiency; ELA: Missing or suppressed proficiency": 8,
+    "Math: Native regular proficiency is redacted or unavailable": 2,
+    "Missing or invalid same-year income": 1,
+    "Math: Native regular proficiency is redacted or unavailable; ELA: Missing or invalid same-year income": 1
+  },
+  "source_audit": {
+    "native_public_units": 257,
+    "excluded": {
+      "Mixed, untested or unknown native grade scope": 66,
+      "Conflicting native public-school directory units": 25
+    },
+    "identical_enrollment_duplicates": 542,
+    "valid_score_definition": "The number of students who completed the statewide summative assessment listed with a valid score",
+    "income_definition_url": "https://education.delaware.gov/community/funding-contracts/federal-and-state-programs/title-programs/low-income-measure-and-title-i-schools/"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "DE",
+    "name": "Delaware"
+  },
+  "prepare_script": "scripts/prepare_delaware.py",
+  "regions": [
+    {
+      "id": "delaware",
+      "name": "Statewide",
+      "dataset": "de-native-2025",
+      "status": "ready",
+      "geography": "delaware",
+      "levels": [
+        "ES",
+        "HS"
+      ],
+      "schools": "data/delaware/schools.json",
+      "boundaries": null,
+      "comparison": "Delaware \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Delaware unique public reporting units: separate pure grade-school SBAC and pure high-school SAT, same-year individual SNAP/TANF",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}
