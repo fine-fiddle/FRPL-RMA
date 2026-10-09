@@ -1,0 +1,191 @@
+{
+  "year": 2025,
+  "schools": 893,
+  "cohorts": {
+    "grade": {
+      "directory": 893,
+      "eligible": {
+        "math": 847,
+        "reading": 877,
+        "combined": 833
+      }
+    }
+  },
+  "exclusions": {
+    "Native school proficiency rate suppressed, ranged or unavailable": 62,
+    "Math: Native school proficiency rate suppressed, ranged or unavailable": 44,
+    "ELA: Native school proficiency rate suppressed, ranged or unavailable": 14,
+    "Math: Native school proficiency rate suppressed, ranged or unavailable; ELA: Native school proficiency rate suppressed, ranged or unavailable": 2
+  },
+  "source_audit": {
+    "native_school_profiles": 1297,
+    "grade_school_profiles": 893,
+    "excluded": {
+      "Outside verified operational grade-school scope": 404
+    },
+    "income_unavailable": 0,
+    "state_lunch_notes": [
+      {
+        "State or Jurisdiction": "Alabama",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0007",
+        "Error Message": "The total Direct Certification was greater than the count of students reported as Free Lunch Qualified.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 31,
+        "State Note": "Data shown was submitted by the LEAs and is considered valid as reported. This error is due to the fact that our Direct Certification EUT includes students certified for both free and reduced lunch.",
+        "LEA NCES ID": "0100540, 0100870, 0101770, 0101920, 0102100, 0100006, 0100120, 0100390, 0100450, 0100188, 0101230, 0101410, 0101530, 0103581, 0102490, 0100195, 0103430, 0100013, 0100209, 0103582, 0103585",
+        "SCH NCES ID": "010054002665, 010087002442, 010177002506, 010192002496, 010210002436, 010000602705, 010012002708, 010039002553, 010045000216, 010018802514, 010123002512, 010141002439, 010153002474, 010358102554, 010358102555, 010249001053, 010249001054, 010249001055, 010249001056, 010249001057, 010019502407, 010019502424, 010019502441, 010343001302, 010001300714, 010001301498, 010001302402, 010001301682, 010020902504, 010358202713, 010358502689"
+      },
+      {
+        "State or Jurisdiction": "Alabama",
+        "School Year": "SY 2024-25",
+        "File Number": "['029' '129' '033' '052']",
+        "File Name": "Directory, CCD School, Free and Reduced Price Lunch, Membership",
+        "Level": "sch",
+        "Rule ID": "CCD-0010",
+        "Error Message": "Direct Certification or Free and Reduced-Price Lunch was not reported for a school with membership that has the National School Lunch Program.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 7,
+        "State Note": "All of the schools listed are PK-only schools.  As such, we do not include their F/R lunch numbers in the data we report.",
+        "LEA NCES ID": "0101380, 0102370, 0102430, 0101230, 0101560, 0100008, 0102650",
+        "SCH NCES ID": "010138000845, 010237001799, 010243002207, 010123002482, 010156000539, 010000802397, 010265002674"
+      },
+      {
+        "State or Jurisdiction": "Alabama",
+        "School Year": "SY 2024-25",
+        "File Number": "['029' '033']",
+        "File Name": "Directory, Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0011",
+        "Error Message": "Free and Reduced Price Lunch was reported for a reportable program.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 1,
+        "State Note": "Forrest Hills Community Development Center is a site under Fairfield City BOE.  This site houses multiple different school types under one roof, but there is at least one Pre-K class that has Fairfield City board enrolled Pre-K children that should be counted towards CEP numbers.  This is why we have it listed as a CEP site within our CNP Online Application.",
+        "LEA NCES ID": "0101440",
+        "SCH NCES ID": "010144002400"
+      },
+      {
+        "State or Jurisdiction": "Alabama",
+        "School Year": "SY 2024-25",
+        "File Number": "['033']",
+        "File Name": "Free and Reduced Price Lunch",
+        "Level": "sch",
+        "Rule ID": "CCD-0014",
+        "Error Message": "The count of students reported for Free and Reduced-Price Lunch in the SEA in the current SY varied significantly from the prior SY.",
+        "Permitted value(s) flagged with error": "NA",
+        "Number of Entities": 1,
+        "State Note": "The data owners have verified that this rule failure is due to the roll back on households eligible for Medicaid.\u00a0 Beginning April 1, 2025 when we captured our data used to qualify schools for CEP, we noticed a ~6% decrease in directly certified students across the state.",
+        "LEA NCES ID": null,
+        "SCH NCES ID": null
+      }
+    ],
+    "native_published_grade_rows": {
+      "Math": [
+        {
+          "grade": "ALL",
+          "proficiency": 33.37,
+          "sheet": "State",
+          "source_row": 7
+        },
+        {
+          "grade": "03",
+          "proficiency": 45.47,
+          "sheet": "State",
+          "source_row": 623
+        },
+        {
+          "grade": "04",
+          "proficiency": 41.76,
+          "sheet": "State",
+          "source_row": 1205
+        },
+        {
+          "grade": "05",
+          "proficiency": 39.31,
+          "sheet": "State",
+          "source_row": 1786
+        },
+        {
+          "grade": "06",
+          "proficiency": 33.97,
+          "sheet": "State",
+          "source_row": 2381
+        },
+        {
+          "grade": "07",
+          "proficiency": 24.08,
+          "sheet": "State",
+          "source_row": 2961
+        },
+        {
+          "grade": "08",
+          "proficiency": 24.53,
+          "sheet": "State",
+          "source_row": 3550
+        },
+        {
+          "grade": "11",
+          "proficiency": 23.71,
+          "sheet": "State",
+          "source_row": 4132
+        }
+      ],
+      "ELA": [
+        {
+          "grade": "ALL",
+          "proficiency": 56.18,
+          "sheet": "State",
+          "source_row": 7
+        },
+        {
+          "grade": "03",
+          "proficiency": 65.34,
+          "sheet": "State",
+          "source_row": 623
+        },
+        {
+          "grade": "04",
+          "proficiency": 60.93,
+          "sheet": "State",
+          "source_row": 1205
+        },
+        {
+          "grade": "05",
+          "proficiency": 67.41,
+          "sheet": "State",
+          "source_row": 1786
+        },
+        {
+          "grade": "06",
+          "proficiency": 56.81,
+          "sheet": "State",
+          "source_row": 2381
+        },
+        {
+          "grade": "07",
+          "proficiency": 56.51,
+          "sheet": "State",
+          "source_row": 2961
+        },
+        {
+          "grade": "08",
+          "proficiency": 54.48,
+          "sheet": "State",
+          "source_row": 3550
+        },
+        {
+          "grade": "11",
+          "proficiency": 30.24,
+          "sheet": "State",
+          "source_row": 4132
+        }
+      ]
+    },
+    "approved_point_only": true,
+    "score_denominator": "Native Tested retained raw; no verified matching proficiency denominator imported",
+    "mapped": 0
+  }
+}

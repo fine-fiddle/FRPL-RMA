@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "AL",
+    "name": "Alabama"
+  },
+  "prepare_script": "scripts/prepare_alabama.py",
+  "regions": [
+    {
+      "id": "alabama",
+      "name": "Statewide",
+      "dataset": "al-acap-dc-2025",
+      "status": "ready",
+      "geography": "alabama",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/alabama/schools.json",
+      "boundaries": null,
+      "comparison": "Alabama \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Alabama operational grade schools with native ACAP school totals and individual same-year CCD direct certification",
+      "map_source": "School coordinates are unavailable in the audited source extract."
+    }
+  ]
+}
