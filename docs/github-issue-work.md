@@ -1,0 +1,13 @@
+# GitHub issue work
+
+Work continues on `expansion/all-states` in [robot-assisted-projects/FRPL-RMA](https://github.com/robot-assisted-projects/FRPL-RMA). The branch is separate from the GitHub Pages publishing branch, `master`.
+
+- [#1 — What test is used, and to what standard](https://github.com/robot-assisted-projects/FRPL-RMA/issues/1): the [assessment guide](../assessments.html) implements the geographic map, state/test/population filters, latest released definitions, source links and region navigation. Provider roles and comparable cut-score ambition remain evidence work; this issue is not complete. [Source notes](assessment-guide.md).
+- [#2 — Expand to covering all 50 states](https://github.com/robot-assisted-projects/FRPL-RMA/issues/2): the [source ledger](state-expansion.md) records implemented comparisons and outstanding holds. The current New Hampshire work verifies an exact income-to-directory crosswalk while preserving its assessment-ID hold. [New Hampshire audit](new-hampshire-data.md).
+- [#3 — Large District Breakouts](https://github.com/robot-assisted-projects/FRPL-RMA/issues/3): the [district queue](district-comparisons.md) supplies the size/cohort screen and implementation gates. District models still require their own audited population and usable outcomes. Detroit has a documented cohort hold.
+
+The [blocker issue drafts](../data/source/expansion-issue-drafts.json) provide one source-grounded issue per unreleased state, with missing evidence, acceptance criteria and its branch guide link. They are prepared for native sub-issue attachment to #2. No issue was created by the denied API attempts, and none is represented as published.
+
+The user authorized issue publishing through `robotic-assistants`. Both connected accounts can read this public repository, but issue creation currently returns GitHub `403 Resource not accessible by integration`. Their installation listings include user-account installations and no `robot-assisted-projects` organization installation. Enabling the GitHub app for this repository under the organization's installation settings is the remaining publishing prerequisite; a repository collaborator's push permission does not establish the app's issue-write permission.
+
+When that connection is available, first inspect existing issues to avoid duplicates, create each still-applicable blocker, attach it as a native sub-issue of #2, and post concise progress with the branch/commit links. Keep #1, #2 and #3 open until their full acceptance criteria are met. Do not close a state source hold because the investigation or a numerical experiment was completed.
