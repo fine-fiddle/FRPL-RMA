@@ -1,5 +1,7 @@
 # Achievement x Economic Disadvantage — public school comparator
 
+Expansion is tracked for [all 50 states](docs/state-expansion.md) on `expansion/all-states`, with small state-specific integration units. Completed adapters, their source guides and pending work are listed in that ledger. Assessment populations and economic definitions remain separate. [Eight direct-certification snapshots](docs/ccd-state-data.md) use a distinct benefits-based predictor with no sampling intervals. Discovery is not approval: [audited obstacles](docs/expansion-blockers.md) explain access and methodological limits. The site lists only successfully imported, verified comparisons.
+
 New York → New York City includes grade-school NYSTP results through 2026 and separately labeled Regents ELA/Algebra I results through 2023, with same-year NYCPS Poverty data, residual histories and sampling intervals. Charter coverage, suppressed poverty values and historical closed-school coverage have explicit limitations. See the [NYC data guide](docs/nyc-data.md) for sources, definitions and rebuild commands.
 
 Wisconsin → School totals uses published 2024–25 WSAS school-wide rates, with 1,890 Combined schools across separate grade-school, high-school and mixed-grade comparisons. This adds 625 analyzable school IDs beyond the original view without reconstructing suppressed grades. Counts and sampling intervals are unavailable in these broader models. Wisconsin → Tested-count history preserves the separate Forward/ACT series for 2015–2025. All models use same-year Wisconsin Economically Disadvantaged enrollment. See the [Wisconsin data guide](docs/wisconsin-data.md).
@@ -27,14 +29,21 @@ Python 3.14 was used for the pinned requirements.
 ```sh
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/python scripts/build_database.py
+.venv/bin/python scripts/build_database.py --illinois data/raw/24-RC-Pub-Data-Set.xlsx
 .venv/bin/python scripts/prepare_data.py
+.venv/bin/python scripts/prepare_illinois.py
+.venv/bin/python scripts/prepare_nyc.py
+.venv/bin/python scripts/prepare_wisconsin.py
+.venv/bin/python scripts/prepare_wisconsin_reportcards.py
+.venv/bin/python scripts/prepare_states.py
 .venv/bin/python scripts/export_catalog.py
 .venv/bin/python -m unittest discover -s tests -v
 node --check app.js
 ```
 
-The checked-in CSV inputs reproduce data/schools.json without downloading anything. To import revised official workbooks, see data/source/README.md. Choose a matched year and update the import logic explicitly; do not mix different proficiency standards.
+The Chicago CSVs and committed state extracts rebuild the modeled data offline; the full database also requires the previously downloaded Illinois workbook. `prepare_states.py` runs the checked-in adapter named by each `data/<state>/catalog.json` descriptor, sequentially against SQLite. Individual state guides explain how to re-extract their raw sources. An adapter under a scientific audit hold uses `release_status: audit_pending`; repeated imports preserve that hold and catalog export excludes it. Its exploratory files are not a published comparison. To import revised official workbooks, see data/source/README.md. Choose a matched year and update the import logic explicitly; do not mix different proficiency standards.
+
+Omitting `--illinois` builds a Chicago-only database. The catalog exporter rejects a rebuild that would remove an existing ready comparison; restore the missing imports before exporting. `--allow-reduced-catalog` is reserved for an intentional reduced catalog. Source-discovery records in `data/source/state-expansion.json` never enable a state in the browser.
 
 ## Hosting
 
@@ -55,6 +64,7 @@ curl -L --fail 'https://www.isbe.net/Documents/24-RC-Pub-Data-Set.xlsx' -o data/
 .venv/bin/python scripts/prepare_nyc.py
 .venv/bin/python scripts/prepare_wisconsin.py
 .venv/bin/python scripts/prepare_wisconsin_reportcards.py
+.venv/bin/python scripts/prepare_states.py
 .venv/bin/python scripts/export_catalog.py
 .venv/bin/python -m unittest discover -s tests -v
 ```
@@ -126,7 +136,7 @@ The snapshot and history dates in this section describe the Illinois/Chicago rel
 
 ## Annual income and residual data
 
-`data/source/income-history.csv` contains 6,578 school/year observations for 2014–15 through 2023–24, including the no-assessment year 2019–20. `data/source/income-sources.json` records official URLs, workbook checksums, labels and row counts. Extract downloaded workbooks using `.venv/bin/python scripts/import_income.py /path/to/manifest.json`; each manifest entry needs `year` (ending year), `file` (local workbook) and `url`. Then regenerate assessments and run `scripts/prepare_data.py` as above.
+`data/source/income-history.csv` contains 6,578 school/year observations for 2014–15 through 2023–24, including the no-assessment year 2019–20. `data/source/income-sources.json` records official URLs, workbook checksums, labels and row counts. Extract downloaded workbooks using `.venv/bin/python scripts/import_income.py /path/to/manifest.json`; each manifest entry needs `year` (ending year), `file` (local workbook) and `url`. After refreshing source CSVs, run the complete [Refresh modeled data](#refresh-modeled-data) sequence above to import them into SQLite and restore every comparison. `prepare_data.py` alone reads the existing canonical observations.
 
 `data/history.json` contains all historical school/assessment records, explicit exclusion reasons and model metadata, including schools outside the displayed directory. `data/schools.json` embeds history for the current directory. Suppressed outcomes, insufficient tested counts and missing same-year income remain unmodeled; an unavailable residual is never zero. Unit tests independently refit every annual regression, verify source-year joins and ensure the 2024 snapshot matches history.
 - Program labels use CPS school-level Classification_Description, not a verified inventory of every program. In particular, mixed-program schools may have neighborhood and selective offerings.

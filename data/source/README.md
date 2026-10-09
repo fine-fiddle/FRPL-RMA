@@ -1,10 +1,14 @@
 # Data provenance
 
+The [50-state expansion ledger](../../docs/state-expansion.md) records source discovery separately from releases. `state-expansion.json` retains official state/FIPS identities, assessment-source leads and audited CCD raw flags; reported availability does not approve a predictor or a denominator. [Audited obstacles](../../docs/expansion-blockers.md) identify sources that currently cannot support the comparison.
+
+New state extracts retain raw source values, authoritative IDs, same-year income, suppression, definitions, worksheet/API row references, URLs and SHA-256 checksums. Native totals are preferred; grade aggregation requires complete coverage and verified score denominators. State-specific guides linked from the [expansion ledger](../../docs/state-expansion.md) specify different populations and rebuild paths. The [national audit](../../docs/national-source-audit.md) records discovery and source limitations; the [direct-certification adapter](../../docs/ccd-state-data.md) explicitly leaves tested counts and intervals unavailable. `scripts/prepare_states.py` rebuilds all audited state descriptors from committed extracts; raw downloads remain under ignored `data/raw/`. Extracts marked `release_status: audit_pending` retain their canonical hold on every rebuild and stay outside the browser catalog until the documented source issue is resolved.
+
 `wisconsin-reportcards.json` retains selected raw cells, row numbers, field definitions, workbook notes and SHA-256 source hashes for the separate 2024–25 Wisconsin school-total comparisons. It uses same-year income and directory coordinates from `wisconsin.json`. See the [Wisconsin data guide](../../docs/wisconsin-data.md) for population differences, point-only models, coverage and rebuild instructions.
 
 NYC inputs and their separate definitions are documented in the [NYC data guide](../../docs/nyc-data.md). `nyc.json` retains raw selected assessment and income values, official workbook notes, source URLs/checksums and verified map coordinates. Wisconsin inputs (`wisconsin.json`) are documented in the [Wisconsin data guide](../../docs/wisconsin-data.md); that extract retains raw grade-level counts, the annual enrollment snapshots, source URLs/checksums and the DPI-derived directory. The sections below describe the Chicago sources.
 
-Retrieved September 17, 2026. All inputs are public school aggregates; no individual student records.
+The Chicago sources below were retrieved September 17, 2026. All inputs are public school aggregates; no individual student records.
 
 ## School demographics / directory
 
@@ -33,8 +37,9 @@ Download workbooks locally then run:
 
 ```sh
 .venv/bin/python scripts/import_assessments.py /path/to/iar.xlsx /path/to/sat.xlsx
-.venv/bin/python scripts/prepare_data.py
 ```
+
+Then run the complete [Refresh modeled data](../../README.md#refresh-modeled-data) sequence to import the changed CSVs into SQLite and restore every comparison before catalog export. `prepare_data.py` reads SQLite; running it alone does not import changed source CSVs.
 
 2024 remains the snapshot endpoint. CPS labels its newer 2025 release as redefined performance levels; those results are outside this release.
 

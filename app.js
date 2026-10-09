@@ -3,7 +3,9 @@ const $ = selector => document.querySelector(selector);
 const state = { level: 'ES', subject: 'combined', program: 'all', query: '', selected: new Set(), focus: null, scope: 'selected' };
 let data, geography, mapZoom, mapSvg, activeRegion, activeState;
 function resolveGeography(catalog, params) {
-  const locationState = catalog.states.find(s=>s.id===params.get('state')) || catalog.states[0];
+  const ready = s => s.regions.some(r=>r.status==='ready');
+  const locationState = catalog.states.find(s=>s.id===params.get('state') && ready(s)) || catalog.states.find(ready);
+  if (!locationState) throw new Error('No ready comparison datasets');
   const region = locationState.regions.find(r=>r.id===params.get('region') && r.status==='ready') || locationState.regions.find(r=>r.status==='ready');
   return {locationState,region};
 }
@@ -162,7 +164,7 @@ function renderScatter() {
   const predictions=[m.intercept,m.intercept+100*m.slope];
   const x=d3.scaleLinear().domain([0,100]).range([margin.left,width-margin.right]);
   const y=d3.scaleLinear().domain([Math.min(0,...predictions)-2,Math.max(100,...predictions)+2]).range([height-margin.bottom,margin.top]);
-  const svg=d3.select(host).append('svg').attr('viewBox',`0 0 ${width} ${height}`).attr('role','img').attr('aria-label',`${subjectLabel()} ${outcomeLabel().toLowerCase()} versus low-income enrollment; regression slope ${m.slope.toFixed(2)}. ${sm?`${selected.name}: actual ${pct(sm.actual)}, predicted ${pct(sm.predicted)}, residual ${signed(sm.residual,1)} percentage points.`:''}`);
+  const svg=d3.select(host).append('svg').attr('viewBox',`0 0 ${width} ${height}`).attr('role','img').attr('aria-label',`${subjectLabel()} ${outcomeLabel().toLowerCase()} versus ${incomeLabel().toLowerCase()}; regression slope ${m.slope.toFixed(2)}. ${sm?`${selected.name}: actual ${pct(sm.actual)}, predicted ${pct(sm.predicted)}, residual ${signed(sm.residual,1)} percentage points.`:''}`);
   svg.append('g').attr('class','axis').attr('transform',`translate(${margin.left},0)`).call(d3.axisLeft(y).tickValues([0,25,50,75,100]).tickFormat(d=>`${d}%`).tickSize(-(width-margin.left-margin.right))).call(g=>g.select('.domain').remove());
   svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).ticks(5).tickFormat(d=>`${d}%`).tickSize(0)).call(g=>g.selectAll('text').attr('dy',16));
   svg.append('text').attr('x',margin.left).attr('y',11).attr('font-size',12).attr('fill','#667386').text(`${state.subject==='combined'?'Mean':state.subject==='reading'?'ELA':levelInfo().math_label} ${outcomeLabel().toLowerCase()}`);
@@ -197,7 +199,7 @@ function renderHistory() {
   const values = history.map(r => ({...r, ...r.subjects[state.subject], value: r.subjects[state.subject]?.studentized})).filter(r => Number.isFinite(r.value));
   $('#history-years').textContent = values.length ? `${values.length} ${values.length === 1 ? 'YEAR · SNAPSHOT ONLY' : 'YEARS'}` : '';
   if (!values.length) {
-    host.innerHTML = `<p class="empty">No ${label.toLowerCase()} residual history is available. Each point requires an eligible assessment and matching same-year income data.</p>`;
+    host.innerHTML = `<p class="empty">No ${state.subject === 'reading' ? 'ELA' : label.toLowerCase()} residual history is available. Each point requires an eligible assessment and matching same-year income data.</p>`;
     return;
   }
   const width = Math.max(host.clientWidth - 20, 300), height = 280;
@@ -271,22 +273,48 @@ function renderContext(){
   const info=levelInfo(), nyc=activeRegion?.id==='nyc';
   const stateName = activeState?.name || '';
   $('.year-tag strong').textContent=nyc && state.level==='HS' ? `${info.year-1}–${String(info.year).slice(-2)}` : `Spring ${info.year}`;
-  $('.intro .eyebrow').textContent=`${activeRegion?.id==='statewide' || activeRegion?.geography==='wisconsin' ? stateName.toUpperCase() : activeRegion?.name.toUpperCase() || 'CHICAGO'} PUBLIC SCHOOLS / ${info.year-1}–${String(info.year).slice(-2)}`;
+  $('.intro .eyebrow').textContent=`${activeRegion?.statewide || activeRegion?.id==='statewide' || activeRegion?.geography==='wisconsin' ? stateName.toUpperCase() : activeRegion?.name.toUpperCase() || 'CHICAGO'} PUBLIC SCHOOLS / ${info.year-1}–${String(info.year).slice(-2)}`;
   $('[data-subject="math"]').textContent=info.math_label;
   $('#assessment-context').textContent=info.note ? `${info.year} · ${info.note}` : '';
   $('#assessment-context').hidden=!info.note;
-  $('#geography-note').textContent=activeRegion?.comparison ? activeRegion.comparison.replace('{year}',info.year).replace('{note}',info.note||'') : 'Comparison population unavailable.';
+  $('#geography-note').textContent=activeRegion?.comparison ? activeRegion.comparison.replace('{year}',info.year).replace('{assessment}',info.assessment||'').replace('{note}',info.note||'') : 'Comparison population unavailable.';
+}
+function renderMethodology() {
+  const host = $('#state-methodology'), metadata = data.methodology;
+  host.hidden = !metadata;
+  if (!metadata) return;
+  $('#state-methodology-title').textContent = `${activeState.name} sources, coverage and limitations`;
+  $('#state-coverage').textContent = data.coverage_note || '';
+  const paragraphs = [metadata.summary, ...(metadata.details || [])].filter(Boolean).map(text=>{
+    const paragraph=document.createElement('p');paragraph.textContent=text;return paragraph;
+  });
+  const sources=document.createElement('p');
+  for (const source of metadata.sources || []) {
+    const url=new URL(source.url,window.location.href);
+    if (!['https:','http:'].includes(url.protocol)) continue;
+    if (sources.childNodes.length) sources.append(' · ');
+    const link=document.createElement('a');link.textContent=source.label;link.href=source.url;
+    sources.append(link);
+  }
+  $('#state-methodology-content').replaceChildren(...paragraphs,sources);
 }
 function render(){hideTooltip();const activeId=document.activeElement?.id;renderContext();renderList();renderMap();renderScatter();renderComparison();renderHistory();syncURL();if(activeId)document.getElementById(activeId)?.focus({preventScroll:true});}
 function setFilter(){clearTimeout(searchTimer);listLimit=LIST_PAGE_SIZE;state.query=$('#search').value.trim().toLowerCase();state.program=$('#program').value;ensureFocus();render();announce(`${filtered().length} matching schools. Regression unchanged.`);}
 function scheduleSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(setFilter,150);}
 async function init(){
+  const loadingControls = [...document.querySelectorAll('#search, #program, #level, #scope, #reset, [data-subject]')];
+  const setLoading = loading => loadingControls.forEach(control => {
+    control.disabled = loading || (control.id === 'program' && control.options.length <= 2);
+  });
+  setLoading(true);
   try{
     const catalogResponse = await fetch('data/manifest.json');
     if (!catalogResponse.ok) throw new Error('Dataset catalog unavailable');
     const catalog = await catalogResponse.json();
     const stateSelect = $('#state-select'), regionSelect = $('#region-select');
-    stateSelect.replaceChildren(...catalog.states.map(s => new Option(s.name, s.id)));
+    stateSelect.replaceChildren(...catalog.states.map(s => {
+      const option=new Option(s.name,s.id);option.disabled=!s.regions.some(r=>r.status==='ready');return option;
+    }));
     const initialParams = new URLSearchParams(window.location.search);
     let locationState;
     function selectURLRegion(params) {
@@ -307,6 +335,8 @@ async function init(){
       listLimit = LIST_PAGE_SIZE;
       const selectedRegion = locationState.regions.find(r => r.id === regionSelect.value);
       regionSelect.disabled = true;
+      setLoading(true);
+      let loadedSuccessfully = false;
       try {
         const loaded = await Promise.all([selectedRegion.schools,selectedRegion.boundaries].map(async url=>{if (!url) return null;const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json();}));
         if (version !== loadVersion) return;
@@ -329,21 +359,24 @@ async function init(){
         state.query = ''; state.program = 'all'; $('#search').value = ''; $('#program').value = 'all';
         state.scope = 'selected'; $('#scope').value = state.scope;
         mapSvg = null;
-        $('.map-panel h2').textContent = `Across ${statewide || selectedRegion.geography==='wisconsin' ? locationState.name : selectedRegion.name}`;
-        $('#map').setAttribute('aria-label', `${selectedRegion.geography==='wisconsin' ? locationState.name : selectedRegion.name} school map`);
+        const mapName=selectedRegion.statewide || statewide || selectedRegion.geography==='wisconsin' ? locationState.name : selectedRegion.name;
+        $('.map-panel h2').textContent = `Across ${mapName}`;
+        $('#map').setAttribute('aria-label', `${mapName} school map`);
         const mapped=data.schools.filter(s=>s.latitude!=null&&s.longitude!=null).length;
-        $('.map-source').textContent = `${selectedRegion.map_source || 'School locations'} · ${mapped} of ${data.schools.length} schools mapped · Scroll or pinch to zoom`;
-        $('#map-reset').disabled = false;
+        $('.map-source').textContent = geography ? `${selectedRegion.map_source || 'School locations'} · ${mapped} of ${data.schools.length} schools mapped · Scroll or pinch to zoom` : selectedRegion.map_source || 'Map unavailable; use the searchable school list.';
+        $('#map-reset').disabled = !geography;
         document.querySelectorAll('[data-geography]').forEach(el=>{el.hidden=el.dataset.geography!==selectedRegion.geography;});
-        $('#coverage').textContent = data.coverage_note || `The directory contains ${data.schools.length} grade and high schools. Math models include ${data.models.ES.math.n} grade schools and ${data.models.HS.math.n} high schools. Data retrieved September 17, 2026.`;
+        $('#coverage').textContent = data.coverage_note || `The directory contains ${data.schools.length} grade and high schools. Math models include ${data.models.ES?.math?.n || 0} grade schools and ${data.models.HS?.math?.n || 0} high schools. Data retrieved September 17, 2026.`;
         $('#wisconsin-coverage').textContent = data.coverage_note || '';
+        renderMethodology();
         if (params) restoreURL(params, statewide); else defaults();
         render();
         $('#load-error').hidden = true;
         announce(`${selectedRegion.name} comparisons loaded.`);
+        loadedSuccessfully = true;
       } catch (error) {
         console.error(error); $('#load-error').hidden = false;
-      } finally { if (version === loadVersion) regionSelect.disabled = false; }
+      } finally { if (version === loadVersion) { regionSelect.disabled = false; setLoading(!loadedSuccessfully); } }
     }
     stateSelect.addEventListener('change',()=>{
       selectURLRegion(new URLSearchParams({state:stateSelect.value}));

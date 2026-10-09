@@ -132,3 +132,28 @@ test('mixed-grade Wisconsin region restores its available level and explicit emp
     restoreURL(new URLSearchParams('level=bogus'),false);`);
   assert.equal(a.run('state.level'),'ES');
 });
+
+test('states awaiting source audits cannot resolve to a missing region',()=>{
+  const a=app();
+  a.run(`catalogForTest={states:[{id:'IL',regions:[{id:'chicago',status:'ready'}]},
+    {id:'AK',regions:[{id:'statewide',status:'awaiting_source'}]}]};`);
+  assert.equal(a.run(`resolveGeography(catalogForTest,new URLSearchParams('state=AK')).locationState.id`),'IL');
+  a.run(`catalogForTest.states[0].regions[0].status='awaiting_source';`);
+  assert.throws(()=>a.run(`resolveGeography(catalogForTest,new URLSearchParams())`),/No ready comparison/);
+});
+
+test('new state share links preserve school IDs and restrict available levels',()=>{
+  const a=app();
+  a.run(`activeRegion={id:'indiana',levels:['ES']};
+    document.querySelector('#state-select').value='IN';
+    document.querySelector('#region-select').value='indiana';
+    data.schools[0].id='0001';data.schools[1].id='0002';
+    restoreURL(new URLSearchParams('level=HS&subject=ela&schools=0002&focus=0002'),false);syncURL();`);
+  const first=a.window.location.href;
+  const p=new URL(first).searchParams;
+  assert.equal(p.get('state'),'IN');assert.equal(p.get('region'),'indiana');
+  assert.equal(p.get('level'),'ES');assert.equal(p.get('schools'),'0002');
+  assert.equal(p.get('focus'),'0002');assert.equal(p.get('subject'),'ela');
+  a.run(`restoreURL(new URL(window.location.href).searchParams,false);syncURL();`);
+  assert.equal(a.window.location.href,first);
+});

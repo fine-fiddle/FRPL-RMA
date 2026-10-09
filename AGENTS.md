@@ -18,6 +18,9 @@
 - `scripts/prepare_wisconsin_reportcards.py`: separate published 2024–25 WSAS school totals, including DLM; distinct grade-school, high-school and mixed-grade models. No tested counts or sampling intervals; never splice these rates into Forward/ACT history.
 - `scripts/prepare_locations.py`: authoritative school-ID crosswalk and map coordinates.
 - `scripts/export_catalog.py`: dataset catalog and import audit.
+- `scripts/state_catalog.py`, `scripts/prepare_states.py`: merge audited state descriptors and rebuild their adapters sequentially without dropping existing comparisons.
+- `scripts/state_snapshot.py`: canonical import/export helper for audited single-year adapters; native sources must be validated by the adapter first.
+- `scripts/state_registry.py`, [expansion ledger](docs/state-expansion.md): all 50 states, source discovery and concrete blockers. Discovery never grants modeling approval.
 - `data/source/`: reproducible extracts; `data/*.json` and `data/illinois/`: website output.
 - `data/raw/` and `data/build/`: ignored downloads and local database; do not commit them.
 - [README.md](README.md): statistical specification, coverage limitations, rebuild instructions.
@@ -72,10 +75,11 @@ Full site rebuild, with the official Illinois workbook already downloaded:
 .venv/bin/python scripts/prepare_nyc.py
 .venv/bin/python scripts/prepare_wisconsin.py
 .venv/bin/python scripts/prepare_wisconsin_reportcards.py
+.venv/bin/python scripts/prepare_states.py
 .venv/bin/python scripts/export_catalog.py
 ```
 
-Omitting `--illinois` rebuilds a Chicago-only database; exporting its catalog removes statewide availability. Run `prepare_nyc.py` to restore NYC before exporting the full catalog. Do not accidentally publish a reduced catalog. Source download and extraction steps are in the README and NYC data guide.
+Omitting `--illinois` rebuilds a Chicago-only database. The catalog exporter rejects removal of an existing ready comparison; `--allow-reduced-catalog` is only for an intentional reduced catalog. Run the complete sequence above to restore Illinois, NYC, Wisconsin and all audited state adapters before exporting. Source download and extraction steps are in the README and state data guides.
 
 ## Expansion and delivery
 
