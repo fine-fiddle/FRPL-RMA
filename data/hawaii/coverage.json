@@ -1,0 +1,32 @@
+{
+  "year": 2025,
+  "schools": 225,
+  "cohorts": {
+    "grade": {
+      "directory": 225,
+      "eligible": {
+        "math": 224,
+        "reading": 224,
+        "combined": 224
+      }
+    }
+  },
+  "exclusions": {
+    "Native KPI proficiency suppressed or missing": 2,
+    "Math: Native KPI proficiency suppressed or missing; ELA: Native KPI proficiency suppressed or missing": 1
+  },
+  "source_audit": {
+    "native_profiles": 296,
+    "included_profiles": 225,
+    "excluded": {
+      "Missing exact historical directory or outside verified grade-school scope": 71
+    },
+    "cohorts": {
+      "grade": 225
+    },
+    "income_unavailable": 0,
+    "native_advisory": "This spreadsheet is the publicly available version of the 2024-25 Master Data File for the Strive HI Key Performance Indicators (KPIs). In cases where a measure has an n-sizes of less than 11, the data have been suppressed for privacy purposes.",
+    "counts_unavailable": true,
+    "mapped": 0
+  }
+}
