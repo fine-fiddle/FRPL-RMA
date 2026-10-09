@@ -21,6 +21,7 @@
 - `scripts/state_catalog.py`, `scripts/prepare_states.py`: merge audited state descriptors and rebuild their adapters sequentially without dropping existing comparisons.
 - `scripts/state_snapshot.py`: canonical import/export helper for audited single-year adapters; native sources must be validated by the adapter first.
 - `scripts/state_registry.py`, [expansion ledger](docs/state-expansion.md): all 50 states, source discovery and concrete blockers. Discovery never grants modeling approval.
+- `scripts/plan_district_comparisons.py`, [district queue](docs/district-comparisons.md): district size/cohort screening for work after the statewide basics; planning counts never approve a district model.
 - `data/source/`: reproducible extracts; `data/*.json` and `data/illinois/`: website output.
 - `data/raw/` and `data/build/`: ignored downloads and local database; do not commit them.
 - [README.md](README.md): statistical specification, coverage limitations, rebuild instructions.

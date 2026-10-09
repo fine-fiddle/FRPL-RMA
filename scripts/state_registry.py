@@ -248,6 +248,9 @@ def render_guide(registry: dict) -> str:
         "`data/manifest.json`: discovering a download never makes a state available in the site. "
         "The first milestone is a defensible, latest practical grade-school snapshot in every state. "
         "High-school comparisons and same-assessment histories follow separately.", "",
+        "District comparisons follow the statewide basics. The [district comparison queue](district-comparisons.md) "
+        "screens official district size and potential school cohorts, keeps existing CPS/NYC scopes separate, "
+        "and requires a district source/model audit before adding any new comparison.", "",
         "Use one shared source contract, then integrate state adapters in small batches with their own "
         "coverage audits. A state becomes ready only after its actual inputs, same-year identity joins, "
         "definitions, model results and interface have been verified. Keep state populations separate. "
