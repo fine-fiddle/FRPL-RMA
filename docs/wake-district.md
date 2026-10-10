@@ -1,6 +1,6 @@
-# Wake County source and cohort audit
+# Wake County source and numerical audit
 
-Wake County Schools has a prospective **2024–25 grade-school comparison** with **159 usable Math, 160 ELA and 159 Combined records**. The [source audit](../data/source/wake-district-audit.json) reconstructs the original records before checking agreement with the existing North Carolina extract. Its scope is `source_cohort_audit_only`, status is `audit_pending`, and both approval flags remain false. Independent numerical validation and canonical/browser integration are still required.
+Wake County Schools has independently verified **2024–25 grade-school numerical models** retaining **159 Math, 160 ELA and 159 Combined schools**. The [source audit](../data/source/wake-district-audit.json) below remains immutable with scope `source_cohort_audit_only`, status `audit_pending` and both approval flags false. The separate [numerical audit](../data/source/wake-model-audit.json) has scope `numerical_audit_only`, status `numerically_verified_pending_integration` and both approvals false. Canonical/static integration and browser verification remain required before a district comparison is ready.
 
 ## Exact identities and original evidence
 
@@ -41,7 +41,7 @@ The original codebook includes tests completed in 2024–25, including 2024 summ
 
 Income uses the exact same-year April published individual **`pct_eds`**, with its separately retained economic enrollment **`den`**. [DPI's EDS definition](https://www.dpi.nc.gov/data-reports/economically-disadvantaged) includes individual direct certification, categorical eligibility and locally established financial need. It is broader than FRPL alone and covers enrolled pupils rather than only assessed students. CEP meal-service coverage, adjusted reimbursement, `pct_nslp`, tested EDS subgroups and fall CCD counts never replace it. No low-income count is inferred from a rounded percentage. The cached definition page's older CEP reimbursement-threshold discussion is not used to determine individual economic status.
 
-Native `num_tested` fields remain raw evidence with **unverified valid-score scope**. Verified scored counts, sampling variances and interval endpoints remain unavailable for every subject; the ten-valid-scored floor is **uncertified**. Neither published rates nor privacy suppression rules certify that denominator. Future point-only numerical work must preserve these limitations, use separate district models and retain all source-eligible members without diagnostic-based exclusions. Studentization cannot supply enrollment adjustment, shrinkage or missing sampling intervals.
+Native `num_tested` fields remain raw evidence with **unverified valid-score scope**. Verified scored counts, sampling variances and interval endpoints remain unavailable for every subject; the ten-valid-scored floor is **uncertified**. Neither published rates nor privacy suppression rules certify that denominator. Point-only numerical work must preserve these limitations, use separate district models and retain all source-eligible members without diagnostic-based exclusions. Studentization cannot supply enrollment adjustment, shrinkage or missing sampling intervals.
 
 ## Rebuild and remaining work
 
@@ -64,4 +64,38 @@ The completed unit passes **41 targeted Python tests**, including 14 new Wake te
 
 The canonical database remains byte-identical, including all nine tables. All **229 served files**, existing source extracts, catalog, assessment/provider bindings and planning JSON remain unchanged; the source README gains only this audit's documentation. This phase adds no district fits or browser behavior.
 
-The next unit verifies independent Math, ELA and Combined district fits, income spread, leverage and every deleted-school residual. Canonical/static integration and HTTP browser checks follow only after those gates pass. Wake remains a candidate; the **68 first-tier / 172 second-tier** queue, existing comparisons, assessment/provider bindings and all unresolved source holds remain unchanged. High/mixed assessment populations, admissions classifications, geometry and provider roles remain unaudited.
+The source phase establishes the inputs for the separate numerical audit below. Wake remains a candidate; the **68 first-tier / 172 second-tier** queue, existing comparisons, assessment/provider bindings and all unresolved source holds remain unchanged. High/mixed assessment populations, admissions classifications, geometry and provider roles remain unaudited.
+
+## Independent numerical audit · integration pending
+
+The separate numerical artifact freezes the entire original source contract, school identities, same-year raw income/outcomes, definitions and exclusions. It reconstructs **all 162 grade-school configurations**, retaining both suppressed incomes and Mills Park Middle's unavailable math explicitly. The 160 usable-income profiles supply **159 Math, 160 ELA and 159 Combined** model members. Source membership is fixed before diagnostics; no school is removed for leverage, influence or residual size. The immutable source artifact and its code/tests remain unchanged.
+
+Each model is an unweighted district OLS fit using exact April individual EDS percentages and native regular GS All Students GLP rates. GLP remains Level 3 and above; mathematics includes grade-8 Math 1. The summer-2024 convention, EDS's broader enrolled population, native rounding, alternate-code discrepancy and federal accountability denominator distinction remain explicit. Statewide North Carolina residuals never enter these fits. Combined requires both original subject rates, takes their equal mean and has its own model and external studentization; it is not an average of subject residuals or coefficients. ELA includes Mills Park Middle, so its population differs from Math/Combined.
+
+| Subject | Schools | Intercept | Slope | R² | Maximum Cook distance | Largest deleted-line shift |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Math | 159 | 99.433945 | −0.879303 | 0.752647 | 0.185469 | 1.152430 pp |
+| ELA | 160 | 93.988917 | −0.872961 | 0.852006 | 0.204317 | 0.874748 pp |
+| Combined | 159 | 96.632687 | −0.874526 | 0.819888 | 0.219662 | 1.019816 pp |
+
+Slopes describe proficiency percentage points per percentage point of native individual economic disadvantage. Math/Combined income spans **8.0–84.8%**, with **139** distinct values and population standard deviation **16.8354** percentage points. ELA spans **7.7–84.8%**, with **140** distinct values and population standard deviation **16.9789**. Full and every deleted design have rank two, positive finite residual scales and negative slopes. All subjects pass the 30-school and numerical guards. Predictions remain unclipped; these associations do not establish causal school effectiveness.
+
+Every member is explicitly omitted and refitted once: **478 deleted-school fits**. Math/Combined use 158 training schools and 156 deleted residual degrees of freedom; ELA uses 159 and 157. Full residual scales use 157 and 158 degrees of freedom respectively. The external residual is the held-out actual-minus-deleted prediction divided by the deleted residual scale and `sqrt(1+h_deleted)`. This agrees independently with the full-residual/leverage formula.
+
+Deleted-line sensitivity is the maximum absolute prediction change between full and deleted fits across the observed income range, evaluated at both endpoints. The largest change is **1.152430 proficiency points**. It describes the fitted line's sensitivity, not a sampling interval or enrollment adjustment. Math/ELA/Combined have **7/8/7** leverage flags, **12/7/9** Cook-distance flags and **10/5/8** `|external t|>2` flags. Every flagged school remains included. The largest absolute external residuals are **4.227256 / 4.061104 / 4.207292**.
+
+All valid-score counts, sampling variances and interval endpoints remain **null modelwide**, and the ten-valid-scored floor remains **uncertified**. Native `num_tested`, April enrollment and fall membership stay raw provenance without count-based eligibility or weighting. A zero variance vector used internally by the shared fitter is only a computational sentinel; no zero sampling variance or generated endpoint is published. Studentization supplies neither enrollment adjustment nor shrinkage.
+
+Rebuild and saved replay use committed, pinned source evidence without reopening the original archives, importing canonical rows or changing browser data:
+
+```sh
+.venv/bin/python scripts/audit_wake_models.py
+.venv/bin/python scripts/audit_wake_models.py --check
+.venv/bin/python -m unittest discover -s tests -p 'test_wake_models.py' -v
+```
+
+Direct fitting requires the exact frozen native inputs and complete eligible membership. Source identities, years, raw fields, definitions, model populations, count/floor flags and unavailable intervals compare exactly; only computed metrics permit a finite replay tolerance of `2e-10` absolute and relative. Independent fit verification uses `2e-9` absolute tolerance. Boolean/numeric substitution, altered provenance, nonfinite metrics, incomplete membership and manufactured uncertainty are rejected.
+
+Validation passes **62 distinct targeted Python tests**, including all 12 new numerical tests, plus syntax/diff checks and local documentation links. Two independent original-source reviews reconstruct the eligible populations and all **478** deleted fits separately: **5,940 scalar metrics** and **7,750 NumPy numeric/flag comparisons** agree, with maximum numerical differences below `3.64e-12`. Their **457 corruption rejections** and two positive policy-edge checks pass. Two numerical CLI builds are byte-identical, and saved offline replay passes for the **10,221,281-byte** artifact, SHA-256 `75739a380c4b5818ac78bb3de12ddacbc5129a62a800c20b0d19540f1c750be3`. All **229 served files**, **93 prior source artifacts**, the original Wake audit code/tests and the entire canonical database remain byte-identical.
+
+Both historical approvals remain false. The next unit separately validates a normalized district contract, canonical repeatability, preservation and HTTP browser behavior. High/mixed populations, admissions classifications, geometry and assessment-provider roles remain unaudited. Wake stays in the unchanged 68/172 queue; #3, Detroit #15, Texas #16 and all eleven state source holds remain open.
