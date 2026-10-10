@@ -363,15 +363,17 @@ def render(payload):
         'supplies canonical/browser readiness. High-school and mixed assessment scope '
         'remain unaudited. Statewide Florida remains its own comparison.', ''])
     lines.extend([
-        'The [Hillsborough source audit](hillsborough-district.md) retains all 309 original '
+        'The [Hillsborough source and numerical audits](hillsborough-district.md) retain all 309 original '
         'CCD records for Florida LEA 1200870 / FL-29, including 293 operational schools, '
         'and all same-year native records. Exact operational joins yield 222 pure lower '
         'profiles, 220 offered-applicable schools and 219 usable schools per subject. '
         'Two usable charters absent from the discovery list remain in the source-derived '
         'cohort; planning IDs never select its membership. Primary-only, missing, mixed '
-        'and outside-roster records remain explicit. This source-only artifact keeps '
-        'approval false and scope audit_pending, with no district fits or browser release. '
-        'Numerical and canonical/browser gates remain required; Hillsborough stays a '
+        'and outside-roster records remain explicit. Three separate 219-school fits and '
+        'all 657 explicit deleted-school checks retain external studentization and '
+        'descriptive influence diagnostics without fit-based exclusions. Counts, sampling '
+        'variances and intervals remain unavailable. Both immutable audits keep approval '
+        'false; canonical/browser gates remain required. Hillsborough stays a '
         'candidate and the queue totals remain unchanged.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
