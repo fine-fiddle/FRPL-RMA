@@ -348,12 +348,14 @@ def render(payload):
         'high-school and mixed assessment scope remains unaudited. Statewide Nevada '
         'remains its own comparison.', ''])
     lines.extend([
-        'The [Broward source/cohort audit](broward-district.md) retains exact Florida '
+        'The [Broward source/cohort and numerical audits](broward-district.md) retain exact Florida '
         'LEA 1200180 / FL-06 membership, same-year individual lunch eligibility and '
         'native School Grades records. Offered and enrolled grade populations, '
-        'source exclusions and missing records remain explicit. This source-only '
-        'audit leaves separate district fits, canonical import and browser integration '
-        'pending; Broward remains in the planning queue and no comparison is enabled.', ''])
+        'source exclusions and missing records remain explicit. Three independent '
+        '241-school district fits retain external studentization and influence diagnostics '
+        'without sampling intervals. Both historical audits keep approval false; '
+        'canonical import and browser integration remain pending. Broward remains '
+        'in the planning queue and no comparison is enabled.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '
