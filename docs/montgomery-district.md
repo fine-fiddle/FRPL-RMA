@@ -1,6 +1,6 @@
 # Montgomery County source and cohort audit
 
-Montgomery County Public Schools, Maryland has an independently reconstructed 2024–25 grade-school source population of 172 schools. Matching same-year individual income and published regular MCAP rates leave 166 prospective Math observations, 167 ELA observations and 166 Combined observations. This is a source and cohort audit, with `audit_pending` status and both source and modeling approvals false. Numerical diagnostics, canonical integration and browser verification remain unfinished; there is no released Montgomery comparison.
+Montgomery County Public Schools, Maryland has an independently reconstructed 2024–25 grade-school source population of 172 schools. Matching same-year individual income and published regular MCAP rates leave 166 Math observations, 167 ELA observations and 166 Combined observations. The independent numerical audit verifies the three separate district fits and all 499 explicit deleted-school fits. Canonical integration and browser verification remain unfinished; there is no released Montgomery comparison. The immutable historical source audit retains `audit_pending` status, and both the source and numerical audit artifacts retain false source and modeling approvals.
 
 ## Original sources and identities
 
@@ -63,4 +63,38 @@ To rebuild from the byte-pinned original downloads already present under `data/r
 .venv/bin/python scripts/audit_montgomery.py --extract
 ```
 
-All original files, retained records, definitions, headers, derived coverage and source-only approval flags are checked during replay. Independent numerical diagnostics must next verify cohort income variation, rank, leverage, externally studentized residuals and every deleted-school fit. Only separately tested canonical and static integration can later release this district. High, mixed, unknown and primary populations remain excluded from that proposed grade-school comparison.
+All original files, retained records, definitions, headers, derived coverage and source-only approval flags are checked during replay. The independent numerical phase below verifies cohort income variation, rank, leverage, externally studentized residuals and every deleted-school fit. Only separately tested canonical and static integration can later release this district. High, mixed, unknown and primary populations remain excluded from that proposed grade-school comparison.
+
+## Independent numerical audit — integration pending
+
+The [committed numerical audit](../data/source/montgomery-model-audit.json) and [standalone numerical script](../scripts/audit_montgomery_models.py) pin the complete historical source artifact, its source code and source tests. They retain the complete original records, definitions, 211 authoritative identities, 172 grade-school profiles, all masks and the 39 outside configurations. Native original records independently reconstruct eligibility and precise individual income before any fit. Same-year Early Attendance count ratios and published regular MCAP All Grades proficiency enter three unweighted district models; the Maryland statewide coefficients and residuals are not reused.
+
+The fixed populations produce:
+
+| Diagnostic | Math | ELA | Combined |
+| --- | ---: | ---: | ---: |
+| Usable schools | 166 | 167 | 166 |
+| Intercept | 76.191625 | 89.749549 | 82.923827 |
+| Income slope | -0.938743 | -0.966343 | -0.950566 |
+| R² | 0.694284 | 0.864590 | 0.830700 |
+| Maximum leverage | 0.026853 | 0.026442 | 0.026853 |
+| Maximum Cook distance | 0.058362 | 0.068840 | 0.064461 |
+| Largest deleted prediction change across observed income range, percentage points | 0.583442 | 0.374375 | 0.409386 |
+
+Income spans 6.344171–69.555035% in every model, with 165 distinct values in Math/Combined and 166 in ELA. Population standard deviations are 17.404868 and 17.438370 percentage points respectively. Each full intercept-plus-income design has rank two and positive residual scale. Every explicitly deleted design retains rank two and positive finite residual sum of squares and residual scale. Full residual degrees of freedom are 164/165/164; deleted training populations are 165/166/165, and deleted residual degrees of freedom are 163/164/163.
+
+The independent verifier uses centered full OLS and explicitly refits each of the 499 omissions. It computes the held-out prediction, predictive leverage and deleted residual scale, then compares externally studentized residuals with the shared analytic implementation. Studentization uses the residual scale estimated from the other `N−1` schools and `N−3` degrees of freedom; dividing all residuals by one common standard deviation does not reproduce these results. The separate Combined fit uses the equal mean of its eligible Math and ELA rates and its own externally studentized residuals; averaging subject residual scores would give different results.
+
+Conventional leverage, Cook distance and absolute studentized-residual flags are descriptive review aids. No school is removed because of a diagnostic flag or fit quality. The largest prediction changes above apply to the model's observed income range. They do not certify predictions outside that range, causal school effectiveness, enrollment adjustment or shrinkage.
+
+All eligible administrative `Tested Count` values remain raw, unverified evidence. Every valid-score count, sampling variance and interval endpoint remains null across each full model. The ten-valid-scored floor remains uncertified. Published rate precision, suppression, different income and assessment populations, and accelerated course mixtures remain explicit limits. The numerical artifact's status is `numerically_verified_pending_integration`, its scope is `numerical_audit_only`, and both source and modeling approvals remain false. The immutable historical source audit keeps its original false approvals and `audit_pending` status.
+
+The numerical builder and saved replay operate offline without raw downloads or SQLite access:
+
+```sh
+.venv/bin/python scripts/audit_montgomery_models.py
+.venv/bin/python scripts/audit_montgomery_models.py --check
+.venv/bin/python -m unittest discover -s tests -p 'test_montgomery_models.py' -v
+```
+
+This phase produces an auditable numerical artifact. A separately tested canonical/static/browser adapter is the next release gate; no Montgomery catalog entry, browser payload or district release is approved by these fits alone.
