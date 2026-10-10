@@ -334,6 +334,8 @@ The [Houston ISD source, published-rate numerical and integration audits](housto
 
 ## Provenance and rebuild
 
+The [Wake County source/cohort audit](wake-district.md) reconstructs exact NCES LEA `3704720` / native `NC-920` from original CCD, DPI performance and April EDS sources. All 202 directory records remain retained: 198 operational and four future. The 162 complete grade-school configurations include two suppressed incomes; 160 source profiles yield 159 Math / 160 ELA / 159 Combined usable published-rate records. Mills Park Middle's math suppression, 36 outside configurations, grade-13 early colleges, Longview's absent outcomes and the 149-pupil fall district/school total discrepancy remain explicit. The artifact keeps both approvals false and releases no district models. Numerical validation and canonical/browser integration are pending; valid-score counts, the ten-valid-scored floor and intervals remain uncertified. Wake stays in the unchanged 68/172 queue. Planning counts never select or approve its proposed models.
+
 Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; it is not a sum of school enrollment and is never a tested-score denominator. Every included agency retains its native raw directory/total records and source-row numbers. Reconstructed operational counts from the school directory remain separate from the native LEA operational-school field. The extract retains exact potential school IDs, source URLs and SHA-256 hashes. It is a planning artifact and never enables a browser comparison.
 
 [Machine-readable planning extract](../data/source/district-comparison-candidates.json) · [State expansion status](state-expansion.md) · [State source holds](expansion-blockers.md)
