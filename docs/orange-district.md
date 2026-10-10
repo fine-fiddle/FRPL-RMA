@@ -1,4 +1,8 @@
-# Orange County district source audit
+# Orange County district audits
+
+Orange County's separate 2024–25 pure grade-school numerical audit verifies independent 200-school Math, ELA and Combined fits and all 600 explicit deleted-school fits. The complete 209-school offered inventory, 208 matched profiles and 206 applicable schools remain auditable. Counts, variances and sampling intervals remain unavailable. The numerical status is `numerically_verified_pending_integration`, with both approval flags false; canonical/browser integration remains pending. The completed source and numerical phases are recorded separately below.
+
+## Completed source audit
 
 Orange County's separate 2024–25 source/cohort audit identifies **200 usable pure grade-school records for each of Math, ELA and Combined**. This unit audits exact identities, populations, individual income, outcomes and missingness. It fits no district model and publishes no comparison. Both `approved_for_source` and `approved_for_modeling` remain false, with status and scope `audit_pending`; independent numerical review and canonical/browser integration are separate gates.
 
@@ -74,3 +78,45 @@ The completed source unit passes all 44 targeted Orange, Hillsborough, Broward, 
 The canonical database remains byte-identical at SHA-256 `e9b44eba7b91e2eb80bd6b4c2e2ef49995a67518a371c186736e890c12f163d7`, with unchanged counts across all nine tables. All 209 earlier served JSON/GeoJSON files, including 207 regional files, remain byte-identical. Of 287 prior tracked data files, 286 are unchanged; the sole change is added source-README documentation. Catalog/provider/geometry/planning evidence remains unchanged: 50 canonical datasets, 53 ready regions across 39 states, 11 source holds, 70 latest assessment definitions and 73/172 district candidates. Parent #3, Detroit #15 and unresolved state source holds remain open.
 
 The next gate is an independently reviewed numerical audit: separate same-year Math, ELA and Combined OLS fits, externally studentized residuals, a 30-school subject floor, rank and full/deleted-scale checks, and explicit leverage/influence diagnostics without fit-driven membership changes. Canonical/static integration would then require repeat imports, preservation of existing datasets, every-metric current/history export comparison and browser verification. Source success alone leaves both approvals false and scope `audit_pending`.
+
+## Separate district numerical audit
+
+[scripts/audit_orange_models.py](../scripts/audit_orange_models.py) rebuilds [data/source/orange-model-audit.json](../data/source/orange-model-audit.json) offline from the immutable source audit, SHA-256 `671c14166fd5110bd569b26b2997d8bc73264e0156393d757516324e57c726f3` (1,748,206 bytes). This phase completes the historical source phase's numerical gate. The numerical artifact has status `numerically_verified_pending_integration`; both approval flags remain false. No canonical dataset, browser comparison or release approval is created.
+
+The artifact freezes all 282 directory records, 275 operational identities and 268 native profiles, with **209 pure lower offered configurations, 207 tested-offer configurations, 208 matched pure profiles, 206 applicable profiles and exactly 200 eligible schools per subject**. It retains all original source rows, headers and the 61-row membership proof. Seven missing-Fall records remain explicit, including `48-1961` with grades 6–8 offered. Two primary profiles, collocated `48-0042`/`48-0065` with shared raw Math 17 / ELA 20, five other missing pure achievement records and native-usable mixed `48-0283` remain preserved outside eligibility. Discovery counts, income values, anticipated fit quality and influence flags never change membership.
+
+Every model includes 182 noncharter and 18 charter CCD Regular schools. **Lake Eola Charter (`48-0056`) and Hope Charter (`48-0061`) retain their verified zero recorded individual eligibility** and positive February enrollment. Zero income is an eligible observed value, not suppression or a reason to trim a school. Complete school IDs, NCESSCH, raw individual income/grade/achievement cells, same-year references, offered/enrolled evidence and charter/type/program flags accompany every input.
+
+Math and ELA have separate district OLS fits. Combined uses the exact equally weighted mean of their eligible native rates and its own regression, residual scales and externally studentized results. Statewide predictions and residuals are not reused; average subject studentization is not a Combined statistic.
+
+| Subject | Schools | Intercept | Slope per income percentage point | R² | Maximum Cook's distance | Largest deleted-fit line shift, points |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Math | 200 | 89.512047 | −0.530375 | 0.604611 | 0.189127 | 1.047522 |
+| ELA | 200 | 87.502128 | −0.575934 | 0.723420 | 0.235291 | 0.923341 |
+| Combined | 200 | 88.507088 | −0.553154 | 0.690203 | 0.224285 | 0.938141 |
+
+The 30-school floor, finite input/returned-metric checks, rank-two design and full/deleted residual scales pass with no hard holds. Income ranges from 0% to 99.533%, with 198 distinct ratios and mean 48.290%. Population SD is 22.286 percentage points; the historical source summary reports sample SD 22.342. The raw income design condition number is 126.961 and the centered condition is 22.286 in the native percentage-point units. No universal condition threshold is invented.
+
+Maximum leverage is 0.031433, at `48-0080`, Legends Academy Charter. Six members exceed the conventional `2p/n = 4/200 = 0.02` leverage reference in every model. Math/ELA/Combined have 10/9/10 Cook's-distance flags above `4/n = 0.02` and 12/9/13 absolute externally studentized flags above two. These are descriptive review flags, not effectiveness labels or automatic exclusions.
+
+Legends Academy has the largest Math Cook's distance; Lake Eola has the largest ELA and Combined Cook's distances. Lake Eola stays included with income 0%, raw evidence and full/deleted results. `48-0641`, Rock Lake Elementary, has the maximum absolute externally studentized statistic in every model: 3.674139 Math, 4.482089 ELA and 4.296397 Combined. It stays included as well. Every deleted-fit slope remains negative. The line shifts in the table measure the largest full-versus-deleted prediction difference across the observed income range, not just the held-out school's prediction. Native whole-percent rounding, the February individual eligibility proxy and its different population from full-year/home-zoned achievement remain limitations. These regressions describe associations rather than causal school effectiveness or overall quality.
+
+An independent centered full fit verifies coefficients, exact native actuals, predictions, residuals, R² and closed-form leverage. Every school receives an explicit leave-one-out fit: **600 deleted fits**, each trained on 199 schools with **197 residual degrees of freedom (`n−3`)**. Its held-out residual is divided by the deleted residual scale times `sqrt(1 + h_deleted)`, then compared with the shared fitter's externally studentized statistic. Deleted SSE and held-out prediction identities are checked independently. Producer maximum prediction/residual discrepancies are below `5.7e−14`, studentization discrepancies below `8.0e−15`, and SSE-identity discrepancy below `7.3e−12`, all within the independent absolute verification tolerance `2e−9`.
+
+Valid-score counts, sampling variances and every low/high endpoint remain null for all 600 results. The shared fitter receives a zero variance vector solely as its computational point-estimate sentinel; generated endpoints are immediately removed and zero sampling variance is never published. Residual standard error uses `sqrt(SSE/(n−2))`; external studentization uses the individual deleted scale. Neither supplies missing binomial variance, enrollment adjustment or shrinkage.
+
+Rebuild and replay the numerical audit with:
+
+```sh
+.venv/bin/python scripts/audit_orange_models.py
+.venv/bin/python scripts/audit_orange_models.py --check
+.venv/bin/python -m unittest discover -s tests -p test_orange_models.py -v
+```
+
+Eight focused numerical tests cover exact membership and retained source evidence, eligible zero income and collocation exclusions, explicit manual deletion/studentization/Cook calculations, independently fitted Combined, null uncertainty, source fingerprints and wrong-year/type/population drift. They reject below-floor models, rank deficiency, unresolved full/deleted scales, singular deleted designs, wrong native actuals, incorrect returned coefficients/results and NaN/infinite/bool metrics. Source evidence, memberships, counts and flags compare by exact typed fingerprints; only computed floating metrics use absolute or relative replay tolerance `2e−10`. Small platform rounding variation never permits changed source inputs or fabricated intervals.
+
+The completed numerical unit passes all 60 targeted Orange source/model, Hillsborough/Broward/Miami-Dade model, Florida, district-planning and shared-model tests in 17.771 seconds. Two fresh root numerical builds reproduce identical bytes and replay successfully: 4,928,022 bytes, SHA-256 `b523ebc48cbd091d5e52bf1bca9c98be751f12516046c56d3a90f2552acf2375`. Two independent implementations verify every source input, all 600 result/deletion records and model diagnostics; 20 additional scientific/provenance corruption checks reject invalid changes.
+
+The immutable source audit retains its original checksum and all existing source/model audit JSON remains unchanged. The canonical database and counts across all nine tables are unchanged at SHA-256 `e9b44eba7b91e2eb80bd6b4c2e2ef49995a67518a371c186736e890c12f163d7`. All 209 earlier served files, including 207 regional files, remain byte-identical. Of 288 prior tracked data files, 287 are unchanged; the sole change is added source-README documentation. The catalog still records 50 datasets and 53 ready regions across 39 states, with 11 source holds and 70 latest assessment definitions. The discovery queue remains 73/172, and parent #3, Detroit #15 and all unresolved state source issues remain open.
+
+Canonical/static integration remains the next gate: a separately validated normalized district extract, namespaced incremental import, repeat imports with prior-dataset preservation, exact current/history metric comparisons and browser verification. The historical source and numerical artifacts retain false approval flags; any future readiness belongs to a separately validated normalized release record.
