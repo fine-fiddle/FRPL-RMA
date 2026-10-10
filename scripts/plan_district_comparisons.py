@@ -134,6 +134,8 @@ def scope(row):
         return 'existing_gwinnett'
     if row['LEAID'] == '5101260':
         return 'existing_fairfax'
+    if row['LEAID'] == '4823640':
+        return 'existing_houston'
     if row['LEAID'] == '3200060':
         return 'existing_clark_county'
     if row['LEAID'] == '1709930':
@@ -308,6 +310,8 @@ def render(payload):
                 status = 'Existing Gwinnett County comparison; pure grade schools only'
             elif row['scope'] == 'existing_fairfax':
                 status = 'Existing Fairfax County comparison; native grade schools only'
+            elif row['scope'] == 'existing_houston':
+                status = 'Existing Houston ISD comparison; native published-rate grade schools only'
             elif row['scope'] == 'existing_clark_county':
                 status = 'Existing Clark County comparison; native grade-school scope only'
             elif row['scope'] == 'existing_hawaii_statewide':
@@ -321,7 +325,7 @@ def render(payload):
     table('First tier · largest new district comparisons', main)
     table('Second tier · substantial regional comparisons', secondary)
     lines.extend(['## Existing comparisons and components', '',
-        'CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach, Gwinnett and Fairfax have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide '
+        'CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach, Gwinnett, Fairfax and Houston have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide '
         'comparison. The NYC geographic LEAs below are components of the existing NYC system; '
         'they would be optional subdistrict work, not additional whole-city systems. Do not '
         'add their counts to the Chancellor’s Office supervisory total or include District 75 '
@@ -460,10 +464,11 @@ def render(payload):
         '30-school floor. Fairfax is an existing comparison; planning counts never '
         'select or approve its models.', ''])
     lines.extend([
-        'The [Houston ISD source and published-rate numerical audits](houston-district.md) retain exact '
+        'The [Houston ISD source, published-rate numerical and integration audits](houston-district.md) retain exact '
         'Texas LEA `4823640` / `TX-101912`, all 274 CCD school records and 273 '
         'native TAPR profiles. Same-year native enrolled grades identify 212 grade '
-        'schools and 210 prospective records per subject. Missing and masked results, '
+        'school profiles and separate 210-school Math, ELA and Combined models, with '
+        'all 630 deleted-school fits and canonical/current/history results verified. Missing and masked results, '
         'ten primary-only campuses, 42 high-only and nine mixed campuses, the '
         'reported-zero EL DAEP record and T H Rogers enrollment/reference-span '
         'difference remain explicit. Income uses reconciled individual October '
@@ -474,8 +479,10 @@ def render(payload):
         'variances and intervals; 202 Math and 203 ELA values differ from historical '
         'count-ratio precision. Its unknown-count policy does not certify the '
         'ten-valid-scored floor or close #16. Both immutable audit approvals remain '
-        'false; separately reviewed canonical/browser integration is required. Houston '
-        'remains a candidate, so planning counts and queue totals are unchanged.', ''])
+        'false; readiness belongs to the separately validated normalized adapter. '
+        'Texas → Houston ISD is an existing district comparison, separate from statewide '
+        'Texas. Planning counts never select or approve its models. High/mixed assessment '
+        'populations, admissions classifications, geometry and provider roles remain unaudited.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

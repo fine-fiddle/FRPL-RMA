@@ -2177,6 +2177,31 @@
       "blocker_summary": null,
       "assessments": [
         {
+          "id": "tx-houston-2025:2025:STAAR enrolled grades 3–8 Including EOC · TAPR published Meets or Above percentages:ES",
+          "state": "TX",
+          "name": "STAAR enrolled grades 3–8 Including EOC · TAPR published Meets or Above percentages",
+          "year": 2025,
+          "level": "ES",
+          "grades": "Enrolled grades 3–8, including applicable Algebra I and English I–II EOC",
+          "standard": "2024–25 Texas All Students accountability subset; STAAR with/without accommodations, Spanish STAAR, Alternate 2 and applicable Algebra I/English I–II EOC; separate Houston no-high-grade population",
+          "source_url": "https://rptsvr1.tea.texas.gov/cgi/sas/broker/?_service=marykay&_program=perfrept.perfmast.sas&_debug=0&ccyy=2025&tapr=all_c&sumlev=C&level=Campus&id=&prgopt=reports%2Ftapr%2Fdd%2Fdd_tapr_step_7.sas&datafmt=csv&dsname=STAAR_GR38&key=38AR0E2%7C38AR0E0&key=38AM0E2%7C38AM0E0&var_type=N&var_type=D&var_type=R",
+          "dataset_id": "tx-houston-2025",
+          "family": "STAAR + Alternate 2",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "provider_evidence_ids": [],
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "houston",
+              "name": "Houston ISD",
+              "url": "./?state=TX&region=houston&level=ES",
+              "model_scope": "Houston ISD independent 2024–25 published-rate grade-school district models: exact operational CCD LEA 4823640 / native TX-101912 / TAPR DISTRICT 101912 attachments. All 212 native enrolled positive grades 3–8/no-high-grade profiles remain visible; 210 schools enter each independently fitted Math, ELA and Combined model using native whole-percent All Students Meets or Above displays and exact same-year individual economic-status enrollment ratios. Two missing or masked subject profiles remain unmodeled. High, mixed, primary-only and missing-native records remain outside this distinct point-only population. Valid-score counts, sampling variances and intervals are unavailable modelwide; the ten-valid-scored floor remains uncertified under issue #16."
+            }
+          ]
+        },
+        {
           "id": "tx-tapr-2025:2025:STAAR + Alternate 2 grades 3–8 including EOC · grade schools:ES",
           "state": "TX",
           "name": "STAAR + Alternate 2 grades 3–8 including EOC · grade schools",

@@ -77,6 +77,11 @@ def assessment_family(name):
     """
     if re.search(r'\b(?:Smarter Balanced|SBAC)\b', name):
         return 'Smarter Balanced'
+    # The Houston source audit explicitly retains STAAR, Spanish and Alternate 2.
+    # Its enrolled-grade/whole-rate wording describes a distinct population and
+    # precision, rather than a different assessment family. Bind this exact name.
+    if name == 'STAAR enrolled grades 3–8 Including EOC · TAPR published Meets or Above percentages':
+        return 'STAAR + Alternate 2'
     family = name.split(' · ', 1)[0]
     family = re.sub(r'\s+grades?\s+\d+(?:[–−-]\d+)?(?:\s.*)?$', '', family)
     family = re.sub(r'\s+\((?:pre-)?\d{4}-\d{2} (?:levels|standards)\)$', '', family)

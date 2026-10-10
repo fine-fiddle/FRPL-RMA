@@ -350,6 +350,11 @@ class AssessmentGuideTests(unittest.TestCase):
             self.assertTrue(all(a['family'] != 'Smarter Balanced' for a in self.by_state[state]['assessments']))
         self.assertNotEqual(assessment_family('RICAS grades 3–8'), assessment_family('MCAS grades 3–8'))
         self.assertEqual(assessment_family('ACT (2023-24 levels)'), 'ACT')
+        texas = {a['dataset_id']: a for a in self.by_state['TX']['assessments']}
+        self.assertEqual(texas['tx-houston-2025']['family'], 'STAAR + Alternate 2')
+        self.assertEqual(texas['tx-houston-2025']['family'], texas['tx-tapr-2025']['family'])
+        self.assertEqual([r['id'] for r in texas['tx-houston-2025']['regions']], ['houston'])
+        self.assertIsNone(texas['tx-houston-2025']['provider'])
 
     def test_unmatched_or_wrong_region_model_is_rejected(self):
         changed = copy.deepcopy(self.manifest)

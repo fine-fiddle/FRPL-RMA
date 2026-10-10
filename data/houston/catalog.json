@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "TX",
+    "name": "Texas"
+  },
+  "prepare_script": "scripts/prepare_houston.py",
+  "regions": [
+    {
+      "id": "houston",
+      "name": "Houston ISD",
+      "dataset": "tx-houston-2025",
+      "status": "ready",
+      "geography": "houston",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/houston/schools.json",
+      "boundaries": null,
+      "comparison": "Houston ISD \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Houston ISD independent 2024\u201325 published-rate grade-school district models: exact operational CCD LEA 4823640 / native TX-101912 / TAPR DISTRICT 101912 attachments. All 212 native enrolled positive grades 3\u20138/no-high-grade profiles remain visible; 210 schools enter each independently fitted Math, ELA and Combined model using native whole-percent All Students Meets or Above displays and exact same-year individual economic-status enrollment ratios. Two missing or masked subject profiles remain unmodeled. High, mixed, primary-only and missing-native records remain outside this distinct point-only population. Valid-score counts, sampling variances and intervals are unavailable modelwide; the ten-valid-scored floor remains uncertified under issue #16.",
+      "map_source": "School coordinates and district boundaries are unavailable in the audited Houston ISD source release.",
+      "statewide": false,
+      "audit": "data/houston/coverage.json"
+    }
+  ]
+}

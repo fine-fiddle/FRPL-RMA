@@ -2,7 +2,7 @@
 
 Implement these after the statewide basics. A district comparison would fit its own same-year, assessment, level and subject models, as CPS does. A filter using statewide predictions remains a district view of the statewide model; it is not a district comparison.
 
-Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 69 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
+Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 68 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
 ## Selection and implementation gates
 
@@ -17,7 +17,6 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 69 fir
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
-| HOUSTON ISD | TX | 4823640 | 176,727 | 212 / 42 | Available; district audit pending |
 | Wake County Schools | NC | 3704720 | 163,325 | 162 / 29 | Available; district audit pending |
 | Montgomery County Public Schools | MD | 2400480 | 159,181 | 172 / 25 | Available; district audit pending |
 | Charlotte-Mecklenburg Schools | NC | 3702970 | 147,299 | 146 / 25 | Available; district audit pending |
@@ -266,7 +265,7 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 69 fir
 
 ## Existing comparisons and components
 
-CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach, Gwinnett and Fairfax have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
+CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach, Gwinnett, Fairfax and Houston have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
 
 ## Existing scope · size references
 
@@ -282,6 +281,7 @@ CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orang
 | PALM BEACH | FL | 1201500 | 189,634 | 168 / 26 | Existing Palm Beach County comparison; pure grade schools only |
 | Gwinnett County | GA | 1302550 | 182,518 | 111 / 24 | Existing Gwinnett County comparison; pure grade schools only |
 | Fairfax County Public Schools | VA | 5101260 | 179,323 | 162 / 25 | Existing Fairfax County comparison; native grade schools only |
+| HOUSTON ISD | TX | 4823640 | 176,727 | 212 / 42 | Existing Houston ISD comparison; native published-rate grade schools only |
 | Hawaii Department of Education | HI | 1500030 | 167,071 | 224 / 2 | Existing statewide comparison |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #31 | NY | 3600103 | 60,164 | 35 / 3 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT # 2 | NY | 3600077 | 55,345 | 34 / 50 | Optional NYC subdistrict audit |
@@ -329,7 +329,7 @@ The [Gwinnett County source, numerical and integration audits](gwinnett-district
 
 The [Fairfax County source, numerical and integration audits](fairfax-district.md) retain exact Virginia LEA `5101260` / `VA-029`, all 223 operational CCD records and 195 native School Quality profiles. The separate Virginia region retains all 162 native grade-school profiles and independently verified 152-school Math, ELA and Combined models. Ten unavailable native incomes and 61 outside records remain explicit, including missing native profiles and Lake Braddock’s positive Post Graduate count. Individual economic-status income is broader than FRPL and requires complete same-year September 30 reconciliation. Direct published All Students SOL/VAAP Passed rates retain the 2025 standards change; grade/course rates and rounded categories are never averaged or summed to replace them. All 456 deleted-school fits and canonical/current/history metrics are verified. Both immutable historical audits keep false approvals; readiness belongs to the separately validated adapter. Counts, variances and sampling intervals stay null modelwide. High/mixed cohorts remain below the 30-school floor. Fairfax is an existing comparison; planning counts never select or approve its models.
 
-The [Houston ISD source and published-rate numerical audits](houston-district.md) retain exact Texas LEA `4823640` / `TX-101912`, all 274 CCD school records and 273 native TAPR profiles. Same-year native enrolled grades identify 212 grade schools and 210 prospective records per subject. Missing and masked results, ten primary-only campuses, 42 high-only and nine mixed campuses, the reported-zero EL DAEP record and T H Rogers enrollment/reference-span difference remain explicit. Income uses reconciled individual October enrollment status. Reported native performance counts and rates reconcile, but exact current N/M score-status mapping remains a gate for verified scored-count and sampling-interval use. The separate numerical contract uses 210 original whole-percent published rates per subject, with null counts, variances and intervals; 202 Math and 203 ELA values differ from historical count-ratio precision. Its unknown-count policy does not certify the ten-valid-scored floor or close #16. Both immutable audit approvals remain false; separately reviewed canonical/browser integration is required. Houston remains a candidate, so planning counts and queue totals are unchanged.
+The [Houston ISD source, published-rate numerical and integration audits](houston-district.md) retain exact Texas LEA `4823640` / `TX-101912`, all 274 CCD school records and 273 native TAPR profiles. Same-year native enrolled grades identify 212 grade school profiles and separate 210-school Math, ELA and Combined models, with all 630 deleted-school fits and canonical/current/history results verified. Missing and masked results, ten primary-only campuses, 42 high-only and nine mixed campuses, the reported-zero EL DAEP record and T H Rogers enrollment/reference-span difference remain explicit. Income uses reconciled individual October enrollment status. Reported native performance counts and rates reconcile, but exact current N/M score-status mapping remains a gate for verified scored-count and sampling-interval use. The separate numerical contract uses 210 original whole-percent published rates per subject, with null counts, variances and intervals; 202 Math and 203 ELA values differ from historical count-ratio precision. Its unknown-count policy does not certify the ten-valid-scored floor or close #16. Both immutable audit approvals remain false; readiness belongs to the separately validated normalized adapter. Texas → Houston ISD is an existing district comparison, separate from statewide Texas. Planning counts never select or approve its models. High/mixed assessment populations, admissions classifications, geometry and provider roles remain unaudited.
 
 
 ## Provenance and rebuild
