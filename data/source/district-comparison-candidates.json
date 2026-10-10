@@ -3748,7 +3748,7 @@
         ]
       },
       "tier": "main",
-      "scope": "new_district_candidate",
+      "scope": "existing_fairfax",
       "directory_raw": {
         "SCHOOL_YEAR": "2024-2025",
         "LEAID": "5101260",

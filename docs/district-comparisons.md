@@ -2,7 +2,7 @@
 
 Implement these after the statewide basics. A district comparison would fit its own same-year, assessment, level and subject models, as CPS does. A filter using statewide predictions remains a district view of the statewide model; it is not a district comparison.
 
-Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 70 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
+Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 69 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
 ## Selection and implementation gates
 
@@ -17,7 +17,6 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 70 fir
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
-| Fairfax County Public Schools | VA | 5101260 | 179,323 | 162 / 25 | Available; district audit pending |
 | HOUSTON ISD | TX | 4823640 | 176,727 | 212 / 42 | Available; district audit pending |
 | Wake County Schools | NC | 3704720 | 163,325 | 162 / 29 | Available; district audit pending |
 | Montgomery County Public Schools | MD | 2400480 | 159,181 | 172 / 25 | Available; district audit pending |
@@ -267,7 +266,7 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 70 fir
 
 ## Existing comparisons and components
 
-CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach and Gwinnett have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
+CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach, Gwinnett and Fairfax have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
 
 ## Existing scope · size references
 
@@ -282,6 +281,7 @@ CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orang
 | ORANGE | FL | 1201440 | 205,853 | 206 / 31 | Existing Orange County comparison; pure grade schools only |
 | PALM BEACH | FL | 1201500 | 189,634 | 168 / 26 | Existing Palm Beach County comparison; pure grade schools only |
 | Gwinnett County | GA | 1302550 | 182,518 | 111 / 24 | Existing Gwinnett County comparison; pure grade schools only |
+| Fairfax County Public Schools | VA | 5101260 | 179,323 | 162 / 25 | Existing Fairfax County comparison; native grade schools only |
 | Hawaii Department of Education | HI | 1500030 | 167,071 | 224 / 2 | Existing statewide comparison |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #31 | NY | 3600103 | 60,164 | 35 / 3 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT # 2 | NY | 3600077 | 55,345 | 34 / 50 | Optional NYC subdistrict audit |
@@ -327,9 +327,8 @@ The [Palm Beach County source, numerical and integration audits](palm-beach-dist
 
 The [Gwinnett County source, numerical and integration audits](gwinnett-district.md) retain exact Georgia LEA `1302550` / `GA-667`, all 141 operational directory records and original same-year membership, direct-certification and Georgia Milestones EOG evidence. The separate Georgia region retains all 111 pure grade-school profiles in independently verified Math, ELA and Combined models, including New Life charter. All 333 deleted-school fits and canonical/current/history metrics are verified without fit-based exclusions. Six mixed and 24 high configurations remain separate; Medicaid/foster, outside-program PK and later-release roster notes remain explicit. Counts, variances and sampling intervals stay null modelwide. Both historical audits keep false approvals; the separately validated normalized adapter supplies readiness. High/mixed assessment scope remains unaudited. Gwinnett is an existing comparison; planning membership never approves models.
 
-The [Fairfax County source/cohort audit](fairfax-district.md) retains exact Virginia LEA `5101260` / `VA-029`, all 223 operational CCD schools and 195 exact native School Quality profiles. Its native same-year enrolled-grade contract yields 162 grade-school profiles and 152 source-usable schools per Math/ELA/Combined cohort. Native September 30 individual economic status uses fully reconciled grade/subgroup counts; schoolwide SOL/VAAP Passed rates are direct native totals. CCD membership and lunch remain completeness diagnostics, never substitute income or valid-score denominators. All 28 absent native profiles, 24 absent CCD totals, fifteen native income exclusions, stale display percentages and Lake Braddock's positive Post Graduate enrollment remain auditable. The separate high/mixed inventories retain only 23/1 usable schools, below the 30-school floor. Scope/status remain `audit_pending`, both approvals false and no district fits are produced; numerical verification and canonical/browser integration remain pending. Fairfax remains a candidate and the 70/172 queue is unchanged.
+The [Fairfax County source, numerical and integration audits](fairfax-district.md) retain exact Virginia LEA `5101260` / `VA-029`, all 223 operational CCD records and 195 native School Quality profiles. The separate Virginia region retains all 162 native grade-school profiles and independently verified 152-school Math, ELA and Combined models. Ten unavailable native incomes and 61 outside records remain explicit, including missing native profiles and Lake Braddock’s positive Post Graduate count. Individual economic-status income is broader than FRPL and requires complete same-year September 30 reconciliation. Direct published All Students SOL/VAAP Passed rates retain the 2025 standards change; grade/course rates and rounded categories are never averaged or summed to replace them. All 456 deleted-school fits and canonical/current/history metrics are verified. Both immutable historical audits keep false approvals; readiness belongs to the separately validated adapter. Counts, variances and sampling intervals stay null modelwide. High/mixed cohorts remain below the 30-school floor. Fairfax is an existing comparison; planning counts never select or approve its models.
 
-The [Fairfax numerical audit](fairfax-district.md#independent-numerical-audit--completed-phase-integration-pending) verifies all 152 eligible native grade schools in separate Math, ELA and Combined district models. All 456 explicit deleted-school fits have positive residual scales; the largest line shift over observed income is 0.447468 proficiency points. Influence flags never exclude schools. The historical source audit remains unchanged and both numerical approvals remain false; counts, variances and intervals are unavailable. Canonical/browser integration is pending. Fairfax remains a candidate and the 70/172 queue is unchanged; its high/mixed cohorts remain below the release floor.
 
 ## Provenance and rebuild
 

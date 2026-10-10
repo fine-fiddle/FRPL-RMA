@@ -2992,6 +2992,1427 @@
       "sha256": "fff223450f4a03d1763e8704d7b2b95cd67fde27213e67582c457de24febfccc"
     },
     {
+      "id": "va-fairfax-2025:ccd_directory_2025",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_029_2425_w_1a_073025.zip",
+      "sha256": "39326da788aa322353d20ceaf8ad4baed26272502cd05b066cf6c594988b21ab"
+    },
+    {
+      "id": "va-fairfax-2025:ccd_lunch_2025",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/ccd_sch_033_2425_l_2a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_033_2425_l_2a_073025.zip",
+      "sha256": "97bda749e778ee74cb731d181bbcdaf0f9c6cd6edf94cb31518a5bbeab411dd6"
+    },
+    {
+      "id": "va-fairfax-2025:ccd_membership_2025",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/ccd_sch_052_2425_l_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_052_2425_l_1a_073025.zip",
+      "sha256": "4a7f660c5fc5eaae488dd02fd43498f349fc828b227edd0970d5b6995ead4d4d"
+    },
+    {
+      "id": "va-fairfax-2025:ccd_state_notes_2025",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/SY_2024-25_CCD_Final_2a_Data_Notes.xlsx",
+      "url": "https://nces.ed.gov/ccd/xls/SY_2024-25_CCD_Final_2a_Data_Notes.xlsx",
+      "sha256": "6476b6b28b700389e261b87377d9cd249935503d53b5919fe1b7ef8b1052d1a7"
+    },
+    {
+      "id": "va-fairfax-2025:extract",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/source/fairfax.json",
+      "url": "https://schoolquality.virginia.gov/",
+      "sha256": "a598550e9369f170ac10602cd903e7c7a56690a4df36f93decc381167f1bdf25"
+    },
+    {
+      "id": "va-fairfax-2025:numerical_audit",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/source/fairfax-model-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/fairfax-model-audit.json",
+      "sha256": "d95fe3f778d0daca09a877f70f87ca746fb8fa049532923e8341990ea007fda3"
+    },
+    {
+      "id": "va-fairfax-2025:roster_audit",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/source/fairfax-district-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/fairfax-district-audit.json",
+      "sha256": "cf2fe4641d7b274fc46abff23b019bf044cd7404e484bddb408ac2eb8d145723"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290020",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/fairfax-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/fairfax-high",
+      "sha256": "4e7673666765e0c66c5119cd227b243e7b09d34261a462fa11401d01bea2675a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290032",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/herndon-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/herndon-high",
+      "sha256": "0e501adc5dcde76bc32a5fb4a549b79a666385c96555793e3ece3462a5d19080"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290033",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/herndon-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/herndon-middle",
+      "sha256": "8a5eda9e504fbdf65fbbac5289d3af380cabc8a697bff0384e404d966694aa7e"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290070",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/forest-edge-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/forest-edge-elementary",
+      "sha256": "9a7bc4f88244cfa416af0bf594c0b2cfb9f79695dcf846516beb427f8ebed555"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290080",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/sherman-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/sherman-elementary",
+      "sha256": "87e28aa17c44dcef905ee014d84566839e1241ef1a9c0c1cd5ac6ac2d7b304fc"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290090",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/lake-braddock-secondary.html",
+      "url": "https://schoolquality.virginia.gov/schools/lake-braddock-secondary",
+      "sha256": "2758ebc24026f197d0d8ed48fd69946846eee463247492b7dd7c57669fe76bba"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290100",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/chesterbrook-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/chesterbrook-elementary",
+      "sha256": "96f64c2fa80939a5602d95feddf3f26f3f3b654d0c8cccf4524e8fcf09a4f872"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290110",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/archer-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/archer-elementary",
+      "sha256": "f2bd2c37c70f2ad18e0c9726c7c451932e587db6f0763a10acbd63e210e9f846"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290120",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/vienna-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/vienna-elementary",
+      "sha256": "d5c8ddf7955c89c11be84218a8baf87972957ebb6350eff1b4d68fa9e0b14505"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290131",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/chantilly-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/chantilly-high",
+      "sha256": "3bb37314c3f1b7d7eb8736da15c191b27d81f751a3aeab810e4abfa950492433"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290140",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/oakton-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/oakton-elementary",
+      "sha256": "e640a630433cb1fd32b00486bb50aeecc74eaa7098e1443785b4f8c5dc38824c"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290150",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/orange-hunt-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/orange-hunt-elementary",
+      "sha256": "64cdec8a9dfd56508bac4a82420b8a0f35965da51409b2127ebbcaa41e34ba71"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290170",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/terra-centre-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/terra-centre-elementary",
+      "sha256": "13dfa8ee842efc26eacf48e5d1a965c793036514e0172f8f9b3cba63cf13e7e3"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290190",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/fairfax-county-adult-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/fairfax-county-adult-high",
+      "sha256": "30b97a7e6aa58acc86d58145e3954a9dcf27b78b2af91574e343789be1d45170"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290200",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/centreville-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/centreville-high",
+      "sha256": "d959fe13a36cb01630fc79dbbad6013eb3333a9a728b7a4eb73a993da16bcd6e"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290220",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/dogwood-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/dogwood-elementary",
+      "sha256": "d7beefec2ec62ba2ce2765bc2550365a412990213d9e4c610de98330f6250277"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290250",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/terraset-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/terraset-elementary",
+      "sha256": "09b30b4b8010dbd5869307dd244b82a2bd905181ffa332e22ea273068b8c1118"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290260",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/clearview-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/clearview-elementary",
+      "sha256": "b011c02ca87f6df51d292e186a09e66471a1396c92bb14c89a846bbac4dbdf2c"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290280",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/sunrise-valley-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/sunrise-valley-elementary",
+      "sha256": "d6a02804ff72a768a960d8b693b91cc9da5ec783fffac09a09bc38d7330b566d"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290290",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/fairview-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/fairview-elementary",
+      "sha256": "b40222f57ca610183879e6b64854205704a5693fc4504b980330f4d8f7ff3681"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290300",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/rocky-run-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/rocky-run-middle",
+      "sha256": "4ad5edd3e3d33f97da09be5c8c5279dd68715e0817acb7959541aa02f42b6805"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290320",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/franconia-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/franconia-elementary",
+      "sha256": "92eda0b0cf9f98e8b065c503ade2a9fbabbe4f2a9e1f3a0887f027a21277211e"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290330",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/groveton-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/groveton-elementary",
+      "sha256": "3fd0a40c41f9ef88a05d81efb85583ac398cb1728b407e2709c579608e9ce41f"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290350",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/hughes-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/hughes-middle",
+      "sha256": "4ab68faa1d2755f1d9fc21514eab8aad5c3981dd0da4d1e82ec56bb4bb377334"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290370",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/forestville-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/forestville-elementary",
+      "sha256": "595e696cd29a5bde2ff873adb1f7b06d96fc4dd407e8c6f2f9e8388a9b2da216"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290380",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/woodlawn-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/woodlawn-elementary",
+      "sha256": "91c7afcdbe52c90f782b744bbfed4ef16edc2a704ad8dcfecb471f05f6ec81f3"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290390",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/fox-mill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/fox-mill-elementary",
+      "sha256": "af7de494f4022f75cfb261899132d7a3b63cbbaf0fdbe964cc2edee2f796f65b"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290400",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/white-oaks-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/white-oaks-elementary",
+      "sha256": "f3c9904b16dfb15e6561e0174fe682a781ada88a300d7192f9e33d90ba1f0d0d"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290420",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/mount-vernon-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/mount-vernon-high",
+      "sha256": "d6bfa62b99d06bf2b727c59c6ca9b11a69e162291608bcd348c7cc2f5068a4be"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290430",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/oak-hill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/oak-hill-elementary",
+      "sha256": "0f14545aaaee7ab1337d131abcad7236c0f40cc846ec575f3558061d66c39241"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290440",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/franklin-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/franklin-middle",
+      "sha256": "f7cf23fcab597ca0f387f0848c0977bee33a0a98614c133f16834c422c3a3bbf"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290470",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/newington-forest-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/newington-forest-elementary",
+      "sha256": "c231344e84732fd9b85ca5dcf791b6dc1b3cd8407fcc020b3ed5299426479488"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290480",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/cherry-run-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/cherry-run-elementary",
+      "sha256": "d71d1d1aa1bdcce69678d0c2216007583b6e1389bd0cbfb8a6fa06edc64c67f7"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290490",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/freedom-hill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/freedom-hill-elementary",
+      "sha256": "f0507ba0b6c94cee8362d5131699657308525ff5b411753c868383dc276f3136"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290510",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/mount-eagle-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/mount-eagle-elementary",
+      "sha256": "0eabc0d6421eb4564540c775ce2db454b67bb1505a2344e94c3e39adda896502"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290520",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/weyanoke-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/weyanoke-elementary",
+      "sha256": "96aedc668cfbb04a96ccb2747978083fa594b86d4b81a8e15fcd5bccdea99e28"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290530",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/graham-road-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/graham-road-elementary",
+      "sha256": "de777f330e0d6491a649a336423bf360fa431fa599e1f6386723aa2fe93fbd48"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290550",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/baileys-elementary-school-for-the-arts-and-sciences.html",
+      "url": "https://schoolquality.virginia.gov/schools/baileys-elementary-school-for-the-arts-and-sciences",
+      "sha256": "bc7d4d62b647468f2f9cdb3a01d1999d4d5cc2a684646c397cba74ec0497400a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290560",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/belle-view-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/belle-view-elementary",
+      "sha256": "e44da9d99ae4c96cb82f1cc2478fd3b086f60e57648ecc7a097b6f4bbb9e3123"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290570",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/great-falls-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/great-falls-elementary",
+      "sha256": "1636d9b750f40cfc0324f27a9b8483311fb79795c22a226428dd8b3ec6f492c8"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290580",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/westlawn-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/westlawn-elementary",
+      "sha256": "8c7b0a1d19aa4f19349257bfcc8374143a82476d69efc724ee07f36085ed8037"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290590",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/woodley-hills-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/woodley-hills-elementary",
+      "sha256": "3f3dbd162b6bafefef8fd06a631a81d0171201bf5c523e2205b853cfd00c61c4"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290620",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/cameron-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/cameron-elementary",
+      "sha256": "d21bd3d11ff07badfa4567ab58a52edae7714bba678c1682065ff5aff7e4444b"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290630",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/garfield-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/garfield-elementary",
+      "sha256": "fba9ffa84e6ebf73bf37e769b3f9f7ad24c42b515583d04aaef4f161bb207a21"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290650",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/woodburn-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/woodburn-elementary",
+      "sha256": "10d9e2ef81f96fd20506b32342199710f4ae7255cd39ba113525bd33f26d4372"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290660",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/annandale-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/annandale-high",
+      "sha256": "99204b6c92ff1d36306e322be27305e57a3fddca0fb08b74c3b5dd05de85c5bd"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290673",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/jackson-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/jackson-middle",
+      "sha256": "411113dbed887895646c9c724076a285f8d3fbdf0481db14ac902b611800c0c7"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290680",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/bush-hill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/bush-hill-elementary",
+      "sha256": "09d7cf39036e54bbf2d063848084c9981495beafc6ef7eabbb7af476202324c7"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290690",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/gunston-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/gunston-elementary",
+      "sha256": "705e2a569d0039b6caad8e62a5462dc6bf811b175dcd9ee3edc43541d6ed5abe"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290700",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/bucknell-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/bucknell-elementary",
+      "sha256": "a676d7dc0907cd44479da98c417a65cc866d86e471f9289cf0005d3e2032b451"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290710",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/sleepy-hollow-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/sleepy-hollow-elementary",
+      "sha256": "f6bb18c277a2fbfcaa3ff634aec0c6ccbaa53bf01801e36035a3273c5f83f2d4"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290720",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/belvedere-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/belvedere-elementary",
+      "sha256": "df65f7ee0ffc5390e459e4617279f435ff9a81eeeddb48f56e419184384c5ab8"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290730",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/flint-hill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/flint-hill-elementary",
+      "sha256": "e1742ac1a0cfa900ceda70d7d9afb61bfe815970f523dbf906bea2ee18633b3b"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290740",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/floris-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/floris-elementary",
+      "sha256": "36699dbdf8ad5cd1c614522c2246672e98f4affaa38c78bf398aa32846fdd72e"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290750",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/haycock-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/haycock-elementary",
+      "sha256": "ea6ffca5e4fbb9dc965a100d95e72ee0334cd2922317b0f2c16226fc106e6a86"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290770",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/lemon-road-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/lemon-road-elementary",
+      "sha256": "c13bed5cff7097324679767083a876beb694a1ea5841944ffbf8ca1c239c568d"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290790",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/mclean-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/mclean-high",
+      "sha256": "cd4ab8541151084e569240d008f0253e15f4f74f6148dd5246f309f3df452774"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290800",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/navy-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/navy-elementary",
+      "sha256": "cc195fb14b964002469fa1755152309cd5ee6d0276b332919d2c09d361f9a484"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290820",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/pine-spring-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/pine-spring-elementary",
+      "sha256": "7d43a7ac42c3a8edf83bc50fa069476018475e05c6e3ceb4f0b9778522288dad"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290830",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/timber-lane-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/timber-lane-elementary",
+      "sha256": "3ce5345527b24ffd1f8e8df27803947a86f9dadcabdd180fa8fb7c386da4ce6d"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290850",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/wakefield-forest-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/wakefield-forest-elementary",
+      "sha256": "b68f2b1b99e9656b2e9a44032d2dd63ebc1cf4de0fd5624613b5599fefc73a75"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290870",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/crestwood-elementary-2.html",
+      "url": "https://schoolquality.virginia.gov/schools/crestwood-elementary-2",
+      "sha256": "1d33d7ca85c560333458fa88113f29505116dce543053544f74b7f875567af3b"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290890",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/lynbrook-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/lynbrook-elementary",
+      "sha256": "1d0e62071bd25a2d52a2ef54aac93df99c3cb260750e163b28f990bbf5117c5f"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290900",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/west-potomac-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/west-potomac-high",
+      "sha256": "0bd3060a3b37b70a516a93a65edd759483155e4eb54f004f4795303b87948e48"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290930",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/north-springfield-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/north-springfield-elementary",
+      "sha256": "09dee42b270f4d2679da38577c26d6763b02fd807b7f9a72d30ec949a9c95a93"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290940",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/bren-mar-park-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/bren-mar-park-elementary",
+      "sha256": "f469bd6cb2289417fe289572f1c74e1211e8e697baea26c6cad0830cd8cffe4a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290950",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/rose-hill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/rose-hill-elementary",
+      "sha256": "63eb8d0e87b8663b097d73a72e1d6823ac08c62a1c782878c23a73f7b739d94f"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290960",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/springfield-estates-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/springfield-estates-elementary",
+      "sha256": "c43e4f69b9fecda267ffdc341bb8d2eb02506a8602f3f161961f096aef329663"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290970",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/glen-forest-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/glen-forest-elementary",
+      "sha256": "c47301844b416441d877c29a0d267164465bfc4bb84bbcd94b41259d9ccdc90c"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0290980",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/kent-gardens-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/kent-gardens-elementary",
+      "sha256": "8bf9be908184d43ac2e541a15532457c075fcb9b45b35489bdea395f5244e8a1"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291020",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/lewis-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/lewis-high",
+      "sha256": "2fc9e482e9235e865c4353f05e4186bbe27c76d5674d13135a2b89485f0e103e"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291030",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/parklawn-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/parklawn-elementary",
+      "sha256": "22417efb9357f9dc16ec974a72f1f1d6c1cffc37df4de89137282da6869ca24c"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291050",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/churchill-road-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/churchill-road-elementary",
+      "sha256": "c9e2993340b567a1df430aa4339caee14e08ce205d74050109c5a95dc28f36b3"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291060",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/madison-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/madison-high",
+      "sha256": "63e9f5607645061a5bee0d2ab626ead505ee712a5686d523c84a3e7a7aaa07c8"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291070",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/justice-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/justice-high",
+      "sha256": "d51d831c8f7c8d4fb36ee11c42cf703b18f5fd7d536af0d97acef8009abe3a84"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291080",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/waynewood-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/waynewood-elementary",
+      "sha256": "9c0d8507b399e31852c271ebf492f3dc3f28affcbb49ac84e791ab1e3b71b027"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291090",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/braddock-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/braddock-elementary",
+      "sha256": "61b6422909a4a571462f164910a94559475dc9140d5520d1f87188786aa6e621"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291100",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/falls-church-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/falls-church-high",
+      "sha256": "00e7f60a0882b9aeda1786c7b3e6968ed10d6252dd493bd2428d2e9f3b0defa8"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291110",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/johnson-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/johnson-middle",
+      "sha256": "184bf07802f7b2df1c546ad56bcc334215387955835a432bb6bdb7812e7ec831"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291120",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/irving-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/irving-middle",
+      "sha256": "263b5f6aab8c7f0845e0d46cbdd57ffbf5f88773c794e4a372eab488a1a0e647"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291130",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/poe-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/poe-middle",
+      "sha256": "84ea5380010de336541d08db016904c49436f09a0637e93c664a967deb90f634"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291140",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/thoreau-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/thoreau-middle",
+      "sha256": "5e6e6d7a531a73e2a87fdc5386b310e85a7a2f17d88342ee925ef917cadb2684"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291150",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/longfellow-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/longfellow-middle",
+      "sha256": "6f2248b6dbcb3bcd514e38e69fb74445978bc0360673612513b64efee9f57b0a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291160",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/twain-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/twain-middle",
+      "sha256": "eabbc50afb7cf7c09c954420aa121168ed8e9261c1c761264ec018ae8c3ae0ad"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291170",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/glasgow-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/glasgow-middle",
+      "sha256": "cc8db749c869f897faf505c48db64711c7270e7fe0e7c4030261a263e3e2181c"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291190",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/cooper-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/cooper-middle",
+      "sha256": "a43aa2cd3b0cc90a9550893f4b896b1a1554b2c5cb2585c412ccebb1605eb919"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291200",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/marshall-road-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/marshall-road-elementary",
+      "sha256": "f88716137e68a1b63e6082decc373f1baf96e83f6551c233a0bf02c9e25e4281"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291210",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/mantua-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/mantua-elementary",
+      "sha256": "f4b321a3282ceacf2a1073f6451285b32ab89b365a811e4806bab5bf9d074013"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291240",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/keene-mill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/keene-mill-elementary",
+      "sha256": "59f2c821ea40d709223a02745ea544d5347271a73caa5623ca7c61031f0bcc5c"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291250",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/herndon-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/herndon-elementary",
+      "sha256": "fa60e91776bd1d3ecaf2c73030767f1fb56bca861a490b71bf93aa417eaa5fc9"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291260",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/woodson-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/woodson-high",
+      "sha256": "7014a1b4556cf3099098960f3ba5cd7866e7dc3d3aef90e0a2c2c0206cb6a1af"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291270",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/edison-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/edison-high",
+      "sha256": "ab445924235000bfc79a7ccee3bb3d41e9ab404a197fdab2da5ed3b95c9c76e4"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291290",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/marshall-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/marshall-high",
+      "sha256": "5d788842426cb30c43e93a9f658589879652d2da5a75dadf756caffd167a7d87"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291300",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/sandburg-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/sandburg-middle",
+      "sha256": "33843d5fe7603afa0400cf5d10a4632fe7a3a04363cd320b74296f8936addf35"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291310",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/ravensworth-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/ravensworth-elementary",
+      "sha256": "4b08a6edfedb3bceac5c3f55d8a9c0a4e2ce237ea9cb148c39ceb821bbbae2d7"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291320",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/washington-mill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/washington-mill-elementary",
+      "sha256": "308dbdd02382b1c59f0b3e18c61a6b91d7df9248aaa1314d3138c493d31b160e"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291330",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/hollin-meadows-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/hollin-meadows-elementary",
+      "sha256": "3b48413d393b8d32199de01f72ef37e7171662b8011e4f78a1e3e4ea73d57f4d"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291350",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/stratford-landing-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/stratford-landing-elementary",
+      "sha256": "17c51cd4d2b8892f6fb0958ae9fa60411d1db1785c49a4a264e9239eadec2fc3"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291360",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/annandale-terrace-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/annandale-terrace-elementary",
+      "sha256": "73743e7ff9c67639def63e1a68fe9574693f4b64750e3bc4477168a815beacce"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291371",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/thomas-jefferson-high-for-science-and-technology.html",
+      "url": "https://schoolquality.virginia.gov/schools/thomas-jefferson-high-for-science-and-technology",
+      "sha256": "7a43ced173741a9fb07c07936fc5b95b388a893e87342afda63b0847f27b8e85"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291380",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/stenwood-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/stenwood-elementary",
+      "sha256": "c5f2fe58a5bdb8f881fa8d511f886c37cd27677ee5c3796e285561c907ade531"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291390",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/mosaic-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/mosaic-elementary",
+      "sha256": "d8b4c4f962a76a27a41c997a6832b92bf275235cd03021d872df9f273872dcd5"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291400",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/little-run-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/little-run-elementary",
+      "sha256": "59af8b5ba3bb4fd0ded4a28ded08e65ea37ce466bc3772eb48b810ac8a32b7ea"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291410",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/frost-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/frost-middle",
+      "sha256": "371812e282f5a86e7ea0a66ac7bfc60d61ddec01da4f85cd5b723b03f9c3591f"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291420",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/hybla-valley-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/hybla-valley-elementary",
+      "sha256": "0ad740e825404669b79583f9c7ab2a543145cdeb97212d2ba868f43d1c30db3d"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291430",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/west-springfield-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/west-springfield-elementary",
+      "sha256": "cd709408d7ce7de8912a50dc21d3754e4c25c698b986e4b181558b436d1d5a88"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291440",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/kings-park-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/kings-park-elementary",
+      "sha256": "aa0d0ca837469c1b6475ecd7c306ea51bc49deeb3601fab0f54db162d3caecb9"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291450",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/forestdale-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/forestdale-elementary",
+      "sha256": "b4572c2b50e775889ae52f90cb0572216e2b3dc95092ae4604f8d4901743a659"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291460",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/langley-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/langley-high",
+      "sha256": "76eaf125be435c0eff7fb1a5a4e23ec30ae5f497f95789181f0bcce00fc1b432"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291480",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/fairfax-villa-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/fairfax-villa-elementary",
+      "sha256": "b29e102c9b2ead89b41d4fddce72e24bee6882a8f65f0db57711ca2dc002d2f5"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291500",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/greenbriar-west-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/greenbriar-west-elementary",
+      "sha256": "0de82a5fde42c29e36f1ae34e31e1fde24ba63f14a615101117dbb5e8033649b"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291510",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/columbia-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/columbia-elementary",
+      "sha256": "cabcf43ab3edf88a3c96e39923c041ff1ccca90b3cbb764a7856722d68572d88"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291521",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/holmes-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/holmes-middle",
+      "sha256": "6654db92712aa2f5287b5f6fb9433dceea60c8f0640deb6a7a19e55b0395f0f5"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291530",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/armstrong-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/armstrong-elementary",
+      "sha256": "5113151f92e7b93a0e8b2e80223e815cb544ec95e91bc5172f73a7bab2d551c1"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291540",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/union-mill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/union-mill-elementary",
+      "sha256": "2b79667f64e92d7d246213633f386e39c2f935e7aba0c746aa49fb5296687289"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291550",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/whitman-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/whitman-middle",
+      "sha256": "df09603ac67c63e912b1a0b7cadc9005a481254915d1c2a1a00263ba7612e845"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291570",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/lake-anne-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/lake-anne-elementary",
+      "sha256": "92e0bc5be65e786401add7a86307d56275dc2b4378029c604e5ac4bcef195e22"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291580",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/westbriar-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/westbriar-elementary",
+      "sha256": "9059d4addce9ca151576940716628a010f1920ba5cab56f0abab32a358cedc45"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291590",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/canterbury-woods-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/canterbury-woods-elementary",
+      "sha256": "ef9087703d98bedc15eef033829db400a914112ab4c31ea863699cb3010adf66"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291600",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/cub-run-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/cub-run-elementary",
+      "sha256": "99d2f6cfe8a52f8ba7cea0d340c5543b050fe65053e856e5885d94538155de98"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291610",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/west-springfield-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/west-springfield-high",
+      "sha256": "9719ba32582a8b4c3d15caffb8595bb64e7f7f2c74c0c03dcee8beb7ebb75a5b"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291620",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/spring-hill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/spring-hill-elementary",
+      "sha256": "d61f944e6345f1d88f8a0310edb179148f12edebedb4cfaeda46f9c7376c3fa7"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291630",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/fairhill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/fairhill-elementary",
+      "sha256": "5eef1f44874824da0aebd6f92af55a85f1ee9616918f72cbf8307fcf8d95924a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291640",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/mount-vernon-woods-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/mount-vernon-woods-elementary",
+      "sha256": "89d7db5c38bf20a0bdd80136c74836d5b211bdef30cc3dc33ae72ff1987b74cc"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291650",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/olde-creek-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/olde-creek-elementary",
+      "sha256": "07cc7c086a2824e3adf6eb67e0cb8394a48fa2280b0fee7ce64303ecbeb5761b"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291660",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/shrevewood-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/shrevewood-elementary",
+      "sha256": "97816dc232461ace21e6d240c7a163ce9fe90c74a0106ed254dd99d7acda5ae3"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291670",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/westgate-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/westgate-elementary",
+      "sha256": "a423782fdbfd2cb686b29297048fd7977d342ff7a1bed9dcc3b47d66ed168e14"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291680",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/silverbrook-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/silverbrook-elementary",
+      "sha256": "ce1dcf877820db298da939ebff708208c58d072adf57be9c26a74a65e7cb1507"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291690",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/cardinal-forest-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/cardinal-forest-elementary",
+      "sha256": "9324ea487989316a12cfb8c7f2f2ecc4ec8ee29453faacabadc6f34086ba873d"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291700",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/cunningham-park-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/cunningham-park-elementary",
+      "sha256": "845fe5fb4b8cf258352a2cb50f0020bb47c62886d0fa0f15f15ebe24248308aa"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291710",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/oakton-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/oakton-high",
+      "sha256": "a72912da3e138912f82be199ab43e5a7dafa8a6dd1538b0f79a26f75e48fe235"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291730",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/beech-tree-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/beech-tree-elementary",
+      "sha256": "0fda246329c0c0e3440fbc5859e03d21a668f5279fb507091ca06563290a5597"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291740",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/hayfield-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/hayfield-elementary",
+      "sha256": "e5b48f98a1650ab732f2e03f0f653435dfc96df8b359e7f5d012f1ef4d498f84"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291760",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/kilmer-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/kilmer-middle",
+      "sha256": "839b6125c57b25bd8fdf0d7f2c0c4ed375c5f02fd61e1aa9699df843d930343a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291761",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/kilmer-center.html",
+      "url": "https://schoolquality.virginia.gov/schools/kilmer-center",
+      "sha256": "7074e31d949269cdd75c0bbe0079209ce395f9e529bd97d88e168931d4a03e32"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291770",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/rolling-valley-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/rolling-valley-elementary",
+      "sha256": "5ab67a1f547dabe67b9a6f4609e19c5e65d540e8cdde75c3cf30ef75c1fd58d5"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291790",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/brookfield-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/brookfield-elementary",
+      "sha256": "611ab6b036b84d05de888e8d4404909858d32cb94e7227dbdff676a80c805cd6"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291800",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/hayfield-secondary.html",
+      "url": "https://schoolquality.virginia.gov/schools/hayfield-secondary",
+      "sha256": "af6d7ab5926124bd6b724e2f38e87d29e4d04301209bd14cc4a021af70f4c13c"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291810",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/wolftrap-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/wolftrap-elementary",
+      "sha256": "6bf426dbf7b0f0878db7be8aba2e8e0fe9bb9630ee0b338bcf8bac4537a5c9fd"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291820",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/riverside-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/riverside-elementary",
+      "sha256": "94739396807246f27340800d66ca6281ea733580e3a4afd8530c439cab6a1941"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291830",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/london-towne-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/london-towne-elementary",
+      "sha256": "f7673c4e6d2498e4944274a28301bb39b4bef66b7d648b644267fcf8a89d9573"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291840",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/greenbriar-east-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/greenbriar-east-elementary",
+      "sha256": "e334937c5e0f068c918cea2a7e1e8e486e25779381975ad887b0562bbf9594d1"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291850",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/lees-corner-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/lees-corner-elementary",
+      "sha256": "4fde746e9b454ffe5d12bbf7f75946d4df697368ad4298bf7774a275c16e59da"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291860",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/oak-view-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/oak-view-elementary",
+      "sha256": "c0f723c68d2c8e079645adce2c1abd6059251681c7fb40e7697881aff73555bc"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291870",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/clermont-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/clermont-elementary",
+      "sha256": "57b6d1ff100b61091fd3bac6931ca7e2f0871f9cd2220424a465a7bbf9b72f25"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291880",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/hunt-valley-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/hunt-valley-elementary",
+      "sha256": "b4882e8ccafb33ec1eaa0f499aaf6fbb4ae252fcf9d29e2add4333a9fb51961a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291890",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/kings-glen-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/kings-glen-elementary",
+      "sha256": "a01d90e4782bd97e76f856bb8a919d9ccc42ab13868c6659cea7151bed6c21ac"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291900",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/key-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/key-middle",
+      "sha256": "a445e17ee259c759f336c0c33106b5c75d3f79f8d1445aff1998192b72332fe0"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291901",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/key-center.html",
+      "url": "https://schoolquality.virginia.gov/schools/key-center",
+      "sha256": "5aa33f7118f10c657c95dc5e0dc14233bbe43df50a1b5dc2e7880c04b50fca9b"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291920",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/fort-hunt-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/fort-hunt-elementary",
+      "sha256": "f605b64f10df6aba75dbf59364466c39f335f060d6e64fb3e1dbf289d6d6a06d"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291940",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/camelot-elementary-2.html",
+      "url": "https://schoolquality.virginia.gov/schools/camelot-elementary-2",
+      "sha256": "66473670bebccac76d3507962c418e45cbd5cdf892b8c28356c9dffb50ff859d"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291950",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/hunters-woods-elementary-school-for-the-arts-and-sciences.html",
+      "url": "https://schoolquality.virginia.gov/schools/hunters-woods-elementary-school-for-the-arts-and-sciences",
+      "sha256": "470511cd7b65810463054567ceeab357098d1ac53456d49470f83c8faba4a6ab"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291960",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/robinson-secondary.html",
+      "url": "https://schoolquality.virginia.gov/schools/robinson-secondary",
+      "sha256": "6404906c308d2ea26085638c990e2c61f96ab73580c64987e0d90afdb8dcb2eb"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291970",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/laurel-ridge-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/laurel-ridge-elementary",
+      "sha256": "faddb7d86e52d04d66c79004176314469e06ba5b32057a525c534278a7a1a3f7"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291980",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/hutchison-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/hutchison-elementary",
+      "sha256": "2c070a08607364fb7a7e404fb7d9eae3875fd6adaabf825df03998aab3bed382"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0291990",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/south-lakes-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/south-lakes-high",
+      "sha256": "a7a36c39cdaf925f93146ceaa74f98fadf4d1d323b2b12d77e833b79a149db42"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292000",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/bonnie-brae-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/bonnie-brae-elementary",
+      "sha256": "304ede2fa5df5fd2f9ae4d47edde63a6fc5a95025791b16e88219b01e720baf1"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292010",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/dranesville-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/dranesville-elementary",
+      "sha256": "17138c23b5ed29ebf52328fd6a098184b92928f9fe458f1768f8931ccf353b9a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292020",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/crossfield-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/crossfield-elementary",
+      "sha256": "0e24ded0fec95180903214fe4953097c14add6afd326531abea74916a7c3159c"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292030",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/sangster-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/sangster-elementary",
+      "sha256": "78ede60719684402c371c1ccc590dae060847c4000b77eaf0d39ca7b1abdbad2"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292040",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/saratoga-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/saratoga-elementary",
+      "sha256": "01cf9d514117d7e26544f91b11edbe23bb010d1b829835454bc6e6a81999fac0"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292050",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/virginia-run-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/virginia-run-elementary",
+      "sha256": "bdc90215e26d5f26fcc5f04a4ade5336d09805c3779450965a4c35f8d4763171"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292060",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/willow-springs-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/willow-springs-elementary",
+      "sha256": "8f7df54c8e3fb906af5205b60765239d86ee419ef1d629a13be3314374e02bd5"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292070",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/stone-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/stone-middle",
+      "sha256": "1556f2dade7c19ea2e3f17ebd818169180ba8ef3ffe37d7c87a555e87f8f5231"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292080",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/poplar-tree-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/poplar-tree-elementary",
+      "sha256": "5e67ad980b00e2b518e14ea6cfd7d07016afcaac8378a772216546d955dc51c2"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292090",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/centre-ridge-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/centre-ridge-elementary",
+      "sha256": "e02075f4dd4d511bb63acd37bff087fb6e25d6e2c52596af96c6d253cc1b24b8"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292100",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/waples-mill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/waples-mill-elementary",
+      "sha256": "15da3b726c82f29747df89efbda0a9a094e760123e850a97f3324df00a18ea23"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292200",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/mcnair-upper-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/mcnair-upper-elementary",
+      "sha256": "17e4778935e4f202143c689b80743238c3538bce37fa9c7285d802d1900956df"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292201",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/bryant-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/bryant-high",
+      "sha256": "92a3ba2c83874f3ae740bee100b1dff37f0a30ec2d26e90a3c516ea12cd2bd4a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292203",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/aldrin-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/aldrin-elementary",
+      "sha256": "b133bbfbe12af3d7d3b4adbdb4d7f95e1b2a7f1187a775d7b5c4949293e94d72"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292204",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/deer-park-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/deer-park-elementary",
+      "sha256": "f5c60611b6b8eda01b3547ac5d9cb115c67f7a68d0b66a5b1f27ec148b56a0ab"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292205",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/centreville-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/centreville-elementary",
+      "sha256": "903976a2f349e227cdc4a51727b731360eed0e0acf0a109857b24375a2424804"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292209",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/lane-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/lane-elementary",
+      "sha256": "9ee21ff37f30a38f3daadb262032c214a94a26f894ee7b2a67ad16e8d0e64118"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292210",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/halley-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/halley-elementary",
+      "sha256": "0eed72f49449a9d5e283ceffe1adc7c7c876810e213c203f3250254e82953a5e"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292211",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/mountain-view-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/mountain-view-high",
+      "sha256": "d2bd953f5ed226bf66d4bc4c063d4988397603f46e3e54fbbbbc7cbc1b9a3c0f"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292222",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/carson-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/carson-middle",
+      "sha256": "5c9ab942fb5f935ddca03b3f596e6da70ef9b607689f1475283059860624a76a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292224",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/fort-belvoir-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/fort-belvoir-elementary",
+      "sha256": "dc38a6b6347f2d1936f0177f28b50a510f6a75b8efc13ffd5bd0ab2a573c453a"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292225",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/bull-run-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/bull-run-elementary",
+      "sha256": "7a8843c63f0587d9816f75c6c37c086f256ff0df219cad20efdf44a46443390d"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292228",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/westfield-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/westfield-high",
+      "sha256": "c309723559ebd0b6e9aeafcbea198fe17852aefcf4d378c5991a4e765f536e46"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292229",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/daniels-run-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/daniels-run-elementary",
+      "sha256": "e805cf980715811c4e4fc31ab85fb24888f043c0048b5d89e8cb4a3cd63ff1c6"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292230",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/providence-elementary-2.html",
+      "url": "https://schoolquality.virginia.gov/schools/providence-elementary-2",
+      "sha256": "d065b5b4e6fc000ebeb619ab8a0f4ca009c673dc6e61051953a5e8ecc2f7202f"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292231",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/mcnair-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/mcnair-elementary",
+      "sha256": "f0c643cfb49ffd6bdc366858364dbb4cce4c5eba678a24e30baf92c05480e24e"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292233",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/liberty-middle-2.html",
+      "url": "https://schoolquality.virginia.gov/schools/liberty-middle-2",
+      "sha256": "cc44b55ed43e40292bad61b2124b2b0403c901a2eba86440f2edb8daa6d5c375"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292234",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/colvin-run-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/colvin-run-elementary",
+      "sha256": "28fa18c0a10b2cab62a467bbf815def1ca4bf523480c8ca6b814e1c996e60f47"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292235",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/island-creek-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/island-creek-elementary",
+      "sha256": "bd12934a878e77e4d05c24d54b9d7da838883044fb707d4f84f6615095378bfc"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292236",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/lorton-station-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/lorton-station-elementary",
+      "sha256": "a02a59d737b1b278026a7a97c38dce0cca7cb6aa9941798dcb0a29f23abdfd67"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292237",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/powell-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/powell-elementary",
+      "sha256": "7a235e7ba417c04a2bb3dfe94099a169523156326de8f5e6540a55082ec57671"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292241",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/south-county-high.html",
+      "url": "https://schoolquality.virginia.gov/schools/south-county-high",
+      "sha256": "3f9fd4821f35e78c2485be602708149a2ee63889a24df41077f4e0e0dc4861e7"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292243",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/eagle-view-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/eagle-view-elementary",
+      "sha256": "fa06ad3f67b691dc5955fbee9199ae16ec2c09c2c6fce659abffed8662c053ef"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292347",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/coates-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/coates-elementary",
+      "sha256": "b0ab09c961a8b105c74b32450598347fa0379f8ed684ba3f9de2cab15d32b464"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292348",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/laurel-hill-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/laurel-hill-elementary",
+      "sha256": "39f6006fda9be533452624675bd03403470c2721dc05198ddfe09d2857c631f0"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292410",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/mason-crest-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/mason-crest-elementary",
+      "sha256": "9843a52b1278bc976ae1cf2aa17fe4dac7944ad739c560259cc3b80c67718f8c"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292420",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/south-county-middle.html",
+      "url": "https://schoolquality.virginia.gov/schools/south-county-middle",
+      "sha256": "1c0047a3b3de384ec7be18720c26f5d6ee26e2bec649fe278110103468be1338"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292458",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/fort-belvoir-upper-elementary.html",
+      "url": "https://schoolquality.virginia.gov/schools/fort-belvoir-upper-elementary",
+      "sha256": "69322717e23a4905bbcd63aa3543040f656dcb394475799262c932633132a0ed"
+    },
+    {
+      "id": "va-fairfax-2025:va-profile-0292459",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/raw/virginia/profiles/baileys-upper-elementary-school-for-the-arts-and-sciences.html",
+      "url": "https://schoolquality.virginia.gov/schools/baileys-upper-elementary-school-for-the-arts-and-sciences",
+      "sha256": "97b0d57c907dab98ec46b7a9d3096c79adc829fde80caaa3ee9a3e47c7ef0dc1"
+    },
+    {
+      "id": "va-fairfax-2025:virginia_extract_2025",
+      "dataset_id": "va-fairfax-2025",
+      "path": "data/source/virginia.json",
+      "url": "https://schoolquality.virginia.gov/",
+      "sha256": "fff223450f4a03d1763e8704d7b2b95cd67fde27213e67582c457de24febfccc"
+    },
+    {
       "id": "va-profile-0010070",
       "dataset_id": "va-vdoe-2025",
       "path": "data/raw/virginia/profiles/nandua-high.html",
@@ -16951,6 +18372,16 @@
       "source_url": "https://schools.utah.gov/datastatistics/reports"
     },
     {
+      "id": "va-fairfax-2025:2025:SOL/VAAP 2025 standards \u00b7 grade-school totals:ES",
+      "state": "VA",
+      "name": "SOL/VAAP 2025 standards \u00b7 grade-school totals",
+      "year": 2025,
+      "level": "ES",
+      "grades": "Schoolwide grade-level and/or end-of-course tests applicable to the grade span",
+      "standard": "Published All Students Passed includes SOL plus VAAP; spring 2025 SOL standards; separate Fairfax grade-school population",
+      "source_url": "https://schoolquality.virginia.gov/"
+    },
+    {
       "id": "va-vdoe-2025:2025:SOL/VAAP 2025 standards \u00b7 grade-school totals:ES",
       "state": "VA",
       "name": "SOL/VAAP 2025 standards \u00b7 grade-school totals",
@@ -17589,6 +19020,12 @@
     {
       "id": "va-econ-2025",
       "name": "Virginia economic status 2024\u201325",
+      "definition": "Same-year September 30 school Fall Membership, individually classified economically disadvantaged if eligible for free/reduced-price meals, receiving TANF, eligible for Medicaid, or migrant or experiencing homelessness. This broader student economic-status measure is distinct from the portal meal-service measure, which counts every student in CEP divisions.",
+      "source_url": "https://schoolquality.virginia.gov/glossary"
+    },
+    {
+      "id": "va-fairfax-2025:income",
+      "name": "Individually classified economic disadvantage",
       "definition": "Same-year September 30 school Fall Membership, individually classified economically disadvantaged if eligible for free/reduced-price meals, receiving TANF, eligible for Medicaid, or migrant or experiencing homelessness. This broader student economic-status measure is distinct from the portal meal-service measure, which counts every student in CEP divisions.",
       "source_url": "https://schoolquality.virginia.gov/glossary"
     },
@@ -19905,6 +21342,30 @@
       "input_sha256": "3df6cf53cb1dbb9709aeb3fd68eafefee913f19f910fb1de3a561691cf84ceee"
     },
     {
+      "id": "va-fairfax-2025:2025:SOL/VAAP 2025 standards \u00b7 grade-school totals:ES:combined:ols-v1:f0026ebca569",
+      "dataset_id": "va-fairfax-2025",
+      "definition_id": "va-fairfax-2025:2025:SOL/VAAP 2025 standards \u00b7 grade-school totals:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f0026ebca569ac56498ceaeddcfee3db4e1c442ebb1bd7a0f358fdffc96faf1f"
+    },
+    {
+      "id": "va-fairfax-2025:2025:SOL/VAAP 2025 standards \u00b7 grade-school totals:ES:math:ols-v1:f0026ebca569",
+      "dataset_id": "va-fairfax-2025",
+      "definition_id": "va-fairfax-2025:2025:SOL/VAAP 2025 standards \u00b7 grade-school totals:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f0026ebca569ac56498ceaeddcfee3db4e1c442ebb1bd7a0f358fdffc96faf1f"
+    },
+    {
+      "id": "va-fairfax-2025:2025:SOL/VAAP 2025 standards \u00b7 grade-school totals:ES:reading:ols-v1:f0026ebca569",
+      "dataset_id": "va-fairfax-2025",
+      "definition_id": "va-fairfax-2025:2025:SOL/VAAP 2025 standards \u00b7 grade-school totals:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "f0026ebca569ac56498ceaeddcfee3db4e1c442ebb1bd7a0f358fdffc96faf1f"
+    },
+    {
       "id": "va-vdoe-2025:2025:SOL/VAAP 2025 standards \u00b7 grade-school totals:ES:combined:ols-v1:4514af9ada2e",
       "dataset_id": "va-vdoe-2025",
       "definition_id": "va-vdoe-2025:2025:SOL/VAAP 2025 standards \u00b7 grade-school totals:ES",
@@ -21614,6 +23075,23 @@
       "id": "VA",
       "name": "Virginia",
       "regions": [
+        {
+          "id": "fairfax",
+          "name": "Fairfax County",
+          "dataset": "va-fairfax-2025",
+          "status": "ready",
+          "geography": "fairfax",
+          "levels": [
+            "ES"
+          ],
+          "schools": "data/fairfax/schools.json",
+          "boundaries": null,
+          "comparison": "Fairfax County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Fairfax County independent 2024\u201325 Virginia grade-school district models: exact operational CCD LEA 5101260 / native VA-029 attachments. All 162 native enrolled grade-school profiles remain visible; 152 schools with fully reconciled same-year individual economic status enter each native All Students Math, ELA and Combined schoolwide SOL/VAAP Passed model. Ten incomplete native grade-count income profiles retain their raw published outcomes and source exclusions. High, mixed, primary-only, unclassified and missing-native schools remain outside this point-only district release.",
+          "map_source": "School coordinates and district boundaries are unavailable in the audited Fairfax County source release.",
+          "statewide": false,
+          "audit": "data/fairfax/coverage.json"
+        },
         {
           "id": "virginia",
           "name": "Statewide school totals",

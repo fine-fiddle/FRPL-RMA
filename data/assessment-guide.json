@@ -2126,6 +2126,31 @@
       "blocker_summary": null,
       "assessments": [
         {
+          "id": "va-fairfax-2025:2025:SOL/VAAP 2025 standards · grade-school totals:ES",
+          "state": "VA",
+          "name": "SOL/VAAP 2025 standards · grade-school totals",
+          "year": 2025,
+          "level": "ES",
+          "grades": "Schoolwide grade-level and/or end-of-course tests applicable to the grade span",
+          "standard": "Published All Students Passed includes SOL plus VAAP; spring 2025 SOL standards; separate Fairfax grade-school population",
+          "source_url": "https://schoolquality.virginia.gov/",
+          "dataset_id": "va-fairfax-2025",
+          "family": "SOL/VAAP 2025 standards",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "provider_evidence_ids": [],
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "fairfax",
+              "name": "Fairfax County",
+              "url": "./?state=VA&region=fairfax&level=ES",
+              "model_scope": "Fairfax County independent 2024–25 Virginia grade-school district models: exact operational CCD LEA 5101260 / native VA-029 attachments. All 162 native enrolled grade-school profiles remain visible; 152 schools with fully reconciled same-year individual economic status enter each native All Students Math, ELA and Combined schoolwide SOL/VAAP Passed model. Ten incomplete native grade-count income profiles retain their raw published outcomes and source exclusions. High, mixed, primary-only, unclassified and missing-native schools remain outside this point-only district release."
+            }
+          ]
+        },
+        {
           "id": "va-vdoe-2025:2025:SOL/VAAP 2025 standards · grade-school totals:ES",
           "state": "VA",
           "name": "SOL/VAAP 2025 standards · grade-school totals",

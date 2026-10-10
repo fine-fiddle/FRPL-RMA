@@ -132,6 +132,8 @@ def scope(row):
         return 'existing_palm_beach'
     if row['LEAID'] == '1302550':
         return 'existing_gwinnett'
+    if row['LEAID'] == '5101260':
+        return 'existing_fairfax'
     if row['LEAID'] == '3200060':
         return 'existing_clark_county'
     if row['LEAID'] == '1709930':
@@ -304,6 +306,8 @@ def render(payload):
                 status = 'Existing Palm Beach County comparison; pure grade schools only'
             elif row['scope'] == 'existing_gwinnett':
                 status = 'Existing Gwinnett County comparison; pure grade schools only'
+            elif row['scope'] == 'existing_fairfax':
+                status = 'Existing Fairfax County comparison; native grade schools only'
             elif row['scope'] == 'existing_clark_county':
                 status = 'Existing Clark County comparison; native grade-school scope only'
             elif row['scope'] == 'existing_hawaii_statewide':
@@ -317,7 +321,7 @@ def render(payload):
     table('First tier · largest new district comparisons', main)
     table('Second tier · substantial regional comparisons', secondary)
     lines.extend(['## Existing comparisons and components', '',
-        'CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach and Gwinnett have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide '
+        'CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach, Gwinnett and Fairfax have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide '
         'comparison. The NYC geographic LEAs below are components of the existing NYC system; '
         'they would be optional subdistrict work, not additional whole-city systems. Do not '
         'add their counts to the Chancellor’s Office supervisory total or include District 75 '
@@ -438,6 +442,23 @@ def render(payload):
         'the separately validated normalized adapter supplies readiness. High/mixed '
         'assessment scope remains unaudited. Gwinnett is an existing comparison; '
         'planning membership never approves models.', ''])
+    lines.extend([
+        'The [Fairfax County source, numerical and integration audits](fairfax-district.md) '
+        'retain exact Virginia LEA `5101260` / `VA-029`, all 223 operational CCD records '
+        'and 195 native School Quality profiles. The separate Virginia region retains '
+        'all 162 native grade-school profiles and independently verified 152-school '
+        'Math, ELA and Combined models. Ten unavailable native incomes and 61 outside '
+        'records remain explicit, including missing native profiles and Lake Braddock’s '
+        'positive Post Graduate count. Individual economic-status income is broader '
+        'than FRPL and requires complete same-year September 30 reconciliation. '
+        'Direct published All Students SOL/VAAP Passed rates retain the 2025 standards '
+        'change; grade/course rates and rounded categories are never averaged or summed '
+        'to replace them. All 456 deleted-school fits and canonical/current/history '
+        'metrics are verified. Both immutable historical audits keep false approvals; '
+        'readiness belongs to the separately validated adapter. Counts, variances and '
+        'sampling intervals stay null modelwide. High/mixed cohorts remain below the '
+        '30-school floor. Fairfax is an existing comparison; planning counts never '
+        'select or approve its models.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '
