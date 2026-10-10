@@ -111,7 +111,9 @@ def csv_file(filename,required):
         if len(set(codes))!=len(codes) or not set(required)<=set(codes):raise ValueError('Texas download schema changed')
         if any('2024' in labels[codes.index(k)] and '2024-25' not in labels[codes.index(k)] for k in required if k not in ['CAMPUS','DISTRICT']):
             raise ValueError('Unexpected historical Texas column')
-        if any('2025' not in labels[codes.index(k)] for k in required if k.startswith(('CPNT','CDA'))):
+        if any('2025' not in labels[codes.index(k)] for k in required if k.startswith('CPNT')):
+            raise ValueError('Texas download is not the required same-year snapshot')
+        if any('SY 2024-25' not in labels[codes.index(k)] for k in required if k.startswith('CDA')):
             raise ValueError('Texas download is not the required same-year snapshot')
         rows={}
         for i,values in enumerate(it,3):

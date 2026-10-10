@@ -459,6 +459,19 @@ def render(payload):
         'sampling intervals stay null modelwide. High/mixed cohorts remain below the '
         '30-school floor. Fairfax is an existing comparison; planning counts never '
         'select or approve its models.', ''])
+    lines.extend([
+        'The [Houston ISD source/cohort audit](houston-district.md) retains exact '
+        'Texas LEA `4823640` / `TX-101912`, all 274 CCD school records and 273 '
+        'native TAPR profiles. Same-year native enrolled grades identify 212 grade '
+        'schools and 210 prospective records per subject. Missing and masked results, '
+        'ten primary-only campuses, 42 high-only and nine mixed campuses, the '
+        'reported-zero EL DAEP record and T H Rogers enrollment/reference-span '
+        'difference remain explicit. Income uses reconciled individual October '
+        'enrollment status. Reported native performance counts and rates reconcile, '
+        'but exact current N/M score-status mapping remains a gate for verified '
+        'scored-count and sampling-interval use. Source/model approvals remain false; '
+        'separate numerical and canonical/browser audits are required. Houston '
+        'remains a candidate, so planning counts and queue totals are unchanged.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

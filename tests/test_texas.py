@@ -1,14 +1,18 @@
 import copy
+import csv
 import json
 from pathlib import Path
 import sqlite3
 import sys
+import tempfile
 import unittest
+from unittest import mock
 
 import numpy as np
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from database import ROOT
+import prepare_texas as texas
 from prepare_texas import EXTRACT, GRADES, grade_school, income, normalize, outcome, sid
 from state_snapshot import import_snapshot
 
@@ -72,6 +76,44 @@ class TexasTests(unittest.TestCase):
             if 'combined' in s['metrics']:
                 self.assertAlmostEqual(s['metrics']['combined']['actual'],(s['metrics']['math']['actual']+s['metrics']['reading']['actual'])/2)
             else:self.assertTrue(s['exclusions']['combined'])
+
+    def test_original_csv_year_labels_accept_current_and_reject_prior_year(self):
+        profile = self.raw['profiles'][0]
+        fields = ['CAMPUS', 'DISTRICT'] + sum(texas.FIELDS.values(), [])
+        labels = [self.raw['columns']['profile'][k] if k in {'CAMPUS', 'DISTRICT'}
+                  else self.raw['columns']['assessment'][k] for k in fields]
+        values = [profile['profile']['CAMPUS'], profile['profile']['DISTRICT']]
+        values += profile['outcomes']['math'] + profile['outcomes']['reading']
+        self.assertTrue(all('SY 2024-25' in label for label in labels[2:]))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / 'data/raw/current.csv'
+            path.parent.mkdir(parents=True)
+
+            def read_csv(codes, descriptions, cells):
+                with path.open('w', newline='') as stream:
+                    writer = csv.writer(stream)
+                    writer.writerows([descriptions, codes, cells])
+                with mock.patch.object(texas, 'ROOT', root):
+                    return texas.csv_file('current.csv', codes)
+
+            rows, actual_labels = read_csv(fields, labels, values)
+            key = profile['profile']['CAMPUS']
+            self.assertEqual(rows[key][0], 3)
+            self.assertEqual(rows[key][1]['CAMPUS'], key)
+            self.assertEqual(actual_labels[fields[2]], labels[2])
+            prior = list(labels)
+            prior[2] = prior[2].replace('SY 2024-25', 'SY 2023-24')
+            with self.assertRaises(ValueError):
+                read_csv(fields, prior, values)
+
+            income_fields = ['CAMPUS', 'DISTRICT', 'CPNTALLC']
+            income_labels = [self.raw['columns']['profile'][k] for k in income_fields]
+            income_values = [profile['profile'][k] for k in income_fields]
+            self.assertIn(key, read_csv(income_fields, income_labels, income_values)[0])
+            income_labels[-1] = income_labels[-1].replace('2025', '2024')
+            with self.assertRaises(ValueError):
+                read_csv(income_fields, income_labels, income_values)
 
     def test_repeat_import_preserves_unrelated_and_rejects_wrong_year(self):
         db=sqlite3.connect(':memory:');db.row_factory=sqlite3.Row;db.executescript((ROOT/'scripts/schema.sql').read_text())
