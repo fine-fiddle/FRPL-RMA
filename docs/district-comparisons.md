@@ -317,6 +317,8 @@ The [Miami-Dade roster and numerical audits](miami-dade-district.md) keep exact 
 
 The [Clark County source, numerical and integration audits](clark-county-district.md) retain exact Nevada LEA 3200060 / NV-02 membership and the reported-zero ungraded-enrollment safeguard. The region retains 289 native source profiles with independent 286-school Math, ELA and Combined district models. All 299 native lower configurations and wider operational exclusions remain auditable. Valid-score counts and sampling intervals are unavailable; high-school and mixed assessment scope remains unaudited. Statewide Nevada remains its own comparison.
 
+The [Broward source/cohort audit](broward-district.md) retains exact Florida LEA 1200180 / FL-06 membership, same-year individual lunch eligibility and native School Grades records. Offered and enrolled grade populations, source exclusions and missing records remain explicit. This source-only audit leaves separate district fits, canonical import and browser integration pending; Broward remains in the planning queue and no comparison is enabled.
+
 
 ## Provenance and rebuild
 

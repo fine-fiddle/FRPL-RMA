@@ -8,6 +8,8 @@ Work continues on `expansion/all-states` in [robot-assisted-projects/FRPL-RMA](h
 
 Clark County's immutable audits preserve false approval flags and their historical pending-integration status. Its separately validated normalized adapter supplies canonical and browser readiness, preserving reported-zero ungraded enrollment, exact same-year identities and all 858 independently checked metrics. Statewide Nevada and all earlier comparisons remain separate. The parent district issue and all unresolved source/cohort holds remain open.
 
+The [Broward source/cohort audit](broward-district.md) retains exact Florida LEA `1200180` / `FL-06` membership and same-year native records. Its proposed pure grade-school population has 249 profiles, 243 offered-applicable schools and 241 usable schools for each subject. Three usable native enrolled-grade profiles with mixed CCD offerings remain separate; primary-only, missing and provider-specific records remain auditable. This source-only unit keeps approval false. Separate district fits, independent numerical checks and canonical/browser integration remain pending; Broward remains among the 75 first-tier candidates, and #3 stays open.
+
 The organization app installation was verified on 2026-10-09, and publishing through the user-authorized `robotic-assistants` account succeeded. All twelve new blocker issues, both parent checklists and all three progress comments were read back from GitHub and verified.
 
 The [blocker publication record](../data/source/expansion-issue-drafts.json) retains one source-grounded issue per unreleased state, its missing evidence, acceptance criteria, branch guide link and verified publication number:
