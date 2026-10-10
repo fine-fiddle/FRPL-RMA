@@ -4828,7 +4828,7 @@
         ]
       },
       "tier": "main",
-      "scope": "new_district_candidate",
+      "scope": "existing_montgomery",
       "directory_raw": {
         "SCHOOL_YEAR": "2024-2025",
         "LEAID": "2400480",

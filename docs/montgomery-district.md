@@ -1,6 +1,6 @@
-# Montgomery County source and cohort audit
+# Montgomery County district comparison and audit
 
-Montgomery County Public Schools, Maryland has an independently reconstructed 2024–25 grade-school source population of 172 schools. Matching same-year individual income and published regular MCAP rates leave 166 Math observations, 167 ELA observations and 166 Combined observations. The independent numerical audit verifies the three separate district fits and all 499 explicit deleted-school fits. Canonical integration and browser verification remain unfinished; there is no released Montgomery comparison. The immutable historical source audit retains `audit_pending` status, and both the source and numerical audit artifacts retain false source and modeling approvals.
+Montgomery County Public Schools, Maryland has an independently reconstructed 2024–25 grade-school source population of 172 schools. Matching same-year individual income and published regular MCAP rates leave 166 Math observations, 167 ELA observations and 166 Combined observations. The independent numerical audit verifies the three separate district fits and all 499 explicit deleted-school fits. The separate normalized adapter retains all 172 profiles, imports their exact source observations and emits independently validated canonical and static district results. Four masked-income profiles remain searchable without fitted metrics. The immutable historical source audit retains `audit_pending` status, and both the source and numerical audit artifacts retain false source and modeling approvals; the separately validated normalized release has true approvals.
 
 ## Original sources and identities
 
@@ -48,7 +48,7 @@ Carl Sandburg `15-0215` has `<= 5.0` Math and ELA rates. Montgomery Village Midd
 
 Administrative `Tested Count` is retained only as raw evidence. Neither the pinned native files nor the overview establish its precise valid-score rules or a ten-valid-scored school minimum. Every normalized tested count, valid-score count and sampling variance remains null; all sampling intervals and floor certifications remain unavailable. The current definitions HTML links 2026 disclosure requirements, which the audit does not apply retroactively to the 2025 data. Published rates and residual studentization cannot establish counts, enrollment adjustment or causal school effectiveness.
 
-## Offline replay and next release gates
+## Historical source replay
 
 Normal replay uses the retained committed originals and pinned statewide comparison without opening raw archives, reading a membership cache, fitting a model or touching SQLite:
 
@@ -63,9 +63,9 @@ To rebuild from the byte-pinned original downloads already present under `data/r
 .venv/bin/python scripts/audit_montgomery.py --extract
 ```
 
-All original files, retained records, definitions, headers, derived coverage and source-only approval flags are checked during replay. The independent numerical phase below verifies cohort income variation, rank, leverage, externally studentized residuals and every deleted-school fit. Only separately tested canonical and static integration can later release this district. High, mixed, unknown and primary populations remain excluded from that proposed grade-school comparison.
+All original files, retained records, definitions, headers, derived coverage and source-only approval flags are checked during replay. The independent numerical phase below verifies cohort income variation, rank, leverage, externally studentized residuals and every deleted-school fit. The separately tested adapter below performs canonical and static integration. High, mixed, unknown and primary populations remain excluded from the grade-school comparison.
 
-## Independent numerical audit — integration pending
+## Historical independent numerical audit
 
 The [committed numerical audit](../data/source/montgomery-model-audit.json) and [standalone numerical script](../scripts/audit_montgomery_models.py) pin the complete historical source artifact, its source code and source tests. They retain the complete original records, definitions, 211 authoritative identities, 172 grade-school profiles, all masks and the 39 outside configurations. Native original records independently reconstruct eligibility and precise individual income before any fit. Same-year Early Attendance count ratios and published regular MCAP All Grades proficiency enter three unweighted district models; the Maryland statewide coefficients and residuals are not reused.
 
@@ -97,4 +97,28 @@ The numerical builder and saved replay operate offline without raw downloads or 
 .venv/bin/python -m unittest discover -s tests -p 'test_montgomery_models.py' -v
 ```
 
-This phase produces an auditable numerical artifact. A separately tested canonical/static/browser adapter is the next release gate; no Montgomery catalog entry, browser payload or district release is approved by these fits alone.
+This phase produces an immutable numerical artifact. These fits alone do not approve integration; the separate adapter below validates the normalized source and every canonical/static result.
+
+
+## Canonical and browser integration
+
+The [normalized extract](../data/source/montgomery.json) and [release adapter](../scripts/prepare_montgomery.py) define dataset `md-montgomery-2025` and region `montgomery`. They pin the complete historical source artifact, source code and source tests, and the numerical artifact, numerical code and numerical tests. All six historical files remain unchanged. Original source rows reconstruct the native identities, grade scope, individual Early Attendance count ratio and directly published regular MCAP All Grades rates before normalization. The complete 5,253 original rows, 211 identities, definitions, course rows, masks and 39 outside configurations remain retained evidence.
+
+All 172 grade-school source profiles enter the directory and history. Four masked incomes have unavailable economic percentages and fitted metrics; their numeric published assessment rates remain in the canonical observations. Carl Sandburg retains its masked regular subject rates and source exclusions. Montgomery Village Middle retains its usable ELA result and masked Math exclusion. These distinctions yield 168 usable incomes and exactly 166 Math, 167 ELA and 166 Combined members; no diagnostic flag or school label changes membership. High, mixed, primary, unknown, district aggregates, admissions classifications, provider roles and geography remain outside this release.
+
+The adapter checks all nine canonical tables for exact Montgomery ownership and provenance, including foreign references into the district namespace. It verifies the 172 school and same-year economic profiles, 344 native subject observations, one assessment definition, one economic definition, three model runs and all 499 model results against the frozen audits. Assessment observations preserve their native published values even when income prevents a fit. Income uses its own Early Attendance denominator and exact individual economic count; neither value is an assessment denominator.
+
+Static [schools](../data/montgomery/schools.json), [history](../data/montgomery/history.json), [coverage](../data/montgomery/coverage.json) and [district descriptor](../data/montgomery/catalog.json) retain the same membership, definitions, exclusions and three separate models. Every current and historical actual value, prediction, residual, externally studentized residual and leverage reproduces the passed numerical audit. All tested counts, sampling variances and interval endpoints remain unavailable, and the ten-valid-scored floor remains uncertified. The descriptor identifies this separate district comparison and its grade-school scope. Programs are Unclassified; no coordinates or boundaries are supplied.
+
+Normalized source and modeling approvals are true in this separately validated release. Historical audit approvals and statuses remain unchanged and are explicitly distinguished from the release approval. A repeat import replaces only the district's rows and produces identical static output, preserving other datasets that share the same native school identities.
+
+With the committed frozen audit inputs present, rebuild the normalized extract and district output offline:
+
+```sh
+.venv/bin/python scripts/prepare_montgomery.py --extract
+.venv/bin/python -m unittest discover -s tests -p 'test_montgomery.py' -v
+```
+
+`--extract-only` rebuilds and validates the normalized evidence without canonical import or static export. This single-year district release preserves Maryland's separate statewide models; it does not splice incompatible histories or pool state proficiency standards.
+
+HTTP browser validation checks the first search after reload against the initially off-page Montgomery Village Middle profile, keyboard selection, its ELA-only result and missing Math history, all four masked incomes, Carl Sandburg's two subject masks, pagination and focus, explicit empty selection, shared URL restoration and invalid-value fallbacks. Model sizes remain 166/167/166 under search and comparison filters. Current and one-year history tables retain the verified values and unavailable intervals. The assessment guide keeps both Maryland populations separate, passes its first MCAP filter after reload and links to the district comparison. Desktop and true 390-pixel mobile views have no horizontal overflow, and browser console warnings/errors are empty. Shared frontend code, prior regional exports, historical audit files and provider bindings remain unchanged.

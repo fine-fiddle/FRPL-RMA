@@ -1550,6 +1550,132 @@
       "sha256": "3ed47214da42d4d3bbb88077b3598637a56e8eba52498216dc9c923547984d5c"
     },
     {
+      "id": "md-montgomery-2025:ccd_directory",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_029_2425_w_1a_073025.zip",
+      "sha256": "39326da788aa322353d20ceaf8ad4baed26272502cd05b066cf6c594988b21ab"
+    },
+    {
+      "id": "md-montgomery-2025:ccd_lea_directory",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/ccd_lea_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2425_w_1a_073025.zip",
+      "sha256": "2745169e4bc7cd53adff179830c3d4b9bb035ac79580ecea01ef389a161936a9"
+    },
+    {
+      "id": "md-montgomery-2025:ccd_lea_membership",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/ccd_lea_052_2425_l_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_lea_052_2425_l_1a_073025.zip",
+      "sha256": "501d72720a01c26e0e041cd3b1aa6653d0a94725ba0a1e85c42c4f183bc627ba"
+    },
+    {
+      "id": "md-montgomery-2025:ccd_membership",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/ccd_sch_052_2425_l_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_052_2425_l_1a_073025.zip",
+      "sha256": "4a7f660c5fc5eaae488dd02fd43498f349fc828b227edd0970d5b6995ead4d4d"
+    },
+    {
+      "id": "md-montgomery-2025:extract",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/source/montgomery.json",
+      "url": "https://www.reportcard.msde.maryland.gov/DataDownloads/FileDownload/562",
+      "sha256": "38d38ab8c9afea541c40d32cd09f21766a714d8f4e6362b95d37ca2484c3fe9a"
+    },
+    {
+      "id": "md-montgomery-2025:msde_assessment",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/maryland-mcap-2025.zip",
+      "url": "https://www.reportcard.msde.maryland.gov/DataDownloads/FileDownload/562",
+      "sha256": "61789e732bbeff40a451d14a0e6eeb66c0dac54430c26c7ed49db9718aab583f"
+    },
+    {
+      "id": "md-montgomery-2025:msde_definitions",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/maryland-definitions.html",
+      "url": "https://www.reportcard.msde.maryland.gov/Definitions/Index",
+      "sha256": "5086eb37ee1de68c9aa22f9e7d2606f8d7550acfaeb85bd2b139c3f765d2f3f7"
+    },
+    {
+      "id": "md-montgomery-2025:msde_directory",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/maryland-directory-2025.zip",
+      "url": "https://www.reportcard.msde.maryland.gov/DataDownloads/FileDownload/539",
+      "sha256": "963f3447d40eb95586efa6f7250c96cd55818313015178a30d05b0b637a916fa"
+    },
+    {
+      "id": "md-montgomery-2025:msde_enrollment",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/maryland-enrollment-2025.zip",
+      "url": "https://www.reportcard.msde.maryland.gov/DataDownloads/FileDownload/541",
+      "sha256": "132b3520b0c75e1cbcb83b40a5b8c8b6fa1f064fb300c14710a75dd72b73c061"
+    },
+    {
+      "id": "md-montgomery-2025:msde_income",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/maryland-special-services-2025.zip",
+      "url": "https://www.reportcard.msde.maryland.gov/DataDownloads/FileDownload/561",
+      "sha256": "3ed47214da42d4d3bbb88077b3598637a56e8eba52498216dc9c923547984d5c"
+    },
+    {
+      "id": "md-montgomery-2025:msde_mcap_overview",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/montgomery-mcap-overview-march2025.pdf",
+      "url": "https://www.marylandpublicschools.org/about/Documents/DAAIT/Assessment/MCAP/MCAP-Overview-A.pdf",
+      "sha256": "594f383d7917939572b99d293e89582decfc7819f5a888de21e2b9b6cbcb4680"
+    },
+    {
+      "id": "md-montgomery-2025:msde_reportcard",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/raw/maryland-reportcard.html",
+      "url": "https://reportcard.msde.maryland.gov/graphs",
+      "sha256": "9857e65d009ccc6614beeaa12e289cbb93c37c8c67f809d394226dc19b5f8125"
+    },
+    {
+      "id": "md-montgomery-2025:numerical_audit",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/source/montgomery-model-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/montgomery-model-audit.json",
+      "sha256": "dc08918759239918732e09e3a166f66fe4f3526999ce7fabef7ca828953c230f"
+    },
+    {
+      "id": "md-montgomery-2025:numerical_audit_code",
+      "dataset_id": "md-montgomery-2025",
+      "path": "scripts/audit_montgomery_models.py",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/scripts/audit_montgomery_models.py",
+      "sha256": "48409c43aa984662709a35655cee4e73c5e7fec5681b6216a8ebb05ead147e60"
+    },
+    {
+      "id": "md-montgomery-2025:numerical_audit_tests",
+      "dataset_id": "md-montgomery-2025",
+      "path": "tests/test_montgomery_models.py",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/tests/test_montgomery_models.py",
+      "sha256": "42a6ba3733cf5fd6faee27726e1d3ed36fe250e1da34394a6e27fbd3cba9cf1f"
+    },
+    {
+      "id": "md-montgomery-2025:roster_audit",
+      "dataset_id": "md-montgomery-2025",
+      "path": "data/source/montgomery-district-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/montgomery-district-audit.json",
+      "sha256": "98ac95ba4b2f39be6b80e6e4d92638726ac74b4ddff11811477d1e85473ef1a6"
+    },
+    {
+      "id": "md-montgomery-2025:source_audit_code",
+      "dataset_id": "md-montgomery-2025",
+      "path": "scripts/audit_montgomery.py",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/scripts/audit_montgomery.py",
+      "sha256": "23cf4256a5cf20fed5f269022ac51f99a34f91546bbc02d546d29b7368cbf0d7"
+    },
+    {
+      "id": "md-montgomery-2025:source_audit_tests",
+      "dataset_id": "md-montgomery-2025",
+      "path": "tests/test_montgomery_audit.py",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/tests/test_montgomery_audit.py",
+      "sha256": "1d1ab0593d9e568fe5104459b8da8b20e3d24bc1e40c6a0387828a3e47366d93"
+    },
+    {
       "id": "me-edc-ccd-dc:ccd_directory_2025",
       "dataset_id": "me-edc-ccd-dc",
       "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
@@ -18259,6 +18385,16 @@
       "source_url": "https://www.reportcard.msde.maryland.gov/DataDownloads/FileDownload/562"
     },
     {
+      "id": "md-montgomery-2025:2025:MCAP regular ELA/math \u00b7 grade schools \u00b7 2025:ES",
+      "state": "MD",
+      "name": "MCAP regular ELA/math \u00b7 grade schools \u00b7 2025",
+      "year": 2025,
+      "level": "ES",
+      "grades": "3\u20138 plus accelerated math courses",
+      "standard": "Published native regular MCAP School_Level All Grades All Students proficiency Levels3/4; grade3\u20138 schools retaining accelerated Algebra1/Geometry/Algebra2 course exams; separate Montgomery grade-school population",
+      "source_url": "https://www.reportcard.msde.maryland.gov/DataDownloads/FileDownload/562"
+    },
+    {
       "id": "me-edc-ccd-dc:2025:Maine Through Year Assessment grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
       "state": "ME",
       "name": "Maine Through Year Assessment grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC",
@@ -19089,6 +19225,12 @@
     {
       "id": "md-mcap-2025:income",
       "name": "Individual direct certification",
+      "definition": "Same-year individual direct certification from MSDE Early Attendance: SNAP/FSP, TANF/TCA, foster care, Medicaid and other qualifying categorical statuses. Use the native Economically Disadvantaged count and its Total Student Cnt denominator, not FARMS, meal access, a CEP multiplier or a tested subgroup. The native Early Attendance denominator differs from the September30 enrollment file; September grades establish school scope only. Suppressed or ranged income remains unavailable, with no complement reconstruction or prior-year backfill.",
+      "source_url": "https://www.reportcard.msde.maryland.gov/Definitions/Index"
+    },
+    {
+      "id": "md-montgomery-2025:income",
+      "name": "Economically disadvantaged",
       "definition": "Same-year individual direct certification from MSDE Early Attendance: SNAP/FSP, TANF/TCA, foster care, Medicaid and other qualifying categorical statuses. Use the native Economically Disadvantaged count and its Total Student Cnt denominator, not FARMS, meal access, a CEP multiplier or a tested subgroup. The native Early Attendance denominator differs from the September30 enrollment file; September grades establish school scope only. Suppressed or ranged income remains unavailable, with no complement reconstruction or prior-year backfill.",
       "source_url": "https://www.reportcard.msde.maryland.gov/Definitions/Index"
     },
@@ -20797,6 +20939,30 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "8939df8e6ae65aa72462c7b40d7c207b22c76fef841c2037ec5844d876e80ea4"
+    },
+    {
+      "id": "md-montgomery-2025:2025:MCAP regular ELA/math \u00b7 grade schools \u00b7 2025:ES:combined:ols-v1:cb77b1c508bf",
+      "dataset_id": "md-montgomery-2025",
+      "definition_id": "md-montgomery-2025:2025:MCAP regular ELA/math \u00b7 grade schools \u00b7 2025:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "cb77b1c508bf1eeef48fbcfb744bc07f645bda1d44163596c3abcc461f9ad8ab"
+    },
+    {
+      "id": "md-montgomery-2025:2025:MCAP regular ELA/math \u00b7 grade schools \u00b7 2025:ES:math:ols-v1:cb77b1c508bf",
+      "dataset_id": "md-montgomery-2025",
+      "definition_id": "md-montgomery-2025:2025:MCAP regular ELA/math \u00b7 grade schools \u00b7 2025:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "cb77b1c508bf1eeef48fbcfb744bc07f645bda1d44163596c3abcc461f9ad8ab"
+    },
+    {
+      "id": "md-montgomery-2025:2025:MCAP regular ELA/math \u00b7 grade schools \u00b7 2025:ES:reading:ols-v1:cb77b1c508bf",
+      "dataset_id": "md-montgomery-2025",
+      "definition_id": "md-montgomery-2025:2025:MCAP regular ELA/math \u00b7 grade schools \u00b7 2025:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "cb77b1c508bf1eeef48fbcfb744bc07f645bda1d44163596c3abcc461f9ad8ab"
     },
     {
       "id": "me-edc-ccd-dc:2025:Maine Through Year Assessment grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES:combined:ols-v1:43a6320a35f7",
@@ -22886,6 +23052,23 @@
           "model_scope": "Maryland regular MCAP native school totals at public grade schools with same-year individual direct certification",
           "map_source": "School coordinates are unavailable in the audited source extract.",
           "statewide": true
+        },
+        {
+          "id": "montgomery",
+          "name": "Montgomery County",
+          "dataset": "md-montgomery-2025",
+          "status": "ready",
+          "geography": "montgomery",
+          "levels": [
+            "ES"
+          ],
+          "schools": "data/montgomery/schools.json",
+          "boundaries": null,
+          "comparison": "Montgomery County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Montgomery County independent 2024\u201325 Maryland grade-school district models: exact operational NCES LEA 2400480 / CCD native MD-15 / MSDE LEA 15 identities. All 172 audited grade-school profiles remain visible, including four masked individual Early Attendance incomes. Native regular MCAP School_Level All Grades All Students published Levels 3+4 proficiency supports 166 Math, 167 ELA and 166 Combined fits. Accelerated Algebra I, Geometry and Algebra II courses remain in native Math totals. Valid-score count scope and the ten-valid-scored floor remain uncertified; sampling intervals are unavailable for every model. High, mixed, primary, unknown and district aggregate records remain outside this separate published-rate district release.",
+          "map_source": "School coordinates and district boundaries are unavailable in the audited Montgomery County source release.",
+          "statewide": false,
+          "audit": "data/montgomery/coverage.json"
         }
       ]
     },

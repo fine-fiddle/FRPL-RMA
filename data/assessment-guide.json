@@ -1265,6 +1265,31 @@
               "model_scope": "Maryland regular MCAP native school totals at public grade schools with same-year individual direct certification"
             }
           ]
+        },
+        {
+          "id": "md-montgomery-2025:2025:MCAP regular ELA/math · grade schools · 2025:ES",
+          "state": "MD",
+          "name": "MCAP regular ELA/math · grade schools · 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8 plus accelerated math courses",
+          "standard": "Published native regular MCAP School_Level All Grades All Students proficiency Levels3/4; grade3–8 schools retaining accelerated Algebra1/Geometry/Algebra2 course exams; separate Montgomery grade-school population",
+          "source_url": "https://www.reportcard.msde.maryland.gov/DataDownloads/FileDownload/562",
+          "dataset_id": "md-montgomery-2025",
+          "family": "MCAP regular ELA/math",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "provider_evidence_ids": [],
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "montgomery",
+              "name": "Montgomery County",
+              "url": "./?state=MD&region=montgomery&level=ES",
+              "model_scope": "Montgomery County independent 2024–25 Maryland grade-school district models: exact operational NCES LEA 2400480 / CCD native MD-15 / MSDE LEA 15 identities. All 172 audited grade-school profiles remain visible, including four masked individual Early Attendance incomes. Native regular MCAP School_Level All Grades All Students published Levels 3+4 proficiency supports 166 Math, 167 ELA and 166 Combined fits. Accelerated Algebra I, Geometry and Algebra II courses remain in native Math totals. Valid-score count scope and the ten-valid-scored floor remain uncertified; sampling intervals are unavailable for every model. High, mixed, primary, unknown and district aggregate records remain outside this separate published-rate district release."
+            }
+          ]
         }
       ]
     },

@@ -2,7 +2,7 @@
 
 Implement these after the statewide basics. A district comparison would fit its own same-year, assessment, level and subject models, as CPS does. A filter using statewide predictions remains a district view of the statewide model; it is not a district comparison.
 
-Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 67 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
+Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 66 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
 ## Selection and implementation gates
 
@@ -17,7 +17,6 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 67 fir
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
-| Montgomery County Public Schools | MD | 2400480 | 159,181 | 172 / 25 | Available; district audit pending |
 | Charlotte-Mecklenburg Schools | NC | 3702970 | 147,299 | 146 / 25 | Available; district audit pending |
 | DALLAS ISD | TX | 4816230 | 139,802 | 189 / 37 | Available; district audit pending |
 | Prince George's County Public Schools | MD | 2400510 | 132,123 | 160 / 23 | Available; district audit pending |
@@ -283,6 +282,7 @@ CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orang
 | HOUSTON ISD | TX | 4823640 | 176,727 | 212 / 42 | Existing Houston ISD comparison; native published-rate grade schools only |
 | Hawaii Department of Education | HI | 1500030 | 167,071 | 224 / 2 | Existing statewide comparison |
 | Wake County Schools | NC | 3704720 | 163,325 | 162 / 29 | Existing Wake County comparison; native regular grade-school scope only |
+| Montgomery County Public Schools | MD | 2400480 | 159,181 | 172 / 25 | Existing Montgomery County comparison; native regular grade-school scope only |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #31 | NY | 3600103 | 60,164 | 35 / 3 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT # 2 | NY | 3600077 | 55,345 | 34 / 50 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #24 | NY | 3600098 | 50,026 | 17 / 10 | NYC component; cohort floor review |
@@ -333,8 +333,8 @@ The [Houston ISD source, published-rate numerical and integration audits](housto
 
 The [Wake County source, numerical and integration audits](wake-district.md) retain exact North Carolina LEA `3704720` / `NC-920`, all 202 original CCD directory records and 162 complete grade-school configurations. The separate North Carolina → Wake County comparison retains 160 same-year native April individual EDS profiles and independently verified 159-school Math/Combined and 160-school ELA models. All 478 deleted-school fits and canonical/current/history results are verified without diagnostic exclusions; three eligible Alternative School records remain in every model. Two suppressed incomes and Mills Park Middle’s suppressed Math remain explicit, alongside all 36 outside configurations, four future schools and the fall district/school enrollment discrepancy. Direct regular RG/GS/ALL GLP rates retain Level 3 and above, grade-8 Math 1 and the summer-2024 source convention; grade/course percentages and accountability-adjusted rates never replace them. Income uses April individual economic status for the broader enrolled population. Native tested-count scope and the ten-valid-scored floor remain uncertified; verified counts, sampling variances and interval endpoints stay null modelwide. Both immutable historical audits keep false approvals; readiness belongs to the separately validated normalized adapter. Statewide North Carolina remains a separate comparison. Wake is an existing district comparison; planning counts never select or approve its models. High/mixed assessment populations, admissions, geometry and provider roles remain unaudited.
 
+The [Montgomery County source, numerical and integration audits](montgomery-district.md) retain exact Maryland LEA `2400480` / `MD-15`, all 211 operational native/CCD identities and 172 complete grade-school configurations. The separate Maryland → Montgomery County comparison preserves all 172 profiles, 168 usable same-year individual Early Attendance incomes and independently verified 166-school Math/Combined and 167-school ELA models. All 499 deleted-school fits and canonical/current/history results are verified without diagnostic exclusions. Four income masks, Carl Sandburg’s two subject masks and Montgomery Village’s Math mask remain explicit. Native regular MCAP All Grades rates retain proficiency Levels 3 and 4 and accelerated high-school mathematics courses with the applicable 2024–25 waiver; grade/course rates are never averaged to replace them. Individual direct certification uses its own Early Attendance denominator, distinct from September/CCD enrollment, FARMS and tested subgroups. Native valid-score count scope and the ten-valid-scored floor remain uncertified; counts, variances and sampling intervals stay null modelwide. Both immutable historical audits keep false approvals; readiness belongs to the separately validated normalized adapter. Statewide Maryland remains separate. Montgomery is an existing comparison; planning counts never select or approve models. High/mixed assessment populations, admissions, geometry and provider roles remain unaudited.
 
-The separate [Montgomery County Public Schools source and numerical audits](montgomery-district.md) retain exact Maryland LEA `2400480` / `MD-15`, all 211 original operational native/CCD schools and 172 verified grade-school configurations. Native same-year individual Early Attendance income yields 168 usable profiles; direct regular MCAP All Grades rates support independent 166 Math / 167 ELA / 166 Combined models and all 499 explicit deleted-school fits, preserving accelerated high-school math courses, four income masks and three masked subject rates. The full high/mixed/primary/unknown roster, native district aggregates and differing collection denominators remain explicit. The immutable source audit keeps `audit_pending`; the separate numerical audit has status `numerically_verified_pending_integration`, and both audits keep false source/model approvals. Diagnostic flags never select model members. Native administrative Tested Count and the ten-valid-scored floor remain uncertified; counts, variances and intervals remain null modelwide. Separate canonical/static integration and HTTP browser verification are next; no Montgomery comparison is released. Montgomery remains a candidate; the 67 first-tier / 172 second-tier planning queue is unchanged.
 
 ## Provenance and rebuild
 

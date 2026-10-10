@@ -138,6 +138,8 @@ def scope(row):
         return 'existing_houston'
     if row['LEAID'] == '3704720':
         return 'existing_wake'
+    if row['LEAID'] == '2400480':
+        return 'existing_montgomery'
     if row['LEAID'] == '3200060':
         return 'existing_clark_county'
     if row['LEAID'] == '1709930':
@@ -316,6 +318,8 @@ def render(payload):
                 status = 'Existing Houston ISD comparison; native published-rate grade schools only'
             elif row['scope'] == 'existing_wake':
                 status = 'Existing Wake County comparison; native regular grade-school scope only'
+            elif row['scope'] == 'existing_montgomery':
+                status = 'Existing Montgomery County comparison; native regular grade-school scope only'
             elif row['scope'] == 'existing_clark_county':
                 status = 'Existing Clark County comparison; native grade-school scope only'
             elif row['scope'] == 'existing_hawaii_statewide':
@@ -507,6 +511,25 @@ def render(payload):
         'separate comparison. Wake is an existing district comparison; planning counts never '
         'select or approve its models. High/mixed assessment populations, admissions, geometry '
         'and provider roles remain unaudited.', ''])
+    lines.extend([
+        'The [Montgomery County source, numerical and integration audits](montgomery-district.md) '
+        'retain exact Maryland LEA `2400480` / `MD-15`, all 211 operational native/CCD identities '
+        'and 172 complete grade-school configurations. The separate Maryland → Montgomery County '
+        'comparison preserves all 172 profiles, 168 usable same-year individual Early Attendance '
+        'incomes and independently verified 166-school Math/Combined and 167-school ELA models. '
+        'All 499 deleted-school fits and canonical/current/history results are verified without '
+        'diagnostic exclusions. Four income masks, Carl Sandburg’s two subject masks and '
+        'Montgomery Village’s Math mask remain explicit. Native regular MCAP All Grades rates '
+        'retain proficiency Levels 3 and 4 and accelerated high-school mathematics courses with '
+        'the applicable 2024–25 waiver; grade/course rates are never averaged to replace them. '
+        'Individual direct certification uses its own Early Attendance denominator, distinct '
+        'from September/CCD enrollment, FARMS and tested subgroups. Native valid-score count '
+        'scope and the ten-valid-scored floor remain uncertified; counts, variances and sampling '
+        'intervals stay null modelwide. Both immutable historical audits keep false approvals; '
+        'readiness belongs to the separately validated normalized adapter. Statewide Maryland '
+        'remains separate. Montgomery is an existing comparison; planning counts never select '
+        'or approve models. High/mixed assessment populations, admissions, geometry and '
+        'provider roles remain unaudited.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

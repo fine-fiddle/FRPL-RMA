@@ -273,6 +273,24 @@ class AssessmentGuideTests(unittest.TestCase):
         self.assertEqual(row['provider_evidence_ids'], [])
         self.assertIsNone(provider_binding(row, load_provider_evidence()))
 
+    def test_montgomery_definition_preserves_native_scope_without_provider_inheritance(self):
+        rows = self.by_state['MD']['assessments']
+        row = next(a for a in rows if a['dataset_id'] == 'md-montgomery-2025')
+        statewide = next(a for a in rows if a['dataset_id'] == 'md-mcap-2025')
+        for field in ['name', 'year', 'level', 'grades', 'source_url', 'family']:
+            self.assertEqual(row[field], statewide[field])
+        self.assertEqual(row['name'], 'MCAP regular ELA/math · grade schools · 2025')
+        self.assertEqual(row['standard'], 'Published native regular MCAP School_Level All Grades All Students proficiency Levels3/4; grade3–8 schools retaining accelerated Algebra1/Geometry/Algebra2 course exams; separate Montgomery grade-school population')
+        self.assertEqual([r['id'] for r in row['regions']], ['montgomery'])
+        self.assertEqual([r['id'] for r in statewide['regions']], ['maryland'])
+        self.assertEqual(parse_qs(urlsplit(row['regions'][0]['url']).query),
+                         dict(state=['MD'], region=['montgomery'], level=['ES']))
+        self.assertIn('2400480', row['regions'][0]['model_scope'])
+        for field in ['provider', 'provider_role', 'provider_source_url', 'ambition_comparison']:
+            self.assertIsNone(row[field])
+        self.assertEqual(row['provider_evidence_ids'], [])
+        self.assertIsNone(provider_binding(row, load_provider_evidence()))
+
     def test_provider_roles_do_not_propagate_from_titles_membership_or_new_years(self):
         evidence = load_provider_evidence()
         definition = copy.deepcopy(next(b['definition'] for b in evidence['bindings']
