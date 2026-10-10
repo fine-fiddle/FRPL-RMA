@@ -1,6 +1,6 @@
-# Houston ISD 2024–25 source and cohort audit
+# Houston ISD 2024–25 source and numerical audits
 
-This audit independently reopens the original state and federal sources for Houston ISD, NCES LEA `4823640`, native agency `TX-101912` and TAPR `DISTRICT` `101912`. It does not create a district comparison. The committed evidence is [houston-district-audit.json](../data/source/houston-district-audit.json); both source and modeling approval remain false. Its pure validator recomputes the roster, exclusions and prospective subject availability without fitting or importing.
+The source audit independently reopens the original state and federal sources for Houston ISD, NCES LEA `4823640`, native agency `TX-101912` and TAPR `DISTRICT` `101912`. Its committed evidence is [houston-district-audit.json](../data/source/houston-district-audit.json), whose pure validator recomputes the roster, exclusions and prospective subject availability without fitting or importing. The separate [published-rate numerical audit](#published-rate-numerical-contract) uses original whole-percent displays under an explicit unknown-count policy. Both artifacts retain false source/model approvals and create no district comparison.
 
 ## Exact same-year roster
 
@@ -57,10 +57,48 @@ Accordingly, every verified-valid-score count, sampling variance and interval re
 
 `--extract` checks original source bytes and checksums, then reparses all saved TAPR CSV/PDF/HTML files and original CCD directory/membership archives. Default replay uses the committed evidence and pinned historical Texas extract offline. Source row/header/value fingerprints and typed metadata reject drift. Neither path touches SQLite, computes a regression, exports browser data or changes the statewide Texas population.
 
-Before district release, resolve the exact current-year N/M performance-denominator mapping and scored-count floor; separately audit the proposed numerical fits, all-member uncertainty rules and diagnostics; implement and verify the canonical repeatable importer and served comparison; verify the browser, shared links and assessment guide. Any later point-only release requires its own explicit review and unavailable-interval labeling. High/mixed assessments, admission or school-program classifications, coordinates, provider roles and cross-assessment relative ambition are not audited here. Statistical results, when released, will describe associations rather than causal effectiveness or overall school quality.
+Under the historical count-based contract, district release requires resolving the exact current-year N/M performance-denominator mapping and scored-count floor; separately auditing the proposed numerical fits, all-member uncertainty rules and diagnostics; implementing and verifying the canonical repeatable importer and served comparison; and verifying the browser, shared links and assessment guide. Any later point-only release requires its own explicit review and unavailable-interval labeling. High/mixed assessments, admission or school-program classifications, coordinates, provider roles and cross-assessment relative ambition are not audited here. Statistical results, when released, will describe associations rather than causal effectiveness or overall school quality.
 
 ## Completed source verification
 
-Two independent original-source reviews pass. The final replay retains 273 native campuses, 212 prospective grade-school profiles and 210 available records per subject. Two original-source extractions reproduce identical audit bytes. Independent review also passes 123 document-corruption rejection cases and 69 semantic/edge checks. The 56 targeted Python tests cover Houston, Texas extraction, district planning and nearby audit contracts. Every earlier served data file and the canonical database remain unchanged. The 69 first-tier and 172 second-tier candidate queue is unchanged; numerical and integration work remains pending.
+Two independent original-source reviews pass. The final replay retains 273 native campuses, 212 prospective grade-school profiles and 210 available records per subject. Two original-source extractions reproduce identical audit bytes. Independent review also passes 123 document-corruption rejection cases and 69 semantic/edge checks. The 56 targeted Python tests cover Houston, Texas extraction, district planning and nearby audit contracts. Every earlier served data file and the canonical database remain unchanged. At the source phase, the 69 first-tier and 172 second-tier candidate queue was unchanged and numerical/integration work remained pending.
 
 [Issue #16](https://github.com/robot-assisted-projects/FRPL-RMA/issues/16) records the precise scored-count evidence gate and its release criteria. [Issue #17](https://github.com/robot-assisted-projects/FRPL-RMA/issues/17) records the separate Texas CSV extraction defect: the original assessment labels say `SY 2024-25`, while income labels say `2025`. The repaired year check accepts those current labels and rejects prior-year labels. Independent temporary extraction reproduces all 9,084 original campuses twice and exactly preserves all 6,573 historical normalized profiles. That repair changes neither the published Texas data nor the unresolved denominator gate. The original PDF replay dependency is pinned as `pypdf==6.20.0` in [requirements.txt](../requirements.txt).
+
+## Published-rate numerical contract
+
+The separate [houston-model-audit.json](../data/source/houston-model-audit.json) audits a distinct point-only outcome: the original unmasked whole-percent All Students Meets-or-above fields `CDA38AM0E225R` and `CDA38AR0E225R`. It pins the complete source artifact and retains every original definition, raw value, identity and population exclusion. It never rewrites the historical source audit's count-ratio arithmetic or promotes its approval flags.
+
+Eligibility is independently derived from exact operational district attachments, complete native enrolled grades 3–8 with no positive grades 9–12, reconciled same-year individual economic status, and the subject's unmasked published percentage. The reported performance counts do not set membership in this contract and are not certified as valid scored results. There are 212 native grade-school profiles and 210 usable published-rate members per subject, preserving the original missing and masked campus exclusions. High, mixed, primary-only and absent-native records remain outside these models.
+
+The predictor remains exact individual economic-disadvantage enrollment divided by native enrollment; the outcome retains the published whole-percent precision. The new Math outcome differs from count-derived precision at 202 schools and ELA at 203 schools. Combined is the equally weighted mean of those two published subject rates, requiring both; it never uses the native percentage passing both subjects. Separate district Math, ELA and Combined models use equal school weights and externally studentized residuals. Diagnostics cannot change membership.
+
+This explicit unknown-count policy permits a numerical investigation under the repository's point-only mechanism; it does not certify the ten-valid-scored-test requirement. Valid-score counts, sampling variances and every interval endpoint stay null for all model members. A zero vector used inside the fitter is only a computational sentinel. School enrollment and reported performance counts remain provenance, never substitute denominators. Rounded native rates, the broader all-enrolled economic-status proxy, assessment-type/grade mix and omitted prior attainment or admissions remain limitations. Residuals describe associations, not causal school quality.
+
+Canonical/static integration remains a separate audited unit. It must explicitly validate the published-rate eligibility contract, preserve the uncertified scored-count floor and unavailable-interval caveats, verify repeatable imports and every earlier comparison, and pass HTTP browser checks before readiness. [Issue #16](https://github.com/robot-assisted-projects/FRPL-RMA/issues/16) stays open for exact N/M score-status mapping; numerical success does not resolve count-based release criteria or establish that existing statewide Texas results are wrong. Provider roles, admissions classifications, geometry and high/mixed assessment scope remain unaudited. Houston remains a candidate in the unchanged 69/172 queue.
+
+```sh
+.venv/bin/python scripts/audit_houston_models.py
+.venv/bin/python scripts/audit_houston_models.py --check
+.venv/bin/python -m unittest discover -s tests -p test_houston_models.py -v
+```
+
+The numerical replay validates the pinned source and recomputes all fits offline. It touches neither SQLite nor served JSON. The source-only commands above remain valid and reproduce the unchanged historical audit.
+
+## Independent published-rate fits
+
+Each subject retains all 210 published-rate members, including three charters and one alternative school. All 630 explicit deleted-school fits use 209 training schools and 207 residual degrees of freedom, with rank-two designs and positive residual scales. The largest line shift over observed economic disadvantage after removing a school is 0.930174 proficiency points. The recorded leverage, Cook distance and residual flags are descriptive; no school is removed by a fit diagnostic.
+
+| Subject | Intercept | Slope per economic-status point | R² | Largest deleted-line shift (proficiency points) |
+| --- | ---: | ---: | ---: | ---: |
+| Math | 79.570354 | -0.387219 | 0.463701 | 0.930174 |
+| ELA | 92.140631 | -0.485618 | 0.643799 | 0.620842 |
+| Combined | 85.855493 | -0.436419 | 0.597476 | 0.766564 |
+
+These coefficients belong only to the separate Houston published-rate audit and are never substituted for statewide Texas results. The numerical status is `numerically_verified_pending_integration`, with both approvals false; the unresolved count-definition hold and all unavailable interval values remain explicit.
+
+## Completed numerical verification
+
+Forty targeted Python tests pass: twelve new Houston numerical tests and 28 Houston source, Texas extraction and district-planning regression tests. Two independent reviews reproduce the original inputs and all 630 deleted fits. They also pass 238 corruption rejection cases and 62 semantic/edge checks; these additional 300 checks are separate from the test count. One review independently compares all 70,434 original retained CSV cells, and both compare the original-rate inputs and numerical results.
+
+Two numerical builds and an offline saved replay reproduce identical bytes. The immutable source audit, every prior served file (225 files), canonical database bytes and all earlier source/model artifacts remain unchanged. The district planner preserves its extract and 69 first-tier / 172 second-tier queue. No canonical import, served export, assessment-guide change, master merge or deployment occurs in this numerical phase. Separately audited canonical/browser integration remains next; #3, #16, Detroit #15 and all state source holds stay open.

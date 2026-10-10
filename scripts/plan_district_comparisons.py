@@ -460,7 +460,7 @@ def render(payload):
         '30-school floor. Fairfax is an existing comparison; planning counts never '
         'select or approve its models.', ''])
     lines.extend([
-        'The [Houston ISD source/cohort audit](houston-district.md) retains exact '
+        'The [Houston ISD source and published-rate numerical audits](houston-district.md) retain exact '
         'Texas LEA `4823640` / `TX-101912`, all 274 CCD school records and 273 '
         'native TAPR profiles. Same-year native enrolled grades identify 212 grade '
         'schools and 210 prospective records per subject. Missing and masked results, '
@@ -469,8 +469,12 @@ def render(payload):
         'difference remain explicit. Income uses reconciled individual October '
         'enrollment status. Reported native performance counts and rates reconcile, '
         'but exact current N/M score-status mapping remains a gate for verified '
-        'scored-count and sampling-interval use. Source/model approvals remain false; '
-        'separate numerical and canonical/browser audits are required. Houston '
+        'scored-count and sampling-interval use. The separate numerical contract uses '
+        '210 original whole-percent published rates per subject, with null counts, '
+        'variances and intervals; 202 Math and 203 ELA values differ from historical '
+        'count-ratio precision. Its unknown-count policy does not certify the '
+        'ten-valid-scored floor or close #16. Both immutable audit approvals remain '
+        'false; separately reviewed canonical/browser integration is required. Houston '
         'remains a candidate, so planning counts and queue totals are unchanged.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
