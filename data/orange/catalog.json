@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "FL",
+    "name": "Florida"
+  },
+  "prepare_script": "scripts/prepare_orange.py",
+  "regions": [
+    {
+      "id": "orange",
+      "name": "Orange County",
+      "dataset": "fl-orange-2025",
+      "status": "ready",
+      "geography": "orange",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/orange/schools.json",
+      "boundaries": null,
+      "comparison": "Orange County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Orange County independent 2024\u201325 grade-school district models: exact operational CCD LEA 1201440 / native FL-48 attachments, complete reported pure lower offerings including grade 3\u20138, and explicit-zero native enrolled grades 9\u201312. Exact attached charters, alternatives and special-education profiles are retained; native missing outcomes determine eligibility. Separate same-year native Florida School Grades Math, ELA and Combined point-only OLS models. High and mixed offerings are excluded.",
+      "map_source": "School coordinates and district boundaries are unavailable in the audited Orange sources.",
+      "statewide": false,
+      "audit": "data/orange/coverage.json"
+    }
+  ]
+}

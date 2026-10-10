@@ -208,6 +208,24 @@ class AssessmentGuideTests(unittest.TestCase):
         self.assertIsNone(provider_binding(row, load_provider_evidence()))
         self.assertIn('1200180', row['regions'][0]['model_scope'])
 
+    def test_orange_definition_preserves_exact_native_population_and_unverified_provider(self):
+        rows = self.by_state['FL']['assessments']
+        district = [a for a in rows if a['dataset_id'] == 'fl-orange-2025']
+        self.assertEqual(len(district), 1)
+        row = district[0]
+        statewide = next(a for a in rows if a['dataset_id'] == 'fl-schoolgrades-2025')
+        for field in ['name', 'year', 'level', 'grades', 'standard', 'source_url']:
+            self.assertEqual(row[field], statewide[field])
+        self.assertEqual([r['id'] for r in row['regions']], ['orange'])
+        self.assertEqual([r['id'] for r in statewide['regions']], ['florida'])
+        self.assertEqual(parse_qs(urlsplit(row['regions'][0]['url']).query),
+                         dict(state=['FL'], region=['orange'], level=['ES']))
+        self.assertIn('1201440', row['regions'][0]['model_scope'])
+        for field in ['provider', 'provider_role', 'provider_source_url', 'ambition_comparison']:
+            self.assertIsNone(row[field])
+        self.assertEqual(row['provider_evidence_ids'], [])
+        self.assertIsNone(provider_binding(row, load_provider_evidence()))
+
     def test_clark_county_has_exact_native_definition_and_explicit_district_provider_binding(self):
         rows = self.by_state['NV']['assessments']
         district = [a for a in rows if a['dataset_id'] == 'nv-clark-county-2025']

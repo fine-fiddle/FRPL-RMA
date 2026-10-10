@@ -126,6 +126,8 @@ def scope(row):
         return 'existing_broward'
     if row['LEAID'] == '1200870':
         return 'existing_hillsborough'
+    if row['LEAID'] == '1201440':
+        return 'existing_orange'
     if row['LEAID'] == '3200060':
         return 'existing_clark_county'
     if row['LEAID'] == '1709930':
@@ -292,6 +294,8 @@ def render(payload):
                 status = 'Existing Broward comparison; pure grade schools only'
             elif row['scope'] == 'existing_hillsborough':
                 status = 'Existing Hillsborough comparison; pure grade schools only'
+            elif row['scope'] == 'existing_orange':
+                status = 'Existing Orange County comparison; pure grade schools only'
             elif row['scope'] == 'existing_clark_county':
                 status = 'Existing Clark County comparison; native grade-school scope only'
             elif row['scope'] == 'existing_hawaii_statewide':
@@ -382,6 +386,21 @@ def render(payload):
         'false; the separately validated normalized adapter supplies canonical/browser '
         'readiness. High/mixed assessment scope remains unaudited. Hillsborough is '
         'recorded as an existing comparison; planning membership never approves models.', ''])
+    lines.extend([
+        'The [Orange County source, numerical and integration audits](orange-district.md) '
+        'retain all 282 original CCD records for Florida LEA `1201440` / `FL-48`, '
+        'including 275 operational schools and exact same-year Florida records. The '
+        'separate pure grade-school region retains all 208 matched profiles and the '
+        'complete 209-school offered inventory in coverage, with 206 applicable '
+        'schools and independently verified 200-school Math, ELA and Combined fits. '
+        'All 600 deleted-school fits and canonical/current/history metrics are '
+        'verified without fit-based exclusions. Both eligible zero-income charters '
+        'remain included; collocated aggregates, missing outcomes, primary profiles '
+        'and mixed offerings remain explicit. Counts, variances and intervals are '
+        'unavailable. Both immutable audits keep false approvals; the separately '
+        'validated normalized adapter supplies readiness. High/mixed assessment '
+        'scope remains unaudited. Orange is an existing comparison; planning '
+        'membership never approves models.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '
