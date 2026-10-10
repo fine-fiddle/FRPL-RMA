@@ -40,6 +40,8 @@ Charlotte-Mecklenburg Schools, North Carolina, has a separate [original-source/c
 
 A build-free static website: HTML5, CSS, vanilla JavaScript and vendored D3 7.9.0. Python + Polars prepare the committed JSON. No server API, npm, tracking, map service or runtime CDN is required.
 
+The [district issue index](docs/district-issues.md) records one created issue for each of the 66 remaining first-tier candidates, with exact planning identities, existing blockers and verified or pending native parent links. Second-tier work is paused under #18. A district reaches completion only after its audits, canonical/browser integration and validation pass and its tested change is delivered to the user-authorized `master` target.
+
 ## Preview
 
 ```sh

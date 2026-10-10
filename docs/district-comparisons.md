@@ -4,6 +4,8 @@ Implement these after the statewide basics. A district comparison would fit its 
 
 Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 66 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
+The [first-tier issue index](district-issues.md) maps all 66 candidates to their created district issues under [#3](https://github.com/robot-assisted-projects/FRPL-RMA/issues/3). Charlotte's native parent link is verified; the other 65 attachments await restored GitHub account access. Each completed district must pass its audit, integration and test/browser gates before the user-authorized delivery to `master`. All 172 second-tier candidates are paused under [#18](https://github.com/robot-assisted-projects/FRPL-RMA/issues/18) until further discussion.
+
 ## Selection and implementation gates
 
 - First tier: at least 50,000 students and 30 potential pure grade schools or 30 potential pure high schools. Second tier: 20,000–49,999 students with the same cohort floor.
