@@ -2,7 +2,7 @@
 
 Implement these after the statewide basics. A district comparison would fit its own same-year, assessment, level and subject models, as CPS does. A filter using statewide predictions remains a district view of the statewide model; it is not a district comparison.
 
-Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 71 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
+Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 70 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
 ## Selection and implementation gates
 
@@ -17,7 +17,6 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 71 fir
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
-| Gwinnett County | GA | 1302550 | 182,518 | 111 / 24 | Available; district audit pending |
 | Fairfax County Public Schools | VA | 5101260 | 179,323 | 162 / 25 | Available; district audit pending |
 | HOUSTON ISD | TX | 4823640 | 176,727 | 212 / 42 | Available; district audit pending |
 | Wake County Schools | NC | 3704720 | 163,325 | 162 / 29 | Available; district audit pending |
@@ -268,7 +267,7 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 71 fir
 
 ## Existing comparisons and components
 
-CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange and Palm Beach have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
+CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach and Gwinnett have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
 
 ## Existing scope · size references
 
@@ -282,6 +281,7 @@ CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orang
 | HILLSBOROUGH | FL | 1200870 | 220,360 | 218 / 34 | Existing Hillsborough comparison; pure grade schools only |
 | ORANGE | FL | 1201440 | 205,853 | 206 / 31 | Existing Orange County comparison; pure grade schools only |
 | PALM BEACH | FL | 1201500 | 189,634 | 168 / 26 | Existing Palm Beach County comparison; pure grade schools only |
+| Gwinnett County | GA | 1302550 | 182,518 | 111 / 24 | Existing Gwinnett County comparison; pure grade schools only |
 | Hawaii Department of Education | HI | 1500030 | 167,071 | 224 / 2 | Existing statewide comparison |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #31 | NY | 3600103 | 60,164 | 35 / 3 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT # 2 | NY | 3600077 | 55,345 | 34 / 50 | Optional NYC subdistrict audit |
@@ -325,8 +325,8 @@ The [Orange County source, numerical and integration audits](orange-district.md)
 
 The [Palm Beach County source, numerical and integration audits](palm-beach-district.md) retain all 238 original CCD records for Florida LEA `1201500` / `FL-50`, including 234 operational schools and 230 exact same-year Fall/income profiles. The separate pure grade-school region retains all 170 matched profiles, 168 applicable schools and independently verified 165-school Math, ELA and Combined models. All 495 deleted-school fits and canonical/current/history metrics are verified without fit-based exclusions. Career and Technical charter South Tech Preparatory Academy remains included; primary-only profiles, missing campus outcomes, masked mixed-income and provider-specific virtual records remain explicit. Both immutable historical audits keep false approvals; the separately validated normalized adapter supplies canonical/browser readiness. Counts, variances and sampling intervals remain unavailable. High/mixed assessment scope remains unaudited. Palm Beach is an existing comparison; planning membership never approves models.
 
+The [Gwinnett County source, numerical and integration audits](gwinnett-district.md) retain exact Georgia LEA `1302550` / `GA-667`, all 141 operational directory records and original same-year membership, direct-certification and Georgia Milestones EOG evidence. The separate Georgia region retains all 111 pure grade-school profiles in independently verified Math, ELA and Combined models, including New Life charter. All 333 deleted-school fits and canonical/current/history metrics are verified without fit-based exclusions. Six mixed and 24 high configurations remain separate; Medicaid/foster, outside-program PK and later-release roster notes remain explicit. Counts, variances and sampling intervals stay null modelwide. Both historical audits keep false approvals; the separately validated normalized adapter supplies readiness. High/mixed assessment scope remains unaudited. Gwinnett is an existing comparison; planning membership never approves models.
 
-The [Gwinnett County source/cohort and numerical audits](gwinnett-district.md) retain exact Georgia LEA `1302550` / `GA-667`, all 141 operational directory records and same-year school membership/direct-certification evidence. Original Georgia Milestones EOG records supply 117 G38 subject pairs; the independently reconstructed pure grade-school population has 111 usable schools for Math, ELA and Combined, including the attached charter. All three fits and 333 explicit deleted-school refits pass independent numerical verification; influence flags remove no schools. The six mixed-grade schools and 24 high schools remain separate. Georgia's direct-certification measure is a benefits proxy, with Medicaid/foster expansion, outside-program prekindergarten and later-release roster caveats retained. Valid-score counts, variances and intervals remain null modelwide. The immutable source audit retains scope/status `audit_pending`; the separate numerical audit is `numerically_verified_pending_integration`, and both retain false approvals. Canonical/browser integration remains required. Gwinnett remains a candidate; the 71/172 queue is unchanged.
 
 ## Provenance and rebuild
 

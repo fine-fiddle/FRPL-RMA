@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "GA",
+    "name": "Georgia"
+  },
+  "prepare_script": "scripts/prepare_gwinnett.py",
+  "regions": [
+    {
+      "id": "gwinnett",
+      "name": "Gwinnett County",
+      "dataset": "ga-gwinnett-2025",
+      "status": "ready",
+      "geography": "gwinnett",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/gwinnett/schools.json",
+      "boundaries": null,
+      "comparison": "Gwinnett County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Gwinnett County independent 2024\u201325 Georgia grade-school district models: exact operational CCD LEA 1302550 / native GA-667 attachments. Complete unadjusted pure lower offers with tested grades, highest grade 01\u201308 and reconciled PK\u20138 membership define all 111 native source profiles. Retain New Life charter and all original flags without label or fit-based exclusions. Individual Direct Certification is a same-year benefits/status proxy, not full FRPL. Separate Georgia Milestones EOG Regular G38 Levels 3-4 Math, ELA and Combined point-only district OLS; six mixed and 24 high configurations remain outside the models.",
+      "map_source": "School coordinates and district boundaries are unavailable in the audited Gwinnett County source release.",
+      "statewide": false,
+      "audit": "data/gwinnett/coverage.json"
+    }
+  ]
+}

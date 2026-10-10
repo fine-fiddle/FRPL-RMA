@@ -948,6 +948,90 @@
       "sha256": "03f24547726ebf7529d946cee85f84e3de3ac3962b5dbc8b96e0a4db3744247d"
     },
     {
+      "id": "ga-gwinnett-2025:ccd_directory_2025",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_029_2425_w_1a_073025.zip",
+      "sha256": "39326da788aa322353d20ceaf8ad4baed26272502cd05b066cf6c594988b21ab"
+    },
+    {
+      "id": "ga-gwinnett-2025:ccd_lunch_2025",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/raw/ccd_sch_033_2425_l_2a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_033_2425_l_2a_073025.zip",
+      "sha256": "97bda749e778ee74cb731d181bbcdaf0f9c6cd6edf94cb31518a5bbeab411dd6"
+    },
+    {
+      "id": "ga-gwinnett-2025:ccd_membership_2025",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/raw/ccd_sch_052_2425_l_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_052_2425_l_1a_073025.zip",
+      "sha256": "4a7f660c5fc5eaae488dd02fd43498f349fc828b227edd0970d5b6995ead4d4d"
+    },
+    {
+      "id": "ga-gwinnett-2025:ccd_state_notes_2025",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/raw/SY_2024-25_CCD_Final_2a_Data_Notes.xlsx",
+      "url": "https://nces.ed.gov/ccd/xls/SY_2024-25_CCD_Final_2a_Data_Notes.xlsx",
+      "sha256": "6476b6b28b700389e261b87377d9cd249935503d53b5919fe1b7ef8b1052d1a7"
+    },
+    {
+      "id": "ga-gwinnett-2025:edc_2025",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/raw/edc-2025/ga.csv",
+      "url": "https://www.eddatacenter.org/api/data/3.1?state=GA&year=2025",
+      "sha256": "38e3c39bdebd361d55055478e2f657a9e8c70d60781b9e60f47407c955f8cc6d"
+    },
+    {
+      "id": "ga-gwinnett-2025:edc_codebook_v3_1",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/raw/EDC_codebook_v3.1.xlsx",
+      "url": "https://www.eddatacenter.org/data_codebooks/EDC_codebook_v3.1.xlsx",
+      "sha256": "cfaf3eeb482b416106e4a7b775c9554768fbf4900b0518c861979d646b6b2574"
+    },
+    {
+      "id": "ga-gwinnett-2025:edc_technical_v3_1",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/raw/EDC_technical_documentation_v3.1.pdf",
+      "url": "https://www.eddatacenter.org/data_documentation/EDC_technical_documentation_v3.1.pdf",
+      "sha256": "749c52497e37cfd73c0e29afadea3d90d6b50950844f070247594f44254a7968"
+    },
+    {
+      "id": "ga-gwinnett-2025:extract",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/source/gwinnett.json",
+      "url": "https://www.eddatacenter.org/api/data/3.1?state=GA&year=2025",
+      "sha256": "32f77ae834de94dc24138731f8898982627c8a18ee5746c22267beefb7813867"
+    },
+    {
+      "id": "ga-gwinnett-2025:nces_lunch_definitions",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/raw/ccd-lunch-definition.html",
+      "url": "https://nces.ed.gov/learn/blog/understanding-school-lunch-eligibility-common-core-data",
+      "sha256": "03f24547726ebf7529d946cee85f84e3de3ac3962b5dbc8b96e0a4db3744247d"
+    },
+    {
+      "id": "ga-gwinnett-2025:numerical_audit",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/source/gwinnett-model-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/gwinnett-model-audit.json",
+      "sha256": "8589af1edb602efec119f90d796498342e74d6f74b90e3405aef5801649c4dee"
+    },
+    {
+      "id": "ga-gwinnett-2025:roster_audit",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/source/gwinnett-district-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/gwinnett-district-audit.json",
+      "sha256": "d2b6c919d45a6116246368619afbac3ca782aec7dcf4f12109bad288c051cd50"
+    },
+    {
+      "id": "ga-gwinnett-2025:state_extract",
+      "dataset_id": "ga-gwinnett-2025",
+      "path": "data/source/ccd-state-snapshots.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/ccd-state-snapshots.json",
+      "sha256": "3b6e55bba0055c582eb14a461697c64131a36e4cd555bca94965e5f77cac91fc"
+    },
+    {
       "id": "hi-kpi-dc-2025:ccd_directory",
       "dataset_id": "hi-kpi-dc-2025",
       "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
@@ -16307,6 +16391,16 @@
       "source_url": "https://goews.georgia.gov/dashboards-data-report-card/downloadable-data"
     },
     {
+      "id": "ga-gwinnett-2025:2025:Georgia Milestones EOG grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
+      "state": "GA",
+      "name": "Georgia Milestones EOG grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC",
+      "year": 2025,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "Levels 3-4; Georgia 2025 regular assessment; separate district model",
+      "source_url": "https://goews.georgia.gov/dashboards-data-report-card/downloadable-data"
+    },
+    {
       "id": "hi-kpi-dc-2025:2025:Hawaii KPI SBA/K\u0100\u02bbEO/HSA alternate \u00b7 3\u20138:ES",
       "state": "HI",
       "name": "Hawaii KPI SBA/K\u0100\u02bbEO/HSA alternate \u00b7 3\u20138",
@@ -17230,6 +17324,12 @@
     },
     {
       "id": "ga-edc-ccd-dc:income",
+      "name": "Direct certification",
+      "definition": "Reported school-level CCD 2024\u201325 Direct Certification Education Unit Total divided by reported positive same-year CCD Membership Education Unit Total, including pre-K where enrolled. Direct certification identifies individual students categorically eligible through benefits and other qualifying statuses (for example SNAP, TANF, FDPIR, foster care, migrant, homeless and Head Start; Medicaid eligibility varies by state). It is a benefits-based economic proxy, not all students eligible through household income or all students receiving free meals at a CEP school. No CEP multiplier, universal-meal count, FRPL fallback, tested-subgroup ratio or prior-year income is used. CCD membership is the fall snapshot; counts use the same academic year and exact NCES ID. No school-allocation warning is published in the audited CCD 2a state notes.",
+      "source_url": "https://nces.ed.gov/learn/blog/understanding-school-lunch-eligibility-common-core-data"
+    },
+    {
+      "id": "ga-gwinnett-2025:income",
       "name": "Direct certification",
       "definition": "Reported school-level CCD 2024\u201325 Direct Certification Education Unit Total divided by reported positive same-year CCD Membership Education Unit Total, including pre-K where enrolled. Direct certification identifies individual students categorically eligible through benefits and other qualifying statuses (for example SNAP, TANF, FDPIR, foster care, migrant, homeless and Head Start; Medicaid eligibility varies by state). It is a benefits-based economic proxy, not all students eligible through household income or all students receiving free meals at a CEP school. No CEP multiplier, universal-meal count, FRPL fallback, tested-subgroup ratio or prior-year income is used. CCD membership is the fall snapshot; counts use the same academic year and exact NCES ID. No school-allocation warning is published in the audited CCD 2a state notes.",
       "source_url": "https://nces.ed.gov/learn/blog/understanding-school-lunch-eligibility-common-core-data"
@@ -18459,6 +18559,30 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "d4467ac2d9346ae0a14fc379442e867d1ce19ee0f0b2d8f105dc65506ec9ee7c"
+    },
+    {
+      "id": "ga-gwinnett-2025:2025:Georgia Milestones EOG grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES:combined:ols-v1:43d39957b527",
+      "dataset_id": "ga-gwinnett-2025",
+      "definition_id": "ga-gwinnett-2025:2025:Georgia Milestones EOG grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "43d39957b527cdb0ba34a66e91d5b10a0b2db00d39044cf94536adfaa3ee729a"
+    },
+    {
+      "id": "ga-gwinnett-2025:2025:Georgia Milestones EOG grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES:math:ols-v1:43d39957b527",
+      "dataset_id": "ga-gwinnett-2025",
+      "definition_id": "ga-gwinnett-2025:2025:Georgia Milestones EOG grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "43d39957b527cdb0ba34a66e91d5b10a0b2db00d39044cf94536adfaa3ee729a"
+    },
+    {
+      "id": "ga-gwinnett-2025:2025:Georgia Milestones EOG grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES:reading:ols-v1:43d39957b527",
+      "dataset_id": "ga-gwinnett-2025",
+      "definition_id": "ga-gwinnett-2025:2025:Georgia Milestones EOG grades 3\u20138 \u00b7 grade schools \u00b7 CCD DC:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "43d39957b527cdb0ba34a66e91d5b10a0b2db00d39044cf94536adfaa3ee729a"
     },
     {
       "id": "hi-kpi-dc-2025:2025:Hawaii KPI SBA/K\u0100\u02bbEO/HSA alternate \u00b7 3\u20138:ES:combined:ols-v1:ff5c98e8a00b",
@@ -20794,6 +20918,23 @@
           "model_scope": "Georgia public grade schools with exact native rates and reported same-year school DC and membership",
           "map_source": "School coordinates are unavailable in the audited source extract.",
           "statewide": true
+        },
+        {
+          "id": "gwinnett",
+          "name": "Gwinnett County",
+          "dataset": "ga-gwinnett-2025",
+          "status": "ready",
+          "geography": "gwinnett",
+          "levels": [
+            "ES"
+          ],
+          "schools": "data/gwinnett/schools.json",
+          "boundaries": null,
+          "comparison": "Gwinnett County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Gwinnett County independent 2024\u201325 Georgia grade-school district models: exact operational CCD LEA 1302550 / native GA-667 attachments. Complete unadjusted pure lower offers with tested grades, highest grade 01\u201308 and reconciled PK\u20138 membership define all 111 native source profiles. Retain New Life charter and all original flags without label or fit-based exclusions. Individual Direct Certification is a same-year benefits/status proxy, not full FRPL. Separate Georgia Milestones EOG Regular G38 Levels 3-4 Math, ELA and Combined point-only district OLS; six mixed and 24 high configurations remain outside the models.",
+          "map_source": "School coordinates and district boundaries are unavailable in the audited Gwinnett County source release.",
+          "statewide": false,
+          "audit": "data/gwinnett/coverage.json"
         }
       ]
     },

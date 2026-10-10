@@ -130,6 +130,8 @@ def scope(row):
         return 'existing_orange'
     if row['LEAID'] == '1201500':
         return 'existing_palm_beach'
+    if row['LEAID'] == '1302550':
+        return 'existing_gwinnett'
     if row['LEAID'] == '3200060':
         return 'existing_clark_county'
     if row['LEAID'] == '1709930':
@@ -300,6 +302,8 @@ def render(payload):
                 status = 'Existing Orange County comparison; pure grade schools only'
             elif row['scope'] == 'existing_palm_beach':
                 status = 'Existing Palm Beach County comparison; pure grade schools only'
+            elif row['scope'] == 'existing_gwinnett':
+                status = 'Existing Gwinnett County comparison; pure grade schools only'
             elif row['scope'] == 'existing_clark_county':
                 status = 'Existing Clark County comparison; native grade-school scope only'
             elif row['scope'] == 'existing_hawaii_statewide':
@@ -313,7 +317,7 @@ def render(payload):
     table('First tier · largest new district comparisons', main)
     table('Second tier · substantial regional comparisons', secondary)
     lines.extend(['## Existing comparisons and components', '',
-        'CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange and Palm Beach have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide '
+        'CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach and Gwinnett have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide '
         'comparison. The NYC geographic LEAs below are components of the existing NYC system; '
         'they would be optional subdistrict work, not additional whole-city systems. Do not '
         'add their counts to the Chancellor’s Office supervisory total or include District 75 '
@@ -419,6 +423,20 @@ def render(payload):
         'the separately validated normalized adapter supplies canonical/browser readiness. '
         'Counts, variances and sampling intervals remain unavailable. High/mixed '
         'assessment scope remains unaudited. Palm Beach is an existing comparison; '
+        'planning membership never approves models.', ''])
+    lines.extend([
+        'The [Gwinnett County source, numerical and integration audits](gwinnett-district.md) '
+        'retain exact Georgia LEA `1302550` / `GA-667`, all 141 operational directory '
+        'records and original same-year membership, direct-certification and Georgia '
+        'Milestones EOG evidence. The separate Georgia region retains all 111 pure '
+        'grade-school profiles in independently verified Math, ELA and Combined models, '
+        'including New Life charter. All 333 deleted-school fits and canonical/current/history '
+        'metrics are verified without fit-based exclusions. Six mixed and 24 high '
+        'configurations remain separate; Medicaid/foster, outside-program PK and '
+        'later-release roster notes remain explicit. Counts, variances and sampling '
+        'intervals stay null modelwide. Both historical audits keep false approvals; '
+        'the separately validated normalized adapter supplies readiness. High/mixed '
+        'assessment scope remains unaudited. Gwinnett is an existing comparison; '
         'planning membership never approves models.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '

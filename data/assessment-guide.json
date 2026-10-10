@@ -687,6 +687,31 @@
               "model_scope": "Georgia public grade schools with exact native rates and reported same-year school DC and membership"
             }
           ]
+        },
+        {
+          "id": "ga-gwinnett-2025:2025:Georgia Milestones EOG grades 3–8 · grade schools · CCD DC:ES",
+          "state": "GA",
+          "name": "Georgia Milestones EOG grades 3–8 · grade schools · CCD DC",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Levels 3-4; Georgia 2025 regular assessment; separate district model",
+          "source_url": "https://goews.georgia.gov/dashboards-data-report-card/downloadable-data",
+          "dataset_id": "ga-gwinnett-2025",
+          "family": "Georgia Milestones EOG",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "provider_evidence_ids": [],
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "gwinnett",
+              "name": "Gwinnett County",
+              "url": "./?state=GA&region=gwinnett&level=ES",
+              "model_scope": "Gwinnett County independent 2024–25 Georgia grade-school district models: exact operational CCD LEA 1302550 / native GA-667 attachments. Complete unadjusted pure lower offers with tested grades, highest grade 01–08 and reconciled PK–8 membership define all 111 native source profiles. Retain New Life charter and all original flags without label or fit-based exclusions. Individual Direct Certification is a same-year benefits/status proxy, not full FRPL. Separate Georgia Milestones EOG Regular G38 Levels 3-4 Math, ELA and Combined point-only district OLS; six mixed and 24 high configurations remain outside the models."
+            }
+          ]
         }
       ]
     },
