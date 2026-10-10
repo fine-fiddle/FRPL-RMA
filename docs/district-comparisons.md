@@ -2,7 +2,7 @@
 
 Implement these after the statewide basics. A district comparison would fit its own same-year, assessment, level and subject models, as CPS does. A filter using statewide predictions remains a district view of the statewide model; it is not a district comparison.
 
-Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 75 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
+Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 74 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
 ## Selection and implementation gates
 
@@ -17,7 +17,6 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 75 fir
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
-| BROWARD | FL | 1200180 | 243,553 | 243 / 45 | Available; district audit pending |
 | HILLSBOROUGH | FL | 1200870 | 220,360 | 218 / 34 | Available; district audit pending |
 | ORANGE | FL | 1201440 | 205,853 | 206 / 31 | Available; district audit pending |
 | PALM BEACH | FL | 1201500 | 189,634 | 168 / 26 | Available; district audit pending |
@@ -282,6 +281,7 @@ CPS, Los Angeles Unified, Miami-Dade grade schools and Clark County native grade
 | MIAMI-DADE | FL | 1200390 | 333,233 | 365 / 81 | Existing Miami-Dade comparison; pure grade schools only |
 | Chicago Public Schools Dist 299 | IL | 1709930 | 324,130 | 303 / 125 | Existing CPS comparison; size reference |
 | Clark County | NV | 3200060 | 306,038 | 296 / 10 | Existing Clark County comparison; native grade-school scope only |
+| BROWARD | FL | 1200180 | 243,553 | 243 / 45 | Existing Broward comparison; pure grade schools only |
 | Hawaii Department of Education | HI | 1500030 | 167,071 | 224 / 2 | Existing statewide comparison |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #31 | NY | 3600103 | 60,164 | 35 / 3 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT # 2 | NY | 3600077 | 55,345 | 34 / 50 | Optional NYC subdistrict audit |
@@ -317,7 +317,7 @@ The [Miami-Dade roster and numerical audits](miami-dade-district.md) keep exact 
 
 The [Clark County source, numerical and integration audits](clark-county-district.md) retain exact Nevada LEA 3200060 / NV-02 membership and the reported-zero ungraded-enrollment safeguard. The region retains 289 native source profiles with independent 286-school Math, ELA and Combined district models. All 299 native lower configurations and wider operational exclusions remain auditable. Valid-score counts and sampling intervals are unavailable; high-school and mixed assessment scope remains unaudited. Statewide Nevada remains its own comparison.
 
-The [Broward source/cohort and numerical audits](broward-district.md) retain exact Florida LEA 1200180 / FL-06 membership, same-year individual lunch eligibility and native School Grades records. Offered and enrolled grade populations, source exclusions and missing records remain explicit. Three independent 241-school district fits retain external studentization and influence diagnostics without sampling intervals. Both historical audits keep approval false; canonical import and browser integration remain pending. Broward remains in the planning queue and no comparison is enabled.
+The [Broward source, numerical and integration audits](broward-district.md) retain exact Florida LEA 1200180 / FL-06 membership, same-year individual lunch eligibility and native School Grades records. Offered and enrolled grade populations, source exclusions and missing records remain explicit. Three independent 241-school district fits retain external studentization and influence diagnostics without sampling intervals. The separate region retains all 249 pure lower profiles, including six primary-only and two missing campus-outcome profiles. Both historical audits keep approval false; the separately validated adapter supplies canonical/browser readiness. High-school and mixed assessment scope remain unaudited. Statewide Florida remains its own comparison.
 
 
 ## Provenance and rebuild

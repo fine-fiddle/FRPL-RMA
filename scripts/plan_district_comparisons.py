@@ -122,6 +122,8 @@ def scope(row):
         return 'existing_los_angeles'
     if row['LEAID'] == '1200390':
         return 'existing_miami_dade'
+    if row['LEAID'] == '1200180':
+        return 'existing_broward'
     if row['LEAID'] == '3200060':
         return 'existing_clark_county'
     if row['LEAID'] == '1709930':
@@ -284,6 +286,8 @@ def render(payload):
                 status = 'Existing Los Angeles Unified comparison; pure cohorts'
             elif row['scope'] == 'existing_miami_dade':
                 status = 'Existing Miami-Dade comparison; pure grade schools only'
+            elif row['scope'] == 'existing_broward':
+                status = 'Existing Broward comparison; pure grade schools only'
             elif row['scope'] == 'existing_clark_county':
                 status = 'Existing Clark County comparison; native grade-school scope only'
             elif row['scope'] == 'existing_hawaii_statewide':
@@ -348,14 +352,16 @@ def render(payload):
         'high-school and mixed assessment scope remains unaudited. Statewide Nevada '
         'remains its own comparison.', ''])
     lines.extend([
-        'The [Broward source/cohort and numerical audits](broward-district.md) retain exact Florida '
+        'The [Broward source, numerical and integration audits](broward-district.md) retain exact Florida '
         'LEA 1200180 / FL-06 membership, same-year individual lunch eligibility and '
         'native School Grades records. Offered and enrolled grade populations, '
         'source exclusions and missing records remain explicit. Three independent '
         '241-school district fits retain external studentization and influence diagnostics '
-        'without sampling intervals. Both historical audits keep approval false; '
-        'canonical import and browser integration remain pending. Broward remains '
-        'in the planning queue and no comparison is enabled.', ''])
+        'without sampling intervals. The separate region retains all 249 pure lower '
+        'profiles, including six primary-only and two missing campus-outcome profiles. '
+        'Both historical audits keep approval false; the separately validated adapter '
+        'supplies canonical/browser readiness. High-school and mixed assessment scope '
+        'remain unaudited. Statewide Florida remains its own comparison.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

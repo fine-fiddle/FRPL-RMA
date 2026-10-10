@@ -187,6 +187,27 @@ class AssessmentGuideTests(unittest.TestCase):
         self.assertEqual(parse_qs(urlsplit(row['regions'][0]['url']).query),
                          dict(state=['FL'], region=['miami-dade'], level=['ES']))
 
+    def test_broward_keeps_separate_native_definition_link_and_unverified_provider_roles(self):
+        rows = self.by_state['FL']['assessments']
+        district = [a for a in rows if a['dataset_id'] == 'fl-broward-2025']
+        self.assertEqual(len(district), 1)
+        row = district[0]
+        statewide = next(a for a in rows if a['dataset_id'] == 'fl-schoolgrades-2025')
+        miami = next(a for a in rows if a['dataset_id'] == 'fl-miami-dade-2025')
+        for field in ['name', 'year', 'level', 'grades', 'standard', 'source_url']:
+            self.assertEqual(row[field], statewide[field])
+            self.assertEqual(row[field], miami[field])
+        self.assertEqual([r['id'] for r in row['regions']], ['broward'])
+        self.assertEqual([r['id'] for r in statewide['regions']], ['florida'])
+        self.assertEqual([r['id'] for r in miami['regions']], ['miami-dade'])
+        self.assertEqual(parse_qs(urlsplit(row['regions'][0]['url']).query),
+                         dict(state=['FL'], region=['broward'], level=['ES']))
+        for field in ['provider', 'provider_role', 'provider_source_url', 'ambition_comparison']:
+            self.assertIsNone(row[field])
+        self.assertEqual(row['provider_evidence_ids'], [])
+        self.assertIsNone(provider_binding(row, load_provider_evidence()))
+        self.assertIn('1200180', row['regions'][0]['model_scope'])
+
     def test_clark_county_has_exact_native_definition_and_explicit_district_provider_binding(self):
         rows = self.by_state['NV']['assessments']
         district = [a for a in rows if a['dataset_id'] == 'nv-clark-county-2025']

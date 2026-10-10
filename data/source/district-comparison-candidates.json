@@ -2478,7 +2478,7 @@
         ]
       },
       "tier": "main",
-      "scope": "new_district_candidate",
+      "scope": "existing_broward",
       "directory_raw": {
         "SCHOOL_YEAR": "2024-2025",
         "LEAID": "1200180",
