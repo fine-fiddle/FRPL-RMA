@@ -104,8 +104,8 @@ class AssessmentGuideTests(unittest.TestCase):
     def test_provider_is_explicitly_bound_to_audited_owner_evidence(self):
         rows = [a for state in self.guide['states'] for a in state['assessments']]
         published = [a for a in rows if a['provider'] is not None]
-        self.assertEqual(len(published), 10)
-        psat = next(a for a in published if a['provider'] == 'College Board')
+        self.assertEqual(len(published), 14)
+        psat = next(a for a in published if a['dataset_id'] == 'mi-psat8-2025')
         self.assertEqual((psat['state'], psat['dataset_id'], psat['year']), ('MI', 'mi-psat8-2025', 2025))
         self.assertEqual(psat['provider'], 'College Board')
         source = next(s for s in self.guide['sources'] if s['id'] == PSAT_SOURCE_ID)
@@ -130,18 +130,20 @@ class AssessmentGuideTests(unittest.TestCase):
     def test_consortium_developer_role_retains_all_sources_and_exact_scopes(self):
         evidence = load_provider_evidence()
         self.assertEqual(evidence['schema_version'], 1)
-        expected = {b['definition']['id'] for b in evidence['bindings']}
+        bindings = [b for b in evidence['bindings']
+                    if b['provider'] == 'Smarter Balanced Assessment Consortium']
+        expected = {b['definition']['id'] for b in bindings}
         rows = [a for s in self.guide['states'] for a in s['assessments']
                 if a['provider'] == 'Smarter Balanced Assessment Consortium']
         self.assertEqual({a['id'] for a in rows}, expected)
         self.assertEqual(len(rows), 9)
         self.assertEqual({a['state'] for a in rows}, {'CA', 'DE', 'NV', 'WA'})
-        source_ids = {s['id'] for s in evidence['sources']}
+        source_ids = {s for b in bindings for s in b['evidence_sources']}
         guide_sources = {s['id']: s for s in self.guide['sources']}
         self.assertEqual(len(guide_sources), len(self.guide['sources']))
         # California is encountered before Michigan. Earlier developer evidence
         # must never displace the independently audited College Board source.
-        self.assertEqual(set(guide_sources), source_ids | {PSAT_SOURCE_ID,
+        self.assertEqual(set(guide_sources), {s['id'] for s in evidence['sources']} | {PSAT_SOURCE_ID,
             'released-assessment-definitions', '50-state-expansion-registry'})
         for row in rows:
             binding = provider_binding(row, evidence)
@@ -266,9 +268,66 @@ class AssessmentGuideTests(unittest.TestCase):
             for row in self.by_state[state]['assessments']:
                 if row['dataset_id'] != 'mi-psat8-2025':
                     self.assertIsNone(row['provider'])
-        # Delaware's separate SAT row does not inherit the SBAC developer.
+        # Delaware's separate SAT row has its own owner evidence, never SBAC's developer.
         sat = next(a for a in self.by_state['DE']['assessments'] if a['level'] == 'HS')
-        self.assertIsNone(sat['provider'])
+        self.assertEqual(sat['provider'], 'College Board')
+        self.assertEqual(sat['provider_role'], 'Assessment owner (with licensors)')
+        self.assertTrue(set(sat['provider_evidence_ids']).isdisjoint(
+            s for b in evidence['bindings'] if b['provider'] == 'Smarter Balanced Assessment Consortium'
+            for s in b['evidence_sources']))
+
+    def test_sat_owner_roles_bind_exact_definitions_and_preserve_owner_qualifications(self):
+        evidence = load_provider_evidence()
+        expected = {
+            'cps:2024:SAT:HS', 'isbe-2024:2024:SAT:HS',
+            'co-cde-2025:2025:Digital SAT grade 11:HS',
+            'de-native-2025:2025:SAT School-Day (Spring) · Delaware · 2025:HS'}
+        bindings = [b for b in evidence['bindings'] if b['provider'] == 'College Board']
+        self.assertEqual({b['definition']['id'] for b in bindings}, expected)
+        native = {a['id']: a for a in self.manifest['assessments']}
+        rows = {a['id']: a for s in self.guide['states'] for a in s['assessments']}
+        sources = {s['id']: s for s in self.guide['sources']}
+        for binding in bindings:
+            definition = binding['definition']
+            self.assertEqual(set(definition), {'id', 'state', 'name', 'year', 'level',
+                                                'grades', 'standard', 'source_url'})
+            row = rows[definition['id']]
+            for key, value in definition.items():
+                self.assertEqual(value, native[definition['id']][key])
+                self.assertEqual(row[key], value)
+            self.assertEqual(row['provider'], 'College Board')
+            role = 'Assessment owner' if definition['year'] == 2024 else 'Assessment owner (with licensors)'
+            self.assertEqual(row['provider_role'], role)
+            self.assertEqual(binding['legal_owner'], 'College Board' if definition['year'] == 2024
+                             else 'College Board and its licensors')
+            self.assertIsNone(binding['delivery_provider'])
+            self.assertIsNone(row['ambition_comparison'])
+            self.assertEqual(row['provider_evidence_ids'], binding['evidence_sources'])
+            self.assertEqual(row['provider_source_url'], sources[binding['primary_source']]['url'])
+            for source_id in binding['evidence_sources']:
+                self.assertNotIn('consortium', sources[source_id]['role'].lower())
+                self.assertEqual(sources[source_id]['sha256'], next(
+                    s['sha256'] for s in evidence['sources'] if s['id'] == source_id))
+        self.assertEqual(rows['cps:2024:SAT:HS']['regions'][0]['id'], 'chicago')
+        self.assertEqual(rows['isbe-2024:2024:SAT:HS']['regions'][0]['id'], 'statewide')
+
+    def test_sat_owner_evidence_rejects_scope_drift_and_is_not_inherited(self):
+        evidence = load_provider_evidence()
+        definitions = [b['definition'] for b in evidence['bindings'] if b['provider'] == 'College Board']
+        mutations = {'state': 'MI', 'name': 'PSAT', 'year': 2026, 'level': 'ES',
+                     'grades': '8', 'standard': 'College readiness substituted for state proficiency',
+                     'source_url': 'https://example.org/unreviewed'}
+        for definition in definitions:
+            for key, value in mutations.items():
+                with self.subTest(id=definition['id'], field=key), self.assertRaisesRegex(
+                        ValueError, 'provider definition changed'):
+                    provider_binding(dict(definition, **{key: value}), evidence)
+            future = dict(definition, id=definition['id'] + ':future', year=2026)
+            self.assertIsNone(provider_binding(future, evidence))
+        for state in ['MI', 'ID']:
+            for row in self.by_state[state]['assessments']:
+                if row['dataset_id'] != 'mi-psat8-2025':
+                    self.assertIsNone(provider_binding(row, evidence))
 
     def test_changed_provider_extract_requires_a_new_source_audit(self):
         path = ROOT / PROVIDER_EVIDENCE_PATH

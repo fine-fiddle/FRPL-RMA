@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "audited_date": "2026-10-09",
-  "scope": "Exact 2024–25 Smarter Balanced/SBAC definitions in California statewide and Los Angeles Unified, Delaware, Nevada statewide and Clark County, and Washington. District bindings use their audited state's verified assessment system, tested grades, standards and year; population models remain separate.",
-  "limitations": "A consortium developer is distinct from a legal assessment owner or a state delivery contractor. Those roles remain unaudited. Interim reliability or validity findings are not transferred to summative models. No additional state or assessment family is approved by membership, and no threshold ambition comparison is established.",
+  "audited_date": "2026-10-10",
+  "scope": "Exact 2024–25 Smarter Balanced/SBAC definitions in California statewide and Los Angeles Unified, Delaware, Nevada statewide and Clark County, and Washington. District bindings use their audited state's verified assessment system, tested grades, standards and year; population models remain separate. Four exact SAT ownership bindings: Illinois statewide and Chicago 2024, Colorado grade 11 2025 and Delaware Spring grade 11 2025. Michigan PSAT evidence is retained separately without revalidation by this SAT audit.",
+  "limitations": "Consortium legal ownership and state delivery contracts remain unaudited; its audited role is assessment developer. SAT evidence identifies assessment ownership only, with licensors explicit for 2025; developer, publisher and delivery roles are not inferred. Existing Michigan PSAT attribution is retained separately and is not revalidated by SAT evidence. No other year, assessment family, state or district inherits a role. Interim validity findings never transfer to summative models, and no threshold ambition comparison is established.",
   "sources": [
     {
       "id": "sb-2024-25-system",
@@ -43,6 +43,97 @@
       "excerpt": "California, Connecticut, Delaware, Hawaii, Idaho, Indiana, Michigan, Nevada, Oregon, South Dakota, U.S. Virgin Islands, Washington",
       "sha256": "57426bdac7f93b7af45ff662c2b821a776a4e55e06563d7329c23e8d0909fa6a",
       "retrieved_date": "2026-10-09"
+    },
+    {
+      "id": "cb-sat-owner-2024",
+      "url": "https://www.isbe.net/Documents/2024-Student-Guide-SAT.pdf",
+      "path": "data/raw/assessment-provider/isbe-sat-student-guide-2024.pdf",
+      "publisher": "College Board; official archived copy hosted by Illinois State Board of Education",
+      "title": "Spring 2024 SAT School Day Student Guide",
+      "locator": "Printed page 35 (physical PDF page 38), Section 8(a); printed pages 1–2 describe Reading and Writing, Math and separate Essay",
+      "claim": "The contemporaneous SAT School Day rules explicitly assign copyright ownership of test content, including the digital SAT, to College Board. Section 8(b) separately qualifies software and technologies as belonging to College Board and its licensors. This establishes test-content ownership, not exclusive ownership of every component, a development contract or a delivery contractor.",
+      "excerpt": "are copyrighted works owned by College Board",
+      "sha256": "ff5f76e150267e7d23bbf6a8dbe82b1e2a509606dd5aec79b0939d74fb7412fb",
+      "retrieved_date": "2026-10-10",
+      "school_year": "2023-24",
+      "scope": "Spring 2024 SAT School Day, digital SAT test content; Illinois archived guide",
+      "role": "Audited SAT ownership and applicable-year scope evidence"
+    },
+    {
+      "id": "il-sat-scope-2024",
+      "url": "https://www.isbe.net/Documents/2024-Digital-Overview.pdf",
+      "path": "data/raw/assessment-provider/illinois-digital-overview-2024.pdf",
+      "publisher": "Illinois State Board of Education",
+      "title": "Spring 2024 ISBE-Provided Digital SAT with Essay, PSAT 10 and PSAT 8/9: Digital Testing Overview",
+      "locator": "Physical PDF page 1: Spring 2024; March 18–April 26 testing window; Reading and Writing, Math and separate Essay; conditional grade-12 registration scope",
+      "claim": "The contemporaneous state overview explicitly establishes Spring 2024 digital SAT with Essay, Reading and Writing and Math, the March–April 2024 testing window and conditional grade-12 registration. College Board receives registrations from ISBE; this does not by itself establish assessment development or exclusive delivery responsibilities. The served grade coverage and state threshold definition remain unchanged.",
+      "excerpt": "March 18 - April 26, 2024",
+      "sha256": "7c38c2cf0f34379de678eea295a7983294c651c98a2b32c5916a6fffa535a8c2",
+      "retrieved_date": "2026-10-10",
+      "school_year": "2023-24",
+      "scope": "2023–24 Illinois SAT with Essay administration, including conditional grade-12 scope; no inheritance to Illinois 2025 ACT",
+      "role": "Audited SAT ownership and applicable-year scope evidence",
+      "published_date": "2024-03-08"
+    },
+    {
+      "id": "cb-sat-owner-2025",
+      "url": "https://satsuite.collegeboard.org/media/pdf/sat-sd-testing-rules-archived-spring2025.pdf",
+      "path": "data/raw/assessment-provider/sat-schoolday-testing-rules-2025.pdf",
+      "publisher": "College Board",
+      "title": "Spring 2025 SAT School Day Testing Rules (Archived Version)",
+      "locator": "Physical PDF page 1, seasonal limitation; physical page 9, Section 8(a)",
+      "claim": "The archived rules explicitly apply only to Spring 2025 SAT administrations. Their intellectual-property clause lists the SAT among property belonging to College Board and its licensors. The source establishes a qualified assessment-owner role, not sole ownership, development responsibilities or any state delivery contract.",
+      "excerpt": "belong only to College Board and its licensors",
+      "sha256": "679e03dd38bbcf656d39fb62d47457e6d7dcc9e6e91ec2e027eb4ddc37f0b5d6",
+      "retrieved_date": "2026-10-10",
+      "school_year": "2024-25",
+      "scope": "Spring 2025 SAT School Day only, with licensors retained",
+      "role": "Audited SAT ownership and applicable-year scope evidence"
+    },
+    {
+      "id": "co-sat-scope-2025",
+      "url": "https://www.cde.state.co.us/assessment/sat-student-guide",
+      "path": "data/raw/assessment-provider/colorado-sat-student-guide-2025.pdf",
+      "publisher": "College Board; official state-specific copy hosted by Colorado Department of Education",
+      "title": "Spring 2025 SAT School Day Colorado Student Guide",
+      "locator": "Cover: Spring 2025; printed page 1 (physical 4), Reading and Writing and Math; printed page 2 (physical 5), grade 11 optional Essay; printed page 5 (physical 8), April 14–25, 2025 testing window; printed page 33 (physical 36), Section 8(a)",
+      "claim": "The state-specific contemporaneous guide identifies the Spring 2025 digital Colorado SAT School Day administration, grade 11, Reading and Writing and Math, and its April testing window. Its Section 8 independently repeats qualified College Board-and-licensors ownership. Essay scope is separate and does not enter the served subject definitions.",
+      "excerpt": "The Colorado SAT testing window is April 14–25, 2025.",
+      "sha256": "8724a589b924fa4cdc0e46d563127237570423d2f8c591348a64d76da208c0ed",
+      "retrieved_date": "2026-10-10",
+      "school_year": "2024-25",
+      "scope": "Colorado grade 11 Spring 2025 digital SAT; no proficiency-cut-score inference",
+      "role": "Audited SAT ownership and applicable-year scope evidence"
+    },
+    {
+      "id": "de-sat-scope-2025",
+      "url": "https://news.delaware.gov/files/2025/08/assessment_summary_25.pdf",
+      "path": "data/raw/assessment-provider/delaware-assessment-summary-2025.pdf",
+      "publisher": "Delaware Department of Education",
+      "title": "2025 Statewide Assessment Results",
+      "locator": "Physical PDF page 1: 2025 Statewide Assessment Results; pages 12–15: SAT School Day Grade 11 Summary, Evidence Based Reading and Writing, Math and separate Essay; 2022–2025 participation/proficiency charts",
+      "claim": "The official state results presentation explicitly identifies the 2025 SAT School Day grade 11 population and EBRW and Math. This links the regular grade 11 served definition to the seasonal SAT evidence while preserving the separate native state standards and excluding Essay from the served subjects.",
+      "excerpt": "SAT School Day Grade 11 Summary",
+      "sha256": "c9f6dcc5c4481e2820d162438396ce3d5efb1fcb7b8723a513006e1194847a32",
+      "retrieved_date": "2026-10-10",
+      "school_year": "2024-25",
+      "scope": "Delaware 2025 SAT School Day grade 11 results; presentation does not establish ownership by itself",
+      "role": "Audited SAT ownership and applicable-year scope evidence"
+    },
+    {
+      "id": "de-sat-native-grade11-2025",
+      "url": "https://data.delaware.gov/resource/ms6b-mt82.json?%24where=schoolyear%3D%272025%27+and+assessmentname%3D%27SAT+School-Day+%28Spring%29%27+and+race%3D%27All+Students%27+and+gender%3D%27All+Students%27+and+geography%3D%27All+Students%27+and+grade%3D%2711th+Grade%27+and+specialdemo%3D%27All+Students%27&%24limit=50000&%24order=districtcode%2Cschoolcode%2Ccontentarea",
+      "path": "data/raw/assessment-provider/delaware-sat-grade11-2025.json",
+      "publisher": "Delaware Department of Education; Delaware Open Data",
+      "title": "Student Assessment Performance: 2025 regular SAT School-Day Spring, grade 11, All Students",
+      "locator": "267 native rows: assessmentname SAT School-Day (Spring), schoolyear 2025, grade 11th Grade, ELA/MATH/ESSAY; keyed districtcode/schoolcode/contentarea reconciliation",
+      "claim": "A narrow official API query returns 267 native grade-11 SAT Spring records. Every assessment, year, subject, identity, rate, count and suppression field exactly reconciles to the pinned 267 All Students SAT records after allowing only the grade/subgroup label differences. This is direct native same-year grade and Spring scope evidence; no observed score or model output is changed.",
+      "excerpt": "",
+      "sha256": "e314e3d8a99aac963f09c4880085c544dc4bb342783b685226b6237f04604d6e",
+      "retrieved_date": "2026-10-10",
+      "school_year": "2024-25",
+      "scope": "Exact 2025 Delaware grade-11 Spring native records, including separate Essay; 4,065 reconciled source-field comparisons",
+      "role": "Audited SAT ownership and applicable-year scope evidence"
     }
   ],
   "bindings": [
@@ -226,6 +317,91 @@
         "sb-2024-25-members"
       ],
       "legal_owner": null,
+      "delivery_provider": null
+    },
+    {
+      "definition": {
+        "id": "co-cde-2025:2025:Digital SAT grade 11:HS",
+        "state": "CO",
+        "name": "Digital SAT grade 11",
+        "year": 2025,
+        "level": "HS",
+        "grades": "11",
+        "standard": "2025 digital SAT Met or Exceeded Expectations; published Colorado Reading and Writing and math categories; PSAT excluded.",
+        "source_url": "https://ed.cde.state.co.us/assessment/sat-psat/sat-psat-data"
+      },
+      "provider": "College Board",
+      "provider_role": "Assessment owner (with licensors)",
+      "primary_source": "cb-sat-owner-2025",
+      "evidence_sources": [
+        "cb-sat-owner-2025",
+        "co-sat-scope-2025"
+      ],
+      "legal_owner": "College Board and its licensors",
+      "delivery_provider": null
+    },
+    {
+      "definition": {
+        "id": "de-native-2025:2025:SAT School-Day (Spring) · Delaware · 2025:HS",
+        "state": "DE",
+        "name": "SAT School-Day (Spring) · Delaware · 2025",
+        "year": 2025,
+        "level": "HS",
+        "grades": "11",
+        "standard": "Regular native school performance; SBAC Levels3/4 or SAT state proficiency benchmarks, alternate assessments excluded.",
+        "source_url": "https://data.delaware.gov/resource/ms6b-mt82.json?%24where=schoolyear%3D%272025%27+and+race%3D%27All+Students%27+and+gender%3D%27All+Students%27+and+geography%3D%27All+Students%27+and+grade%3D%27All+Students%27+and+specialdemo%3D%27All+Students%27&%24limit=50000&%24order=districtcode%2Cschoolcode"
+      },
+      "provider": "College Board",
+      "provider_role": "Assessment owner (with licensors)",
+      "primary_source": "cb-sat-owner-2025",
+      "evidence_sources": [
+        "cb-sat-owner-2025",
+        "de-sat-scope-2025",
+        "de-sat-native-grade11-2025"
+      ],
+      "legal_owner": "College Board and its licensors",
+      "delivery_provider": null
+    },
+    {
+      "definition": {
+        "id": "cps:2024:SAT:HS",
+        "state": "IL",
+        "name": "SAT",
+        "year": 2024,
+        "level": "HS",
+        "grades": "High-school tested grades under that year’s rules",
+        "standard": "Illinois 2024 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+        "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf"
+      },
+      "provider": "College Board",
+      "provider_role": "Assessment owner",
+      "primary_source": "cb-sat-owner-2024",
+      "evidence_sources": [
+        "cb-sat-owner-2024",
+        "il-sat-scope-2024"
+      ],
+      "legal_owner": "College Board",
+      "delivery_provider": null
+    },
+    {
+      "definition": {
+        "id": "isbe-2024:2024:SAT:HS",
+        "state": "IL",
+        "name": "SAT",
+        "year": 2024,
+        "level": "HS",
+        "grades": "High-school tested grades under that year’s rules",
+        "standard": "Illinois 2024 SAT percentage meeting or exceeding state standards. Specific assessment, grade coverage and cut scores apply; not a national proficiency scale.",
+        "source_url": "https://www.isbe.net/Documents/Public-Business-Rules-2024-Report-Card-Metrics.pdf"
+      },
+      "provider": "College Board",
+      "provider_role": "Assessment owner",
+      "primary_source": "cb-sat-owner-2024",
+      "evidence_sources": [
+        "cb-sat-owner-2024",
+        "il-sat-scope-2024"
+      ],
+      "legal_owner": "College Board",
       "delivery_provider": null
     }
   ]

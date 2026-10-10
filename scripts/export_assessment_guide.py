@@ -27,7 +27,7 @@ PSAT_SOURCE_URL = ('https://www.michigan.gov/mde/-/media/Project/Websites/mde/OE
                    'PSAT-8_9-for-Grade-8-Performance-Level-Information.pdf?'
                    'hash=5262B1C6A190B3DEE23168F8015F123B&rev=ae6c6e11dc744013bd37b586f30c2b16')
 PROVIDER_EVIDENCE_PATH = 'data/source/assessment-provider-evidence.json'
-PROVIDER_EVIDENCE_SHA256 = 'da4db2344ffaa085854385d1a9ab1a53198a15472c280ca6b7ff8f5057bb89fc'
+PROVIDER_EVIDENCE_SHA256 = '4f33aeea601ffe679a53bcfef01cc7212d44e484e2220a097aa93dae01aae6e2'
 DESCRIPTION = (
     'Latest assessments included in this project, separately by released dataset '
     'and model population. A year is the ending year of the school year. Test '
@@ -166,7 +166,8 @@ def build_guide(manifest, registry, root=ROOT):
                        provider_evidence_ids=binding['evidence_sources'])
             for source_id in binding['evidence_sources']:
                 provider_sources[source_id] = dict(provider_evidence_sources[source_id],
-                    role='Audited consortium developer and 2024–25 role-scope evidence')
+                    role=provider_evidence_sources[source_id].get('role',
+                        'Audited consortium developer and 2024–25 role-scope evidence'))
         if dataset == 'mi-psat8-2025' and definition['year'] == 2025:
             if definition['state'] != 'MI' or definition['name'] != 'Michigan PSAT 8/9 · grade 8 · 2025':
                 raise ValueError('Michigan PSAT owner evidence is bound to its audited definition')
