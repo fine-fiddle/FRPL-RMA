@@ -2,7 +2,7 @@
 
 Implement these after the statewide basics. A district comparison would fit its own same-year, assessment, level and subject models, as CPS does. A filter using statewide predictions remains a district view of the statewide model; it is not a district comparison.
 
-Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 74 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
+Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 73 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
 ## Selection and implementation gates
 
@@ -17,7 +17,6 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 74 fir
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
-| HILLSBOROUGH | FL | 1200870 | 220,360 | 218 / 34 | Available; district audit pending |
 | ORANGE | FL | 1201440 | 205,853 | 206 / 31 | Available; district audit pending |
 | PALM BEACH | FL | 1201500 | 189,634 | 168 / 26 | Available; district audit pending |
 | Gwinnett County | GA | 1302550 | 182,518 | 111 / 24 | Available; district audit pending |
@@ -282,6 +281,7 @@ CPS, Los Angeles Unified, Miami-Dade grade schools and Clark County native grade
 | Chicago Public Schools Dist 299 | IL | 1709930 | 324,130 | 303 / 125 | Existing CPS comparison; size reference |
 | Clark County | NV | 3200060 | 306,038 | 296 / 10 | Existing Clark County comparison; native grade-school scope only |
 | BROWARD | FL | 1200180 | 243,553 | 243 / 45 | Existing Broward comparison; pure grade schools only |
+| HILLSBOROUGH | FL | 1200870 | 220,360 | 218 / 34 | Existing Hillsborough comparison; pure grade schools only |
 | Hawaii Department of Education | HI | 1500030 | 167,071 | 224 / 2 | Existing statewide comparison |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #31 | NY | 3600103 | 60,164 | 35 / 3 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT # 2 | NY | 3600077 | 55,345 | 34 / 50 | Optional NYC subdistrict audit |
@@ -319,7 +319,7 @@ The [Clark County source, numerical and integration audits](clark-county-distric
 
 The [Broward source, numerical and integration audits](broward-district.md) retain exact Florida LEA 1200180 / FL-06 membership, same-year individual lunch eligibility and native School Grades records. Offered and enrolled grade populations, source exclusions and missing records remain explicit. Three independent 241-school district fits retain external studentization and influence diagnostics without sampling intervals. The separate region retains all 249 pure lower profiles, including six primary-only and two missing campus-outcome profiles. Both historical audits keep approval false; the separately validated adapter supplies canonical/browser readiness. High-school and mixed assessment scope remain unaudited. Statewide Florida remains its own comparison.
 
-The [Hillsborough source and numerical audits](hillsborough-district.md) retain all 309 original CCD records for Florida LEA 1200870 / FL-29, including 293 operational schools, and all same-year native records. Exact operational joins yield 222 pure lower profiles, 220 offered-applicable schools and 219 usable schools per subject. Two usable charters absent from the discovery list remain in the source-derived cohort; planning IDs never select its membership. Primary-only, missing, mixed and outside-roster records remain explicit. Three separate 219-school fits and all 657 explicit deleted-school checks retain external studentization and descriptive influence diagnostics without fit-based exclusions. Counts, sampling variances and intervals remain unavailable. Both immutable audits keep approval false; canonical/browser gates remain required. Hillsborough stays a candidate and the queue totals remain unchanged.
+The [Hillsborough source, numerical and integration audits](hillsborough-district.md) retain all 309 original CCD records for Florida LEA 1200870 / FL-29, including 293 operational schools, and all same-year native records. Exact operational joins yield 222 pure lower profiles, 220 offered-applicable schools and 219 usable schools per subject. Two usable charters absent from the discovery list remain in the source-derived cohort; planning IDs never select its membership. Primary-only, missing, mixed and outside-roster records remain explicit. The separate Florida district region retains all 222 matched profiles and the complete 224-school offered directory inventory in coverage. Three separate 219-school fits and all 657 explicit deleted-school checks retain external studentization and descriptive influence diagnostics without fit-based exclusions. Counts, sampling variances and intervals remain unavailable. Both immutable audits keep approval false; the separately validated normalized adapter supplies canonical/browser readiness. High/mixed assessment scope remains unaudited. Hillsborough is recorded as an existing comparison; planning membership never approves models.
 
 
 ## Provenance and rebuild

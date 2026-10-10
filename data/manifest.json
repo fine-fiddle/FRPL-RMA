@@ -542,6 +542,83 @@
       "sha256": "11e79d74cac96af228be063a9756c59aabc877cfa99217fe0b7ddc9352b9f5e1"
     },
     {
+      "id": "fl-hillsborough-2025:assessment",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/raw/fl_assessment_2025.xlsx",
+      "url": "https://cdn.fldoe.org/file/18534/SchoolGrades25.xlsx",
+      "sha256": "52d3d3d7c2187eb9cbe22477bd088c0c13570f6f2b9f45f74a4b9f771be70a5b"
+    },
+    {
+      "id": "fl-hillsborough-2025:ccd_school_directory",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_029_2425_w_1a_073025.zip",
+      "sha256": "39326da788aa322353d20ceaf8ad4baed26272502cd05b066cf6c594988b21ab"
+    },
+    {
+      "id": "fl-hillsborough-2025:ccd_school_membership",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/raw/ccd_sch_052_2425_l_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_052_2425_l_1a_073025.zip",
+      "sha256": "4a7f660c5fc5eaae488dd02fd43498f349fc828b227edd0970d5b6995ead4d4d"
+    },
+    {
+      "id": "fl-hillsborough-2025:extract",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/source/hillsborough.json",
+      "url": "https://www.fldoe.org/accountability/accountability-reporting/school-grades/archives.stml",
+      "sha256": "921c12c4e3d66368a6b776ab8be0008f475e2bc4609007a6cfa2c1bd8af78534"
+    },
+    {
+      "id": "fl-hillsborough-2025:florida_extract",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/source/florida.json",
+      "url": "https://www.fldoe.org/accountability/accountability-reporting/school-grades/archives.stml",
+      "sha256": "523afad888444e875fc8d06486b20240896341d55b14d9484e8b935888f66daf"
+    },
+    {
+      "id": "fl-hillsborough-2025:grade-guide",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/raw/fl_guide_2025.pdf",
+      "url": "https://cdn.fldoe.org/file/18534/SchoolGradesCalcGuide25.pdf",
+      "sha256": "7dd60cd7c45d03f6324d16d9dcdeb244a5da79f5bccb25859badb32cc2932309"
+    },
+    {
+      "id": "fl-hillsborough-2025:grades",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/raw/fl_grades_2025.xlsx",
+      "url": "https://cdn.fldoe.org/file/7584/2425MembBySchoolByGrade.xlsx",
+      "sha256": "930a81159fac3db4b38c6428aebc2e5000e9199ce88bb80ecc7431838ae3c93a"
+    },
+    {
+      "id": "fl-hillsborough-2025:income",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/raw/fl_income_2025.xlsx",
+      "url": "https://cdn.fldoe.org/file/7584/2425LunchStatusFS2-3.xlsx",
+      "sha256": "48cd9428ea32decf723cc03c2ee7d25528ed8df3db36b20d97e948805344086d"
+    },
+    {
+      "id": "fl-hillsborough-2025:lunch-guide",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/raw/fl_lunch_definition_2025.pdf",
+      "url": "https://cdn.fldoe.org/core/fileparse.php/20744/urlt/2425-146025.pdf",
+      "sha256": "1c8617d492e845e8bdf584c4780de6ac1cf7e7d35e7f2faaa96cec30cf322216"
+    },
+    {
+      "id": "fl-hillsborough-2025:numerical_audit",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/source/hillsborough-model-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/hillsborough-model-audit.json",
+      "sha256": "f5d71dcbe8006ef241fdca16a1842e6639d5a6667bc516bfa34cf699210eea03"
+    },
+    {
+      "id": "fl-hillsborough-2025:roster_audit",
+      "dataset_id": "fl-hillsborough-2025",
+      "path": "data/source/hillsborough-district-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/hillsborough-district-audit.json",
+      "sha256": "33a01a1cc919e7357319b9deba0f17dd2b891a6af8b0456253cd4588da659a40"
+    },
+    {
       "id": "fl-miami-dade-2025:assessment",
       "dataset_id": "fl-miami-dade-2025",
       "path": "data/raw/fl_assessment_2025.xlsx",
@@ -16016,6 +16093,16 @@
       "source_url": "https://www.fldoe.org/file/18534/SchoolGradesCalcGuide25.pdf"
     },
     {
+      "id": "fl-hillsborough-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "state": "FL",
+      "name": "Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools",
+      "year": 2025,
+      "level": "ES",
+      "grades": "Grade schools: FAST3\u20138, FAA, Math EOC and source-attributed students",
+      "standard": "2024\u201325 native School Grades English Language Arts Achievement and Mathematics Achievement components: Level 3 or above / valid assessed students under Florida full-year-enrollment and home-zoned attribution rules, including eligible FAA Performance Task but excluding FAA Datafolio. ELA FAST PM3 grades 3\u201310 and Math FAST PM3 grades 3\u20138 plus B.E.S.T./Access Algebra 1/Geometry EOCs; this cohort enrolls no grades 9\u201312 in the same-year Survey 2 registry. ELL included after two US-school years; medical/extraordinary exemptions excluded. Components require at least 10 eligible students. Native whole-percent rates only; score denominators absent, so all model sampling intervals unavailable. Collocated combined results and provider-specific virtual rates are excluded from individual-school matches.",
+      "source_url": "https://www.fldoe.org/file/18534/SchoolGradesCalcGuide25.pdf"
+    },
+    {
       "id": "fl-miami-dade-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
       "state": "FL",
       "name": "Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools",
@@ -16933,6 +17020,12 @@
     },
     {
       "id": "fl-broward-2025:income",
+      "name": "Individual reported FRPL/direct-certification eligibility",
+      "definition": "Florida 2024\u201325 Final Survey 3 (February) raw individual Lunch Status counts: D/F free eligibility + 3/E reduced eligibility + C/R CEP direct certification, divided by same-survey enrolled students (PK\u201312). Never uses the USDA 1.6-adjusted federal funding numerator or published school-grade economic percentage. CEP N means not individually identified eligible and is excluded from the numerator. Provision 2 code 4 reports all enrolled students, so schools with nonzero or masked code 4 have unavailable income. At CEP schools this proxy counts direct certification/household extension rather than a complete income survey of all families; undercount and reporting coverage are unknown. No other-year backfill.",
+      "source_url": "https://www.fldoe.org/core/fileparse.php/20744/urlt/2425-146025.pdf"
+    },
+    {
+      "id": "fl-hillsborough-2025:income",
       "name": "Individual reported FRPL/direct-certification eligibility",
       "definition": "Florida 2024\u201325 Final Survey 3 (February) raw individual Lunch Status counts: D/F free eligibility + 3/E reduced eligibility + C/R CEP direct certification, divided by same-survey enrolled students (PK\u201312). Never uses the USDA 1.6-adjusted federal funding numerator or published school-grade economic percentage. CEP N means not individually identified eligible and is excluded from the numerator. Provision 2 code 4 reports all enrolled students, so schools with nonzero or masked code 4 have unavailable income. At CEP schools this proxy counts direct certification/household extension rather than a complete income survey of all families; undercount and reporting coverage are unknown. No other-year backfill.",
       "source_url": "https://www.fldoe.org/core/fileparse.php/20744/urlt/2425-146025.pdf"
@@ -18036,6 +18129,30 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "5f2fceeb31ec4cb98c6047b85678684648d6da6cff7cdf9c548d9874b7fcc336"
+    },
+    {
+      "id": "fl-hillsborough-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:combined:ols-v1:894a1d6f47e2",
+      "dataset_id": "fl-hillsborough-2025",
+      "definition_id": "fl-hillsborough-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "894a1d6f47e251a599c075393acd369a07c4aeeb64a024c7c2fa7b7d40f2d78d"
+    },
+    {
+      "id": "fl-hillsborough-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:math:ols-v1:894a1d6f47e2",
+      "dataset_id": "fl-hillsborough-2025",
+      "definition_id": "fl-hillsborough-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "894a1d6f47e251a599c075393acd369a07c4aeeb64a024c7c2fa7b7d40f2d78d"
+    },
+    {
+      "id": "fl-hillsborough-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:reading:ols-v1:894a1d6f47e2",
+      "dataset_id": "fl-hillsborough-2025",
+      "definition_id": "fl-hillsborough-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "894a1d6f47e251a599c075393acd369a07c4aeeb64a024c7c2fa7b7d40f2d78d"
     },
     {
       "id": "fl-miami-dade-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:combined:ols-v1:8e957e1903c0",
@@ -20353,6 +20470,23 @@
           "model_scope": "Florida public grade schools; separate native full-year school-grade achievement components and raw individual lunch eligibility",
           "map_source": "School coordinates are unavailable in the audited source extract.",
           "statewide": true
+        },
+        {
+          "id": "hillsborough",
+          "name": "Hillsborough County",
+          "dataset": "fl-hillsborough-2025",
+          "status": "ready",
+          "geography": "hillsborough",
+          "levels": [
+            "ES"
+          ],
+          "schools": "data/hillsborough/schools.json",
+          "boundaries": null,
+          "comparison": "Hillsborough County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Hillsborough County independent 2024\u201325 grade-school district models: exact operational CCD LEA 1200870 / native FL-29 attachments, complete reported pure lower offerings including grade 3\u20138, and explicit-zero native enrolled grades 9\u201312. Exact attached charters, alternatives and special-education profiles are retained; native missing outcomes determine eligibility. Separate same-year native Florida School Grades Math, ELA and Combined point-only OLS models. High and mixed offerings are excluded.",
+          "map_source": "School coordinates and district boundaries are unavailable in the audited Hillsborough sources.",
+          "statewide": false,
+          "audit": "data/hillsborough/coverage.json"
         },
         {
           "id": "miami-dade",

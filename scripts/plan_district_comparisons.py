@@ -124,6 +124,8 @@ def scope(row):
         return 'existing_miami_dade'
     if row['LEAID'] == '1200180':
         return 'existing_broward'
+    if row['LEAID'] == '1200870':
+        return 'existing_hillsborough'
     if row['LEAID'] == '3200060':
         return 'existing_clark_county'
     if row['LEAID'] == '1709930':
@@ -288,6 +290,8 @@ def render(payload):
                 status = 'Existing Miami-Dade comparison; pure grade schools only'
             elif row['scope'] == 'existing_broward':
                 status = 'Existing Broward comparison; pure grade schools only'
+            elif row['scope'] == 'existing_hillsborough':
+                status = 'Existing Hillsborough comparison; pure grade schools only'
             elif row['scope'] == 'existing_clark_county':
                 status = 'Existing Clark County comparison; native grade-school scope only'
             elif row['scope'] == 'existing_hawaii_statewide':
@@ -363,18 +367,21 @@ def render(payload):
         'supplies canonical/browser readiness. High-school and mixed assessment scope '
         'remain unaudited. Statewide Florida remains its own comparison.', ''])
     lines.extend([
-        'The [Hillsborough source and numerical audits](hillsborough-district.md) retain all 309 original '
+        'The [Hillsborough source, numerical and integration audits](hillsborough-district.md) retain all 309 original '
         'CCD records for Florida LEA 1200870 / FL-29, including 293 operational schools, '
         'and all same-year native records. Exact operational joins yield 222 pure lower '
         'profiles, 220 offered-applicable schools and 219 usable schools per subject. '
         'Two usable charters absent from the discovery list remain in the source-derived '
         'cohort; planning IDs never select its membership. Primary-only, missing, mixed '
-        'and outside-roster records remain explicit. Three separate 219-school fits and '
+        'and outside-roster records remain explicit. The separate Florida district region '
+        'retains all 222 matched profiles and the complete 224-school offered directory '
+        'inventory in coverage. Three separate 219-school fits and '
         'all 657 explicit deleted-school checks retain external studentization and '
         'descriptive influence diagnostics without fit-based exclusions. Counts, sampling '
         'variances and intervals remain unavailable. Both immutable audits keep approval '
-        'false; canonical/browser gates remain required. Hillsborough stays a '
-        'candidate and the queue totals remain unchanged.', ''])
+        'false; the separately validated normalized adapter supplies canonical/browser '
+        'readiness. High/mixed assessment scope remains unaudited. Hillsborough is '
+        'recorded as an existing comparison; planning membership never approves models.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

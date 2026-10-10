@@ -529,6 +529,31 @@
           ]
         },
         {
+          "id": "fl-hillsborough-2025:2025:Florida School Grades FAST + FAA + Math EOC · grade schools:ES",
+          "state": "FL",
+          "name": "Florida School Grades FAST + FAA + Math EOC · grade schools",
+          "year": 2025,
+          "level": "ES",
+          "grades": "Grade schools: FAST3–8, FAA, Math EOC and source-attributed students",
+          "standard": "2024–25 native School Grades English Language Arts Achievement and Mathematics Achievement components: Level 3 or above / valid assessed students under Florida full-year-enrollment and home-zoned attribution rules, including eligible FAA Performance Task but excluding FAA Datafolio. ELA FAST PM3 grades 3–10 and Math FAST PM3 grades 3–8 plus B.E.S.T./Access Algebra 1/Geometry EOCs; this cohort enrolls no grades 9–12 in the same-year Survey 2 registry. ELL included after two US-school years; medical/extraordinary exemptions excluded. Components require at least 10 eligible students. Native whole-percent rates only; score denominators absent, so all model sampling intervals unavailable. Collocated combined results and provider-specific virtual rates are excluded from individual-school matches.",
+          "source_url": "https://www.fldoe.org/file/18534/SchoolGradesCalcGuide25.pdf",
+          "dataset_id": "fl-hillsborough-2025",
+          "family": "Florida School Grades FAST + FAA + Math EOC",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "provider_evidence_ids": [],
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "hillsborough",
+              "name": "Hillsborough County",
+              "url": "./?state=FL&region=hillsborough&level=ES",
+              "model_scope": "Hillsborough County independent 2024–25 grade-school district models: exact operational CCD LEA 1200870 / native FL-29 attachments, complete reported pure lower offerings including grade 3–8, and explicit-zero native enrolled grades 9–12. Exact attached charters, alternatives and special-education profiles are retained; native missing outcomes determine eligibility. Separate same-year native Florida School Grades Math, ELA and Combined point-only OLS models. High and mixed offerings are excluded."
+            }
+          ]
+        },
+        {
           "id": "fl-miami-dade-2025:2025:Florida School Grades FAST + FAA + Math EOC · grade schools:ES",
           "state": "FL",
           "name": "Florida School Grades FAST + FAA + Math EOC · grade schools",
