@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "NC",
+    "name": "North Carolina"
+  },
+  "prepare_script": "scripts/prepare_wake.py",
+  "regions": [
+    {
+      "id": "wake",
+      "name": "Wake County",
+      "dataset": "nc-wake-2025",
+      "status": "ready",
+      "geography": "wake",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/wake/schools.json",
+      "boundaries": null,
+      "comparison": "Wake County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Wake County independent 2024\u201325 North Carolina grade-school district models: exact operational CCD LEA 3704720 / native NC-920 / PSU 920 identities. All 162 audited grade-school configurations remain visible, including two suppressed April individual EDS income profiles. Native regular RG/GS/ALL published GLP Level3+ rates support 159 Math, 160 ELA and 159 Combined fits. Grade 8 mathematics includes NC Math 1 EOC. Valid-score count scope and the ten-valid-scored floor remain uncertified; sampling intervals are unavailable for every model. High, mixed, future and district aggregate records remain outside this separate published-rate district release.",
+      "map_source": "School coordinates and district boundaries are unavailable in the audited Wake County source release.",
+      "statewide": false,
+      "audit": "data/wake/coverage.json"
+    }
+  ]
+}

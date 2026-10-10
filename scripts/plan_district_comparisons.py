@@ -136,6 +136,8 @@ def scope(row):
         return 'existing_fairfax'
     if row['LEAID'] == '4823640':
         return 'existing_houston'
+    if row['LEAID'] == '3704720':
+        return 'existing_wake'
     if row['LEAID'] == '3200060':
         return 'existing_clark_county'
     if row['LEAID'] == '1709930':
@@ -312,6 +314,8 @@ def render(payload):
                 status = 'Existing Fairfax County comparison; native grade schools only'
             elif row['scope'] == 'existing_houston':
                 status = 'Existing Houston ISD comparison; native published-rate grade schools only'
+            elif row['scope'] == 'existing_wake':
+                status = 'Existing Wake County comparison; native regular grade-school scope only'
             elif row['scope'] == 'existing_clark_county':
                 status = 'Existing Clark County comparison; native grade-school scope only'
             elif row['scope'] == 'existing_hawaii_statewide':
@@ -325,7 +329,7 @@ def render(payload):
     table('First tier · largest new district comparisons', main)
     table('Second tier · substantial regional comparisons', secondary)
     lines.extend(['## Existing comparisons and components', '',
-        'CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach, Gwinnett, Fairfax and Houston have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide '
+        'CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach, Gwinnett, Fairfax, Houston and Wake County have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide '
         'comparison. The NYC geographic LEAs below are components of the existing NYC system; '
         'they would be optional subdistrict work, not additional whole-city systems. Do not '
         'add their counts to the Chancellor’s Office supervisory total or include District 75 '
@@ -483,6 +487,26 @@ def render(payload):
         'Texas → Houston ISD is an existing district comparison, separate from statewide '
         'Texas. Planning counts never select or approve its models. High/mixed assessment '
         'populations, admissions classifications, geometry and provider roles remain unaudited.', ''])
+    lines.extend([
+        'The [Wake County source, numerical and integration audits](wake-district.md) retain exact '
+        'North Carolina LEA `3704720` / `NC-920`, all 202 original CCD directory records and '
+        '162 complete grade-school configurations. The separate North Carolina → Wake County '
+        'comparison retains 160 same-year native April individual EDS profiles and independently '
+        'verified 159-school Math/Combined and 160-school ELA models. All 478 deleted-school fits '
+        'and canonical/current/history results are verified without diagnostic exclusions; '
+        'three eligible Alternative School records remain in every model. Two suppressed incomes '
+        'and Mills Park Middle’s suppressed Math remain explicit, alongside all 36 outside '
+        'configurations, four future schools and the fall district/school enrollment discrepancy. '
+        'Direct regular RG/GS/ALL GLP rates retain Level 3 and above, grade-8 Math 1 and the '
+        'summer-2024 source convention; grade/course percentages and accountability-adjusted '
+        'rates never replace them. Income uses April individual economic status for the broader '
+        'enrolled population. Native tested-count scope and the ten-valid-scored floor remain '
+        'uncertified; verified counts, sampling variances and interval endpoints stay null '
+        'modelwide. Both immutable historical audits keep false approvals; readiness belongs '
+        'to the separately validated normalized adapter. Statewide North Carolina remains a '
+        'separate comparison. Wake is an existing district comparison; planning counts never '
+        'select or approve its models. High/mixed assessment populations, admissions, geometry '
+        'and provider roles remain unaudited.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

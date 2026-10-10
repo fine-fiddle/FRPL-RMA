@@ -1,6 +1,6 @@
-# Wake County source and numerical audit
+# Wake County district comparison
 
-Wake County Schools has independently verified **2024–25 grade-school numerical models** retaining **159 Math, 160 ELA and 159 Combined schools**. The [source audit](../data/source/wake-district-audit.json) below remains immutable with scope `source_cohort_audit_only`, status `audit_pending` and both approval flags false. The separate [numerical audit](../data/source/wake-model-audit.json) has scope `numerical_audit_only`, status `numerically_verified_pending_integration` and both approvals false. Canonical/static integration and browser verification remain required before a district comparison is ready.
+North Carolina → Wake County has a separate **2024–25 grade-school comparison** retaining all **162 audited profiles**, including two suppressed incomes, with independently verified **159 Math, 160 ELA and 159 Combined schools**. The [source audit](../data/source/wake-district-audit.json) below remains immutable with scope `source_cohort_audit_only`, status `audit_pending` and both approval flags false. The separate [numerical audit](../data/source/wake-model-audit.json) has scope `numerical_audit_only`, status `numerically_verified_pending_integration` and both approvals false. Readiness belongs to the separately validated [normalized release contract](../data/source/wake.json) and canonical/browser integration below.
 
 ## Exact identities and original evidence
 
@@ -99,3 +99,31 @@ Direct fitting requires the exact frozen native inputs and complete eligible mem
 Validation passes **62 distinct targeted Python tests**, including all 12 new numerical tests, plus syntax/diff checks and local documentation links. Two independent original-source reviews reconstruct the eligible populations and all **478** deleted fits separately: **5,940 scalar metrics** and **7,750 NumPy numeric/flag comparisons** agree, with maximum numerical differences below `3.64e-12`. Their **457 corruption rejections** and two positive policy-edge checks pass. Two numerical CLI builds are byte-identical, and saved offline replay passes for the **10,221,281-byte** artifact, SHA-256 `75739a380c4b5818ac78bb3de12ddacbc5129a62a800c20b0d19540f1c750be3`. All **229 served files**, **93 prior source artifacts**, the original Wake audit code/tests and the entire canonical database remain byte-identical.
 
 Both historical approvals remain false. The next unit separately validates a normalized district contract, canonical repeatability, preservation and HTTP browser behavior. High/mixed populations, admissions classifications, geometry and assessment-provider roles remain unaudited. Wake stays in the unchanged 68/172 queue; #3, Detroit #15, Texas #16 and all eleven state source holds remain open.
+
+## Canonical and browser integration
+
+The separate `nc-wake-2025` adapter publishes **North Carolina → Wake County**, with all **162** audited grade-school configurations in the searchable directory. Both income masks remain `null`, with explicit unavailable metrics; the **160** usable-income source profiles remain distinct from that full directory. Mills Park Middle keeps ELA metrics and unavailable Math/Combined. Direct outcomes at income-masked schools remain retained as source observations, without creating model metrics. The canonical store contains **162** school profiles, **162** same-year economic observations, **324** native subject observations, three independent models and **478** model results.
+
+Native six-character school codes are exact canonical keys within the district dataset, crosschecked against their same-year NCES identities. District models, assessment/economic definitions and source provenance are namespaced separately from statewide North Carolina. Shared native IDs never reuse statewide predictions. Every current and historical subject metric is validated against the passed district numerical audit, including the subject-specific ELA population and unavailable counts/endpoints. Three CCD Alternative School members remain eligible in every fit; that source category does not establish an admissions classification, so visible program labels remain Unclassified.
+
+The normalized contract alone carries source/model release approvals. Both immutable historical artifacts and their code/tests retain their original false approvals and fingerprints. The full original evidence, 36 operational outside configurations, four future schools, raw masks and definition discrepancies remain retained in the release audit. Complete membership and strict source/model replay are required before import; foreign ownership, changed definitions, altered native inputs, incomplete cohorts, invented counts and manufactured intervals are rejected.
+
+The visible assessment note, coverage and methodology explicitly state that native valid-score count scope and the ten-valid-scored floor remain uncertified, with sampling intervals unavailable. Enrollment never substitutes for tested counts. There is one same-year history record per profile; no additional year or compatible history is invented. Coordinates and district boundaries remain unavailable, with a searchable list and chart/table alternatives. High/mixed models, admissions classifications and assessment-provider roles remain unaudited.
+
+Rebuild the separately validated release offline after the canonical database exists:
+
+```sh
+.venv/bin/python scripts/prepare_wake.py --extract
+.venv/bin/python scripts/prepare_wake.py
+.venv/bin/python scripts/export_catalog.py
+.venv/bin/python scripts/export_assessment_guide.py
+.venv/bin/python scripts/plan_district_comparisons.py
+```
+
+The descriptor is discovered by `prepare_states.py` without a new shared catalog branch. The assessment guide gains one distinct district definition and link, retaining the exact native family, GLP threshold and grade-8 Math 1 population. Provider/target fields remain unknown; no role is inherited from statewide North Carolina. Wake is an existing comparison, leaving **67 first-tier / 172 second-tier** candidates. Montgomery County Public Schools is next for its own source/cohort audit; its planning counts never approve a model. #3, Detroit #15, Texas #16 and all eleven state source holds remain open. Work is saved on `expansion/all-states`; no master merge or deployment occurs.
+
+Integration verification passes two independent reviews and **111** original-input, canonical and export corruption rejections. All **2,886** independently reconstructed scalar metrics agree within `4.27e-14`. Two normalized builds are byte-identical; two actual imports reproduce all nine table contents and all four Wake exports exactly. Repeated catalog, guide and planning exports are byte-identical. Every prior canonical row, all **227** prior regional/geometry files and **93** prior source artifacts remain unchanged; all earlier catalog records and **75** guide definitions/provider bindings remain exact. The guide now contains **76** definitions across **39** released states, with **59** ready regions and the same **11** source holds.
+
+HTTP browser verification covers the first search after reload for the off-page Mills Park Middle profile, ELA-only eligibility, both subject and income suppression, keyboard checkbox selection, native-ID share restoration and explicit empty selection, selected/all-filtered scope without refitting, safe invalid URL fallback and one-year history/chart/table values with unavailable intervals. The guide preserves separate statewide/Wake definitions and unknown provider/target fields; its Wake link opens the district population. Desktop `1280×900` and mobile `390×844` layouts have no horizontal overflow, visual checks pass and browser console warnings/errors are empty.
+
+Final validation passes all **595 Python tests**, including all 11 new adapter tests, and **20 JavaScript tests**, plus syntax/diff checks and **105 local documentation links**. Tested progress is saved on `expansion/all-states`; all incomplete parent/source/count issues remain open.

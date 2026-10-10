@@ -1903,6 +1903,31 @@
               "model_scope": "North Carolina public grade schools with exact native regular-test totals and April2025 individual EDS"
             }
           ]
+        },
+        {
+          "id": "nc-wake-2025:2025:NC regular EOG + grade-8 Math 1 · grade schools · 2025:ES",
+          "state": "NC",
+          "name": "NC regular EOG + grade-8 Math 1 · grade schools · 2025",
+          "year": 2025,
+          "level": "ES",
+          "grades": "3–8",
+          "standard": "Published native regular RG/GS/ALL grade-level proficient (GLP Level3 and above); grades3–8 including grade8 NC Math1 EOC; separate Wake grade-school population",
+          "source_url": "https://accrpt.tops.ncsu.edu/docs/disag_datasets/Disag_2024-25.zip",
+          "dataset_id": "nc-wake-2025",
+          "family": "NC regular EOG + grade-8 Math 1",
+          "provider": null,
+          "provider_source_url": null,
+          "provider_role": null,
+          "provider_evidence_ids": [],
+          "ambition_comparison": null,
+          "regions": [
+            {
+              "id": "wake",
+              "name": "Wake County",
+              "url": "./?state=NC&region=wake&level=ES",
+              "model_scope": "Wake County independent 2024–25 North Carolina grade-school district models: exact operational CCD LEA 3704720 / native NC-920 / PSU 920 identities. All 162 audited grade-school configurations remain visible, including two suppressed April individual EDS income profiles. Native regular RG/GS/ALL published GLP Level3+ rates support 159 Math, 160 ELA and 159 Combined fits. Grade 8 mathematics includes NC Math 1 EOC. Valid-score count scope and the ten-valid-scored floor remain uncertified; sampling intervals are unavailable for every model. High, mixed, future and district aggregate records remain outside this separate published-rate district release."
+            }
+          ]
         }
       ]
     },

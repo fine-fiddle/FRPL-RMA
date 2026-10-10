@@ -253,6 +253,26 @@ class AssessmentGuideTests(unittest.TestCase):
             with self.subTest(field=field), self.assertRaisesRegex(ValueError, 'provider definition changed'):
                 provider_binding(changed, load_provider_evidence())
 
+    def test_wake_definition_keeps_exact_native_scope_and_separate_district_link(self):
+        rows = self.by_state['NC']['assessments']
+        district = [a for a in rows if a['dataset_id'] == 'nc-wake-2025']
+        self.assertEqual(len(district), 1)
+        row = district[0]
+        statewide = next(a for a in rows if a['dataset_id'] == 'nc-native-eds')
+        for field in ['name', 'year', 'level', 'grades', 'source_url', 'family']:
+            self.assertEqual(row[field], statewide[field])
+        self.assertEqual(row['family'], 'NC regular EOG + grade-8 Math 1')
+        self.assertEqual(row['standard'], 'Published native regular RG/GS/ALL grade-level proficient (GLP Level3 and above); grades3–8 including grade8 NC Math1 EOC; separate Wake grade-school population')
+        self.assertEqual([r['id'] for r in row['regions']], ['wake'])
+        self.assertEqual([r['id'] for r in statewide['regions']], ['north-carolina'])
+        self.assertEqual(parse_qs(urlsplit(row['regions'][0]['url']).query),
+                         dict(state=['NC'], region=['wake'], level=['ES']))
+        self.assertIn('3704720', row['regions'][0]['model_scope'])
+        for field in ['provider', 'provider_role', 'provider_source_url', 'ambition_comparison']:
+            self.assertIsNone(row[field])
+        self.assertEqual(row['provider_evidence_ids'], [])
+        self.assertIsNone(provider_binding(row, load_provider_evidence()))
+
     def test_provider_roles_do_not_propagate_from_titles_membership_or_new_years(self):
         evidence = load_provider_evidence()
         definition = copy.deepcopy(next(b['definition'] for b in evidence['bindings']

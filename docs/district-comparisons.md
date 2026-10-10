@@ -2,7 +2,7 @@
 
 Implement these after the statewide basics. A district comparison would fit its own same-year, assessment, level and subject models, as CPS does. A filter using statewide predictions remains a district view of the statewide model; it is not a district comparison.
 
-Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 68 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
+Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 67 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
 ## Selection and implementation gates
 
@@ -17,7 +17,6 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 68 fir
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
-| Wake County Schools | NC | 3704720 | 163,325 | 162 / 29 | Available; district audit pending |
 | Montgomery County Public Schools | MD | 2400480 | 159,181 | 172 / 25 | Available; district audit pending |
 | Charlotte-Mecklenburg Schools | NC | 3702970 | 147,299 | 146 / 25 | Available; district audit pending |
 | DALLAS ISD | TX | 4816230 | 139,802 | 189 / 37 | Available; district audit pending |
@@ -265,7 +264,7 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 68 fir
 
 ## Existing comparisons and components
 
-CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach, Gwinnett, Fairfax and Houston have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
+CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange, Palm Beach, Gwinnett, Fairfax, Houston and Wake County have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
 
 ## Existing scope · size references
 
@@ -283,6 +282,7 @@ CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orang
 | Fairfax County Public Schools | VA | 5101260 | 179,323 | 162 / 25 | Existing Fairfax County comparison; native grade schools only |
 | HOUSTON ISD | TX | 4823640 | 176,727 | 212 / 42 | Existing Houston ISD comparison; native published-rate grade schools only |
 | Hawaii Department of Education | HI | 1500030 | 167,071 | 224 / 2 | Existing statewide comparison |
+| Wake County Schools | NC | 3704720 | 163,325 | 162 / 29 | Existing Wake County comparison; native regular grade-school scope only |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #31 | NY | 3600103 | 60,164 | 35 / 3 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT # 2 | NY | 3600077 | 55,345 | 34 / 50 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #24 | NY | 3600098 | 50,026 | 17 / 10 | NYC component; cohort floor review |
@@ -331,10 +331,10 @@ The [Fairfax County source, numerical and integration audits](fairfax-district.m
 
 The [Houston ISD source, published-rate numerical and integration audits](houston-district.md) retain exact Texas LEA `4823640` / `TX-101912`, all 274 CCD school records and 273 native TAPR profiles. Same-year native enrolled grades identify 212 grade school profiles and separate 210-school Math, ELA and Combined models, with all 630 deleted-school fits and canonical/current/history results verified. Missing and masked results, ten primary-only campuses, 42 high-only and nine mixed campuses, the reported-zero EL DAEP record and T H Rogers enrollment/reference-span difference remain explicit. Income uses reconciled individual October enrollment status. Reported native performance counts and rates reconcile, but exact current N/M score-status mapping remains a gate for verified scored-count and sampling-interval use. The separate numerical contract uses 210 original whole-percent published rates per subject, with null counts, variances and intervals; 202 Math and 203 ELA values differ from historical count-ratio precision. Its unknown-count policy does not certify the ten-valid-scored floor or close #16. Both immutable audit approvals remain false; readiness belongs to the separately validated normalized adapter. Texas → Houston ISD is an existing district comparison, separate from statewide Texas. Planning counts never select or approve its models. High/mixed assessment populations, admissions classifications, geometry and provider roles remain unaudited.
 
+The [Wake County source, numerical and integration audits](wake-district.md) retain exact North Carolina LEA `3704720` / `NC-920`, all 202 original CCD directory records and 162 complete grade-school configurations. The separate North Carolina → Wake County comparison retains 160 same-year native April individual EDS profiles and independently verified 159-school Math/Combined and 160-school ELA models. All 478 deleted-school fits and canonical/current/history results are verified without diagnostic exclusions; three eligible Alternative School records remain in every model. Two suppressed incomes and Mills Park Middle’s suppressed Math remain explicit, alongside all 36 outside configurations, four future schools and the fall district/school enrollment discrepancy. Direct regular RG/GS/ALL GLP rates retain Level 3 and above, grade-8 Math 1 and the summer-2024 source convention; grade/course percentages and accountability-adjusted rates never replace them. Income uses April individual economic status for the broader enrolled population. Native tested-count scope and the ten-valid-scored floor remain uncertified; verified counts, sampling variances and interval endpoints stay null modelwide. Both immutable historical audits keep false approvals; readiness belongs to the separately validated normalized adapter. Statewide North Carolina remains a separate comparison. Wake is an existing district comparison; planning counts never select or approve its models. High/mixed assessment populations, admissions, geometry and provider roles remain unaudited.
+
 
 ## Provenance and rebuild
-
-The [Wake County source and numerical audits](wake-district.md#independent-numerical-audit--integration-pending) reconstruct exact NCES LEA `3704720` / native `NC-920` from original CCD, DPI performance and April EDS sources. All 202 directory records remain retained: 198 operational and four future. The 162 complete grade-school configurations include two suppressed incomes; 160 source profiles yield independently verified 159-school Math/Combined and 160-school ELA models with all 478 deleted-school fits checked. Mills Park Middle's math suppression, 36 outside configurations, grade-13 early colleges, Longview's absent outcomes and the 149-pupil fall district/school total discrepancy remain explicit. Both historical audits keep false approvals; canonical/browser integration is pending. Valid-score counts, the ten-valid-scored floor and intervals remain uncertified. Wake stays in the unchanged 68/172 queue. Planning counts and diagnostic flags never select or approve its proposed models. High/mixed populations, admissions, geometry and provider roles remain unaudited.
 
 Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; it is not a sum of school enrollment and is never a tested-score denominator. Every included agency retains its native raw directory/total records and source-row numbers. Reconstructed operational counts from the school directory remain separate from the native LEA operational-school field. The extract retains exact potential school IDs, source URLs and SHA-256 hashes. It is a planning artifact and never enables a browser comparison.
 

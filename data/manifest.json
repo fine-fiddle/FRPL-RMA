@@ -2110,6 +2110,97 @@
       "sha256": "8d8cc1a75bbd58b1a73188aef9ad63c3008b9bf3d1334e4b3158e115caf70f28"
     },
     {
+      "id": "nc-wake-2025:ccd_directory",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_029_2425_w_1a_073025.zip",
+      "sha256": "39326da788aa322353d20ceaf8ad4baed26272502cd05b066cf6c594988b21ab"
+    },
+    {
+      "id": "nc-wake-2025:ccd_lea_directory",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/raw/ccd_lea_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2425_w_1a_073025.zip",
+      "sha256": "2745169e4bc7cd53adff179830c3d4b9bb035ac79580ecea01ef389a161936a9"
+    },
+    {
+      "id": "nc-wake-2025:ccd_lea_membership",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/raw/ccd_lea_052_2425_l_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_lea_052_2425_l_1a_073025.zip",
+      "sha256": "501d72720a01c26e0e041cd3b1aa6653d0a94725ba0a1e85c42c4f183bc627ba"
+    },
+    {
+      "id": "nc-wake-2025:ccd_membership",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/raw/ccd_sch_052_2425_l_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_052_2425_l_1a_073025.zip",
+      "sha256": "4a7f660c5fc5eaae488dd02fd43498f349fc828b227edd0970d5b6995ead4d4d"
+    },
+    {
+      "id": "nc-wake-2025:dpi_description",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/raw/nc-disaggregated-description-2025.pdf",
+      "url": "https://accrpt.tops.ncsu.edu/docs/disag_datasets/Disag_2024-25.zip",
+      "sha256": "1c2a568a597dcd946872442637919d59c08e0f0b944b85d73317a5b713745bdf"
+    },
+    {
+      "id": "nc-wake-2025:dpi_eds_web_definition",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/raw/nc-eds-definitions.html",
+      "url": "https://www.dpi.nc.gov/data-reports/economically-disadvantaged",
+      "sha256": "36e318a6f5927bd14f53e714ac3527b92eab17abe6d0e889dbec0f0768c42df8"
+    },
+    {
+      "id": "nc-wake-2025:dpi_income",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/raw/nc-eds-all-years.xlsx",
+      "url": "https://www.dpi.nc.gov/eds-all-years-spreadsheet/open",
+      "sha256": "f34198b9ed0a8336e393e48ecd446c3d95d77469d72d1179174008d64e00a441"
+    },
+    {
+      "id": "nc-wake-2025:dpi_income_definition",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/raw/nc-eds-collection.pdf",
+      "url": "https://www.dpi.nc.gov/documents/economically-disadvantaged-data-collection/open",
+      "sha256": "c76951c64cc501a8ede2005f0111d490d563f6eeb011bbf7bb8fbf57f1ab5671"
+    },
+    {
+      "id": "nc-wake-2025:dpi_performance",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/raw/nc-disaggregated-2025.zip",
+      "url": "https://accrpt.tops.ncsu.edu/docs/disag_datasets/Disag_2024-25.zip",
+      "sha256": "3db2e6a2e2a2d7c3ab41167750b16ddcf5a659f31fc3eee2a12b248857c65f0f"
+    },
+    {
+      "id": "nc-wake-2025:dpi_technical",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/raw/nc-school-grade-technical-2025.pdf",
+      "url": "https://www.dpi.nc.gov/dpischoolgradetechnicalguidedraft2024-25/open",
+      "sha256": "095a5d812dbd7a6f87c03dcc9f4eb69e943d569f22c803be7ab9ba52d5e7c049"
+    },
+    {
+      "id": "nc-wake-2025:extract",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/source/wake.json",
+      "url": "https://accrpt.tops.ncsu.edu/docs/disag_datasets/Disag_2024-25.zip",
+      "sha256": "e7c9b97ad04c445ba10294a986aec9c4e7f00890087d61f934c9a292e0233259"
+    },
+    {
+      "id": "nc-wake-2025:numerical_audit",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/source/wake-model-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/wake-model-audit.json",
+      "sha256": "75739a380c4b5818ac78bb3de12ddacbc5129a62a800c20b0d19540f1c750be3"
+    },
+    {
+      "id": "nc-wake-2025:roster_audit",
+      "dataset_id": "nc-wake-2025",
+      "path": "data/source/wake-district-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/wake-district-audit.json",
+      "sha256": "6416cc99800e45e1b1f405bf62e065e12faec35924155640732827ed90b7b3b2"
+    },
+    {
       "id": "nces-illinois-locations",
       "dataset_id": "isbe-2024",
       "path": "data/source/illinois-locations.json",
@@ -18258,6 +18349,16 @@
       "source_url": "https://accrpt.tops.ncsu.edu/docs/disag_datasets/Disag_2024-25.zip"
     },
     {
+      "id": "nc-wake-2025:2025:NC regular EOG + grade-8 Math 1 \u00b7 grade schools \u00b7 2025:ES",
+      "state": "NC",
+      "name": "NC regular EOG + grade-8 Math 1 \u00b7 grade schools \u00b7 2025",
+      "year": 2025,
+      "level": "ES",
+      "grades": "3\u20138",
+      "standard": "Published native regular RG/GS/ALL grade-level proficient (GLP Level3 and above); grades3\u20138 including grade8 NC Math1 EOC; separate Wake grade-school population",
+      "source_url": "https://accrpt.tops.ncsu.edu/docs/disag_datasets/Disag_2024-25.zip"
+    },
+    {
       "id": "nj-spr-2025:2025:NJGPA grade 11:HS",
       "state": "NJ",
       "name": "NJGPA grade 11",
@@ -19035,6 +19136,12 @@
     },
     {
       "id": "nc-native-eds:income",
+      "name": "Economically disadvantaged",
+      "definition": "April 2025 individual Economically Disadvantaged Students (EDS), as a published percentage of all currently enrolled students in the school (PK through 13 and ungraded, with charter PK excluded). Eligibility includes individual direct certification through SNAP/TANF/FDPIR and qualifying categorical statuses, including foster, homeless, migrant, Medicaid, Head Start and qualifying pre-K, plus optional locally verified financial need. CEP or universal free meals alone do not confer individual EDS eligibility. Use pct_eds from APR 2025, not meal eligibility pct_nslp, the 1.6 adjusted reimbursement percentage, or the economically disadvantaged tested subgroup. Retain published precision; no low-income count is inferred from the rounded percentage.",
+      "source_url": "https://www.dpi.nc.gov/documents/economically-disadvantaged-data-collection/open"
+    },
+    {
+      "id": "nc-wake-2025:income",
       "name": "Economically disadvantaged",
       "definition": "April 2025 individual Economically Disadvantaged Students (EDS), as a published percentage of all currently enrolled students in the school (PK through 13 and ungraded, with charter PK excluded). Eligibility includes individual direct certification through SNAP/TANF/FDPIR and qualifying categorical statuses, including foster, homeless, migrant, Medicaid, Head Start and qualifying pre-K, plus optional locally verified financial need. CEP or universal free meals alone do not confer individual EDS eligibility. Use pct_eds from APR 2025, not meal eligibility pct_nslp, the 1.6 adjusted reimbursement percentage, or the economically disadvantaged tested subgroup. Retain published precision; no low-income count is inferred from the rounded percentage.",
       "source_url": "https://www.dpi.nc.gov/documents/economically-disadvantaged-data-collection/open"
@@ -20906,6 +21013,30 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "ee983045e2cab48654d9be67567dce3c40e9e3ca3acc62f04856c1dc89304a0c"
+    },
+    {
+      "id": "nc-wake-2025:2025:NC regular EOG + grade-8 Math 1 \u00b7 grade schools \u00b7 2025:ES:combined:ols-v1:a3a9317164b4",
+      "dataset_id": "nc-wake-2025",
+      "definition_id": "nc-wake-2025:2025:NC regular EOG + grade-8 Math 1 \u00b7 grade schools \u00b7 2025:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "a3a9317164b4c651f9ce4a989125a3b7ae41fe0867f662f571e49308a19344b4"
+    },
+    {
+      "id": "nc-wake-2025:2025:NC regular EOG + grade-8 Math 1 \u00b7 grade schools \u00b7 2025:ES:math:ols-v1:a3a9317164b4",
+      "dataset_id": "nc-wake-2025",
+      "definition_id": "nc-wake-2025:2025:NC regular EOG + grade-8 Math 1 \u00b7 grade schools \u00b7 2025:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "a3a9317164b4c651f9ce4a989125a3b7ae41fe0867f662f571e49308a19344b4"
+    },
+    {
+      "id": "nc-wake-2025:2025:NC regular EOG + grade-8 Math 1 \u00b7 grade schools \u00b7 2025:ES:reading:ols-v1:a3a9317164b4",
+      "dataset_id": "nc-wake-2025",
+      "definition_id": "nc-wake-2025:2025:NC regular EOG + grade-8 Math 1 \u00b7 grade schools \u00b7 2025:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "a3a9317164b4c651f9ce4a989125a3b7ae41fe0867f662f571e49308a19344b4"
     },
     {
       "id": "nj-spr-2025:2025:NJGPA grade 11:HS:combined:ols-v1:8240b5d67d52",
@@ -23079,6 +23210,23 @@
           "model_scope": "North Carolina public grade schools with exact native regular-test totals and April2025 individual EDS",
           "map_source": "School coordinates are unavailable in the audited source extract.",
           "statewide": true
+        },
+        {
+          "id": "wake",
+          "name": "Wake County",
+          "dataset": "nc-wake-2025",
+          "status": "ready",
+          "geography": "wake",
+          "levels": [
+            "ES"
+          ],
+          "schools": "data/wake/schools.json",
+          "boundaries": null,
+          "comparison": "Wake County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Wake County independent 2024\u201325 North Carolina grade-school district models: exact operational CCD LEA 3704720 / native NC-920 / PSU 920 identities. All 162 audited grade-school configurations remain visible, including two suppressed April individual EDS income profiles. Native regular RG/GS/ALL published GLP Level3+ rates support 159 Math, 160 ELA and 159 Combined fits. Grade 8 mathematics includes NC Math 1 EOC. Valid-score count scope and the ten-valid-scored floor remain uncertified; sampling intervals are unavailable for every model. High, mixed, future and district aggregate records remain outside this separate published-rate district release.",
+          "map_source": "School coordinates and district boundaries are unavailable in the audited Wake County source release.",
+          "statewide": false,
+          "audit": "data/wake/coverage.json"
         }
       ]
     },
