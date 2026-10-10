@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "state": {
+    "id": "FL",
+    "name": "Florida"
+  },
+  "prepare_script": "scripts/prepare_palm_beach.py",
+  "regions": [
+    {
+      "id": "palm-beach",
+      "name": "Palm Beach County",
+      "dataset": "fl-palm-beach-2025",
+      "status": "ready",
+      "geography": "palm-beach",
+      "levels": [
+        "ES"
+      ],
+      "schools": "data/palm-beach/schools.json",
+      "boundaries": null,
+      "comparison": "Palm Beach County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+      "model_scope": "Palm Beach County independent 2024\u201325 grade-school district models: exact operational CCD LEA 1201500 / native FL-50 attachments, complete reported pure lower offerings including grade 3\u20138, and explicit-zero native enrolled grades 9\u201312. Exact attached charters, alternatives, special-education and Career and Technical profiles are retained; native missing outcomes determine eligibility. Separate same-year native Florida School Grades Math, ELA and Combined point-only OLS models. High and mixed offerings are excluded.",
+      "map_source": "School coordinates and district boundaries are unavailable in the audited Palm Beach sources.",
+      "statewide": false,
+      "audit": "data/palm-beach/coverage.json"
+    }
+  ]
+}

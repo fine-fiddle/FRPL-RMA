@@ -128,6 +128,8 @@ def scope(row):
         return 'existing_hillsborough'
     if row['LEAID'] == '1201440':
         return 'existing_orange'
+    if row['LEAID'] == '1201500':
+        return 'existing_palm_beach'
     if row['LEAID'] == '3200060':
         return 'existing_clark_county'
     if row['LEAID'] == '1709930':
@@ -296,6 +298,8 @@ def render(payload):
                 status = 'Existing Hillsborough comparison; pure grade schools only'
             elif row['scope'] == 'existing_orange':
                 status = 'Existing Orange County comparison; pure grade schools only'
+            elif row['scope'] == 'existing_palm_beach':
+                status = 'Existing Palm Beach County comparison; pure grade schools only'
             elif row['scope'] == 'existing_clark_county':
                 status = 'Existing Clark County comparison; native grade-school scope only'
             elif row['scope'] == 'existing_hawaii_statewide':
@@ -309,7 +313,7 @@ def render(payload):
     table('First tier · largest new district comparisons', main)
     table('Second tier · substantial regional comparisons', secondary)
     lines.extend(['## Existing comparisons and components', '',
-        'CPS, Los Angeles Unified, Miami-Dade grade schools and Clark County native grade schools are implemented. Hawaii’s single state LEA already has its statewide '
+        'CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange and Palm Beach have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide '
         'comparison. The NYC geographic LEAs below are components of the existing NYC system; '
         'they would be optional subdistrict work, not additional whole-city systems. Do not '
         'add their counts to the Chancellor’s Office supervisory total or include District 75 '
@@ -401,6 +405,21 @@ def render(payload):
         'validated normalized adapter supplies readiness. High/mixed assessment '
         'scope remains unaudited. Orange is an existing comparison; planning '
         'membership never approves models.', ''])
+    lines.extend([
+        'The [Palm Beach County source, numerical and integration audits](palm-beach-district.md) '
+        'retain all 238 original CCD records for Florida LEA `1201500` / `FL-50`, '
+        'including 234 operational schools and 230 exact same-year Fall/income profiles. '
+        'The separate pure grade-school region retains all 170 matched profiles, '
+        '168 applicable schools and independently verified 165-school Math, ELA and '
+        'Combined models. All 495 deleted-school fits and canonical/current/history '
+        'metrics are verified without fit-based exclusions. Career and Technical '
+        'charter South Tech Preparatory Academy remains included; primary-only profiles, '
+        'missing campus outcomes, masked mixed-income and provider-specific virtual '
+        'records remain explicit. Both immutable historical audits keep false approvals; '
+        'the separately validated normalized adapter supplies canonical/browser readiness. '
+        'Counts, variances and sampling intervals remain unavailable. High/mixed '
+        'assessment scope remains unaudited. Palm Beach is an existing comparison; '
+        'planning membership never approves models.', ''])
     lines.extend(['', '## Provenance and rebuild', '',
         'Enrollment uses the native LEA **Education Unit Total**, with `DMS_FLAG=Reported`; '
         'it is not a sum of school enrollment and is never a tested-score denominator. '

@@ -3320,7 +3320,7 @@
         ]
       },
       "tier": "main",
-      "scope": "new_district_candidate",
+      "scope": "existing_palm_beach",
       "directory_raw": {
         "SCHOOL_YEAR": "2024-2025",
         "LEAID": "1201500",

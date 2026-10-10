@@ -766,6 +766,83 @@
       "sha256": "671c14166fd5110bd569b26b2997d8bc73264e0156393d757516324e57c726f3"
     },
     {
+      "id": "fl-palm-beach-2025:assessment",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/raw/fl_assessment_2025.xlsx",
+      "url": "https://cdn.fldoe.org/file/18534/SchoolGrades25.xlsx",
+      "sha256": "52d3d3d7c2187eb9cbe22477bd088c0c13570f6f2b9f45f74a4b9f771be70a5b"
+    },
+    {
+      "id": "fl-palm-beach-2025:ccd_school_directory",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/raw/ccd_sch_029_2425_w_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_029_2425_w_1a_073025.zip",
+      "sha256": "39326da788aa322353d20ceaf8ad4baed26272502cd05b066cf6c594988b21ab"
+    },
+    {
+      "id": "fl-palm-beach-2025:ccd_school_membership",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/raw/ccd_sch_052_2425_l_1a_073025.zip",
+      "url": "https://nces.ed.gov/ccd/Data/zip/ccd_sch_052_2425_l_1a_073025.zip",
+      "sha256": "4a7f660c5fc5eaae488dd02fd43498f349fc828b227edd0970d5b6995ead4d4d"
+    },
+    {
+      "id": "fl-palm-beach-2025:extract",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/source/palm-beach.json",
+      "url": "https://www.fldoe.org/accountability/accountability-reporting/school-grades/archives.stml",
+      "sha256": "685425ae593df275799f711cf1664ae2b652a67a79098cbd1773d8f9f3ab5366"
+    },
+    {
+      "id": "fl-palm-beach-2025:florida_extract",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/source/florida.json",
+      "url": "https://www.fldoe.org/accountability/accountability-reporting/school-grades/archives.stml",
+      "sha256": "523afad888444e875fc8d06486b20240896341d55b14d9484e8b935888f66daf"
+    },
+    {
+      "id": "fl-palm-beach-2025:grade-guide",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/raw/fl_guide_2025.pdf",
+      "url": "https://cdn.fldoe.org/file/18534/SchoolGradesCalcGuide25.pdf",
+      "sha256": "7dd60cd7c45d03f6324d16d9dcdeb244a5da79f5bccb25859badb32cc2932309"
+    },
+    {
+      "id": "fl-palm-beach-2025:grades",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/raw/fl_grades_2025.xlsx",
+      "url": "https://cdn.fldoe.org/file/7584/2425MembBySchoolByGrade.xlsx",
+      "sha256": "930a81159fac3db4b38c6428aebc2e5000e9199ce88bb80ecc7431838ae3c93a"
+    },
+    {
+      "id": "fl-palm-beach-2025:income",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/raw/fl_income_2025.xlsx",
+      "url": "https://cdn.fldoe.org/file/7584/2425LunchStatusFS2-3.xlsx",
+      "sha256": "48cd9428ea32decf723cc03c2ee7d25528ed8df3db36b20d97e948805344086d"
+    },
+    {
+      "id": "fl-palm-beach-2025:lunch-guide",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/raw/fl_lunch_definition_2025.pdf",
+      "url": "https://cdn.fldoe.org/core/fileparse.php/20744/urlt/2425-146025.pdf",
+      "sha256": "1c8617d492e845e8bdf584c4780de6ac1cf7e7d35e7f2faaa96cec30cf322216"
+    },
+    {
+      "id": "fl-palm-beach-2025:numerical_audit",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/source/palm-beach-model-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/palm-beach-model-audit.json",
+      "sha256": "cd7ea4be8667f4632b2eb03f7793180387d765d741def824eb209ddd944497e8"
+    },
+    {
+      "id": "fl-palm-beach-2025:roster_audit",
+      "dataset_id": "fl-palm-beach-2025",
+      "path": "data/source/palm-beach-district-audit.json",
+      "url": "https://github.com/robot-assisted-projects/FRPL-RMA/blob/expansion/all-states/data/source/palm-beach-district-audit.json",
+      "sha256": "67fc1f19d5f4355fff06187df5a5b6cc38f6b9a97e1cf3f1892290e0a1ad2c25"
+    },
+    {
       "id": "fl-schoolgrades-2025:assessment",
       "dataset_id": "fl-schoolgrades-2025",
       "path": "data/raw/fl_assessment_2025.xlsx",
@@ -16200,6 +16277,16 @@
       "source_url": "https://www.fldoe.org/file/18534/SchoolGradesCalcGuide25.pdf"
     },
     {
+      "id": "fl-palm-beach-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "state": "FL",
+      "name": "Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools",
+      "year": 2025,
+      "level": "ES",
+      "grades": "Grade schools: FAST3\u20138, FAA, Math EOC and source-attributed students",
+      "standard": "2024\u201325 native School Grades English Language Arts Achievement and Mathematics Achievement components: Level 3 or above / valid assessed students under Florida full-year-enrollment and home-zoned attribution rules, including eligible FAA Performance Task but excluding FAA Datafolio. ELA FAST PM3 grades 3\u201310 and Math FAST PM3 grades 3\u20138 plus B.E.S.T./Access Algebra 1/Geometry EOCs; this cohort enrolls no grades 9\u201312 in the same-year Survey 2 registry. ELL included after two US-school years; medical/extraordinary exemptions excluded. Components require at least 10 eligible students. Native whole-percent rates only; score denominators absent, so all model sampling intervals unavailable. Collocated combined results and provider-specific virtual rates are excluded from individual-school matches.",
+      "source_url": "https://www.fldoe.org/file/18534/SchoolGradesCalcGuide25.pdf"
+    },
+    {
       "id": "fl-schoolgrades-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
       "state": "FL",
       "name": "Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools",
@@ -17125,6 +17212,12 @@
     },
     {
       "id": "fl-orange-2025:income",
+      "name": "Individual reported FRPL/direct-certification eligibility",
+      "definition": "Florida 2024\u201325 Final Survey 3 (February) raw individual Lunch Status counts: D/F free eligibility + 3/E reduced eligibility + C/R CEP direct certification, divided by same-survey enrolled students (PK\u201312). Never uses the USDA 1.6-adjusted federal funding numerator or published school-grade economic percentage. CEP N means not individually identified eligible and is excluded from the numerator. Provision 2 code 4 reports all enrolled students, so schools with nonzero or masked code 4 have unavailable income. At CEP schools this proxy counts direct certification/household extension rather than a complete income survey of all families; undercount and reporting coverage are unknown. No other-year backfill.",
+      "source_url": "https://www.fldoe.org/core/fileparse.php/20744/urlt/2425-146025.pdf"
+    },
+    {
+      "id": "fl-palm-beach-2025:income",
       "name": "Individual reported FRPL/direct-certification eligibility",
       "definition": "Florida 2024\u201325 Final Survey 3 (February) raw individual Lunch Status counts: D/F free eligibility + 3/E reduced eligibility + C/R CEP direct certification, divided by same-survey enrolled students (PK\u201312). Never uses the USDA 1.6-adjusted federal funding numerator or published school-grade economic percentage. CEP N means not individually identified eligible and is excluded from the numerator. Provision 2 code 4 reports all enrolled students, so schools with nonzero or masked code 4 have unavailable income. At CEP schools this proxy counts direct certification/household extension rather than a complete income survey of all families; undercount and reporting coverage are unknown. No other-year backfill.",
       "source_url": "https://www.fldoe.org/core/fileparse.php/20744/urlt/2425-146025.pdf"
@@ -18294,6 +18387,30 @@
       "subject": "reading",
       "method_version": "ols-studentized-v1",
       "input_sha256": "a42adf2b6399a8c64094c2a45864b26e86b8f2dd08231addec69b30d09a224a8"
+    },
+    {
+      "id": "fl-palm-beach-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:combined:ols-v1:3d2f2fb254ad",
+      "dataset_id": "fl-palm-beach-2025",
+      "definition_id": "fl-palm-beach-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "subject": "combined",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "3d2f2fb254ada457552f9d5fcd0c236c0d3efa33d036ad5cedc6253f7e116d05"
+    },
+    {
+      "id": "fl-palm-beach-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:math:ols-v1:3d2f2fb254ad",
+      "dataset_id": "fl-palm-beach-2025",
+      "definition_id": "fl-palm-beach-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "subject": "math",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "3d2f2fb254ada457552f9d5fcd0c236c0d3efa33d036ad5cedc6253f7e116d05"
+    },
+    {
+      "id": "fl-palm-beach-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:reading:ols-v1:3d2f2fb254ad",
+      "dataset_id": "fl-palm-beach-2025",
+      "definition_id": "fl-palm-beach-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES",
+      "subject": "reading",
+      "method_version": "ols-studentized-v1",
+      "input_sha256": "3d2f2fb254ada457552f9d5fcd0c236c0d3efa33d036ad5cedc6253f7e116d05"
     },
     {
       "id": "fl-schoolgrades-2025:2025:Florida School Grades FAST + FAA + Math EOC \u00b7 grade schools:ES:combined:ols-v1:c26ddf8bb700",
@@ -20638,6 +20755,23 @@
           "map_source": "School coordinates and district boundaries are unavailable in the audited Orange sources.",
           "statewide": false,
           "audit": "data/orange/coverage.json"
+        },
+        {
+          "id": "palm-beach",
+          "name": "Palm Beach County",
+          "dataset": "fl-palm-beach-2025",
+          "status": "ready",
+          "geography": "palm-beach",
+          "levels": [
+            "ES"
+          ],
+          "schools": "data/palm-beach/schools.json",
+          "boundaries": null,
+          "comparison": "Palm Beach County \u00b7 {year} \u00b7 {assessment} \u00b7 {note}",
+          "model_scope": "Palm Beach County independent 2024\u201325 grade-school district models: exact operational CCD LEA 1201500 / native FL-50 attachments, complete reported pure lower offerings including grade 3\u20138, and explicit-zero native enrolled grades 9\u201312. Exact attached charters, alternatives, special-education and Career and Technical profiles are retained; native missing outcomes determine eligibility. Separate same-year native Florida School Grades Math, ELA and Combined point-only OLS models. High and mixed offerings are excluded.",
+          "map_source": "School coordinates and district boundaries are unavailable in the audited Palm Beach sources.",
+          "statewide": false,
+          "audit": "data/palm-beach/coverage.json"
         }
       ]
     },

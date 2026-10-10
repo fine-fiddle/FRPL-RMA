@@ -2,7 +2,7 @@
 
 Implement these after the statewide basics. A district comparison would fit its own same-year, assessment, level and subject models, as CPS does. A filter using statewide predictions remains a district view of the statewide model; it is not a district comparison.
 
-Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 72 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
+Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 71 first-tier and 172 second-tier new district candidates. The screen evaluates the 50 states; it excludes DC and territories. Source size and grade configuration do not establish usable assessment or income coverage.
 
 ## Selection and implementation gates
 
@@ -17,7 +17,6 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 72 fir
 
 | District | State | NCES LEA | Students | Potential ES / HS | State source status |
 | --- | --- | --- | ---: | ---: | --- |
-| PALM BEACH | FL | 1201500 | 189,634 | 168 / 26 | Available; district audit pending |
 | Gwinnett County | GA | 1302550 | 182,518 | 111 / 24 | Available; district audit pending |
 | Fairfax County Public Schools | VA | 5101260 | 179,323 | 162 / 25 | Available; district audit pending |
 | HOUSTON ISD | TX | 4823640 | 176,727 | 212 / 42 | Available; district audit pending |
@@ -269,7 +268,7 @@ Size screen: official 2024-2025 CCD LEA membership, retrieved 2026-10-09. 72 fir
 
 ## Existing comparisons and components
 
-CPS, Los Angeles Unified, Miami-Dade grade schools and Clark County native grade schools are implemented. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
+CPS, Los Angeles Unified, Miami-Dade, Clark County, Broward, Hillsborough, Orange and Palm Beach have implemented district comparisons with the populations documented below. Hawaii’s single state LEA already has its statewide comparison. The NYC geographic LEAs below are components of the existing NYC system; they would be optional subdistrict work, not additional whole-city systems. Do not add their counts to the Chancellor’s Office supervisory total or include District 75 or administrative charter category 84 as ordinary geographic districts.
 
 ## Existing scope · size references
 
@@ -282,6 +281,7 @@ CPS, Los Angeles Unified, Miami-Dade grade schools and Clark County native grade
 | BROWARD | FL | 1200180 | 243,553 | 243 / 45 | Existing Broward comparison; pure grade schools only |
 | HILLSBOROUGH | FL | 1200870 | 220,360 | 218 / 34 | Existing Hillsborough comparison; pure grade schools only |
 | ORANGE | FL | 1201440 | 205,853 | 206 / 31 | Existing Orange County comparison; pure grade schools only |
+| PALM BEACH | FL | 1201500 | 189,634 | 168 / 26 | Existing Palm Beach County comparison; pure grade schools only |
 | Hawaii Department of Education | HI | 1500030 | 167,071 | 224 / 2 | Existing statewide comparison |
 | NEW YORK CITY GEOGRAPHIC DISTRICT #31 | NY | 3600103 | 60,164 | 35 / 3 | Optional NYC subdistrict audit |
 | NEW YORK CITY GEOGRAPHIC DISTRICT # 2 | NY | 3600077 | 55,345 | 34 / 50 | Optional NYC subdistrict audit |
@@ -323,8 +323,7 @@ The [Hillsborough source, numerical and integration audits](hillsborough-distric
 
 The [Orange County source, numerical and integration audits](orange-district.md) retain all 282 original CCD records for Florida LEA `1201440` / `FL-48`, including 275 operational schools and exact same-year Florida records. The separate pure grade-school region retains all 208 matched profiles and the complete 209-school offered inventory in coverage, with 206 applicable schools and independently verified 200-school Math, ELA and Combined fits. All 600 deleted-school fits and canonical/current/history metrics are verified without fit-based exclusions. Both eligible zero-income charters remain included; collocated aggregates, missing outcomes, primary profiles and mixed offerings remain explicit. Counts, variances and intervals are unavailable. Both immutable audits keep false approvals; the separately validated normalized adapter supplies readiness. High/mixed assessment scope remains unaudited. Orange is an existing comparison; planning membership never approves models.
 
-
-The [Palm Beach County source and numerical audits](palm-beach-district.md) retain the complete 238-record original CCD directory for Florida LEA `1201500` / `FL-50`, including 234 operational schools and 230 exact same-year Fall/income profiles. All 170 pure lower profiles have available individual income; 168 offer tested grades and 165 remain eligible for each independent Math, ELA and Combined district fit. All 495 explicit deleted-school fits, externally studentized results and descriptive influence diagnostics are independently checked without fit-based exclusions. The eligible grades 6–8 Career and Technical charter remains included. Primary-only profiles, missing outcomes, four missing Fall profiles, masked mixed-school income, provider-specific virtual rows and original membership proof remain explicit. Discovery counts never select source eligibility or supply score denominators. The immutable source audit retains `audit_pending`; the numerical artifact has status `numerically_verified_pending_integration`. Both keep false approval flags. Canonical/browser integration remains required; counts, variances and sampling intervals are unavailable and high/mixed assessment scope remains unaudited. Palm Beach remains in the unchanged candidate queue.
+The [Palm Beach County source, numerical and integration audits](palm-beach-district.md) retain all 238 original CCD records for Florida LEA `1201500` / `FL-50`, including 234 operational schools and 230 exact same-year Fall/income profiles. The separate pure grade-school region retains all 170 matched profiles, 168 applicable schools and independently verified 165-school Math, ELA and Combined models. All 495 deleted-school fits and canonical/current/history metrics are verified without fit-based exclusions. Career and Technical charter South Tech Preparatory Academy remains included; primary-only profiles, missing campus outcomes, masked mixed-income and provider-specific virtual records remain explicit. Both immutable historical audits keep false approvals; the separately validated normalized adapter supplies canonical/browser readiness. Counts, variances and sampling intervals remain unavailable. High/mixed assessment scope remains unaudited. Palm Beach is an existing comparison; planning membership never approves models.
 
 
 ## Provenance and rebuild
